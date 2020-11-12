@@ -7,6 +7,7 @@ const ERROR = 'error';
 
 
 module.exports = {
+  root: true,
   plugins: [
     '@elindorath',
   ],
