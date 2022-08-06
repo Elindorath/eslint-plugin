@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js"
