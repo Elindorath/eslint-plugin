@@ -1,5 +1,5 @@
 /* eslint-disable @elindorath/filenames/no-index -- This is the entrypoint */
-/* eslint-disable @elindorath/node/global-require -- Respect the format of eslint-plugin */
+/* eslint-disable @elindorath/n/global-require -- Respect the format of eslint-plugin */
 
 'use strict';
 
@@ -14,4 +14,4 @@ module.exports = {
 };
 
 /* eslint-enable @elindorath/filenames/no-index */
-/* eslint-enable @elindorath/node/global-require */
+/* eslint-enable @elindorath/n/global-require */

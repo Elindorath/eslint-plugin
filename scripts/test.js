@@ -14,5 +14,5 @@ const { ESLint } = require('eslint');
     .calculateConfigForFile(path.resolve(__dirname, '..', 'libs', 'configs', 'project-eslint-plugin.js'));
 
   console.log(config);
-  console.log(config.rules['@elindorath/node/no-unpublished-require']);
+  console.log(config.rules['@elindorath/n/no-unpublished-require']);
 })();
