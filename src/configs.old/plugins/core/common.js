@@ -384,7 +384,7 @@ module.exports = {
     // OFF as it is highly arbitrary
     'id-length': [OFF, {
       min: 2, // Default
-      max: Infinity, // Default
+      max: Number.POSITIVE_INFINITY, // Default
       properties: 'always', // Default
       exceptions: [], // Default
       exceptionPatterns: [], // Default
@@ -614,7 +614,6 @@ module.exports = {
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
       { blankLine: 'always', prev: ['*'], next: ['const', 'let', 'var'] },
       { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
-      // eslint-disable-next-line array-bracket-newline -- Would break the file pattern
     ],
     'prefer-exponentiation-operator': [ERROR],
     'prefer-object-spread': [ERROR],

@@ -2,7 +2,7 @@
 
 'use strict';
 
-const path = require('path');
+const path = require('node:path');
 
 const { ESLint } = require('eslint');
 
