@@ -23,6 +23,8 @@ module.exports = {
   // 'project-cli': require('./configs/project-cli'),
   'environment-node-source-type-commonjs': require('./configs/environment-node-source-type-commonjs.js'),
   'environment-node': require('./configs/environment-node.js'),
+  'library-jest': require('./configs/library-jest.js'),
+  'library-jest&syntax-typescript': require('./configs/library-jest&syntax-typescript.js'),
   'library-react-native&syntax-jsx': require('./configs/library-react-native&syntax-jsx.js'),
   'library-react': require('./configs/library-react.js'),
   'library-react&syntax-jsx': require('./configs/library-react&syntax-jsx.js'),
