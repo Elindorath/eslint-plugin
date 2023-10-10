@@ -30,7 +30,7 @@ For ease of use, this plugin also exposes special configurations that aggregate 
 
 - The `eslint.config.js` is treated as an eslint config file.
 - All files in the root `scripts` directory are treated as Node.js scripts that are used only in development environment.
-- All files with the suffix `.jest.test.${extension}` are treated as jest test files.
+- All files with the suffix `.test.${extension}` are treated as jest test files.
 
 ### Execution contexts
 
