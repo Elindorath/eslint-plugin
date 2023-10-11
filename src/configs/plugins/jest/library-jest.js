@@ -48,7 +48,7 @@ module.exports = {
     'jest/no-focused-tests': [ERROR],
     // Could be debatable
     'jest/no-hooks': [ERROR, {
-      allow: [], // default
+      allow: [''], // default
     }],
     'jest/no-identical-title': [ERROR],
     'jest/no-interpolation-in-snapshots': [ERROR],
