@@ -7,7 +7,6 @@
 const ERROR = 'error';
 const OFF = 'off';
 
-
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
   rules: {
@@ -113,6 +112,7 @@ module.exports = {
       disallowArithmeticOperators: true,
     }],
     'no-unused-private-class-members': [ERROR],
+    // If we change the '*IgnorePattern', we might want to use the '@eslint-community/eslint-plugin-mysticatea/no-use-ignored-vars' rule
     'no-unused-vars': [ERROR, {
       vars: 'all', // default
       varsIgnorePattern: '', // default
@@ -425,7 +425,55 @@ module.exports = {
     // TODO: should be configured by environment with some rules like `test.only`, useless as is
     'no-restricted-properties': [ERROR],
     // TODO: should be configured by environment
-    'no-restricted-syntax': [ERROR],
+    'no-restricted-syntax': [ERROR,
+      // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-instanceof-wrapper' rule
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='Boolean']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'boolean'" instead.`,
+      },
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='Number']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'number'" instead.`,
+      },
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='String']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'string'" instead.`,
+      },
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='Object']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'object'" instead.`,
+      },
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='Function']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'function'" instead.`,
+      },
+      {
+        selector: `BinaryExpression[operator='instanceof'][right.name='Symbol']`,
+        message: `Unexpected 'instanceof' operator. Use "typeof x === 'symbol'" instead.`,
+      },
+      // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-literal-call' rule
+      {
+        selector: `CallExpression[callee.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
+        message: 'This is not a function.',
+      },
+      {
+        selector: `NewExpression[callee.type=/^(?:(?:Array|Object)Expression|(?:Template)?Literal)$/u]`,
+        message: 'This is not a function.',
+      },
+      {
+        selector: `TaggedTemplateExpression[tag.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
+        message: 'This is not a function.',
+      },
+      // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-this-in-static' rule
+      {
+        selector: `[static=true] [type='ThisExpression']`,
+        message: 'Unexpected this',
+      },
+      {
+        selector: `[static=true] [type='Super']`,
+        message: 'Unexpected this',
+      },
+    ],
     'no-return-assign': [ERROR, 'always'],
     'no-script-url': [ERROR],
     'no-sequences': [ERROR, {
