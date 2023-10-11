@@ -1,0 +1,39 @@
+# TODO
+
+- [ ] Remove the following plugins:
+  - [ ] eslint-plugin-babel
+  - [ ] eslint-plugin-decorator-position
+  - [ ] eslint-plugin-filenames
+  - [ ] eslint-plugin-flowtype
+  - [ ] @mysticatea/eslint-plugin
+  - [ ] eslint-plugin-scanjs-rules
+  - [ ] eslint-plugin-react-redux
+  - [ ] @shopify/eslint-plugin
+  - [ ] eslint-plugin-sort-class-members
+  - [ ] eslint-plugin-switch-case
+  - [ ] eslint-plugin-toplevel
+- [ ] Rationalize the configs to make the best use of config cascading
+- [ ] Make an util function to change only a subset of options of an already defined rule
+- [ ] Consider the changes required in foundation/mobile
+- [ ] Configure the following plugins:
+  - [ ] eslint-plugin-eslint-plugin
+  - [ ] eslint-plugin-import
+  - [ ] eslint-plugin-json-files
+  - [ ] eslint-plugin-json-format
+  - [ ] eslint-plugin-jsonc
+  - [ ] eslint-plugin-no-secrets
+  - [ ] eslint-plugin-no-unsanitized
+  - [ ] eslint-plugin-no-use-extend-native
+  - [ ] eslint-plugin-ternary
+  - [ ] eslint-plugin-xss
+- [ ] Make a decision for the following plugins:
+  - [ ] eslint-plugin-listeners
+  - [ ] eslint-plugin-no-constructor-bind
+  - [ ] eslint-plugin-optimize-regex
+  - [ ] eslint-plugin-perf-standard
+  - [ ] eslint-plugin-promise
+  - [ ] eslint-plugin-shopify
+  - [ ] eslint-plugin-sonarjs
+- [ ] Handle tsconfig.json & associates
+- [ ] Handle markdown
+- [ ] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
