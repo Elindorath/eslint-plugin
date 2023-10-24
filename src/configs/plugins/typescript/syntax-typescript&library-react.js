@@ -1,9 +1,7 @@
-/* eslint-disable max-lines -- TODO: Could be splitted in subparts */
-
 'use strict';
 
-const typescriptParser = require('@typescript-eslint/parser');
 const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
+const typescriptParser = require('@typescript-eslint/parser');
 
 // const { OFF, ERROR } = require('../constants.js');
 
@@ -40,7 +38,7 @@ module.exports = {
 
       {
         selector: 'variable',
-        format: ['camelCase', 'UPPER_CASE'],
+        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
         leadingUnderscore: 'allow',
         trailingUnderscore: 'allow',
       },
@@ -59,5 +57,3 @@ module.exports = {
     ],
   },
 };
-
-/* eslint-enable */

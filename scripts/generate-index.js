@@ -3,9 +3,9 @@
 const path = require('node:path');
 const process = require('node:process');
 
+const { ESLint } = require('eslint');
 const fs = require('fs-extra');
 const packageDirectory = require('pkg-dir');
-const { ESLint } = require('eslint');
 
 
 (async function main() {
@@ -14,6 +14,7 @@ const { ESLint } = require('eslint');
   await generateIndex('environment', eslint);
   await generateIndex('processor', eslint);
   await generateIndex('rule', eslint);
+// eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await
 })().catch((error) => {
   process.exitCode = 1;
   console.error(error);

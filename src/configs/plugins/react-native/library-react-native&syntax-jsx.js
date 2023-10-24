@@ -1,7 +1,7 @@
 'use strict';
 
-const globals = require('globals');
 const reactNativePlugin = require('eslint-plugin-react-native');
+const globals = require('globals');
 
 
 const OFF = 'off';

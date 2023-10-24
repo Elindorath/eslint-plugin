@@ -15,20 +15,25 @@
     "listbox",
     "lsquo",
     "luxon",
+    "mischeck",
     "multilines",
+    "mysticatea",
     "noassert",
     "nocheck",
     "nonblock",
     "nonconstructor",
     "nonoctal",
+    "optionless",
     "plusplus",
     "proptypes",
     "radash",
     "radiogroup",
     "rdquo",
+    "regexes",
     "rsquo",
     "searchbox",
     "setstate",
+    "sonarjs",
     "spinbutton",
     "tablist",
     "tabpanel",
@@ -38,5 +43,6 @@
     "treeitem",
     "typedefs",
     "yoda"
-  ]
+  ],
+  "eslint.experimental.useFlatConfig": true
 }

@@ -1,9 +1,11 @@
-'use strict';
+'use strict'
 
 const globals = require('globals')
+
+const { mergeConfigs } = require('../utils.js')
+
 const nodeConfig = require('./environment-node.js')
 const commonJsConfig = require('./source-type-commonjs.js')
-const { mergeConfigs } = require('../utils.js')
 
 
 const OFF = 'off'

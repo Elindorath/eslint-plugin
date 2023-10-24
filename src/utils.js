@@ -5,8 +5,6 @@
 const path = require('node:path');
 
 const { ESLint, CLIEngine } = require('eslint');
-// eslint-disable-next-line no-shadow -- Need `Promise.reduce`
-const Promise = require('bluebird');
 const fs = require('fs-extra');
 
 
@@ -34,6 +32,11 @@ function buildPrefixedRulesFromConfig(prefix, rules, config) {
   }), {});
 }
 
+/**
+ * @param {string} rule
+ * @param {import('eslint').Linter.FlatConfig} config
+ * @returns {import('eslint').Linter.RuleEntry}
+ */
 function getRuleConfig(rule, config) {
   const { rules: { [rule]: ruleConfig } } = config;
 
@@ -48,26 +51,31 @@ async function compileConfig() {
   // eslint-disable-next-line @elindorath/security/detect-non-literal-fs-filename -- Safe as no value holds user input
   const files = await fs.readdir(`${path.resolve(__dirname, 'projects')}`);
 
-  const configs = await Promise.reduce(files, async (agg, fileName) => {
-    const key = path.basename(fileName, '.js');
-    const eslint = new ESLint({
-      useEslintrc: false,
-      baseConfig: require(path.resolve(__dirname, 'projects', fileName)),
-    });
+  const fileConfigMaps = await Promise.all(
+    files.map(async (fileBase) => {
+      const fileName = path.basename(fileBase, '.js');
+      const eslint = new ESLint({
+        useEslintrc: false,
+        baseConfig: require(path.resolve(__dirname, 'projects', fileBase)),
+      });
 
-    const config = await eslint.calculateConfigForFile(path.resolve(__dirname, 'projects', fileName));
+      const config = await eslint.calculateConfigForFile(path.resolve(__dirname, 'projects', fileBase));
 
-    return {
-      ...agg,
-      [key]: {
-        ...config,
-        // eslint-disable-next-line no-undefined -- This is required when dealing with JSON
-        ignorePatterns: undefined,
-      },
-    };
-  }, {});
+      return {
+        [fileName]: {
+          ...config,
+          ignorePatterns: undefined,
+        },
+      };
+    })
+  );
 
-  return fs.outputFile(configsPath, `module.exports = ${JSON.stringify(configs, undefined, INDENTATION_SPACE)};`);
+  const fileConfigMap = fileConfigMaps.reduce((agg, currentFileConfigMap) => ({
+    ...agg,
+    ...currentFileConfigMap,
+  }), {});
+
+  return fs.outputFile(configsPath, `module.exports = ${JSON.stringify(fileConfigMap, undefined, INDENTATION_SPACE)};`);
 }
 
 function generateEslintConfig(config) {
@@ -185,8 +193,6 @@ function mergeTwoConfig(config1, config2) {
   return mergedConfig
 }
 
-const DEFAULT_FILES_INPUT = []
-
 function mergeFiles(files1 = [], files2 = []) {
   return [
     ...files1,
@@ -211,13 +217,6 @@ function mergeIgnores(ignores1 = [], ignores2 = []) {
     ...ignores1,
     ...ignores2,
   ]
-}
-
-function areArraysIdentical(array1 = [], array2 = []) {
-  const setOfArray1 = new Set(array1)
-  const setOfBoth = new Set([...array1, ...array2])
-
-  return setOfArray1.size === setOfBoth.size
 }
 
 const LANGUAGE_OPTIONS_MERGER = {

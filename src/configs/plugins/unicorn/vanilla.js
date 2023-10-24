@@ -73,8 +73,8 @@ module.exports = {
     'unicorn/no-array-push-push': [ERROR, {
       ignore: [], // default
     }],
-    // Debatable, the usage might prevail
-    'unicorn/no-array-reduce': [ERROR, {
+    // Debatable, but OFF as we want to use reducers
+    'unicorn/no-array-reduce': [OFF, {
       allowSimpleOperations: true, // default
     }],
     'unicorn/no-await-expression-member': [ERROR],
@@ -83,9 +83,10 @@ module.exports = {
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-hex-escape': [ERROR],
     'unicorn/no-instanceof-array': [ERROR],
+    // Disabled the check of properties as external libraries don't offer much of a choice here
     'unicorn/no-keyword-prefix': [ERROR, {
       disallowedPrefixes: ['new', 'class'], // default
-      checkProperties: true, // default
+      checkProperties: false,
       onlyCamelCase: true, // default
     }],
     'unicorn/no-lonely-if': [ERROR],
@@ -118,7 +119,7 @@ module.exports = {
     'unicorn/no-useless-spread': [ERROR],
     'unicorn/no-useless-switch-case': [ERROR],
     'unicorn/no-useless-undefined': [ERROR, {
-      checkArguments: true, // default
+      checkArguments: false,
     }],
     'unicorn/no-zero-fractions': [ERROR],
     'unicorn/number-literal-case': [ERROR],

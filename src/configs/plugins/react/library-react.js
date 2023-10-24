@@ -1,7 +1,7 @@
 'use strict';
 
-const globals = require('globals');
 const reactPlugin = require('eslint-plugin-react');
+const globals = require('globals');
 
 
 const OFF = 'off';
@@ -10,6 +10,13 @@ const ERROR = 'error';
 
 const DISALLOW_IN_FUNC = 'disallow-in-func';
 const STATIC_PUBLIC_FIELD = 'static public field';
+/* eslint-disable unicorn/no-unused-properties -- Keep this enum */
+const FUNCTION_TYPE = {
+  DECLARATION: 'function-declaration',
+  ARROW: 'arrow-function',
+  EXPRESSION: 'function-expression',
+}
+/* eslint-enable */
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -96,8 +103,8 @@ module.exports = {
       checkChildContextTypes: true,
     }],
     'react/function-component-definition': [ERROR, {
-      namedComponents: 'function-declaration', // default
-      unnamedComponents: 'arrow-function',
+      namedComponents: FUNCTION_TYPE.ARROW,
+      unnamedComponents: FUNCTION_TYPE.ARROW,
     }],
     'react/hook-use-state': [ERROR, {
       allowDestructuredState: false, // default
@@ -235,7 +242,7 @@ module.exports = {
       sortShapeProp: true,
       noSortAlphabetically: false, // default
     }],
-    'react/state-in-constructor': [ERROR, 'always'],
+    'react/state-in-constructor': [ERROR, 'never'],
     // Might be changed
     'react/static-property-placement': [ERROR, STATIC_PUBLIC_FIELD, {
       childContextTypes: STATIC_PUBLIC_FIELD,

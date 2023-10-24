@@ -1,8 +1,8 @@
 'use strict';
 
-const vanillaConfig = require('../vanilla.js')
-const jestTypescriptConfig = require('../library-jest&syntax-typescript.js')
 const { mergeConfigs } = require('../../utils.js');
+const jestTypescriptConfig = require('../library-jest&syntax-typescript.js')
+const vanillaConfig = require('../vanilla.js')
 
 
 const OFF = 'off';

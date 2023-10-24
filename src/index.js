@@ -8,7 +8,6 @@ const { name, version } = require('../package.json');
 /** @typedef {import('eslint').Linter.FlatConfig} FlatConfig */
 /** @typedef {import('eslint').ESLint.Plugin} Plugin */
 
-/** @type {Plugin & { utils: { mergeConfigs: (...configs: FlatConfig[]) => FlatConfig } }} */
 module.exports = {
   meta: {
     name,

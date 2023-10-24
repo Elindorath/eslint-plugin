@@ -1,0 +1,13 @@
+'use strict'
+
+const { mergeConfigs } = require('../../utils.js')
+const jsonConfig = require('../plugins/jsonc/vanilla.js')
+
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
+
+/** @type {Array<import('eslint').Linter.FlatConfig>} */
+module.exports = mergeConfigs(jsonConfig, {
+  files: ['**/*.jsonc'],
+})

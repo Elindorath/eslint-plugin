@@ -1,9 +1,8 @@
 'use strict';
 
-const vanillaConfig = require('../vanilla.js')
-const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const { mergeConfigs } = require('../../utils.js');
-
+const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
+const vanillaConfig = require('../vanilla.js')
 
 const OFF = 'off';
 const WARN = 'warn';
@@ -30,6 +29,8 @@ module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
       unnecessary: true, // default
       numbers: false, // default
     }],
+    // OFF as it is a dev only file
+    'import/no-extraneous-dependencies': [OFF],
   },
 })
 

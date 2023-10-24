@@ -1,7 +1,7 @@
 'use strict';
 
-const globals = require('globals');
 const jestPlugin = require('eslint-plugin-jest')
+const globals = require('globals');
 
 const OFF = 'off';
 const WARN = 'warn';

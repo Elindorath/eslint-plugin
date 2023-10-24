@@ -1,8 +1,8 @@
 'use strict';
 
-const vanillaConfig = require('../vanilla.js')
-const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const { mergeConfigs } = require('../../utils.js');
+const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
+const vanillaConfig = require('../vanilla.js')
 
 
 const OFF = 'off';
@@ -19,5 +19,14 @@ module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
     }],
     // OFF as we need shebang to execute scripts
     'n/shebang': [OFF],
+    // OFF as we need to import devDependencies
+    'import/no-extraneous-dependencies': [OFF, {
+      devDependencies: false,
+      optionalDependencies: false,
+      peerDependencies: false, // default
+      bundledDependencies: false,
+      includeInternal: true,
+      includeTypes: true,
+    }],
   },
 })

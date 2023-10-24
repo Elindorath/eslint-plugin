@@ -1,10 +1,10 @@
 'use strict';
 
-const vanillaConfig = require('../vanilla.js')
+const { mergeConfigs } = require('../../utils.js');
 const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const overrideEslintConfig = require('../overrides/eslint-config.js')
 const overrideScriptsConfig = require('../overrides/scripts.js')
-const { mergeConfigs } = require('../../utils.js');
+const vanillaConfig = require('../vanilla.js')
 
 const OFF = 'off';
 const WARN = 'warn';
@@ -12,9 +12,6 @@ const ERROR = 'error';
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = [
-  {
-    ignores: ['src/configs.old/**'],
-  },
   mergeConfigs(
     vanillaConfig,
     nodeCommonJsConfig,
@@ -43,6 +40,8 @@ module.exports = [
           checkProperties: false,
           onlyCamelCase: true, // default
         }],
+        // OFF to be able to follow eslint normalized format
+        // 'n/global-require': [OFF],
         'unicorn/prevent-abbreviations': [ERROR, {
           replacements: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
           extendDefaultReplacements: true, // default

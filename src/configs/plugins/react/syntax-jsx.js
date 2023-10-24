@@ -1,7 +1,7 @@
 'use strict';
 
-const globals = require('globals');
 const reactPlugin = require('eslint-plugin-react');
+const globals = require('globals');
 
 
 const OFF = 'off';
@@ -10,6 +10,7 @@ const ERROR = 'error';
 
 const INDENT_SPACE_COUNT = 2;
 const PARENS_NEW_LINE = 'parens-new-line';
+const LINE_ALIGNED = 'line-aligned'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -49,8 +50,8 @@ module.exports = {
     'react/jsx-boolean-value': [ERROR, 'never'], // default
     'react/jsx-child-element-spacing': [ERROR],
     'react/jsx-closing-bracket-location': [ERROR, {
-      nonEmpty: 'line-aligned',
-      selfClosing: 'line-aligned',
+      nonEmpty: LINE_ALIGNED,
+      selfClosing: LINE_ALIGNED,
     }],
     'react/jsx-closing-tag-location': [ERROR],
     'react/jsx-curly-brace-presence': [ERROR, {

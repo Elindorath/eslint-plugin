@@ -7,6 +7,9 @@
 const ERROR = 'error';
 const OFF = 'off';
 
+const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
+const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
+
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
   rules: {
@@ -454,24 +457,24 @@ module.exports = {
       // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-literal-call' rule
       {
         selector: `CallExpression[callee.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
-        message: 'This is not a function.',
+        message: NOT_A_FUNCTION_MESSAGE,
       },
       {
         selector: `NewExpression[callee.type=/^(?:(?:Array|Object)Expression|(?:Template)?Literal)$/u]`,
-        message: 'This is not a function.',
+        message: NOT_A_FUNCTION_MESSAGE,
       },
       {
         selector: `TaggedTemplateExpression[tag.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
-        message: 'This is not a function.',
+        message: NOT_A_FUNCTION_MESSAGE,
       },
       // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-this-in-static' rule
       {
         selector: `[static=true] [type='ThisExpression']`,
-        message: 'Unexpected this',
+        message: UNEXPECTED_THIS_MESSAGE,
       },
       {
         selector: `[static=true] [type='Super']`,
-        message: 'Unexpected this',
+        message: UNEXPECTED_THIS_MESSAGE,
       },
     ],
     'no-return-assign': [ERROR, 'always'],
@@ -560,9 +563,12 @@ module.exports = {
       destructuring: 'any', // default
       ignoreReadBeforeAssign: false, // default
     }],
+    // Disabled object VariableDeclarator
+    // It decrease readability for things like the following:
+    // `const type = node.data[params.handleType === 'source' ? 'outputs' : 'inputs'][handleId].type`
     'prefer-destructuring': [ERROR, {
       VariableDeclarator: {
-        object: true,
+        object: false,
         array: true,
       },
       AssignmentExpression: {

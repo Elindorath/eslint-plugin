@@ -2,14 +2,25 @@
 
 'use strict';
 
-const typescriptParser = require('@typescript-eslint/parser');
+const path = require('node:path');
+const process = require('node:process')
+
 const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
+const typescriptParser = require('@typescript-eslint/parser');
 
 // const { OFF, ERROR } = require('../constants.js');
 
 const OFF = 'off';
 const ERROR = 'error';
 
+const ANY_OBJECT_MESSAGE = '- If you want a type meaning "any object", you probably want `object` instead.'
+const ANY_VALUE_MESSAGE = '- If you want a type meaning "any value", you probably want `unknown` instead.'
+/* eslint-disable xss/no-mixed-html -- False positives due to confusion with type annotations */
+const EMPTY_OBJECT_MESSAGE = '- If you want a type meaning "empty object", you probably want `Record<string, never>` instead.'
+const EMPTY_OBJECT_SUGGESTION = 'Record<string, never>'
+const NON_NULLABLE_MESSAGE = '- If you really want a type meaning "any non-nullish value", you probably want `NonNullable<unknown>` instead.'
+const NON_NULLABLE_SUGGESTION = 'NonNullable<unknown>'
+/* eslint-enable xss/no-mixed-html */
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -21,6 +32,7 @@ module.exports = {
     parserOptions: {
       sourceType: 'module',
       warnOnUnsupportedTypeScriptVersion: true,
+      project: path.resolve(process.cwd(), 'tsconfig.json')
     },
   },
 
@@ -79,25 +91,25 @@ module.exports = {
         Object: {
           message: [
             'The `Object` type actually means "any non-nullish value", so it is marginally better than `unknown`.',
-            '- If you want a type meaning "any object", you probably want `object` instead.',
-            '- If you want a type meaning "any value", you probably want `unknown` instead.',
-            '- If you really want a type meaning "any non-nullish value", you probably want `NonNullable<unknown>` instead.',
+            ANY_OBJECT_MESSAGE,
+            ANY_VALUE_MESSAGE,
+            NON_NULLABLE_MESSAGE,
           ].join('\n'),
-          suggest: ['object', 'unknown', 'NonNullable<unknown>'],
+          suggest: ['object', 'unknown', NON_NULLABLE_SUGGESTION],
         },
         '{}': {
           message: [
             '`{}` actually means "any non-nullish value".',
-            '- If you want a type meaning "any object", you probably want `object` instead.',
-            '- If you want a type meaning "any value", you probably want `unknown` instead.',
-            '- If you want a type meaning "empty object", you probably want `Record<string, never>` instead.',
-            '- If you really want a type meaning "any non-nullish value", you probably want `NonNullable<unknown>` instead.',
+            ANY_OBJECT_MESSAGE,
+            ANY_VALUE_MESSAGE,
+            EMPTY_OBJECT_MESSAGE,
+            NON_NULLABLE_MESSAGE,
           ].join('\n'),
           suggest: [
             'object',
             'unknown',
-            'Record<string, never>',
-            'NonNullable<unknown>',
+            EMPTY_OBJECT_SUGGESTION,
+            NON_NULLABLE_SUGGESTION,
           ],
         },
         // default - section end
@@ -455,7 +467,15 @@ module.exports = {
     '@typescript-eslint/prefer-readonly': [ERROR, {
       onlyInlineLambdas: false, // default
     }],
-    '@typescript-eslint/prefer-readonly-parameter-types': [ERROR, {
+    /**
+     * OFF as it is very painful to always have to type 'readonly' in front of every parameter.
+     * Some complex types need a lot of work to be declared as read only
+     * (e.g.: `ReadonlyDeep<DragEvent<HTMLDivElement>>` is not well enough).
+     * The 'no-param-reassign` rule with its `props` option set to true prevents us to mutate parameters.
+     * Note that discussions are ongoing to make it the default behavior though.
+     * See: https://github.com/microsoft/TypeScript/issues/42357
+     */
+    '@typescript-eslint/prefer-readonly-parameter-types': [OFF, {
       allow: [],
       checkParameterProperties: true, // default
       ignoreInferredTypes: false, // default
@@ -637,7 +657,8 @@ module.exports = {
     '@typescript-eslint/no-shadow': [ERROR, {
       builtinGlobals: true,
       hoist: 'all',
-      allow: [], // default
+      // TODO: We might want to find a way to enforce the use of 'window.property' to use global
+      allow: ['event', 'name', 'parent', 'process'],
       ignoreOnInitialization: false, // default
       ignoreTypeValueShadow: false,
       ignoreFunctionTypeParameterNameValueShadow: false,
