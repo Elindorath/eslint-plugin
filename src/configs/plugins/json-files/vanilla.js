@@ -12,6 +12,8 @@ module.exports = {
     'json-files': jsonFilesPlugin,
   },
 
+  processor: jsonFilesPlugin.processors['.json'],
+
   rules: {
     'json-files/ensure-repository-directory': [ERROR],
     // OFF as we don't use volta
@@ -50,11 +52,26 @@ module.exports = {
       {
         dependencyTypes: ['peerDependencies'],
         versionHint: 'caret',
-      }
+      },
     ]],
-    // OFF as we don't want package.json sorted with the default config of sort-package-json
-    // @see: https://github.com/keithamus/sort-package-json
-    'json-files/sort-package-json': [OFF],
+    'json-files/sort-package-json': [ERROR, {
+      sortOrder: [
+        'name',
+        'version',
+        'description',
+        'main',
+        'repository',
+        'author',
+        'license',
+        'private',
+        'engines',
+        'files',
+        'scripts',
+        'dependencies',
+        'devDependencies',
+        'packageManager',
+      ],
+    }],
     // OFF by default. If enabled, it should be configured on a per file basis.
     'json-files/validate-schema': [OFF],
   },

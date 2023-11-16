@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const reactHooksPlugin = require('eslint-plugin-react-hooks');
+const reactHooksPlugin = require('eslint-plugin-react-hooks')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -22,4 +22,4 @@ module.exports = {
       enableDangerousAutofixThisMayCauseInfiniteLoops: false, // default
     }],
   },
-};
+}

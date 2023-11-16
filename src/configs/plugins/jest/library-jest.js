@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 const jestPlugin = require('eslint-plugin-jest')
-const globals = require('globals');
+const globals = require('globals')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -119,6 +119,7 @@ module.exports = {
     'jest/valid-title': [ERROR, {
       ignoreSpaces: false, // default
       ignoreTypeOfDescribeName: false, // default
+      ignoreTypeOfTestName: false, // default
       disallowedWords: [], // default
       mustNotMatch: {}, // default
       mustMatch: {
@@ -127,4 +128,4 @@ module.exports = {
       },
     }],
   },
-};
+}

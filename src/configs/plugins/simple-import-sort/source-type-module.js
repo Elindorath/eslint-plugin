@@ -24,6 +24,7 @@ module.exports = {
         // externals
         ['^@?\\w'],
         // internals
+        // eslint-disable-next-line @stylistic/array-element-newline -- More readable
         ['^common'], ['^models'], ['^hooks'], ['^components'],
         // parents
         ['^\\.\\.(?!\\/?$)', '^\\.\\.\\/?$'],

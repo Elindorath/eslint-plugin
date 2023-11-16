@@ -1,17 +1,17 @@
 /* eslint-disable max-lines -- TODO: Could be splitted in subparts */
 
-'use strict';
+'use strict'
 
-const path = require('node:path');
+const path = require('node:path')
 const process = require('node:process')
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
+const typescriptPlugin = require('@typescript-eslint/eslint-plugin')
+const typescriptParser = require('@typescript-eslint/parser')
 
 // const { OFF, ERROR } = require('../constants.js');
 
-const OFF = 'off';
-const ERROR = 'error';
+const OFF = 'off'
+const ERROR = 'error'
 
 const ANY_OBJECT_MESSAGE = '- If you want a type meaning "any object", you probably want `object` instead.'
 const ANY_VALUE_MESSAGE = '- If you want a type meaning "any value", you probably want `unknown` instead.'
@@ -32,7 +32,7 @@ module.exports = {
     parserOptions: {
       sourceType: 'module',
       warnOnUnsupportedTypeScriptVersion: true,
-      project: path.resolve(process.cwd(), 'tsconfig.json')
+      project: path.resolve(process.cwd(), 'tsconfig.json'),
     },
   },
 
@@ -53,33 +53,33 @@ module.exports = {
       'ts-expect-error': { descriptionFormat: '^: TS\\d+ because .+$' },
       'ts-ignore': true, // default
       'ts-nocheck': true, // default
-      minimumDescriptionLength: 12,
+      'minimumDescriptionLength': 12,
     }],
     '@typescript-eslint/ban-tslint-comment': [ERROR],
     '@typescript-eslint/ban-types': [ERROR, {
-      types :{
+      types: {
         // default - section start
-        String: {
+        'String': {
           message: 'Use string instead',
           fixWith: 'string',
         },
-        Boolean: {
+        'Boolean': {
           message: 'Use boolean instead',
           fixWith: 'boolean',
         },
-        Number: {
+        'Number': {
           message: 'Use number instead',
           fixWith: 'number',
         },
-        Symbol: {
+        'Symbol': {
           message: 'Use symbol instead',
           fixWith: 'symbol',
         },
-        BigInt: {
+        'BigInt': {
           message: 'Use bigint instead',
           fixWith: 'bigint',
         },
-        Function: {
+        'Function': {
           message: [
             'The `Function` type accepts any function-like value.',
             'It provides no type safety when calling the function, which can be a common source of bugs.',
@@ -88,7 +88,7 @@ module.exports = {
           ].join('\n'),
         },
         // object typing
-        Object: {
+        'Object': {
           message: [
             'The `Object` type actually means "any non-nullish value", so it is marginally better than `unknown`.',
             ANY_OBJECT_MESSAGE,
@@ -304,7 +304,7 @@ module.exports = {
 
         'decorated-method',
 
-        'method'
+        'method',
       ],
       classes: [], // default
       classExpressions: [], // default
@@ -399,7 +399,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': [ERROR],
     '@typescript-eslint/no-non-null-assertion': [ERROR],
     '@typescript-eslint/no-redundant-type-constituents': [ERROR],
-    // Might be disabled for node context
+    // Might be disabled for CommonJS context
     '@typescript-eslint/no-require-imports': [ERROR],
     '@typescript-eslint/no-this-alias': [ERROR, {
       allowDestructuring: true, // default
@@ -434,6 +434,23 @@ module.exports = {
       prefer: 'class-property', // default
     }],
     '@typescript-eslint/prefer-as-const': [ERROR],
+    'prefer-destructuring': [OFF],
+    // Disabled object VariableDeclarator
+    // It decrease readability for things like the following:
+    // `const type = node.data[params.handleType === 'source' ? 'outputs' : 'inputs'][handleId].type`
+    '@typescript-eslint/prefer-destructuring': [ERROR, {
+      VariableDeclarator: {
+        object: false,
+        array: true,
+      },
+      AssignmentExpression: {
+        object: true,
+        array: true,
+      },
+    }, {
+      enforceForRenamedProperties: true,
+      enforceForDeclarationWithTypeAnnotation: true,
+    }],
     '@typescript-eslint/prefer-enum-initializers': [ERROR],
     '@typescript-eslint/prefer-for-of': [ERROR],
     '@typescript-eslint/prefer-function-type': [ERROR],
@@ -467,6 +484,7 @@ module.exports = {
     '@typescript-eslint/prefer-readonly': [ERROR, {
       onlyInlineLambdas: false, // default
     }],
+
     /**
      * OFF as it is very painful to always have to type 'readonly' in front of every parameter.
      * Some complex types need a lot of work to be declared as read only
@@ -717,7 +735,6 @@ module.exports = {
     '@typescript-eslint/lines-between-class-members': [OFF],
     '@typescript-eslint/member-delimiter-style': [OFF],
     '@typescript-eslint/no-extra-parens': [OFF],
-    '@typescript-eslint/object-curly-spacing': [OFF],
     '@typescript-eslint/padding-line-between-statements': [OFF],
     '@typescript-eslint/quotes': [OFF],
     '@typescript-eslint/semi': [OFF],
@@ -726,6 +743,6 @@ module.exports = {
     '@typescript-eslint/space-infix-ops': [OFF],
     '@typescript-eslint/type-annotation-spacing': [OFF],
   },
-};
+}
 
 /* eslint-enable */

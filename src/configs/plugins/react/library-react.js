@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-const reactPlugin = require('eslint-plugin-react');
-const globals = require('globals');
+const reactPlugin = require('eslint-plugin-react')
+const globals = require('globals')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
-const DISALLOW_IN_FUNC = 'disallow-in-func';
-const STATIC_PUBLIC_FIELD = 'static public field';
+const DISALLOW_IN_FUNC = 'disallow-in-func'
+const STATIC_PUBLIC_FIELD = 'static public field'
 /* eslint-disable unicorn/no-unused-properties -- Keep this enum */
 const FUNCTION_TYPE = {
   DECLARATION: 'function-declaration',
@@ -88,7 +88,7 @@ module.exports = {
         {
           propName: 'id',
           message: `Avoid using 'id's, it is a bad practice. See: https://dev.to/clairecodes/reasons-not-to-use-ids-in-css-4ni4`,
-        }
+        },
       ],
     }],
     'react/forbid-elements': [ERROR, {
@@ -223,7 +223,7 @@ module.exports = {
         'everything-else',
       ],
       groups: {
-        rendering: [
+        'rendering': [
           'render',
           '/^render.+$/',
         ],
@@ -257,4 +257,4 @@ module.exports = {
     }],
     'react/void-dom-elements-no-children': [ERROR],
   },
-};
+}

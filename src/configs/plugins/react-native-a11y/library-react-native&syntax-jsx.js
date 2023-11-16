@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const reactNativeA11yPlugin = require('eslint-plugin-react-native-a11y');
+const reactNativeA11yPlugin = require('eslint-plugin-react-native-a11y')
 
 /**
  * Scopes:
@@ -9,9 +9,9 @@ const reactNativeA11yPlugin = require('eslint-plugin-react-native-a11y');
  */
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -47,4 +47,4 @@ module.exports = {
     'react-native-a11y/has-valid-accessibility-live-region': [ERROR],
     'react-native-a11y/has-valid-important-for-accessibility': [ERROR],
   },
-};
+}

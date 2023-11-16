@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 const jestDomPlugin = require('eslint-plugin-jest-dom')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -25,4 +25,4 @@ module.exports = {
     'jest-dom/prefer-to-have-text-content': [ERROR],
     'jest-dom/prefer-to-have-value': [ERROR],
   },
-};
+}

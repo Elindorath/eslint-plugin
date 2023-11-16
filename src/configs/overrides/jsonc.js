@@ -1,7 +1,7 @@
 'use strict'
 
 const { mergeConfigs } = require('../../utils.js')
-const jsonConfig = require('../plugins/jsonc/vanilla.js')
+const jsonConfig = require('../plugins/jsonc/syntax-json5.js')
 
 const OFF = 'off'
 const WARN = 'warn'

@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const reactNativePlugin = require('eslint-plugin-react-native');
-const globals = require('globals');
+const reactNativePlugin = require('eslint-plugin-react-native')
+const globals = require('globals')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -48,4 +48,4 @@ module.exports = {
     }],
     'react-native/no-single-element-style-arrays': [ERROR],
   },
-};
+}

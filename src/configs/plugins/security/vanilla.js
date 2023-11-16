@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 const securityPlugin = require('eslint-plugin-security')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
     'security/detect-eval-with-expression': [ERROR],
     'security/detect-new-buffer': [ERROR],
     'security/detect-no-csrf-before-method-override': [ERROR],
-    // TODO: Might be ERROR but it is very restrictive due to lack of intelligence
+    // TODO: Should ideally be ERROR but it is very restrictive due to lack of intelligence
     'security/detect-non-literal-fs-filename': [OFF],
     'security/detect-non-literal-regexp': [ERROR],
     // OFF as it is a duplicate of the rule import/no-dynamic-require
@@ -31,4 +31,4 @@ module.exports = {
     'security/detect-pseudoRandomBytes': [ERROR],
     'security/detect-unsafe-regex': [ERROR],
   },
-};
+}

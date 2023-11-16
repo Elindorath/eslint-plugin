@@ -29,7 +29,7 @@ module.exports = {
     ],
     'import/parsers': {},
     'import/resolver': {
-      'node': true,
+      node: true,
     },
     // Might change when using eslint_d
     // @see https://github.com/benmosher/eslint-plugin-import#importcache
@@ -161,8 +161,7 @@ module.exports = {
     // See: https://github.com/import-js/eslint-plugin-import/issues/2673
     'import/newline-after-import': [OFF, {
       count: 1, // default
-      // TODO: this option will be added in 2.28.2 or 2.29.0
-      // exactCount: true,
+      exactCount: true,
       considerComments: true,
     }],
     'import/no-anonymous-default-export': [ERROR, {
@@ -180,7 +179,7 @@ module.exports = {
     // Superseded by the 'import/no-duplicates' rule
     'no-duplicate-imports': [OFF],
     'import/no-duplicates': [ERROR, {
-      considerQueryString: false, // default
+      'considerQueryString': false, // default
       'prefer-inline': false, // false
     }],
     'import/no-named-default': [ERROR],
@@ -192,7 +191,7 @@ module.exports = {
     // OFF as it conflict with the 'import/order' rule
     'sort-imports': [OFF],
     'import/order': [OFF, {
-      groups: [
+      'groups': [
         'builtin',
         'external',
         'internal',
@@ -204,21 +203,21 @@ module.exports = {
         'object',
         'type',
       ],
-      pathGroups: [],
+      'pathGroups': [],
       // default
-      pathGroupsExcludedImportTypes: [
+      'pathGroupsExcludedImportTypes': [
         'builtin',
         'external',
         'object',
       ],
-      distinctGroup: false,
+      'distinctGroup': false,
       'newlines-between': 'always',
-      alphabetize: {
+      'alphabetize': {
         order: 'asc',
         orderImportKind: 'asc',
         caseInsensitive: true,
       },
-      warnOnUnassignedImports: false, // default
+      'warnOnUnassignedImports': false, // default
     }],
     // OFF as we prefer named exports in regards to tree-shaking
     'import/prefer-default-export': [OFF],

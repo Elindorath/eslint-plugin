@@ -1,19 +1,19 @@
-'use strict';
+'use strict'
 
-const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
-
-
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y')
 
 
-const labelAttributes = []; // default
-const controlComponents = []; // default
-const imageComponents = ['Image', 'Picture'];
-const anchorComponents = ['Link'];
-const inputComponents = ['input', 'Input', 'Field'];
-const labelComponents = ['Label'];
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
+
+
+const labelAttributes = [] // default
+const controlComponents = [] // default
+const imageComponents = ['Image', 'Picture']
+const anchorComponents = ['Link']
+const inputComponents = ['input', 'Input', 'Field']
+const labelComponents = ['Label']
 // default
 const interactiveHandlers = [
   'onClick',
@@ -22,7 +22,7 @@ const interactiveHandlers = [
   'onKeyPress',
   'onKeyDown',
   'onKeyUp',
-];
+]
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -41,10 +41,10 @@ module.exports = {
 
   rules: {
     'jsx-a11y/alt-text': [ERROR, {
-      elements: ['img', 'object', 'area', 'input[type="image"]'], // default
-      img: imageComponents,
-      object: ['Object'],
-      area: ['Area'],
+      'elements': ['img', 'object', 'area', 'input[type="image"]'], // default
+      'img': imageComponents,
+      'object': ['Object'],
+      'area': ['Area'],
       'input[type="image"]': ['InputImage'],
     }],
     'jsx-a11y/anchor-ambiguous-text': [ERROR, {
@@ -166,4 +166,4 @@ module.exports = {
     'jsx-a11y/scope': [ERROR],
     'jsx-a11y/tabindex-no-positive': [ERROR],
   },
-};
+}

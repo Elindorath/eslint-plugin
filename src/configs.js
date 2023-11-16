@@ -4,7 +4,7 @@
 /* eslint-disable import/max-dependencies -- We need to import all of that here */
 /* eslint-disable n/global-require -- Respect the format of eslint-plugin */
 
-'use strict';
+'use strict'
 
 module.exports = {
   // '+babel': require('./configs/+babel'),
@@ -37,6 +37,6 @@ module.exports = {
   'project-eslint-plugin': require('./configs/projects/eslint-plugin.js'),
   'project-react-native': require('./configs/projects/react-native.js'),
   'project-react': require('./configs/projects/react.js'),
-};
+}
 
 /* eslint-enable */

@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const unicornPlugin = require('eslint-plugin-unicorn');
+const unicornPlugin = require('eslint-plugin-unicorn')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -16,7 +16,12 @@ module.exports = {
 
   rules: {
     'unicorn/prevent-abbreviations': [ERROR, {
-      replacements: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
+      // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
+      replacements: {
+        props: {
+          properties: false,
+        },
+      },
       extendDefaultReplacements: true, // default
       allowList: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
       extendDefaultAllowList: true, // default
@@ -29,4 +34,4 @@ module.exports = {
       ignore: [], // default
     }],
   },
-};
+}

@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const nPlugin = require('eslint-plugin-n');
+const nPlugin = require('eslint-plugin-n')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 module.exports = {
   plugins: {
@@ -122,4 +122,4 @@ module.exports = {
     'n/process-exit-as-throw': [ERROR],
     'n/shebang': [ERROR],
   },
-};
+}

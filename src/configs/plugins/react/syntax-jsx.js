@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-const reactPlugin = require('eslint-plugin-react');
-const globals = require('globals');
+const reactPlugin = require('eslint-plugin-react')
+const globals = require('globals')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
-const INDENT_SPACE_COUNT = 2;
-const PARENS_NEW_LINE = 'parens-new-line';
+const INDENT_SPACE_COUNT = 2
+const PARENS_NEW_LINE = 'parens-new-line'
 const LINE_ALIGNED = 'line-aligned'
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -47,48 +47,49 @@ module.exports = {
     ],
   },
   rules: {
-    'react/jsx-boolean-value': [ERROR, 'never'], // default
-    'react/jsx-child-element-spacing': [ERROR],
-    'react/jsx-closing-bracket-location': [ERROR, {
+    'react/jsx-boolean-value': [OFF, 'never'], // default
+    'react/jsx-child-element-spacing': [OFF],
+    'react/jsx-closing-bracket-location': [OFF, {
       nonEmpty: LINE_ALIGNED,
       selfClosing: LINE_ALIGNED,
     }],
-    'react/jsx-closing-tag-location': [ERROR],
-    'react/jsx-curly-brace-presence': [ERROR, {
+    'react/jsx-closing-tag-location': [OFF],
+    'react/jsx-curly-brace-presence': [OFF, {
       props: 'never', // default
       children: 'always',
       propElementValues: 'always',
     }],
     // Might be changed to `consistent` for multiline
-    'react/jsx-curly-newline': [ERROR, {
+    // OFF as it is a formatting rule
+    'react/jsx-curly-newline': [OFF, {
       multiline: 'require',
       singleline: 'forbid',
     }],
-    'react/jsx-curly-spacing': [ERROR, {
+    'react/jsx-curly-spacing': [OFF, {
       when: 'never', // default
       allowMultiline: true, // default
       attributes: { when: 'never', allowMultiline: true }, // default
       children: { when: 'never', allowMultiline: true },
       spacing: { objectLiterals: 'never' }, // default
     }],
-    'react/jsx-equals-spacing': [ERROR, 'never'],
-    'react/jsx-filename-extension': [ERROR, {
+    'react/jsx-equals-spacing': [OFF, 'never'],
+    'react/jsx-filename-extension': [OFF, {
       allow: 'as-needed',
       extensions: ['.jsx', '.tsx'],
     }],
-    'react/jsx-first-prop-new-line': [ERROR, 'multiline'],
-    'react/jsx-fragments': [ERROR, 'syntax'], // default
-    'react/jsx-handler-names': [ERROR, {
+    'react/jsx-first-prop-new-line': [OFF, 'multiline'],
+    'react/jsx-fragments': [OFF, 'syntax'], // default
+    'react/jsx-handler-names': [OFF, {
       eventHandlerPrefix: 'handle', // default
       eventHandlerPropPrefix: 'on', // default
       checkLocalVariables: true,
       checkInlineFunction: true,
     }],
-    'react/jsx-indent-props': [ERROR, {
+    'react/jsx-indent-props': [OFF, {
       indentMode: 'first',
       ignoreTernaryOperator: false, // default
     }],
-    'react/jsx-indent': [ERROR, INDENT_SPACE_COUNT, {
+    'react/jsx-indent': [OFF, INDENT_SPACE_COUNT, {
       checkAttributes: true,
       indentLogicalExpressions: true,
     }],
@@ -97,10 +98,10 @@ module.exports = {
       checkKeyMustBeforeSpread: true,
       warnOnDuplicates: true,
     }],
-    'react/jsx-max-depth': [ERROR, {
+    'react/jsx-max-depth': [OFF, {
       max: 4,
     }],
-    'react/jsx-max-props-per-line': [ERROR, {
+    'react/jsx-max-props-per-line': [OFF, {
       maximum: 1, // default
       when: 'multiline',
     }],
@@ -125,7 +126,7 @@ module.exports = {
     'react/jsx-no-leaked-render': [ERROR, {
       validStrategies: ['ternary', 'coerce'], // default
     }],
-    'react/jsx-no-literals': [ERROR, {
+    'react/jsx-no-literals': [OFF, {
       noStrings: true,
       allowedStrings: [], // default
       ignoreProps: false, // default
@@ -145,16 +146,16 @@ module.exports = {
     'react/jsx-no-useless-fragment': [ERROR, {
       allowExpressions: false, // default - TODO: might be turned to true in Typescript context
     }],
-    'react/jsx-one-expression-per-line': [ERROR, {
+    'react/jsx-one-expression-per-line': [OFF, {
       allow: 'none', // default
     }],
-    'react/jsx-pascal-case': [ERROR, {
+    'react/jsx-pascal-case': [OFF, {
       allowAllCaps: false, // default
       allowLeadingUnderscore: false, // default
       allowNamespace: true,
       ignore: [], // default
     }],
-    'react/jsx-props-no-multi-spaces': [ERROR],
+    'react/jsx-props-no-multi-spaces': [OFF],
     // OFF as it doesn't allow HOC
     'react/jsx-props-no-spreading': [OFF, {
       html: 'enforce', // default
@@ -162,7 +163,7 @@ module.exports = {
       explicitSpread: 'enforce', // default
       exceptions: [], // default
     }],
-    'react/jsx-sort-props': [ERROR, {
+    'react/jsx-sort-props': [OFF, {
       callbacksLast: true,
       shorthandFirst: true,
       shorthandLast: false, // default
@@ -172,7 +173,7 @@ module.exports = {
       reservedFirst: true,
       locale: 'auto', // default
     }],
-    'react/jsx-tag-spacing': [ERROR, {
+    'react/jsx-tag-spacing': [OFF, {
       closingSlash: 'never', // default
       beforeSelfClosing: 'always', // default
       afterOpening: 'never', // default
@@ -181,7 +182,7 @@ module.exports = {
     // OFF as we use the JSX transform from React 17
     'react/jsx-uses-react': [OFF],
     'react/jsx-uses-vars': [ERROR],
-    'react/jsx-wrap-multilines': [ERROR, {
+    'react/jsx-wrap-multilines': [OFF, {
       declaration: PARENS_NEW_LINE,
       assignment: PARENS_NEW_LINE,
       return: PARENS_NEW_LINE,
@@ -191,4 +192,4 @@ module.exports = {
       prop: 'ignore', // default
     }],
   },
-};
+}

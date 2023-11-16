@@ -1,9 +1,11 @@
 'use strict'
 
-const xssPlugin = require('eslint-plugin-xss')
+const jsoncPlugin = require('eslint-plugin-jsonc')
+const jsonParser = require('jsonc-eslint-parser')
 
 const { getRuleConfig } = require('../../../utils.js')
 const baseConfig = require('../eslint/vanilla.js')
+const baseStylisticConfig = require('../stylistic/vanilla.js')
 
 const OFF = 'off'
 const WARN = 'warn'
@@ -11,8 +13,12 @@ const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
+  languageOptions: {
+    parser: jsonParser,
+  },
+
   plugins: {
-    xss: xssPlugin,
+    jsonc: jsoncPlugin,
   },
 
   rules: {
@@ -20,12 +26,12 @@ module.exports = {
     // 'jsonc/auto': [ERROR],
 
     'jsonc/key-name-casing': [ERROR, {
-      camelCase: true,
-      PascalCase: false,
-      SCREAMING_SNAKE_CASE: false,
+      'camelCase': true,
+      'PascalCase': false,
+      'SCREAMING_SNAKE_CASE': false,
       'kebab-case': false,
       'snake_case': false,
-      ignores: [],
+      'ignores': [],
     }],
     'jsonc/no-bigint-literals': [ERROR],
     'jsonc/no-binary-expression': [ERROR],
@@ -61,13 +67,19 @@ module.exports = {
     'jsonc/vue-custom-block/no-parsing-error': [ERROR],
 
     /* ----- Extended rules ----- */
-    'jsonc/array-bracket-newline': getRuleConfig('array-bracket-newline', baseConfig),
-    'jsonc/array-bracket-spacing': getRuleConfig('array-bracket-spacing', baseConfig),
-    'jsonc/array-element-newline': getRuleConfig('array-element-newline', baseConfig),
-    'jsonc/comma-dangle': getRuleConfig('comma-dangle', baseConfig),
-    'jsonc/comma-style': getRuleConfig('comma-style', baseConfig),
-    'jsonc/indent': getRuleConfig('indent', baseConfig),
-    'jsonc/key-spacing': getRuleConfig('key-spacing', baseConfig),
+    'jsonc/array-bracket-newline': getRuleConfig('@stylistic/array-bracket-newline', baseStylisticConfig),
+    'jsonc/array-bracket-spacing': getRuleConfig('@stylistic/array-bracket-spacing', baseStylisticConfig),
+    'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', baseStylisticConfig),
+    'jsonc/comma-dangle': [ERROR, {
+      arrays: 'never',
+      objects: 'never',
+      imports: 'never',
+      exports: 'never',
+      functions: 'never',
+    }],
+    'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', baseStylisticConfig),
+    'jsonc/indent': getRuleConfig('@stylistic/indent', baseStylisticConfig),
+    'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', baseStylisticConfig),
     'jsonc/no-dupe-keys': getRuleConfig('no-dupe-keys', baseConfig),
     'jsonc/no-floating-decimal': getRuleConfig('no-floating-decimal', baseConfig),
     'jsonc/no-irregular-whitespace': getRuleConfig('no-irregular-whitespace', baseConfig),
@@ -76,11 +88,11 @@ module.exports = {
     'jsonc/no-octal': getRuleConfig('no-octal', baseConfig),
     'jsonc/no-sparse-arrays': getRuleConfig('no-sparse-arrays', baseConfig),
     'jsonc/no-useless-escape': getRuleConfig('no-useless-escape', baseConfig),
-    'jsonc/object-curly-newline': getRuleConfig('object-curly-newline', baseConfig),
-    'jsonc/object-curly-spacing': getRuleConfig('object-curly-spacing', baseConfig),
-    'jsonc/object-property-newline': getRuleConfig('object-property-newline', baseConfig),
-    'jsonc/quote-props': getRuleConfig('quote-props', baseConfig),
-    'jsonc/quotes': getRuleConfig('quotes', baseConfig),
-    'jsonc/space-unary-ops': getRuleConfig('space-unary-ops', baseConfig),
+    'jsonc/object-curly-newline': getRuleConfig('@stylistic/object-curly-newline', baseStylisticConfig),
+    'jsonc/object-curly-spacing': getRuleConfig('@stylistic/object-curly-spacing', baseStylisticConfig),
+    'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', baseStylisticConfig),
+    'jsonc/quote-props': [ERROR, 'always'],
+    'jsonc/quotes': [ERROR, 'double'],
+    'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', baseStylisticConfig),
   },
-};
+}

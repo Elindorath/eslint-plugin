@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { mergeConfigs } = require('../../utils.js');
+const { mergeConfigs } = require('../../utils.js')
 const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const vanillaConfig = require('../vanilla.js')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {

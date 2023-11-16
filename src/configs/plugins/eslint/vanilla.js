@@ -1,11 +1,11 @@
 /* eslint-disable max-lines -- TODO: Could be splitted in subparts */
 
-'use strict';
+'use strict'
 
 // const { OFF, ERROR } = require('../constants.js');
 
-const ERROR = 'error';
-const OFF = 'off';
+const ERROR = 'error'
+const OFF = 'off'
 
 const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
 const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
@@ -150,7 +150,8 @@ module.exports = {
       getWithoutSet: false, // default
       enforceForClassMembers: true, // default
     }],
-    'arrow-body-style': [ERROR, 'as-needed', { // default
+    // OFF as it decrease readability
+    'arrow-body-style': [OFF, 'as-needed', { // default
       requireReturnForObjectLiteral: false, // default
     }],
     'block-scoped-var': [ERROR],
@@ -537,7 +538,7 @@ module.exports = {
     // Disabled as it should be used on a one-time basis to list actions left to do
     'no-warning-comments': [OFF, {
       terms: ['todo', 'fixme', 'xxx'], // default
-      location: "start", // default
+      location: 'start', // default
       decoration: [], // default
     }],
     'no-with': [ERROR],
@@ -553,7 +554,6 @@ module.exports = {
       const: 'never',
       separateRequires: true,
     }],
-    'one-var-declaration-per-line': [ERROR, 'always'],
     'operator-assignment': [ERROR, 'always'],
     'prefer-arrow-callback': [ERROR, {
       allowNamedFunctions: false, // default
@@ -592,11 +592,6 @@ module.exports = {
     'prefer-rest-params': [ERROR],
     'prefer-spread': [ERROR],
     'prefer-template': [ERROR],
-    'quote-props': [ERROR, 'consistent-as-needed', {
-      keywords: false, // default
-      unnecessary: true, // default
-      numbers: false, // default
-    }],
     'radix': [ERROR, 'always'],
     'require-await': [ERROR],
     'require-unicode-regexp': [ERROR],
@@ -609,7 +604,8 @@ module.exports = {
       memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'], // default
       allowSeparatedGroups: false, // default
     }],
-    'sort-keys': [ERROR, 'asc', {
+    // OFF as it decrease code readability
+    'sort-keys': [OFF, 'asc', {
       caseSensitive: true, // default
       natural: true,
       minKeys: 2, // default
@@ -639,69 +635,9 @@ module.exports = {
 
     // Layout & Formatting
     // All formatting rules are disabled in favor of a dedicated formatter tool
-    'array-bracket-newline': [OFF],
-    'array-bracket-spacing': [OFF],
-    'array-element-newline': [OFF],
-    'arrow-parens': [OFF],
-    'arrow-spacing': [OFF],
-    'block-spacing': [OFF],
-    'brace-style': [OFF],
-    'comma-dangle': [OFF],
-    'comma-spacing': [OFF],
-    'comma-style': [OFF],
-    'computed-property-spacing': [OFF],
-    'dot-location': [OFF],
-    'eol-last': [OFF],
-    'func-call-spacing': [OFF],
-    'function-call-argument-newline': [OFF],
-    'function-paren-newline': [OFF],
-    'generator-star-spacing': [OFF],
-    'implicit-arrow-linebreak': [OFF],
-    'indent': [OFF],
-    'jsx-quotes': [OFF],
-    'key-spacing': [OFF],
-    'keyword-spacing': [OFF],
     'line-comment-position': [OFF],
-    'linebreak-style': [OFF],
-    'lines-around-comment': [OFF],
-    'lines-between-class-members': [OFF],
-    'max-len': [OFF],
-    'max-statements-per-line': [OFF],
-    'multiline-ternary': [OFF],
-    'new-parens': [OFF],
-    'newline-per-chained-call': [OFF],
-    'no-extra-parens': [OFF],
-    'no-mixed-spaces-and-tabs': [OFF],
-    'no-multi-spaces': [OFF],
-    'no-multiple-empty-lines': [OFF],
-    'no-tabs': [OFF],
-    'no-trailing-spaces': [OFF],
-    'no-whitespace-before-property': [OFF],
-    'nonblock-statement-body-position': [OFF],
-    'object-curly-newline': [OFF],
-    'object-curly-spacing': [OFF],
-    'object-property-newline': [OFF],
-    'operator-linebreak': [OFF],
-    'padded-blocks': [OFF],
-    'padding-line-between-statements': [OFF],
-    'quotes': [OFF],
-    'rest-spread-spacing': [OFF],
-    'semi': [OFF],
-    'semi-spacing': [OFF],
-    'semi-style': [OFF],
-    'space-before-blocks': [OFF],
-    'space-before-function-paren': [OFF],
-    'space-in-parens': [OFF],
-    'space-infix-ops': [OFF],
-    'space-unary-ops': [OFF],
-    'switch-colon-spacing': [OFF],
-    'template-curly-spacing': [OFF],
-    'template-tag-spacing': [OFF],
     'unicode-bom': [OFF],
-    'wrap-iife': [OFF],
-    'wrap-regex': [OFF],
-    'yield-star-spacing': [OFF],
   },
-};
+}
 
 /* eslint-enable */

@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-const path = require('node:path');
-const process = require('node:process');
+const path = require('node:path')
+const process = require('node:process')
 
-const { ESLint } = require('eslint');
-const fs = require('fs-extra');
+const { ESLint } = require('eslint')
+const fs = require('fs-extra')
 const packageDirectory = require('pkg-dir');
 
 
 (async function main() {
-  const targetFile = path.resolve(__dirname, `../lib/configs.js`);
-  const configFileNames = await fs.readdir(path.resolve(__dirname, `../lib/configs`));
+  const targetFile = path.resolve(__dirname, `../lib/configs.js`)
+  const configFileNames = await fs.readdir(path.resolve(__dirname, `../lib/configs`))
 
   await fs.outputFile(
     targetFile,
@@ -29,19 +29,19 @@ ${configFileNames
     .join('\n')}
 };
 `
-  );
+  )
 
   try {
-    const eslint = new ESLint({ fix: true });
-    const result = await eslint.lintFiles([targetFile]);
+    const eslint = new ESLint({ fix: true })
+    const result = await eslint.lintFiles([targetFile])
 
-    await ESLint.outputFixes(result);
+    await ESLint.outputFixes(result)
   } catch (error) {
-    console.log(error.message);
-    console.log('Failed to fix lint error, try to run it again');
+    console.log(error.message)
+    console.log('Failed to fix lint error, try to run it again')
   }
 // eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await
 })().catch((error) => {
-  process.exitCode = 1;
-  console.error(error);
-});
+  process.exitCode = 1
+  console.error(error)
+})

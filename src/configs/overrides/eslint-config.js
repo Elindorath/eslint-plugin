@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const { mergeConfigs } = require('../../utils.js');
+const { mergeConfigs } = require('../../utils.js')
 const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const vanillaConfig = require('../vanilla.js')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
@@ -31,6 +31,8 @@ module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
     }],
     // OFF as it is a dev only file
     'import/no-extraneous-dependencies': [OFF],
+    // OFF as it prevents us to respect the rule configuration format convention
+    '@stylistic/array-bracket-newline': [OFF],
   },
 })
 
@@ -62,4 +64,4 @@ module.exports = mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
 //       checkFilenames: false,
 //     }],
 //   },
-// };
+// }

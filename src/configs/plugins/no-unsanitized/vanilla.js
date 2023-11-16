@@ -6,7 +6,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-const SECOND_PROPERTY_INDEX = 1;
+const SECOND_PROPERTY_INDEX = 1
 const TAGGED_TEMPLATES = ['Sanitizer.escapeHTML', 'escapeHTML']
 const METHODS = ['Sanitizer.unwrapSafeHTML', 'unwrapSafeHTML']
 
@@ -60,4 +60,4 @@ module.exports = {
       outerHTML: {}, // default
     }],
   },
-};
+}

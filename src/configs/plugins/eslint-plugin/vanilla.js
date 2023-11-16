@@ -1,7 +1,7 @@
 'use strict'
 
 const eslintPluginPlugin = require('eslint-plugin-eslint-plugin')
-const readPackageUp = require('read-pkg-up')
+const readPackageUp = require('read-package-up')
 
 const OFF = 'off'
 const WARN = 'warn'

@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 const jestExtendedPlugin = require('eslint-plugin-jest-extended')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -19,4 +19,4 @@ module.exports = {
     'jest-extended/prefer-to-be-true': [ERROR],
     'jest-extended/prefer-to-have-been-called-once': [ERROR],
   },
-};
+}

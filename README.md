@@ -32,70 +32,10 @@ For ease of use, this plugin also exposes special configurations that aggregate 
 - All files in the root `scripts` directory are treated as Node.js scripts that are used only in development environment.
 - All files with the suffix `.test.${extension}` are treated as jest test files.
 
-### Execution contexts
+## Maintenance
 
-node
-browser
-react
-react-native
+The Eslint ecosystem is evolving rapidly. To profit from the last improvements as soon as possible and to ease the maintenance burden, we rely on the renovate bot for managing the eslint plugins we use, with the auto merging option activated for minor and patch changes (not major as this would potentially introduce breaking changes). But doing so blindly would break the exhaustiveness principle on which this plugin is based on. We add a bit of intelligence like so:
 
-### Transpiler
-
-Typescript
-Babel
-
-jest
-json
-
-electron
-
-### Projects
-
-React website:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - Browser
-
-React-native app:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - Browser
-
-cli:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - node
-
-tests:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - node
-    - jest
-
-JSX without react:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - browser
-
-React without jsx:
-  Parser:
-    - Vanilla
-    - Typescript
-    - Babel
-  Context:
-    - browser
+- We extract and store the meta object of each rule we use (with the script `scripts/extract-meta.js`)
+- On each PR created, we compare the stored meta objects with the one of the currently installed rules (`scripts/compare-meta.js`)
+- We block the auto-merging feature if two corresponding meta doesn't match and tag the PR with `Need config update`

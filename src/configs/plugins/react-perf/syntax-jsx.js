@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const reactPerfPlugin = require('eslint-plugin-react-perf');
+const reactPerfPlugin = require('eslint-plugin-react-perf')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -27,4 +27,4 @@ module.exports = {
       nativeAllowList: [], // default
     }],
   },
-};
+}

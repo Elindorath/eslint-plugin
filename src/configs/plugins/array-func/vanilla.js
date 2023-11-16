@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const arrayFunctionPlugin = require('eslint-plugin-array-func');
+const arrayFunctionPlugin = require('eslint-plugin-array-func')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -25,4 +25,4 @@ module.exports = {
     'array-func/prefer-flat-map': [OFF],
     'array-func/prefer-flat': [ERROR],
   },
-};
+}

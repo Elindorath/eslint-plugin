@@ -1,39 +1,39 @@
-'use strict';
+'use strict'
 
-const path = require('node:path');
-const process = require('node:process');
+const path = require('node:path')
+const process = require('node:process')
 
-const { ESLint } = require('eslint');
-const fs = require('fs-extra');
-const packageDirectory = require('pkg-dir');
+const { ESLint } = require('eslint')
+const fs = require('fs-extra')
+const packageDirectory = require('pkg-dir')
 
 const { dependencies } = require('../package.json');
 
 
 (async function main() {
-  const eslint = new ESLint({ fix: true });
+  const eslint = new ESLint({ fix: true })
 
   for await (const [packageName] of Object.entries(dependencies)) {
     if (isEslintPlugin(packageName)) {
-      await generateExportingPlugin(packageName, 'environment', eslint);
-      await generateExportingPlugin(packageName, 'processor', eslint);
-      await generateExportingPlugin(packageName, 'rule', eslint);
+      await generateExportingPlugin(packageName, 'environment', eslint)
+      await generateExportingPlugin(packageName, 'processor', eslint)
+      await generateExportingPlugin(packageName, 'rule', eslint)
     }
   }
 // eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await
 })().catch((error) => {
-  process.exitCode = 1;
-  console.error(error);
-});
+  process.exitCode = 1
+  console.error(error)
+})
 
 
 function isEslintPlugin(packageName) {
-  return packageName.includes('eslint-plugin');
+  return packageName.includes('eslint-plugin')
 }
 
 async function generateExportingPlugin(packageName, type, eslint) {
-  const eslintPluginName = getEslintPluginName(packageName);
-  const targetFile = path.resolve(__dirname, `../lib/foreign-${type}s`, `${eslintPluginName}.js`);
+  const eslintPluginName = getEslintPluginName(packageName)
+  const targetFile = path.resolve(__dirname, `../lib/foreign-${type}s`, `${eslintPluginName}.js`)
 
   await fs.outputFile(
     targetFile,
@@ -54,22 +54,22 @@ module.exports = Object.entries(${type}s || {}).reduce((obj, [${type}Id, ${type}
   };
 }, {});
 `
-  );
+  )
 
   try {
-    const result = await eslint.lintFiles([targetFile]);
+    const result = await eslint.lintFiles([targetFile])
 
-    await ESLint.outputFixes(result);
+    await ESLint.outputFixes(result)
   } catch (error) {
-    console.log(error.message);
-    console.log('Failed to fix lint error, try to run it again');
+    console.log(error.message)
+    console.log('Failed to fix lint error, try to run it again')
   }
 }
 
 function getEslintPluginName(packageName) {
-  const [firstLetter] = packageName;
+  const [firstLetter] = packageName
 
   return firstLetter === '@'
     ? packageName.slice(firstLetter.length, packageName.indexOf('/'))
-    : packageName.slice('eslint-plugin-'.length);
+    : packageName.slice('eslint-plugin-'.length)
 }

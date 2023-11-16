@@ -31,7 +31,7 @@ module.exports = {
 
     /* ----- Style guide ----- */
     'import/order': [ERROR, {
-      groups: [
+      'groups': [
         'builtin',
         'external',
         'internal',
@@ -43,21 +43,21 @@ module.exports = {
         'object',
         'type',
       ],
-      pathGroups: [],
+      'pathGroups': [],
       // default
-      pathGroupsExcludedImportTypes: [
+      'pathGroupsExcludedImportTypes': [
         'builtin',
         'external',
         'object',
       ],
-      distinctGroup: false,
+      'distinctGroup': false,
       'newlines-between': 'always',
-      alphabetize: {
+      'alphabetize': {
         order: 'asc',
         orderImportKind: 'asc',
         caseInsensitive: true,
       },
-      warnOnUnassignedImports: false, // default
+      'warnOnUnassignedImports': false, // default
     }],
   },
 }

@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-const { mergeConfigs } = require('../../utils.js');
+const { mergeConfigs } = require('../../utils.js')
 const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const nodeConfig = require('../environment-node.js')
 const typescriptConfig = require('../syntax-typescript.js')
 const vanillaConfig = require('../vanilla.js')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 const webpackRules = {
   // OFF as webpack config can be very extensive

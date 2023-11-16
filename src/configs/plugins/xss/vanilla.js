@@ -17,7 +17,7 @@ module.exports = {
       htmlVariableRules: ['AsHtml', 'HtmlEncoded/i', '^html$'],
       htmlFunctionRules: ['.asHtml/i', 'toHtml'],
       functions: {
-        $: {
+        '$': {
           htmlInput: true,
           safe: ['document', 'this'],
         },

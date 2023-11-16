@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const unicornPlugin = require('eslint-plugin-unicorn');
+const unicornPlugin = require('eslint-plugin-unicorn')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -240,21 +240,21 @@ module.exports = {
         'gql',
         'sql',
         'html',
-        'styled'
+        'styled',
       ],
       // default
       functions: [
         'dedent',
-        'stripIndent'
+        'stripIndent',
       ],
       selectors: [], // default
       // default
       comments: [
         'HTML',
-        'indent'
-      ]
+        'indent',
+      ],
     }],
     'unicorn/text-encoding-identifier-case': [ERROR],
     'unicorn/throw-new-error': [ERROR],
   },
-};
+}

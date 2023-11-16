@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 const jestFormattingPlugin = require('eslint-plugin-jest-formatting')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -22,4 +22,4 @@ module.exports = {
     'jest-formatting/padding-around-test-blocks': [ERROR],
     'jest-formatting/padding-around-all': [ERROR],
   },
-};
+}

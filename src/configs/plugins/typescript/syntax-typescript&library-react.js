@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
+const typescriptPlugin = require('@typescript-eslint/eslint-plugin')
+const typescriptParser = require('@typescript-eslint/parser')
 
 // const { OFF, ERROR } = require('../constants.js');
 
-const OFF = 'off';
-const ERROR = 'error';
+const OFF = 'off'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -56,4 +56,4 @@ module.exports = {
       },
     ],
   },
-};
+}

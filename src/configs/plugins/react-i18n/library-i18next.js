@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-const reactI18nPlugin = require('eslint-plugin-react-i18n');
-
-
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const reactI18nPlugin = require('eslint-plugin-react-i18n')
 
 
-const functionNames = ['t']; // default
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
+
+
+const functionNames = ['t'] // default
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -26,4 +26,4 @@ module.exports = {
       suffix: '}}', // default
     }],
   },
-};
+}

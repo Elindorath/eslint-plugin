@@ -1,18 +1,18 @@
-/* eslint-disable @elindorath/import/no-dynamic-require -- TODO: fix */
+/* eslint-disable import/no-dynamic-require -- TODO: fix */
 
-'use strict';
+'use strict'
 
-const path = require('node:path');
+const path = require('node:path')
 
-const { ESLint, CLIEngine } = require('eslint');
-const fs = require('fs-extra');
+const { ESLint, CLIEngine } = require('eslint')
+const fs = require('fs-extra')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
-const configsPath = path.resolve(__dirname, 'build', 'configs.js');
+const configsPath = path.resolve(__dirname, 'build', 'configs.js')
 
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
   compileConfig,
   generateEslintConfig,
   mergeConfigs,
-};
+}
 
 
 function buildPrefixedRulesFromConfig(prefix, rules, config) {
@@ -29,7 +29,7 @@ function buildPrefixedRulesFromConfig(prefix, rules, config) {
     ...agg,
     [rule]: [OFF],
     [`${prefix}/${rule}`]: getRuleConfig(rule, config),
-  }), {});
+  }), {})
 }
 
 /**
@@ -38,65 +38,64 @@ function buildPrefixedRulesFromConfig(prefix, rules, config) {
  * @returns {import('eslint').Linter.RuleEntry}
  */
 function getRuleConfig(rule, config) {
-  const { rules: { [rule]: ruleConfig } } = config;
+  const { rules: { [rule]: ruleConfig } } = config
 
-  return ruleConfig;
+  return ruleConfig
 }
 
 const INDENTATION_SPACE = 2
 
 async function compileConfig() {
-  await fs.emptyDir(path.resolve(__dirname, 'build'));
+  await fs.emptyDir(path.resolve(__dirname, 'build'))
 
-  // eslint-disable-next-line @elindorath/security/detect-non-literal-fs-filename -- Safe as no value holds user input
-  const files = await fs.readdir(`${path.resolve(__dirname, 'projects')}`);
+  const files = await fs.readdir(`${path.resolve(__dirname, 'projects')}`)
 
   const fileConfigMaps = await Promise.all(
     files.map(async (fileBase) => {
-      const fileName = path.basename(fileBase, '.js');
+      const fileName = path.basename(fileBase, '.js')
       const eslint = new ESLint({
         useEslintrc: false,
         baseConfig: require(path.resolve(__dirname, 'projects', fileBase)),
-      });
+      })
 
-      const config = await eslint.calculateConfigForFile(path.resolve(__dirname, 'projects', fileBase));
+      const config = await eslint.calculateConfigForFile(path.resolve(__dirname, 'projects', fileBase))
 
       return {
         [fileName]: {
           ...config,
           ignorePatterns: undefined,
         },
-      };
+      }
     })
-  );
+  )
 
   const fileConfigMap = fileConfigMaps.reduce((agg, currentFileConfigMap) => ({
     ...agg,
     ...currentFileConfigMap,
-  }), {});
+  }), {})
 
-  return fs.outputFile(configsPath, `module.exports = ${JSON.stringify(fileConfigMap, undefined, INDENTATION_SPACE)};`);
+  return fs.outputFile(configsPath, `module.exports = ${JSON.stringify(fileConfigMap, undefined, INDENTATION_SPACE)};`)
 }
 
 function generateEslintConfig(config) {
-  const configs = require(configsPath);
-  const { extends: baseExtends, rules: baseRules, overrides } = config;
+  const configs = require(configsPath)
+  const { extends: baseExtends, rules: baseRules, overrides } = config
 
-  const basePluginsUnique = new Set(baseExtends.flatMap((name) => configs[normalizeConfigName(name)].plugins));
+  const basePluginsUnique = new Set(baseExtends.flatMap((name) => configs[normalizeConfigName(name)].plugins))
 
   const overridesWithoutDuplicatePlugins = overrides.map((overrideConfig) => {
-    const { files, ...overrideConfigWithoutFiles } = overrideConfig;
-    const { extends: overridesExtend, rules: overridesRules } = overrideConfigWithoutFiles;
+    const { files, ...overrideConfigWithoutFiles } = overrideConfig
+    const { extends: overridesExtend, rules: overridesRules } = overrideConfigWithoutFiles
 
     const cliEngine = new CLIEngine({
       useEslintrc: false,
       baseConfig: overrideConfigWithoutFiles,
-    });
+    })
 
-    const pluginsUnique = new Set(overridesExtend.flatMap((name) => configs[normalizeConfigName(name)].plugins));
+    const pluginsUnique = new Set(overridesExtend.flatMap((name) => configs[normalizeConfigName(name)].plugins))
 
     // eslint-disable-next-line no-unused-vars -- The ignorePatterns var is not used, we use rest operator to exclude it
-    const { ignorePatterns, ...computedConfig } = cliEngine.getConfigForFile('./.eslintrc.js');
+    const { ignorePatterns, ...computedConfig } = cliEngine.getConfigForFile('./.eslintrc.js')
 
     return {
       ...computedConfig,
@@ -107,30 +106,30 @@ function generateEslintConfig(config) {
         ...overridesRules,
       },
       files,
-    };
-  });
+    }
+  })
 
   return {
     ...config,
     overrides: overridesWithoutDuplicatePlugins,
-  };
+  }
 }
 
 function normalizeConfigName(name) {
-  return name.slice(32);
+  return name.slice(32)
 }
 
 function differenceRight(setA, setB) {
-  const diff = new Set(setB);
+  const diff = new Set(setB)
 
   for (const element of setA) {
-    diff.delete(element);
+    diff.delete(element)
   }
 
-  return diff;
+  return diff
 }
 
-/* eslint-enable @elindorath/import/no-dynamic-require */
+/* eslint-enable import/no-dynamic-require */
 
 /** @typedef {import('eslint').Linter.FlatConfig} FlatConfig */
 /** @typedef {Required<FlatConfig>['languageOptions']} LanguageOptions */
@@ -150,13 +149,13 @@ function differenceRight(setA, setB) {
  * @returns {FlatConfig}
  */
 function mergeConfigs(...configs) {
-  let result = {};
+  let result = {}
 
   for (const config of configs) {
-    result = mergeTwoConfig(result, config);
+    result = mergeTwoConfig(result, config)
   }
 
-  return result;
+  return result
 }
 
 const CONFIG_MERGER = {
@@ -179,8 +178,8 @@ function mergeTwoConfig(config1, config2) {
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: true,
-    }
-  };
+    },
+  }
 
   for (const [property, merger] of Object.entries(CONFIG_MERGER)) {
     const mergedValue = merger(config1[property], config2[property])
@@ -288,7 +287,7 @@ function mergeSourceType(sourceType1, sourceType2) {
   const {
     [sourceType1]: order1,
     [sourceType2]: order2,
-  } = SOURCE_TYPE_ORDER;
+  } = SOURCE_TYPE_ORDER
 
   return order1 > order2
     ? sourceType1

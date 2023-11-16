@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-const eslintCommentsPlugin = require('@eslint-community/eslint-plugin-eslint-comments');
+const eslintCommentsPlugin = require('@eslint-community/eslint-plugin-eslint-comments')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
-const DIRECTIVES =  {
+const DIRECTIVES = {
   ENABLE: 'eslint-enable',
   DISABLE: 'eslint-disable',
   DISABLE_NEXT_LINE: 'eslint-disable-next-line',
@@ -46,4 +46,4 @@ module.exports = {
       ignore: [DIRECTIVES.ENABLE],
     }],
   },
-};
+}

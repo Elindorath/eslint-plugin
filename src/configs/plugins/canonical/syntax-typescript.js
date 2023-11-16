@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-const canonicalPlugin = require('eslint-plugin-canonical');
+const canonicalPlugin = require('eslint-plugin-canonical')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
   plugins: {
-    'canonical': canonicalPlugin,
+    canonical: canonicalPlugin,
   },
 
   rules: {
@@ -40,4 +40,4 @@ module.exports = {
     'canonical/sort-react-dependencies': [ERROR],
     'canonical/virtual-module': [ERROR],
   },
-};
+}

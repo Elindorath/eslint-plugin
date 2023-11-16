@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const unicornPlugin = require('eslint-plugin-unicorn');
+const unicornPlugin = require('eslint-plugin-unicorn')
 
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 
 /** @type {import('eslint').Linter.FlatConfig} */
@@ -27,4 +27,4 @@ module.exports = {
     'unicorn/prefer-query-selector': [ERROR],
     'unicorn/require-post-message-target-origin': [ERROR],
   },
-};
+}

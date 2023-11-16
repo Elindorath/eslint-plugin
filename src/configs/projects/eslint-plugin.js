@@ -1,14 +1,15 @@
-'use strict';
+'use strict'
 
-const { mergeConfigs } = require('../../utils.js');
+const { mergeConfigs } = require('../../utils.js')
 const nodeCommonJsConfig = require('../environment-node-source-type-commonjs.js')
 const overrideEslintConfig = require('../overrides/eslint-config.js')
+const overridePackageJsonConfig = require('../overrides/package-json.js')
 const overrideScriptsConfig = require('../overrides/scripts.js')
 const vanillaConfig = require('../vanilla.js')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = [
@@ -55,12 +56,15 @@ module.exports = [
           checkFilenames: true, // default
           ignore: [], // default
         }],
+        // OFF as it prevents us to respect the rule configuration format convention
+        '@stylistic/array-bracket-newline': [OFF],
       },
     },
   ),
   overrideEslintConfig,
+  overridePackageJsonConfig,
   overrideScriptsConfig,
-];
+]
 
 // module.exports = {
 //   extends: [

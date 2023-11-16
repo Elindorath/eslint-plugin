@@ -13,11 +13,11 @@ const unicornBrowserConfig = require('../plugins/unicorn/environment-browser.js'
 const typescriptConfig = require('../syntax-typescript.js')
 const vanillaConfig = require('../vanilla.js')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
-const cssFilesGlob = '**/*.css.ts';
+const cssFilesGlob = '**/*.css.ts'
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = [

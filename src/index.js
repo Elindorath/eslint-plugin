@@ -1,9 +1,9 @@
 /* eslint-disable filenames-simple/no-index -- This is the entrypoint */
 /* eslint-disable n/global-require -- Respect the format of eslint-plugin */
 
-'use strict';
+'use strict'
 
-const { name, version } = require('../package.json');
+const { name, version } = require('../package.json')
 
 /** @typedef {import('eslint').Linter.FlatConfig} FlatConfig */
 /** @typedef {import('eslint').ESLint.Plugin} Plugin */
@@ -19,6 +19,6 @@ module.exports = {
   // rules: require('./lib/rules'),
   // TODO: Decide about it
   utils: require('./utils.js'),
-};
+}
 
 /* eslint-enable */

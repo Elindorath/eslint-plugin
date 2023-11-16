@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const globals = require('globals')
 
@@ -10,9 +10,9 @@ const overrideJestTestsConfig = require('../overrides/jest-tests.js')
 const typescriptConfig = require('../syntax-typescript.js')
 const vanillaConfig = require('../vanilla.js')
 
-const OFF = 'off';
-const WARN = 'warn';
-const ERROR = 'error';
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
 
 /** @type {Array<import('eslint').Linter.FlatConfig>} */
 module.exports = [
