@@ -1,9 +1,10 @@
 {
   "name": "@elindorath/eslint-plugin",
+  "description": "An Eslint plugin centralizing all the configurations I use",
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": "20.18.0"
   },
   "main": "src/index.js",
   "files": [
