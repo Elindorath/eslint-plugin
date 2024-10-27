@@ -18,7 +18,7 @@ const FUNCTION_TYPE = {
 }
 /* eslint-enable */
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   // files: ['*.jsx', '*.tsx'],
 
@@ -58,6 +58,10 @@ module.exports = {
       button: true, // default
       submit: true, // default
       reset: true, // default
+    }],
+    'react/checked-requires-onchange-or-readonly': [ERROR, {
+      ignoreMissingProperties: false, // default
+      ignoreExclusiveCheckedAttribute: false, // default
     }],
     'react/default-props-match-prop-types': [ERROR, {
       allowRequiredDefaults: false, // default
@@ -102,6 +106,7 @@ module.exports = {
       checkContextTypes: true,
       checkChildContextTypes: true,
     }],
+    'react/forward-ref-uses-ref': [ERROR],
     'react/function-component-definition': [ERROR, {
       namedComponents: FUNCTION_TYPE.ARROW,
       unnamedComponents: FUNCTION_TYPE.ARROW,
@@ -118,13 +123,15 @@ module.exports = {
       allowFunctions: false, // default
     }],
     'react/no-danger-with-children': [ERROR],
-    'react/no-danger': [ERROR],
+    'react/no-danger': [ERROR, {
+      customComponentNames: [], // default
+    }],
     'react/no-deprecated': [ERROR],
     'react/no-did-mount-set-state': [ERROR, DISALLOW_IN_FUNC],
     'react/no-did-update-set-state': [ERROR, DISALLOW_IN_FUNC],
     'react/no-direct-mutation-state': [ERROR],
     'react/no-find-dom-node': [ERROR],
-    'react/no-invalid-html-attribute': [ERROR],
+    'react/no-invalid-html-attribute': [ERROR, ['rel']], // default
     'react/no-is-mounted': [ERROR],
     // TODO: Might be disabled to allow namespaced components.
     // Or we juste might want to keep them splitted and form the namespace in an index file.

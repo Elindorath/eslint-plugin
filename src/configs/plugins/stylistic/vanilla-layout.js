@@ -3,20 +3,30 @@
 
 const stylisticPlugin = require('@stylistic/eslint-plugin')
 
-const OFF = 'off'
-const WARN = 'warn'
-const ERROR = 'error'
+const { OFF, ERROR } = require('../../../constants')
 
+
+const CODE_MAX_LEN = 180
+const TAB_WIDTH = 2
 const INDENT_SPACE_COUNT = 2
 const ALWAYS_MULTILINE = 'always-multiline'
 const LINE_ALIGNED = 'line-aligned'
 const PARENS_NEW_LINE = 'parens-new-line'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     '@stylistic': stylisticPlugin,
   },
+
+  /**
+   * This plugin is a combination of 4 different plugins:
+   *   - @stylistic/eslint-plugin-js
+   *   - @stylistic/eslint-plugin-ts
+   *   - @stylistic/eslint-plugin-jsx
+   *   - @stylistic/eslint-plugin-plus
+   * TODO: We might want to split the configuration tailored for each syntax
+   */
 
   rules: {
     '@stylistic/array-bracket-newline': [ERROR, 'consistent'],
@@ -26,7 +36,7 @@ module.exports = {
       arraysInArrays: false, // default
     }],
     '@stylistic/array-element-newline': [ERROR, 'consistent'],
-    '@stylistic/arrow-parens': [ERROR, 'always'], // default
+    '@stylistic/arrow-parens': [ERROR, 'always', {}], // default
     '@stylistic/arrow-spacing': [ERROR, {
       before: true, // default
       after: true, // default
@@ -64,10 +74,13 @@ module.exports = {
     '@stylistic/computed-property-spacing': [ERROR, 'never', {
       enforceForClassMembers: true, // default
     }],
+    // TODO: might be configured by kind of blocks, notably to handle declaring noop function
+    '@stylistic/curly-newline': [ERROR, 'always'],
     '@stylistic/dot-location': [ERROR, 'property'],
     '@stylistic/eol-last': [ERROR, 'always'],
     '@stylistic/func-call-spacing': [ERROR, 'never'],
     '@stylistic/function-call-argument-newline': [ERROR, 'consistent'],
+    '@stylistic/function-call-spacing': [ERROR, 'never'],
     '@stylistic/function-paren-newline': [ERROR, 'multiline-arguments'],
     '@stylistic/generator-star-spacing': [ERROR, {
       before: false,
@@ -117,7 +130,7 @@ module.exports = {
       ignoredNodes: [], // default
       ignoreComments: false, // default
     }],
-    '@stylistic/jsx-quotes': [ERROR, 'prefer-double'],
+    '@stylistic/indent-binary-ops': [ERROR, INDENT_SPACE_COUNT],
     '@stylistic/key-spacing': [ERROR, {
       singleLine: {
         beforeColon: false, // default
@@ -141,6 +154,12 @@ module.exports = {
       after: true, // default
       overrides: {},
     }],
+    '@stylistic/line-comment-position': [ERROR, {
+      position: 'above', // default
+      // Default ignore patterns are: 'eslint', 'jshint', 'jslint', 'istanbul', 'global', 'exported', 'jscs', 'falls through'
+      ignorePattern: '', // default
+      applyDefaultIgnorePatterns: true, // default
+    }],
     '@stylistic/linebreak-style': [ERROR, 'unix'],
     '@stylistic/lines-around-comment': [ERROR, {
       beforeBlockComment: true, // default
@@ -162,10 +181,10 @@ module.exports = {
     '@stylistic/lines-between-class-members': [ERROR, 'always', {
       exceptAfterSingleLine: false, // default
     }],
-    '@stylistic/max-len': [ERROR, {
-      code: 180,
-      tabWidth: 2,
-      comments: 180,
+    '@stylistic/max-len': [ERROR, CODE_MAX_LEN, TAB_WIDTH, {
+      code: CODE_MAX_LEN,
+      tabWidth: TAB_WIDTH,
+      comments: CODE_MAX_LEN,
       ignorePattern: '^\\s*it\\(.+\\{|Lorem ipsum.+;|mailto:.+;',
       ignoreComments: false,
       ignoreTrailingComments: true,
@@ -177,7 +196,22 @@ module.exports = {
     '@stylistic/max-statements-per-line': [ERROR, {
       max: 1,
     }],
-    '@stylistic/multiline-ternary': [ERROR, ALWAYS_MULTILINE],
+    '@stylistic/member-delimiter-style': [ERROR, {
+      multiline: {
+        delimiter: 'semi', // default
+        requireLast: true, // default
+      },
+      singleline: {
+        delimiter: 'semi', // default
+        requireLast: true,
+      },
+      multilineDetection: 'brackets', // default
+      overrides: {},
+    }],
+    '@stylistic/multiline-comment-style': [ERROR, 'starred-block'],
+    '@stylistic/multiline-ternary': [ERROR, ALWAYS_MULTILINE, {
+      ignoreJSX: false, // default (kind of undocumented)
+    }],
     '@stylistic/new-parens': [ERROR, 'always'],
     '@stylistic/newline-per-chained-call': [ERROR, {
       ignoreChainWithDepth: 2, // default
@@ -210,7 +244,7 @@ module.exports = {
       ],
       allowSamePrecedence: true, // default
     }],
-    '@stylistic/no-mixed-spaces-and-tabs': [ERROR],
+    '@stylistic/no-mixed-spaces-and-tabs': [ERROR, 'smart-tabs'],
     '@stylistic/no-multi-spaces': [ERROR, {
       ignoreEOLComments: false, // default
       exceptions: {
@@ -356,7 +390,9 @@ module.exports = {
       named: 'never',
       asyncArrow: 'always', // default
     }],
-    '@stylistic/space-in-parens': [ERROR, 'never'], // default
+    '@stylistic/space-in-parens': [ERROR, 'never', { // default
+      exceptions: [], // default
+    }],
     '@stylistic/space-infix-ops': [ERROR, {
       int32Hint: false, // default
     }],
@@ -384,6 +420,13 @@ module.exports = {
     }],
     '@stylistic/template-curly-spacing': [ERROR, 'never'], // default
     '@stylistic/template-tag-spacing': [ERROR, 'never'], // default
+    '@stylistic/type-annotation-spacing': [ERROR, {
+      before: false, // default
+      after: true, // default
+      overrides: {},
+    }],
+    '@stylistic/type-generic-spacing': [ERROR],
+    '@stylistic/type-named-tuple-spacing': [ERROR],
     '@stylistic/wrap-iife': [ERROR, 'inside', {
       functionPrototypeMethods: true,
     }],
@@ -392,29 +435,12 @@ module.exports = {
       before: false, // default
       after: true, // default
     }],
-    '@stylistic/member-delimiter-style': [ERROR, {
-      multiline: {
-        delimiter: 'semi', // default
-        requireLast: true, // default
-      },
-      singleline: {
-        delimiter: 'semi', // default
-        requireLast: true,
-      },
-      multilineDetection: 'brackets', // default
-      overrides: {},
-    }],
-    '@stylistic/type-annotation-spacing': [ERROR, {
-      before: false, // default
-      after: true, // default
-      overrides: {},
-    }],
     '@stylistic/jsx-child-element-spacing': [ERROR],
     '@stylistic/jsx-closing-bracket-location': [ERROR, {
       nonEmpty: LINE_ALIGNED,
       selfClosing: LINE_ALIGNED,
     }],
-    '@stylistic/jsx-closing-tag-location': [ERROR],
+    '@stylistic/jsx-closing-tag-location': [ERROR, LINE_ALIGNED],
     '@stylistic/jsx-curly-brace-presence': [ERROR, {
       props: 'never', // default
       children: 'always',
@@ -433,10 +459,7 @@ module.exports = {
     }],
     '@stylistic/jsx-equals-spacing': [ERROR, 'never'],
     '@stylistic/jsx-first-prop-new-line': [ERROR, 'multiline'],
-    '@stylistic/jsx-indent': [ERROR, INDENT_SPACE_COUNT, {
-      checkAttributes: true,
-      indentLogicalExpressions: true,
-    }],
+    '@stylistic/jsx-function-call-newline': [ERROR, 'multiline'],
     '@stylistic/jsx-indent-props': [ERROR, {
       indentMode: 'first',
       ignoreTernaryOperator: false, // default
@@ -453,7 +476,14 @@ module.exports = {
     '@stylistic/jsx-one-expression-per-line': [ERROR, {
       allow: 'none', // default
     }],
+    '@stylistic/jsx-pascal-case': [ERROR, {
+      allowAllCaps: false, // default
+      allowLeadingUnderscore: false, // default
+      allowNamespace: true,
+      ignore: [], // default
+    }],
     '@stylistic/jsx-props-no-multi-spaces': [ERROR],
+    '@stylistic/jsx-quotes': [ERROR, 'prefer-double'],
     '@stylistic/jsx-self-closing-comp': [ERROR, {
       component: true, // default
       html: true, // default

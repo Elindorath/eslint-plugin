@@ -6,14 +6,18 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     promise: promisePlugin,
   },
 
   rules: {
-    'promise/always-return': [ERROR],
+    'promise/always-return': [ERROR, {
+      ignoreLastCallback: false, // default
+      // Implemented in main, still not in last published version
+      // ignoreAssignmentVariable: [],
+    }],
     // Might be turned OFF
     'promise/avoid-new': [ERROR],
     'promise/catch-or-return': [ERROR, {
@@ -39,7 +43,13 @@ module.exports = {
       rejectPattern: '^_?reject$', // default
     }],
     'promise/prefer-await-to-callbacks': [ERROR],
-    'promise/prefer-await-to-then': [ERROR],
+    'promise/prefer-await-to-then': [ERROR, {
+      strict: true,
+    }],
+    // TODO: Might be configured to use bluebird
+    'promise/spec-only': [ERROR, {
+      allowedMethods: [], // default
+    }],
     // Might be disabled in Typescript projects as it already warn about this
     'promise/valid-params': [ERROR],
   },

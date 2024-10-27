@@ -6,7 +6,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'json-files': jsonFilesPlugin,
@@ -18,6 +18,8 @@ module.exports = {
     'json-files/ensure-repository-directory': [ERROR],
     // OFF as we don't use volta
     'json-files/ensure-volta-extends': [OFF],
+    'json-files/ensure-workspaces': [ERROR],
+    // TODO: Deprecated, replace it by the corresponding one in @stylistic
     'json-files/eol-last': [ERROR, 'always'], // default
     'json-files/no-branch-in-dependencies': [ERROR, {
       keys: [
@@ -73,6 +75,10 @@ module.exports = {
       ],
     }],
     // OFF by default. If enabled, it should be configured on a per file basis.
-    'json-files/validate-schema': [OFF],
+    'json-files/validate-schema': [OFF, {
+      schema: '{}', // Do nothing
+      prettyErrors: true, // default
+      avjFixerOptions: {}, // default
+    }],
   },
 }

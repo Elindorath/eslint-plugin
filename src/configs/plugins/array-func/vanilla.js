@@ -1,14 +1,13 @@
 'use strict'
 
-const arrayFunctionPlugin = require('eslint-plugin-array-func')
+const { default: arrayFunctionPlugin } = require('eslint-plugin-array-func')
 
 
 const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'array-func': arrayFunctionPlugin,

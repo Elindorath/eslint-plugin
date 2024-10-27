@@ -37,7 +37,7 @@ const webpackRules = {
   }],
 }
 
-/** @type {Array<import('eslint').Linter.FlatConfig>} */
+/** @type {Array<import('eslint').Linter.Config>} */
 module.exports = [
   mergeConfigs(vanillaConfig, nodeCommonJsConfig, {
     files: ['**/webpack.config.js'],

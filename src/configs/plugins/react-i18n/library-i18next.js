@@ -10,7 +10,7 @@ const ERROR = 'error'
 
 const functionNames = ['t'] // default
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'react-i18n': reactI18nPlugin,

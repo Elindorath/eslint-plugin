@@ -12,7 +12,7 @@ const INDENT_SPACE_COUNT = 2
 const PARENS_NEW_LINE = 'parens-new-line'
 const LINE_ALIGNED = 'line-aligned'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   // files: ['*.jsx', '*.tsx'],
 
@@ -53,7 +53,7 @@ module.exports = {
       nonEmpty: LINE_ALIGNED,
       selfClosing: LINE_ALIGNED,
     }],
-    'react/jsx-closing-tag-location': [OFF],
+    'react/jsx-closing-tag-location': [OFF, LINE_ALIGNED],
     'react/jsx-curly-brace-presence': [OFF, {
       props: 'never', // default
       children: 'always',
@@ -156,6 +156,7 @@ module.exports = {
       ignore: [], // default
     }],
     'react/jsx-props-no-multi-spaces': [OFF],
+    'react/jsx-props-no-spread-multi': [ERROR],
     // OFF as it doesn't allow HOC
     'react/jsx-props-no-spreading': [OFF, {
       html: 'enforce', // default

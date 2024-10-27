@@ -15,9 +15,7 @@ module.exports = {
   },
 
   rules: {
-    // OFF for obvious reasons
-    'unicorn/prefer-module': [OFF],
-    // OFF as top level await are not allowed in CommonJS format
-    'unicorn/prefer-top-level-await': [OFF],
+    'unicorn/empty-brace-spaces': [ERROR],
+    'unicorn/switch-case-braces': [ERROR, 'always'], // default
   },
 }

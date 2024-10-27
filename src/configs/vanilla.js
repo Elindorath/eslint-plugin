@@ -18,21 +18,20 @@ const promiseVanillaConfig = require('./plugins/promise/vanilla.js')
 const securityVanillaConfig = require('./plugins/security/vanilla.js')
 const simpleImportSortConfig = require('./plugins/simple-import-sort/source-type-module.js')
 const sonarJsVanillaConfig = require('./plugins/sonarjs/vanilla.js')
-const stylisticVanillaConfig = require('./plugins/stylistic/vanilla.js')
+const stylisticVanillaConfig = require('./plugins/stylistic/vanilla-layout.js')
 const ternaryVanillaConfig = require('./plugins/ternary/vanilla.js')
 const unicornVanillaConfig = require('./plugins/unicorn/vanilla.js')
-const xssVanillaConfig = require('./plugins/xss/vanilla.js')
 
 const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = mergeConfigs(
   {
     linterOptions: {
       noInlineConfig: false,
-      reportUnusedDisableDirectives: true,
+      reportUnusedDisableDirectives: ERROR,
     },
   },
   eslintVanillaConfig,
@@ -52,7 +51,6 @@ module.exports = mergeConfigs(
   stylisticVanillaConfig,
   ternaryVanillaConfig,
   unicornVanillaConfig,
-  xssVanillaConfig,
 )
 
 /* eslint-enable */

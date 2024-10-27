@@ -8,7 +8,7 @@ const WARN = 'warn'
 const ERROR = 'error'
 
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     unicorn: unicornPlugin,
@@ -23,11 +23,12 @@ module.exports = {
       ignore: [], // default
     }],
     'unicorn/consistent-destructuring': [ERROR],
+    'unicorn/consistent-empty-array-spread': [ERROR],
+    'unicorn/consistent-existence-index-check': [ERROR],
     'unicorn/consistent-function-scoping': [ERROR, {
       checkArrowFunctions: true, // default
     }],
     'unicorn/custom-error-definition': [ERROR],
-    'unicorn/empty-brace-spaces': [ERROR],
     'unicorn/error-message': [ERROR],
     'unicorn/escape-case': [ERROR],
     // Related to the core rule no-warning-comments
@@ -66,6 +67,7 @@ module.exports = {
     'unicorn/new-for-builtins': [ERROR],
     // TODO: Might be duplicate of the rule eslint-comments/no-unlimited-disable
     'unicorn/no-abusive-eslint-disable': [ERROR],
+    'unicorn/no-anonymous-default-export': [ERROR],
     // Debatable, the usage might prevail
     'unicorn/no-array-callback-reference': [ERROR],
     'unicorn/no-array-for-each': [ERROR],
@@ -78,19 +80,24 @@ module.exports = {
       allowSimpleOperations: true, // default
     }],
     'unicorn/no-await-expression-member': [ERROR],
+    'unicorn/no-await-in-promise-methods': [ERROR],
     'unicorn/no-console-spaces': [ERROR],
     'unicorn/no-empty-file': [ERROR],
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-hex-escape': [ERROR],
     'unicorn/no-instanceof-array': [ERROR],
+    'unicorn/no-invalid-fetch-options': [ERROR],
     // Disabled the check of properties as external libraries don't offer much of a choice here
     'unicorn/no-keyword-prefix': [ERROR, {
       disallowedPrefixes: ['new', 'class'], // default
       checkProperties: false,
       onlyCamelCase: true, // default
     }],
+    'unicorn/no-length-as-slice-end': [ERROR],
     'unicorn/no-lonely-if': [ERROR],
+    'unicorn/no-magic-array-flat-depth': [ERROR],
     'unicorn/no-negated-condition': [ERROR],
+    'unicorn/no-negation-in-equality-check': [ERROR],
     // Supersedes the core rule no-nested-ternary
     'unicorn/no-nested-ternary': [ERROR],
     'unicorn/no-new-array': [ERROR],
@@ -102,6 +109,7 @@ module.exports = {
     'unicorn/no-object-as-default-parameter': [ERROR],
     // Supersedes the core rule no-process-exit
     'unicorn/no-process-exit': [ERROR],
+    'unicorn/no-single-promise-in-promise-methods': [ERROR],
     'unicorn/no-static-only-class': [ERROR],
     'unicorn/no-thenable': [ERROR],
     'unicorn/no-this-assignment': [ERROR],
@@ -109,6 +117,12 @@ module.exports = {
       checkGlobalVariables: true,
     }],
     'unicorn/no-unnecessary-await': [ERROR],
+    // TODO: Should be configured for every supported environments
+    'unicorn/no-unnecessary-polyfills': [ERROR, {
+      targets: {
+        node: 'current',
+      },
+    }],
     // TODO: Check if the core rule 'prefer-destructuring' needs to be tweaked
     'unicorn/no-unreadable-array-destructuring': [ERROR],
     'unicorn/no-unreadable-iife': [ERROR],
@@ -169,9 +183,11 @@ module.exports = {
     'unicorn/prefer-export-from': [ERROR, {
       ignoreUsedVariables: false, // default
     }],
+    'unicorn/prefer-global-this': [ERROR],
     'unicorn/prefer-includes': [ERROR],
     'unicorn/prefer-json-parse-buffer': [ERROR],
     'unicorn/prefer-logical-operator-over-ternary': [ERROR],
+    'unicorn/prefer-math-min-max': [ERROR],
     'unicorn/prefer-math-trunc': [ERROR],
     'unicorn/prefer-modern-math-apis': [ERROR],
     // Debatable, the usage might prevail
@@ -192,10 +208,17 @@ module.exports = {
     'unicorn/prefer-set-size': [ERROR],
     // Related to the core rule prefer-spread
     'unicorn/prefer-spread': [ERROR],
+    'unicorn/prefer-string-raw': [ERROR],
     'unicorn/prefer-string-replace-all': [ERROR],
     'unicorn/prefer-string-slice': [ERROR],
     'unicorn/prefer-string-starts-ends-with': [ERROR],
     'unicorn/prefer-string-trim-start-end': [ERROR],
+    'unicorn/prefer-structured-clone': [ERROR, {
+      functions: [
+        '_.cloneDeep', // default
+        'lodash.cloneDeep', // default
+      ],
+    }],
     'unicorn/prefer-switch': [ERROR, {
       minimumCases: 3, // default
       emptyDefaultCase: 'no-default-comment', // default
@@ -231,7 +254,6 @@ module.exports = {
         },
       },
     }],
-    'unicorn/switch-case-braces': [ERROR, 'always'], // default
     'unicorn/template-indent': [ERROR, {
       // default
       tags: [

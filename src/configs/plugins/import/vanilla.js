@@ -7,7 +7,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     import: importPlugin,
@@ -82,7 +82,9 @@ module.exports = {
 
     /* ----- Static analysis ----- */
     'import/default': [ERROR],
-    'import/named': [ERROR],
+    'import/named': [ERROR, {
+      commonjs: false, // default (undocumented)
+    }],
     'import/namespace': [ERROR, {
       allowComputed: true,
     }],
@@ -98,15 +100,27 @@ module.exports = {
       ignoreExternal: false, // default
       allowUnsafeDynamicCyclicDependency: false, // default
     }],
-    'import/no-dynamic-require': [ERROR],
+    'import/no-dynamic-require': [ERROR, {
+      esmodule: false, // default (undocumented)
+    }],
     // OFF as it would require us to use index files, which is not recommended in regards to tree-shaking
     'import/no-internal-modules': [OFF, {
       allow: [], // default
     }],
     // OFF as it only make sense in Yarn/Lerna workspaces, which we don't use/support
-    'import/no-relative-packages': [OFF],
+    'import/no-relative-packages': [OFF, {
+      commonjs: false, // default (undocumented)
+      amd: false, // default (undocumented)
+      esmodule: true, // default (undocumented)
+      // ignore: [''], // default  (undocumented)
+    }],
     // TODO: Check if it works correctly with aliases
-    'import/no-relative-parent-imports': [ERROR],
+    'import/no-relative-parent-imports': [ERROR, {
+      commonjs: false, // default (undocumented)
+      amd: false, // default (undocumented)
+      esmodule: true, // default (undocumented)
+      // ignore: [''], // default  (undocumented)
+    }],
     // OFF as this rule is project specific
     'import/no-restricted-paths': [OFF, {
       // basePath: process.cwd(),
@@ -137,8 +151,6 @@ module.exports = {
     'import/no-webpack-loader-syntax': [ERROR],
 
     /* ----- Style guide ----- */
-    // Might duplicate warning from the '@typescript-eslint/consistent-type-imports' rule
-    'import/consistent-type-specifier-style': [ERROR],
     'import/dynamic-import-chunkname': [ERROR, {
       importFunctions: ['import'], // default
       webpackChunknameFormat: '[a-zA-Z0-9-/_]+', // default
@@ -151,18 +163,12 @@ module.exports = {
         js: 'ignorePackages',
       },
     }],
-    'import/first': [ERROR],
+    // Might clash with 'import/order' or other similar rules. TODO: check it
+    'import/first': [ERROR, 'absolute-first'],
     'import/group-exports': [ERROR],
     'import/max-dependencies': [ERROR, {
       max: 10, // default
       ignoreTypeImports: true,
-    }],
-    // OFF as it doesn't support comments between imports
-    // See: https://github.com/import-js/eslint-plugin-import/issues/2673
-    'import/newline-after-import': [OFF, {
-      count: 1, // default
-      exactCount: true,
-      considerComments: true,
     }],
     'import/no-anonymous-default-export': [ERROR, {
       allowArray: false, // default
@@ -186,8 +192,16 @@ module.exports = {
     // OFF as we prefer named exports in regards to tree-shaking
     'import/no-named-export': [OFF],
     // OFF as namespace imports can improve readability
-    'import/no-namespace': [OFF],
-    'import/no-unassigned-import': [ERROR],
+    'import/no-namespace': [OFF, {
+      ignore: [], // default
+    }],
+    'import/no-unassigned-import': [ERROR, {
+      // Those are present in schema but are not documented and don't seem to be used
+      // devDependencies: { type: ['boolean', 'array'] },
+      // optionalDependencies: { type: ['boolean', 'array'] },
+      // peerDependencies: { type: ['boolean', 'array'] },
+      allow: [],
+    }],
     // OFF as it conflict with the 'import/order' rule
     'sort-imports': [OFF],
     'import/order': [OFF, {
@@ -220,6 +234,8 @@ module.exports = {
       'warnOnUnassignedImports': false, // default
     }],
     // OFF as we prefer named exports in regards to tree-shaking
-    'import/prefer-default-export': [OFF],
+    'import/prefer-default-export': [OFF, {
+      target: 'single', // default
+    }],
   },
 }
