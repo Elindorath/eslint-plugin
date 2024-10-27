@@ -1,12 +1,12 @@
 'use strict'
 
-const noUseExtendNativePlugin = require('eslint-plugin-no-use-extend-native')
+const { default: noUseExtendNativePlugin } = require('eslint-plugin-no-use-extend-native')
 
 const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'no-use-extend-native': noUseExtendNativePlugin,

@@ -10,7 +10,7 @@ const OFF = 'off'
 const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
 const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   rules: {
     // Possible problems
@@ -224,7 +224,7 @@ module.exports = {
       exceptionPatterns: [], // default
     }],
     // Disabled as the only naming convention enforced is covered by the `camelcase` rule
-    'id-match': [OFF, {
+    'id-match': [OFF, '^.+$', { // default
       properties: false, // default
       classFields: false, // default
       onlyDeclarations: false, // default

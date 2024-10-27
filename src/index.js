@@ -5,7 +5,7 @@
 
 const { name, version } = require('../package.json')
 
-/** @typedef {import('eslint').Linter.FlatConfig} FlatConfig */
+/** @typedef {import('eslint').Linter.Config} Config */
 /** @typedef {import('eslint').ESLint.Plugin} Plugin */
 
 module.exports = {

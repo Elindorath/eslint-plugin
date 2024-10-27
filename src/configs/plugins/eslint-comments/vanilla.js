@@ -2,9 +2,7 @@
 
 const eslintCommentsPlugin = require('@eslint-community/eslint-plugin-eslint-comments')
 
-const OFF = 'off'
-const WARN = 'warn'
-const ERROR = 'error'
+const { OFF, ERROR } = require('../../../constants')
 
 const DIRECTIVES = {
   ENABLE: 'eslint-enable',
@@ -12,7 +10,7 @@ const DIRECTIVES = {
   DISABLE_NEXT_LINE: 'eslint-disable-next-line',
 }
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     '@eslint-community/eslint-comments': eslintCommentsPlugin,
@@ -23,13 +21,19 @@ module.exports = {
     '@eslint-community/eslint-comments/disable-enable-pair': [ERROR, {
       allowWholeFile: false,
     }],
-    // OFF as we prefer to enable more than necessary rather than the other way around
+    // OFF as we prefer to enable more than necessary rather than the other way around.
     '@eslint-community/eslint-comments/no-aggregating-enable': [OFF],
     '@eslint-community/eslint-comments/no-duplicate-disable': [ERROR],
     '@eslint-community/eslint-comments/no-unlimited-disable': [ERROR],
-    // BEWARE: this rule is a bit hacky, be careful with eslint updates
-    // @see: https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html#known-limitations
-    '@eslint-community/eslint-comments/no-unused-disable': [ERROR],
+
+    /**
+     * BEWARE: this rule is a bit hacky, be careful with eslint updates.
+     * @see: https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html#known-limitations
+     *
+     * OFF as this rule relies on the `CLIEngine` class that were deprecated in ESLint v7.0.0.
+     * We use the `linterOptions.reportUnusedDisableDirectives = ERROR` in configurations to achieve the same goal.
+     */
+    '@eslint-community/eslint-comments/no-unused-disable': [OFF],
     '@eslint-community/eslint-comments/no-unused-enable': [ERROR],
 
     /* ----- Stylistic issues ----- */

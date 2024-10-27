@@ -12,7 +12,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = mergeConfigs(nNodeConfig, unicornNodeConfig, {
   languageOptions: {
     globals: {

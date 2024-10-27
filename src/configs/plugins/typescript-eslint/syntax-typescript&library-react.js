@@ -1,15 +1,11 @@
 'use strict'
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin')
-const typescriptParser = require('@typescript-eslint/parser')
+const { plugin: typescriptPlugin, parser: typescriptParser } = require('typescript-eslint')
 
-// const { OFF, ERROR } = require('../constants.js');
-
-const OFF = 'off'
-const ERROR = 'error'
+const { ERROR } = require('../../../constants.js')
 
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 

@@ -2,6 +2,8 @@
 
 const process = require('node:process')
 
+const importPlugin = require('eslint-plugin-import')
+
 
 const OFF = 'off'
 const WARN = 'warn'
@@ -9,6 +11,10 @@ const ERROR = 'error'
 
 
 module.exports = {
+  plugins: {
+    import: importPlugin,
+  },
+
   settings: {
     'import/extensions': [
       '.ts',
@@ -29,7 +35,13 @@ module.exports = {
   rules: {
     /* ----- Helpful warnings ----- */
     // OFF as the plugin doesn't support CommonJS export
-    'import/no-unused-modules': [OFF],
+    'import/no-unused-modules': [OFF, {
+      missingExports: true,
+      unusedExports: true,
+      ignoreUnusedTypeExports: true,
+      src: [process.cwd()],
+      ignoreExports: [],
+    }],
 
     /* ----- Module systems ----- */
     // OFF as we use commonjs in node context
@@ -44,6 +56,8 @@ module.exports = {
     }],
 
     /* ----- Style guide ----- */
+    // Might duplicate warning from the '@typescript-eslint/consistent-type-imports' rule
+    'import/consistent-type-specifier-style': [ERROR, 'prefer-top-level'],
     'import/extensions': [ERROR, 'always', {
       ignorePackages: true,
       pattern: {

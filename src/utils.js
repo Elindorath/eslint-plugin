@@ -1,4 +1,4 @@
-/* eslint-disable import/no-dynamic-require -- TODO: fix */
+/* eslint-disable import/no-dynamic-require, n/global-require -- TODO: fix */
 
 'use strict'
 
@@ -34,7 +34,7 @@ function buildPrefixedRulesFromConfig(prefix, rules, config) {
 
 /**
  * @param {string} rule
- * @param {import('eslint').Linter.FlatConfig} config
+ * @param {import('eslint').Linter.Config} config
  * @returns {import('eslint').Linter.RuleEntry}
  */
 function getRuleConfig(rule, config) {
@@ -131,22 +131,22 @@ function differenceRight(setA, setB) {
 
 /* eslint-enable import/no-dynamic-require */
 
-/** @typedef {import('eslint').Linter.FlatConfig} FlatConfig */
-/** @typedef {Required<FlatConfig>['languageOptions']} LanguageOptions */
-/** @typedef {Required<FlatConfig>['languageOptions']['ecmaVersion']} EcmaVersion */
-/** @typedef {Required<FlatConfig>['languageOptions']['sourceType']} SourceType */
-/** @typedef {Required<FlatConfig>['languageOptions']['globals']} Globals */
-/** @typedef {Required<FlatConfig>['languageOptions']['parser']} Parser */
-/** @typedef {Required<FlatConfig>['languageOptions']['parserOptions']} ParserOptions */
-/** @typedef {Required<FlatConfig>['processor']} Processor */
-/** @typedef {Required<FlatConfig>['plugins']} Plugins */
-/** @typedef {Required<FlatConfig>['rules']} Rules */
-/** @typedef {Required<FlatConfig>['rules'][string]} Rule */
-/** @typedef {Required<FlatConfig>['settings']} Settings */
+/** @typedef {import('eslint').Linter.Config} Config */
+/** @typedef {Required<Config>['languageOptions']} LanguageOptions */
+/** @typedef {Required<Config>['languageOptions']['ecmaVersion']} EcmaVersion */
+/** @typedef {Required<Config>['languageOptions']['sourceType']} SourceType */
+/** @typedef {Required<Config>['languageOptions']['globals']} Globals */
+/** @typedef {Required<Config>['languageOptions']['parser']} Parser */
+/** @typedef {Required<Config>['languageOptions']['parserOptions']} ParserOptions */
+/** @typedef {Required<Config>['processor']} Processor */
+/** @typedef {Required<Config>['plugins']} Plugins */
+/** @typedef {Required<Config>['rules']} Rules */
+/** @typedef {Required<Config>['rules'][string]} Rule */
+/** @typedef {Required<Config>['settings']} Settings */
 
 /**
- * @param  {...FlatConfig} configs
- * @returns {FlatConfig}
+ * @param  {...Config} configs
+ * @returns {Config}
  */
 function mergeConfigs(...configs) {
   let result = {}
@@ -159,9 +159,13 @@ function mergeConfigs(...configs) {
 }
 
 const CONFIG_MERGER = {
+  // TODO: implement this
+  // name: mergeNames,
   files: mergeFiles,
   ignores: mergeIgnores,
   languageOptions: mergeLanguageOptions,
+  // TODO: implement this
+  // linterOptions: mergeLinterOptions,
   processor: mergeProcessor,
   plugins: mergePlugins,
   rules: mergeRules,
@@ -169,15 +173,15 @@ const CONFIG_MERGER = {
 }
 
 /**
- * @param {FlatConfig} config1
- * @param {FlatConfig} config2
- * @returns {FlatConfig}
+ * @param {Config} config1
+ * @param {Config} config2
+ * @returns {Config}
  */
 function mergeTwoConfig(config1, config2) {
   const mergedConfig = {
     linterOptions: {
       noInlineConfig: false,
-      reportUnusedDisableDirectives: true,
+      reportUnusedDisableDirectives: ERROR,
     },
   }
 

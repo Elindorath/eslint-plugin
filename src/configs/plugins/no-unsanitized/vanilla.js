@@ -10,7 +10,7 @@ const SECOND_PROPERTY_INDEX = 1
 const TAGGED_TEMPLATES = ['Sanitizer.escapeHTML', 'escapeHTML']
 const METHODS = ['Sanitizer.unwrapSafeHTML', 'unwrapSafeHTML']
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'no-unsanitized': noUnsanitizedPlugin,
@@ -19,11 +19,12 @@ module.exports = {
   rules: {
     'no-unsanitized/method': [ERROR, {
       objectMatches: undefined, // default
-      disableDefault: false, // default
+      defaultDisable: false, // default
       escape: {
         taggedTemplates: TAGGED_TEMPLATES, // default
         methods: METHODS, // default
       },
+      variableTracing: true, // default
     }, {
       // Check second parameter to .insertAdjacentHTML()
       insertAdjacentHTML: {
@@ -49,12 +50,11 @@ module.exports = {
       },
     }],
     'no-unsanitized/property': [ERROR, {
-      objectMatches: undefined, // default
-      disableDefault: false, // default
       escape: {
         taggedTemplates: TAGGED_TEMPLATES, // default
         methods: METHODS, // default
       },
+      variableTracing: true, // default
     }, {
       innerHTML: {}, // default
       outerHTML: {}, // default

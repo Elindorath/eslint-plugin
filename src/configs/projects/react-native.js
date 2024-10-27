@@ -14,7 +14,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {Array<import('eslint').Linter.FlatConfig>} */
+/** @type {Array<import('eslint').Linter.Config>} */
 module.exports = [
   mergeConfigs(
     vanillaConfig,

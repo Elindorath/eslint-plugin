@@ -5,24 +5,17 @@
 const path = require('node:path')
 const process = require('node:process')
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin')
-const typescriptParser = require('@typescript-eslint/parser')
+const { plugin: typescriptPlugin, parser: typescriptParser } = require('typescript-eslint')
 
-// const { OFF, ERROR } = require('../constants.js');
+const { OFF, ERROR } = require('../../../constants.js')
+const { getRuleConfig } = require('../../../utils.js')
+const baseConfig = require('../eslint/vanilla.js')
 
-const OFF = 'off'
-const ERROR = 'error'
 
-const ANY_OBJECT_MESSAGE = '- If you want a type meaning "any object", you probably want `object` instead.'
-const ANY_VALUE_MESSAGE = '- If you want a type meaning "any value", you probably want `unknown` instead.'
-/* eslint-disable xss/no-mixed-html -- False positives due to confusion with type annotations */
-const EMPTY_OBJECT_MESSAGE = '- If you want a type meaning "empty object", you probably want `Record<string, never>` instead.'
-const EMPTY_OBJECT_SUGGESTION = 'Record<string, never>'
-const NON_NULLABLE_MESSAGE = '- If you really want a type meaning "any non-nullish value", you probably want `NonNullable<unknown>` instead.'
-const NON_NULLABLE_SUGGESTION = 'NonNullable<unknown>'
-/* eslint-enable xss/no-mixed-html */
+// eslint-disable-next-line unicorn/prevent-abbreviations -- To match the rule name
+const [maxParamsSeverity, maxParamsConfig] = getRuleConfig('max-params', baseConfig)
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
@@ -56,70 +49,14 @@ module.exports = {
       'minimumDescriptionLength': 12,
     }],
     '@typescript-eslint/ban-tslint-comment': [ERROR],
-    '@typescript-eslint/ban-types': [ERROR, {
-      types: {
-        // default - section start
-        'String': {
-          message: 'Use string instead',
-          fixWith: 'string',
-        },
-        'Boolean': {
-          message: 'Use boolean instead',
-          fixWith: 'boolean',
-        },
-        'Number': {
-          message: 'Use number instead',
-          fixWith: 'number',
-        },
-        'Symbol': {
-          message: 'Use symbol instead',
-          fixWith: 'symbol',
-        },
-        'BigInt': {
-          message: 'Use bigint instead',
-          fixWith: 'bigint',
-        },
-        'Function': {
-          message: [
-            'The `Function` type accepts any function-like value.',
-            'It provides no type safety when calling the function, which can be a common source of bugs.',
-            'It also accepts things like class declarations, which will throw at runtime as they will not be called with `new`.',
-            'If you are expecting the function to accept certain arguments, you should explicitly define the function shape.',
-          ].join('\n'),
-        },
-        // object typing
-        'Object': {
-          message: [
-            'The `Object` type actually means "any non-nullish value", so it is marginally better than `unknown`.',
-            ANY_OBJECT_MESSAGE,
-            ANY_VALUE_MESSAGE,
-            NON_NULLABLE_MESSAGE,
-          ].join('\n'),
-          suggest: ['object', 'unknown', NON_NULLABLE_SUGGESTION],
-        },
-        '{}': {
-          message: [
-            '`{}` actually means "any non-nullish value".',
-            ANY_OBJECT_MESSAGE,
-            ANY_VALUE_MESSAGE,
-            EMPTY_OBJECT_MESSAGE,
-            NON_NULLABLE_MESSAGE,
-          ].join('\n'),
-          suggest: [
-            'object',
-            'unknown',
-            EMPTY_OBJECT_SUGGESTION,
-            NON_NULLABLE_SUGGESTION,
-          ],
-        },
-        // default - section end
-      },
-    }],
     // Should be 'getters' when used in an publicly exposed lib
     '@typescript-eslint/class-literal-property-style': [ERROR, 'fields'], // default
     '@typescript-eslint/consistent-generic-constructors': [ERROR, 'constructor'], // default
     // Might be debatable, see: https://stackoverflow.com/questions/54100025/difference-between-index-signature-and-record-for-empty-object
     '@typescript-eslint/consistent-indexed-object-style': [ERROR, 'index-signature'],
+    // TODO: Should use tsconfig's noImplicitReturns instead of this rule as it has better coverage
+    'consistent-return': [OFF],
+    '@typescript-eslint/consistent-return': getRuleConfig('consistent-return', baseConfig),
     '@typescript-eslint/consistent-type-assertions': [ERROR, {
       assertionStyle: 'as', // default
       objectLiteralTypeAssertions: 'allow', // default
@@ -341,14 +278,17 @@ module.exports = {
       ignoreArrowShorthand: false, // default
       ignoreVoidOperator: false, // default
     }],
+    '@typescript-eslint/no-deprecated': [ERROR],
     '@typescript-eslint/no-duplicate-enum-values': [ERROR],
     '@typescript-eslint/no-duplicate-type-constituents': [ERROR, {
       ignoreIntersections: false, // default
       ignoreUnions: false, // default
     }],
     '@typescript-eslint/no-dynamic-delete': [ERROR],
-    '@typescript-eslint/no-empty-interface': [ERROR, {
-      allowSingleExtends: false, // default
+    '@typescript-eslint/no-empty-object-type': [ERROR, {
+      allowInterfaces: 'never', // default
+      allowObjectTypes: 'never', // default
+      // allowWithName: '',
     }],
     '@typescript-eslint/no-explicit-any': [ERROR, {
       fixToUnknown: false, // default
@@ -400,7 +340,10 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': [ERROR],
     '@typescript-eslint/no-redundant-type-constituents': [ERROR],
     // Might be disabled for CommonJS context
-    '@typescript-eslint/no-require-imports': [ERROR],
+    '@typescript-eslint/no-require-imports': [ERROR, {
+      allow: [], // default
+      allowAsImport: false, // default
+    }],
     '@typescript-eslint/no-this-alias': [ERROR, {
       allowDestructuring: true, // default
       allowedNames: [], // default
@@ -413,22 +356,37 @@ module.exports = {
       allowConstantLoopConditions: false, // default
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false, // default
     }],
+    '@typescript-eslint/no-unnecessary-parameter-property-assignment': [ERROR],
     '@typescript-eslint/no-unnecessary-qualifier': [ERROR],
+    '@typescript-eslint/no-unnecessary-template-expression': [ERROR],
     '@typescript-eslint/no-unnecessary-type-arguments': [ERROR],
     '@typescript-eslint/no-unnecessary-type-assertion': [ERROR, {
       typesToIgnore: [], // default
     }],
     '@typescript-eslint/no-unnecessary-type-constraint': [ERROR],
+
+    /**
+     * This rule could have unexpected behavior
+     * @see: https://typescript-eslint.io/rules/no-unnecessary-type-parameters
+     */
+    '@typescript-eslint/no-unnecessary-type-parameters': [ERROR],
     '@typescript-eslint/no-unsafe-argument': [ERROR],
     '@typescript-eslint/no-unsafe-assignment': [ERROR],
     '@typescript-eslint/no-unsafe-call': [ERROR],
     '@typescript-eslint/no-unsafe-declaration-merging': [ERROR],
     '@typescript-eslint/no-unsafe-enum-comparison': [ERROR],
+    '@typescript-eslint/no-unsafe-function-type': [ERROR],
     '@typescript-eslint/no-unsafe-member-access': [ERROR],
     '@typescript-eslint/no-unsafe-return': [ERROR],
+    '@typescript-eslint/no-unsafe-unary-minus': [ERROR],
     '@typescript-eslint/no-useless-empty-export': [ERROR],
-    '@typescript-eslint/no-var-requires': [ERROR],
+    '@typescript-eslint/no-wrapper-object-types': [ERROR],
     '@typescript-eslint/non-nullable-type-assertion-style': [ERROR],
+    'no-throw-literal': [OFF],
+    '@typescript-eslint/only-throw-error': [ERROR, {
+      allowThrowingAny: false, // default
+      allowThrowingUnknown: false, // default
+    }],
     '@typescript-eslint/parameter-properties': [ERROR, {
       allow: [], // default
       prefer: 'class-property', // default
@@ -452,6 +410,7 @@ module.exports = {
       enforceForDeclarationWithTypeAnnotation: true,
     }],
     '@typescript-eslint/prefer-enum-initializers': [ERROR],
+    '@typescript-eslint/prefer-find': [ERROR],
     '@typescript-eslint/prefer-for-of': [ERROR],
     '@typescript-eslint/prefer-function-type': [ERROR],
     '@typescript-eslint/prefer-includes': [ERROR],
@@ -481,6 +440,8 @@ module.exports = {
       requireNullish: false, // default
       allowPotentiallyUnsafeFixesThatModifyTheReturnTypeIKnowWhatImDoing: true,
     }],
+    'prefer-promise-reject-errors': [OFF],
+    '@typescript-eslint/prefer-promise-reject-errors': getRuleConfig('prefer-promise-reject-errors', baseConfig),
     '@typescript-eslint/prefer-readonly': [ERROR, {
       onlyInlineLambdas: false, // default
     }],
@@ -503,8 +464,9 @@ module.exports = {
     // Disabled because it enforces a inconsistant way to use regex depending on flags usage
     '@typescript-eslint/prefer-regexp-exec': [OFF],
     '@typescript-eslint/prefer-return-this-type': [ERROR],
-    '@typescript-eslint/prefer-string-starts-ends-with': [ERROR],
-    '@typescript-eslint/prefer-ts-expect-error': [ERROR],
+    '@typescript-eslint/prefer-string-starts-ends-with': [ERROR, {
+      allowSingleElementEquality: 'never', // default
+    }],
     '@typescript-eslint/promise-function-async': [ERROR, {
       allowAny: true, // default
       allowedPromiseNames: [], // default
@@ -532,26 +494,6 @@ module.exports = {
       allowNumber: true, // default
       allowRegExp: true, // default
     }],
-    // `groupOrder` might be tweaked in the future
-    '@typescript-eslint/sort-type-constituents': [ERROR, {
-      checkIntersections: true, // default
-      checkUnions: true, // default
-      // default
-      groupOrder: [
-        'named',
-        'keyword',
-        'operator',
-        'literal',
-        'function',
-        'import',
-        'conditional',
-        'object',
-        'tuple',
-        'intersection',
-        'union',
-        'nullish',
-      ],
-    }],
     '@typescript-eslint/strict-boolean-expressions': [ERROR, {
       allowString: true, // default
       allowNumber: true, // default
@@ -563,7 +505,10 @@ module.exports = {
       allowAny: false, // default
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false, // default
     }],
-    '@typescript-eslint/switch-exhaustiveness-check': [ERROR],
+    '@typescript-eslint/switch-exhaustiveness-check': [ERROR, {
+      allowDefaultCaseForExhaustiveSwitch: false,
+      requireDefaultForNonUnion: true,
+    }],
     '@typescript-eslint/triple-slash-reference': [ERROR, {
       lib: 'never',
       path: 'never', // default
@@ -606,8 +551,14 @@ module.exports = {
     }],
     'init-declarations': [OFF],
     '@typescript-eslint/init-declarations': [ERROR, 'always'],
+    'max-params': [OFF],
+    '@typescript-eslint/max-params': [maxParamsSeverity, {
+      ...maxParamsConfig,
+      countVoidThis: false, // default
+    }],
     'no-array-constructor': [OFF],
     '@typescript-eslint/no-array-constructor': [ERROR],
+    '@typescript-eslint/no-array-delete': [ERROR],
     // Disabled as Typescript compiler already checks this
     'no-dupe-class-members': [OFF],
     '@typescript-eslint/no-dupe-class-members': [OFF],
@@ -616,9 +567,6 @@ module.exports = {
     '@typescript-eslint/no-empty-function': [ERROR, {
       allow: [], // default
     }],
-    // Might be disabled in case we use a formatter that already catch extra semi
-    'no-extra-semi': [OFF],
-    '@typescript-eslint/no-extra-semi': [ERROR],
     'no-implied-eval': [OFF],
     '@typescript-eslint/no-implied-eval': [ERROR],
     // Disabled as Typescript compiler already checks this with the `noImplicitThis` option
@@ -628,8 +576,6 @@ module.exports = {
     }],
     'no-loop-func': [OFF],
     '@typescript-eslint/no-loop-func': [ERROR],
-    'no-loss-of-precision': [OFF],
-    '@typescript-eslint/no-loss-of-precision': [ERROR],
     // Might be tweaked for comfort in the future
     'no-magic-numbers': [OFF],
     '@typescript-eslint/no-magic-numbers': [ERROR, {
@@ -671,6 +617,20 @@ module.exports = {
         },
       ],
     }],
+    '@typescript-eslint/no-restricted-types': [ERROR, {
+      /**
+       * Restriction of wrapper object types are handled by the @typescript-eslint/no-wrapper-object-types rule
+       * Restriction of `{}` type is handled by the @typescript-eslint/no-empty-object-type rule
+       * Restriction of the `Function` wrapper type is handled by the @typescript-eslint/no-unsafe-function-type rule
+       */
+      // types: {
+      //   TypeName: {
+      //     message: '',
+      //     fixWith: '',
+      //     suggest: [''],
+      //   },
+      // },
+    }],
     'no-shadow': [OFF],
     '@typescript-eslint/no-shadow': [ERROR, {
       builtinGlobals: true,
@@ -680,11 +640,6 @@ module.exports = {
       ignoreOnInitialization: false, // default
       ignoreTypeValueShadow: false,
       ignoreFunctionTypeParameterNameValueShadow: false,
-    }],
-    'no-throw-literal': [OFF],
-    '@typescript-eslint/no-throw-literal': [ERROR, {
-      allowThrowingAny: false, // default
-      allowThrowingUnknown: false, // default
     }],
     'no-unused-expressions': [OFF],
     '@typescript-eslint/no-unused-expressions': [ERROR, {
@@ -721,27 +676,7 @@ module.exports = {
     '@typescript-eslint/require-await': [ERROR],
     'no-return-await': [OFF],
     '@typescript-eslint/return-await': [ERROR, 'in-try-catch'], // default
-    // Formatting rules
-    // All formatting rules are disabled in favor of a dedicated formatter tool
-    '@typescript-eslint/block-spacing': [OFF],
-    '@typescript-eslint/brace-style': [OFF],
-    '@typescript-eslint/comma-dangle': [OFF],
-    '@typescript-eslint/comma-spacing': [OFF],
-    '@typescript-eslint/func-call-spacing': [OFF],
-    '@typescript-eslint/indent': [OFF],
-    '@typescript-eslint/key-spacing': [OFF],
-    '@typescript-eslint/keyword-spacing': [OFF],
-    '@typescript-eslint/lines-around-comment': [OFF],
-    '@typescript-eslint/lines-between-class-members': [OFF],
-    '@typescript-eslint/member-delimiter-style': [OFF],
-    '@typescript-eslint/no-extra-parens': [OFF],
-    '@typescript-eslint/padding-line-between-statements': [OFF],
-    '@typescript-eslint/quotes': [OFF],
-    '@typescript-eslint/semi': [OFF],
-    '@typescript-eslint/space-before-blocks': [OFF],
-    '@typescript-eslint/space-before-function-paren': [OFF],
-    '@typescript-eslint/space-infix-ops': [OFF],
-    '@typescript-eslint/type-annotation-spacing': [OFF],
+    '@typescript-eslint/use-unknown-in-catch-callback-variable': [ERROR],
   },
 }
 

@@ -10,7 +10,7 @@ const MAX_COGNITIVE_COMPLEXITY = 15
 const MAX_SWITCH_CASES = 30
 const MIN_FUNCTION_BODY_LINE_COUNT = 3
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     sonarjs: sonarJsPlugin,

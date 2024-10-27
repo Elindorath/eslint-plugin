@@ -7,7 +7,7 @@ const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     jest: jestPlugin,
@@ -59,10 +59,10 @@ module.exports = {
       allowedSnapshots: {}, // default
     }],
     'jest/no-mocks-import': [ERROR],
-    // Should be populated with unwanted jest methods
-    'jest/no-restricted-jest-methods': [ERROR],
-    // Should be populated with unwanted matchers
-    'jest/no-restricted-matchers': [ERROR],
+    // TODO: Should be populated with unwanted jest methods
+    'jest/no-restricted-jest-methods': [ERROR, {}], // default
+    // TODO: Should be populated with unwanted matchers
+    'jest/no-restricted-matchers': [ERROR, {}], // default
     'jest/no-standalone-expect': [ERROR, {
       additionalTestBlockFunctions: [], // default
     }],
@@ -70,6 +70,14 @@ module.exports = {
     'jest/no-test-return-statement': [ERROR],
     // OFF as it requires typescript
     'jest/no-untyped-mock-factory': [OFF],
+    'jest/padding-around-after-all-blocks': [ERROR],
+    'jest/padding-around-after-each-blocks': [ERROR],
+    'jest/padding-around-all': [ERROR],
+    'jest/padding-around-before-all-blocks': [ERROR],
+    'jest/padding-around-before-each-blocks': [ERROR],
+    'jest/padding-around-describe-blocks': [ERROR],
+    'jest/padding-around-expect-groups': [ERROR],
+    'jest/padding-around-test-blocks': [ERROR],
     'jest/prefer-called-with': [ERROR],
     'jest/prefer-comparison-matcher': [ERROR],
     'jest/prefer-each': [ERROR],
@@ -82,6 +90,10 @@ module.exports = {
     'jest/prefer-expect-resolves': [ERROR],
     'jest/prefer-hooks-in-order': [ERROR],
     'jest/prefer-hooks-on-top': [ERROR],
+    'jest/prefer-importing-jest-globals': [ERROR, {
+      types: [], // default
+    }],
+    'jest/prefer-jest-mocked': [ERROR],
     'jest/prefer-lowercase-title': [ERROR, {
       ignore: [], // default
       allowedPrefixes: [], // default
@@ -94,7 +106,6 @@ module.exports = {
     'jest/prefer-to-be': [ERROR],
     'jest/prefer-to-contain': [ERROR],
     'jest/prefer-to-have-length': [ERROR],
-    'jest/prefer-todo': [ERROR],
     'jest/require-hook': [ERROR, {
       allowedFunctionCalls: [], // default
     }],
@@ -102,8 +113,6 @@ module.exports = {
     'jest/require-top-level-describe': [ERROR, {
       maxNumberOfTopLevelDescribes: 1,
     }],
-    // OFF as it requires typescript
-    'jest/unbound-method': [OFF],
     'jest/valid-describe-callback': [ERROR],
     'jest/valid-expect-in-promise': [ERROR],
     'jest/valid-expect': [ERROR, {

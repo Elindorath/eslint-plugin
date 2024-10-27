@@ -1,18 +1,22 @@
+/* eslint-disable n/no-sync -- TODO: Find a better way to handle this */
+
 'use strict'
 
 const eslintPluginPlugin = require('eslint-plugin-eslint-plugin')
-const readPackageUp = require('read-package-up')
+const { readPackageUpSync } = require('read-package-up')
 
 const OFF = 'off'
 const WARN = 'warn'
 const ERROR = 'error'
 
 // TODO: Find a way to let cwd be the root directory in which the config is used
-const { packageJson } = readPackageUp.sync({ cwd: __dirname, normalize: true })
-const repositoryUrl = packageJson.repository.url.replace('git+', '')
+const { packageJson } = readPackageUpSync({ cwd: __dirname, normalize: true })
+/* eslint-enable */
+const repositoryUrl = packageJson.repository.url ?? packageJson.repository
+const normalizedRepositoryUrl = repositoryUrl.replace('git+', '').replace('github:', 'https://github.com/')
 const { version } = packageJson
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'eslint-plugin': eslintPluginPlugin,
@@ -37,6 +41,9 @@ module.exports = {
     'eslint-plugin/no-identical-tests': [ERROR],
     'eslint-plugin/no-missing-message-ids': [ERROR],
     'eslint-plugin/no-missing-placeholders': [ERROR],
+    'eslint-plugin/no-property-in-node': [ERROR, {
+      additionalNodeTypeFiles: [], // default
+    }],
     'eslint-plugin/no-only-tests': [ERROR],
     'eslint-plugin/no-unused-message-ids': [ERROR],
     'eslint-plugin/no-unused-placeholders': [ERROR],
@@ -50,8 +57,11 @@ module.exports = {
     'eslint-plugin/require-meta-docs-description': [ERROR, {
       pattern: '^(enforce|require|disallow)', // default
     }],
+    'eslint-plugin/require-meta-docs-recommended': [ERROR, {
+      allowNonBoolean: false, // default
+    }],
     'eslint-plugin/require-meta-docs-url': [ERROR, {
-      pattern: `${repositoryUrl}/blob/v${version}/docs/rules/{{name}}.md`,
+      pattern: `${normalizedRepositoryUrl}/blob/v${version}/docs/rules/{{name}}.md`,
     }],
     'eslint-plugin/require-meta-fixable': [ERROR, {
       catchNoFixerButFixableProperty: true,
@@ -60,6 +70,7 @@ module.exports = {
     'eslint-plugin/require-meta-schema': [ERROR, {
       requireSchemaPropertyWhenOptionless: true,
     }],
+    'eslint-plugin/require-meta-schema-description': [ERROR],
     'eslint-plugin/require-meta-type': [ERROR],
     'eslint-plugin/test-case-property-ordering': [ERROR, [
       // default

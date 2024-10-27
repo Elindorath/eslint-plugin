@@ -25,7 +25,7 @@ const interactiveHandlers = [
 ]
 
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   plugins: {
     'jsx-a11y': jsxA11yPlugin,
@@ -58,18 +58,18 @@ module.exports = {
       specialLink: ['href', 'url'],
       aspects: ['noHref', 'invalidHref', 'preferButton'], // default
     }],
-    'jsx-a11y/aria-activedescendant-has-tabindex': [ERROR],
-    'jsx-a11y/aria-props': [ERROR],
-    'jsx-a11y/aria-proptypes': [ERROR],
+    'jsx-a11y/aria-activedescendant-has-tabindex': [ERROR, {}],
+    'jsx-a11y/aria-props': [ERROR, {}],
+    'jsx-a11y/aria-proptypes': [ERROR, {}],
     'jsx-a11y/aria-role': [ERROR, {
       allowedInvalidRoles: [],
       ignoreNonDOM: false, // default
     }],
-    'jsx-a11y/aria-unsupported-elements': [ERROR],
+    'jsx-a11y/aria-unsupported-elements': [ERROR, {}],
     'jsx-a11y/autocomplete-valid': [ERROR, {
       inputComponents,
     }],
-    'jsx-a11y/click-events-have-key-events': [ERROR],
+    'jsx-a11y/click-events-have-key-events': [ERROR, {}],
     'jsx-a11y/control-has-associated-label': [ERROR, {
       labelAttributes,
       controlComponents,
@@ -80,8 +80,8 @@ module.exports = {
     'jsx-a11y/heading-has-content': [ERROR, {
       components: [], // default
     }],
-    'jsx-a11y/html-has-lang': [ERROR],
-    'jsx-a11y/iframe-has-title': [ERROR],
+    'jsx-a11y/html-has-lang': [ERROR, {}],
+    'jsx-a11y/iframe-has-title': [ERROR, {}],
     'jsx-a11y/img-redundant-alt': [ERROR, {
       components: imageComponents,
       words: ['image', 'photo', 'picture'],
@@ -104,7 +104,7 @@ module.exports = {
       assert: 'both',
       depth: 2, // default
     }],
-    'jsx-a11y/lang': [ERROR],
+    'jsx-a11y/lang': [ERROR, {}],
     'jsx-a11y/media-has-caption': [ERROR, {
       audio: ['Audio'],
       video: ['Video'],
@@ -124,8 +124,8 @@ module.exports = {
         'onPointerLeave',
       ],
     }],
-    'jsx-a11y/no-access-key': [ERROR],
-    'jsx-a11y/no-aria-hidden-on-focusable': [ERROR],
+    'jsx-a11y/no-access-key': [ERROR, {}],
+    'jsx-a11y/no-aria-hidden-on-focusable': [ERROR, {}],
     // OFF as autofocus could be a major UX improvements
     'jsx-a11y/no-autofocus': [OFF, {
       ignoreNonDOM: false, // default
@@ -160,10 +160,10 @@ module.exports = {
       handlers: interactiveHandlers,
       allowExpressionValues: true,
     }],
-    'jsx-a11y/prefer-tag-over-role': [ERROR],
-    'jsx-a11y/role-has-required-aria-props': [ERROR],
-    'jsx-a11y/role-supports-aria-props': [ERROR],
-    'jsx-a11y/scope': [ERROR],
-    'jsx-a11y/tabindex-no-positive': [ERROR],
+    'jsx-a11y/prefer-tag-over-role': [ERROR, {}],
+    'jsx-a11y/role-has-required-aria-props': [ERROR, {}],
+    'jsx-a11y/role-supports-aria-props': [ERROR, {}],
+    'jsx-a11y/scope': [ERROR, {}],
+    'jsx-a11y/tabindex-no-positive': [ERROR, {}],
   },
 }

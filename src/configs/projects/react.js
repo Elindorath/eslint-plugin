@@ -8,7 +8,7 @@ const overrideEslintConfig = require('../overrides/eslint-config.js')
 const overrideJestTestsConfig = require('../overrides/jest-tests.js')
 const overrideWebpackConfig = require('../overrides/webpack-config.js')
 const importBrowserConfig = require('../plugins/import/environment-browser.js')
-const typescriptReactConfig = require('../plugins/typescript/syntax-typescript&library-react.js')
+const typescriptReactConfig = require('../plugins/typescript-eslint/syntax-typescript&library-react.js')
 const unicornBrowserConfig = require('../plugins/unicorn/environment-browser.js')
 const typescriptConfig = require('../syntax-typescript.js')
 const vanillaConfig = require('../vanilla.js')
@@ -19,7 +19,7 @@ const ERROR = 'error'
 
 const cssFilesGlob = '**/*.css.ts'
 
-/** @type {Array<import('eslint').Linter.FlatConfig>} */
+/** @type {Array<import('eslint').Linter.Config>} */
 module.exports = [
   mergeConfigs(
     vanillaConfig,
