@@ -9,6 +9,9 @@
 - [ ] Flag non-default configuration values instead of the default one
 - [ ] Write missing rules for ESLint from [wotan](https://github.com/fimbullinter/wotan)
 - [ ] Consider using:
+  - [ ] [ts-extras](https://github.com/sindresorhus/ts-extras)
+  - [ ] [is](https://github.com/sindresorhus/is)
+  - [ ] [eslint-formatter-pretty](https://github.com/sindresorhus/eslint-formatter-pretty)
   - [ ] [eslint-formatter-github](https://github.com/hipstersmoothie/eslint-formatter-github)
   - [ ] [confusing-browser-globals](https://github.com/facebook/create-react-app/tree/main/packages/confusing-browser-globals)
   - [ ] <https://github.com/semantic-release/semantic-release>
@@ -62,9 +65,10 @@
     return elindorathPlugin.configs['project-eslint-plugin']
   })()
   ```
+
 ## Deps warnings to resolve
 
-```
+```log
 warning " > eslint-plugin-filenames-simple@0.9.0" has incorrect peer dependency "eslint@>=7.0.0 <9.0.0".
 warning "eslint-plugin-jest-extended > @typescript-eslint/utils@5.62.0" has incorrect peer dependency "eslint@^6.0.0 || ^7.0.0 || ^8.0.0".
 warning " > eslint-plugin-react-i18n@1.0.3" has incorrect peer dependency "eslint@^3 || ^4 || ^5 || ^6".
