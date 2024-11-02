@@ -26,15 +26,15 @@ export function getRuleConfig(rule: string, config: Linter.Config) {
   const formattedConfigName = config.name ? ` ${config.name}` : ''
 
   if (!config.rules) {
-    throw new Error(`config${formattedConfigName} has no rules`)
+    throw new TypeError(`config${formattedConfigName} has no rules`)
   }
 
   if (!config.rules[rule]) {
-    throw new Error(`config${formattedConfigName} has no '${rule}' rule`)
+    throw new TypeError(`config${formattedConfigName} has no '${rule}' rule`)
   }
 
   if (!Array.isArray(config.rules[rule])) {
-    throw new Error(`${rule} rule is not configured as an array`)
+    throw new TypeError(`${rule} rule is not configured as an array`)
   }
 
   const ruleConfig = config.rules[rule]

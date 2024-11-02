@@ -35,8 +35,8 @@ export const typescriptConfig: Linter.Config = {
     // Typescript rules
     '@typescript-eslint/adjacent-overload-signatures': [ERROR],
     '@typescript-eslint/array-type': [ERROR, {
-      default: 'generic',
-      readonly: 'generic',
+      default: 'array-simple',
+      readonly: 'array-simple',
     }],
     '@typescript-eslint/await-thenable': [ERROR],
     '@typescript-eslint/ban-ts-comment': [ERROR, {

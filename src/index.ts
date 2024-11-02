@@ -1,34 +1,25 @@
 /* eslint-disable filenames-simple/no-index -- This is the entrypoint */
-/* eslint-disable n/global-require -- Respect the format of eslint-plugin */
 
-import { ESLint } from 'eslint'
+import { name, version } from '../package.json' with { type: 'json' }
 
-import { name, version } from '../package.json'
+import configs from './configs'
+import * as utils from './utils'
 
-// const { name, version } = require('../package.json')
 
-/** @typedef {import('eslint').Linter.Config} Config */
-/** @typedef {import('eslint').ESLint.Plugin} Plugin */
-
-const index: ESLint.Plugin = {
+const plugin = {
   meta: {
     name,
     version,
   },
-  configs:
+
+  configs,
+  // environments,
+  // languages,
+  // processors,
+  // rules,
+  utils,
 }
 
-module.exports = {
-  meta: {
-    name,
-    version,
-  },
-  configs: require('./configs.js'),
-  // environments: require('./lib/environments'),
-  // processors: require('./lib/processors'),
-  // rules: require('./lib/rules'),
-  // TODO: Decide about it
-  utils: require('./utils.js'),
-}
+export default plugin
 
 /* eslint-enable */

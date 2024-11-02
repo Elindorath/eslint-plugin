@@ -15,7 +15,6 @@ import { noUseExtendNativeVanillaConfig } from './plugins/no-use-extend-native/v
 import { perfectionistVanillaConfig } from './plugins/perfectionist/vanilla'
 import { promiseVanillaConfig } from './plugins/promise/vanilla'
 import { securityVanillaConfig } from './plugins/security/vanilla'
-import { simpleImportSortConfig } from './plugins/simple-import-sort/source-type-module'
 import { sonarJsVanillaConfig } from './plugins/sonarjs/vanilla'
 import { ternaryVanillaConfig } from './plugins/ternary/vanilla'
 import { unicornVanillaConfig } from './plugins/unicorn/vanilla'
@@ -40,7 +39,6 @@ export const vanillaConfig = mergeConfigs(
   perfectionistVanillaConfig,
   promiseVanillaConfig,
   securityVanillaConfig,
-  simpleImportSortConfig,
   sonarJsVanillaConfig,
   ternaryVanillaConfig,
   unicornVanillaConfig,

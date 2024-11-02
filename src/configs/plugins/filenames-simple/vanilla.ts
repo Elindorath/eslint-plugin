@@ -1,16 +1,15 @@
 import type { Linter } from 'eslint'
 
+import { fixupPluginRules } from '@eslint/compat'
 import filenamesSimplePlugin from 'eslint-plugin-filenames-simple'
-// import filenamesSimplePlugin from './_compat'
 
 import { OFF, ERROR } from '../../../constants'
-
-// console.log(filenamesSimplePlugin)
 
 
 export const filenamesVanillaConfig: Linter.Config = {
   plugins: {
-    'filenames-simple': filenamesSimplePlugin,
+    // TODO: remove the compatibility wrapper when plugin add support for ESLint v9
+    'filenames-simple': fixupPluginRules(filenamesSimplePlugin),
   },
 
   rules: {

@@ -1,6 +1,6 @@
-import type { Linter } from 'eslint'
-
 import { ERROR } from './constants'
+
+import type { Linter } from 'eslint'
 
 
 type LanguageOptions = Linter.Config['languageOptions']
@@ -34,14 +34,14 @@ const CONFIG_MERGER = {
   languageOptions: mergeLanguageOptions,
   // TODO: implement this
   // linterOptions: mergeLinterOptions,
-  processor: mergeProcessor,
   plugins: mergePlugins,
+  processor: mergeProcessor,
   rules: mergeRules,
   settings: mergeSettings,
 } as const
 
 function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
-  const mergedConfig = {
+  const mergedConfig: Linter.Config = {
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: ERROR,
@@ -53,22 +53,46 @@ function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
 
     if (property === 'files') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'ignores') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'languageOptions') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'processor') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'plugins') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'rules') {
       mergedValue = merger(config1[property], config2[property])
+
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     } else if (property === 'settings') {
       mergedValue = merger(config1[property], config2[property])
-    }
 
-    if ((Array.isArray(mergedValue) && mergedValue.length > 0) || mergedValue) {
-      mergedConfig[property] = mergedValue
+      if (mergedValue) {
+        mergedConfig[property] = mergedValue
+      }
     }
   }
 
@@ -110,24 +134,25 @@ const LANGUAGE_OPTIONS_MERGER = {
 } as const
 
 function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions2: LanguageOptions) {
-  const mergedLanguageOptions = {}
+  const mergedLanguageOptions: Linter.LanguageOptions = {}
 
   for (const [property, merger] of objectEntries(LANGUAGE_OPTIONS_MERGER)) {
     let mergedValue
 
     if (property === 'ecmaVersion') {
       mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
+      mergedLanguageOptions[property] = mergedValue
     } else if (property === 'sourceType') {
       mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-    }else if (property === 'parser') {
+      mergedLanguageOptions[property] = mergedValue
+    } else if (property === 'parser') {
       mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
+      mergedLanguageOptions[property] = mergedValue
     } else if (property === 'parserOptions') {
       mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
+      mergedLanguageOptions[property] = mergedValue
     } else if (property === 'globals') {
       mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-    }
-
-    if (mergedValue) {
       mergedLanguageOptions[property] = mergedValue
     }
   }
@@ -259,6 +284,6 @@ type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
 
-function objectEntries<T extends object>(object: T) {
-  return Object.entries(object) as Entries<T>
-}
+const objectEntries = Object.entries as <T extends object>(object: T) => {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][]

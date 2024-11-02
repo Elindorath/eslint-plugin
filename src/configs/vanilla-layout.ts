@@ -6,7 +6,7 @@ import { importVanillaLayoutConfig } from './plugins/import/vanilla-layout'
 import { stylisticVanillaLayoutConfig } from './plugins/stylistic/vanilla-layout'
 import { unicornVanillaLayoutConfig } from './plugins/unicorn/vanilla-layout'
 
-export const vanillaConfig = mergeConfigs(
+export const vanillaLayoutConfig = mergeConfigs(
   {
     linterOptions: {
       noInlineConfig: false,

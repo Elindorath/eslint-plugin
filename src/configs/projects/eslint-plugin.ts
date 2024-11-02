@@ -1,21 +1,29 @@
 import type { Linter } from 'eslint'
 
+import { getRuleConfig } from '../../utils'
 import { mergeConfigs } from '../../configMerger'
-import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs'
+import { environmentNodeConfig } from '../environment-node'
 import { overrideEslintConfig } from '../overrides/eslint-config'
 import { overridePackageJsonConfig } from '../overrides/package-json'
 import { overrideScriptsConfig } from '../overrides/scripts'
+import { syntaxTypescriptConfig } from '../syntax-typescript'
+import { vanillaLayoutConfig } from '../vanilla-layout'
 import { vanillaConfig } from '../vanilla'
 
 import { OFF, ERROR } from '../../constants'
 
 
+const typescriptNamingConventionRuleConfig = getRuleConfig('@typescript-eslint/naming-convention', syntaxTypescriptConfig)
+const [severity, ...options] = typescriptNamingConventionRuleConfig
+
 export const projectEslintPluginConfig: Linter.Config[] = [
   mergeConfigs(
     vanillaConfig,
-    environmentNodeSourceTypeCommonJsConfig,
+    vanillaLayoutConfig,
+    syntaxTypescriptConfig,
+    environmentNodeConfig,
     {
-      files: ['**/*.js'],
+      files: ['**/*.ts'],
       rules: {
         'sort-keys': [OFF],
         'no-unused-vars': [ERROR, {
@@ -56,6 +64,14 @@ export const projectEslintPluginConfig: Linter.Config[] = [
         }],
         // OFF as it prevents us to respect the rule configuration format convention
         '@stylistic/array-bracket-newline': [OFF],
+        '@typescript-eslint/naming-convention': [severity,
+          ...options,
+          {
+            selector: 'property',
+            format: null,
+            modifiers: ['requiresQuotes'],
+          },
+        ],
       },
     },
   ),
@@ -63,33 +79,3 @@ export const projectEslintPluginConfig: Linter.Config[] = [
   overridePackageJsonConfig,
   overrideScriptsConfig,
 ]
-
-// module.exports = {
-//   extends: [
-//     require.resolve('./common'),
-//     require.resolve('./+script-type'),
-//     require.resolve('./+node'),
-//     require.resolve('./+eslintrc'),
-//     require.resolve('./_override-scripts'),
-//   ],
-//   rules: {
-//     '@elindorath/filenames/match-regex': [ERROR, /^\.?[+-_]?[\da-z-]+$/gu],
-//     // OFF to respect the eslint-plugin formatting standard
-//     '@elindorath/node/global-require': [OFF],
-//     // OFF to respect the eslint-plugin formatting standard
-//     '@elindorath/import/max-dependencies': [OFF],
-//     // Disabled filenames check to respect eslint plugin name
-//     '@elindorath/unicorn/prevent-abbreviations': [ERROR, {
-//       replacements: {}, // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/rules/prevent-abbreviations.js#L18
-//       extendDefaultReplacements: true, // Default
-//       whitelist: {}, // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/rules/prevent-abbreviations.js#L222
-//       extendDefaultWhitelist: true, // Default
-//       checkDefaultAndNamespaceImports: 'internal', // Default
-//       checkShorthandImports: 'internal', // Default
-//       checkShorthandProperties: false, // Default
-//       checkProperties: false, // Default
-//       checkVariables: true, // Default
-//       checkFilenames: false,
-//     }],
-//   },
-// };

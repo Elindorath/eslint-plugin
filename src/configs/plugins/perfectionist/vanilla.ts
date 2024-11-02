@@ -10,11 +10,13 @@ export const perfectionistVanillaConfig: Linter.Config = {
   },
 
   settings: {
-    type: 'natural',
-    order: 'asc',
-    ignoreCase: true,
-    specialCharacters: 'keep',
-    matcher: 'minimatch', // default
+    perfectionist: {
+      type: 'natural',
+      order: 'asc',
+      ignoreCase: true,
+      specialCharacters: 'keep',
+      matcher: 'minimatch', // default
+    }
 
     /**
      * All settings:
@@ -105,15 +107,21 @@ export const perfectionistVanillaConfig: Linter.Config = {
       sortSideEffects: false, // default
       newlinesBetween: 'always', // default
       maxLineLength: undefined, // default
-      groups: [ // default
-        'type',
-        ['builtin', 'external'],
-        'internal-type',
+      groups: [
+        'builtin',
+        'external',
         'internal',
-        ['parent-type', 'sibling-type', 'index-type'],
-        ['parent', 'sibling', 'index'],
-        'object',
+        'parent',
+        'index',
+        'sibling',
         'unknown',
+        'builtin-type',
+        'external-type',
+        'internal-type',
+        'parent-type',
+        'index-type',
+        'sibling-type',
+        'type',
       ],
       customGroups: { type: {}, value: {} }, // default
       environment: 'node', // default
@@ -197,7 +205,7 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ignoreCase: true,
       specialCharacters: 'keep',
       partitionByComment: false,
-      partitionByNewLine: false,
+      partitionByNewLine: true,
       matcher: 'minimatch',
 
       groupKind: 'required-first',
@@ -212,7 +220,7 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       ignorePattern: [],
       partitionByComment: false,
-      partitionByNewLine: false,
+      partitionByNewLine: true,
       matcher: 'minimatch',
 
       destructureOnly: false, // default

@@ -18,11 +18,13 @@
   "type": "module",
   "scripts": {
     "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js",
-    "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
-    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix ."
+    "lint": "NODE_OPTIONS='--experimental-require-module' eslint --flag unstable_ts_config .",
+    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --flag unstable_ts_config --fix .",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
+    "@eslint/compat": "^1.2.2",
     "@eslint/markdown": "^6.2.1",
     "@stylistic/eslint-plugin": "^2.10.1",
     "eslint": "^9.13.0",
@@ -54,7 +56,6 @@
     "eslint-plugin-react-native-a11y": "^3.5.0",
     "eslint-plugin-react-perf": "^3.3.3",
     "eslint-plugin-security": "^3.0.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-sonarjs": "^2.0.4",
     "eslint-plugin-ternary": "^2.0.0",
     "eslint-plugin-unicorn": "^56.0.0",
@@ -73,6 +74,7 @@
     "@types/node": "^20.17.3",
     "ajv": "^6.12.6",
     "better-typescript-lib": "^2.9.0",
+    "jiti": "^2.4.0",
     "pkg-dir": "^8.0.0",
     "tsx": "^4.19.2",
     "type-fest": "^4.26.1"

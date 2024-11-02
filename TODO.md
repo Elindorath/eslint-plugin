@@ -8,6 +8,7 @@
 - [ ] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
 - [ ] Flag non-default configuration values instead of the default one
 - [ ] Write missing rules for ESLint from [wotan](https://github.com/fimbullinter/wotan)
+- [ ] Develop a typescript error formatter
 - [ ] Consider using:
   - [ ] [ts-extras](https://github.com/sindresorhus/ts-extras)
   - [ ] [is](https://github.com/sindresorhus/is)
@@ -33,6 +34,8 @@
 
 ## PRs to make
 
+- [ ] Make [eslint-plugin-filenames-simple](https://github.com/epaew/eslint-plugin-filenames-simple) compatible with ESLint v9 (following [#705](https://github.com/epaew/eslint-plugin-filenames-simple/issues/705))
+- [ ] Enhance `Object.entries` typing in [ts-extras](https://github.com/sindresorhus/ts-extras)
 - [ ] Modernize or fork [eslint-plugin-self](https://github.com/not-an-aardvark/eslint-plugin-self)
 - [ ] Modernize [eslint-plugin-pii](https://github.com/shiva-hack/eslint-plugin-pii)
 - [ ] Rework the schema generator of [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) and [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y) to not require an object ??

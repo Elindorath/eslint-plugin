@@ -152,16 +152,16 @@ export const importVanillaConfig: Linter.Config = {
       importFunctions: ['import'], // default
       webpackChunknameFormat: '[a-zA-Z0-9-/_]+', // default
     }],
-    // TODO: Might be set to OFF
-    'import/exports-last': [ERROR],
+    // OFF as we prefer files to be structured from general to details
+    'import/exports-last': [OFF],
     'import/extensions': [ERROR, 'always', {
       ignorePackages: true,
       pattern: {
         js: 'ignorePackages',
       },
     }],
-    // Might clash with 'import/order' or other similar rules. TODO: check it
-    'import/first': [ERROR, 'absolute-first'],
+    // OFF as it clashes with 'import/order', especially when dealing with type imports
+    'import/first': [OFF, 'absolute-first'],
     'import/group-exports': [ERROR],
     'import/max-dependencies': [ERROR, {
       max: 10, // default
