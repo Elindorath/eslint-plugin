@@ -35,7 +35,6 @@
 | [eslint-plugin-react-native-a11y][react-native-a11y]               |
 | [eslint-plugin-react-perf][react-perf]                             |
 | [eslint-plugin-security][security]                                 |
-| [eslint-plugin-simple-import-sort][simple-import-sort]             |
 | [eslint-plugin-sonarjs][sonarjs]                                   |
 | [eslint-plugin-ternary][ternary]                                   |
 | [eslint-plugin-unicorn][unicorn]                                   |
@@ -99,18 +98,19 @@
 
 | Name                                                   | Reason                                                                                                     |
 | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| [@mysticatea/eslint-plugin][@mysticatea]               | No longer maintained, not updated since 2019/11/11, replaced by @eslint-community/eslint-plugin-mysticatea |
 | [eslint-plugin-babel][babel]                           | We don't use babel parser                                                                                  |
 | [eslint-plugin-filenames][filenames]                   | No longer maintained, not updated since 2020/07/28                                                         |
 | [eslint-plugin-flowtype][flowtype]                     | We prefer using typescript over flowtype                                                                   |
-| [@mysticatea/eslint-plugin][@mysticatea]               | No longer maintained, not updated since 2019/11/11, replaced by @eslint-community/eslint-plugin-mysticatea |
-| [eslint-plugin-scanjs-rules][scanjs-rules]             | Archived, not updated since 2021/06/09                                                                     |
-| [eslint-plugin-react-redux][react-redux]               | We no longer use redux                                                                                     |
-| [eslint-plugin-sort-class-members][sort-class-members] | The same features are done with eslint-plugin-perfectionist                                                |
-| [eslint-plugin-switch-case][switch-case]               | The same features are done with @stylistic/eslint-plugin                                                   |
 | [eslint-plugin-json-format][json-format]               | No longer maintained, not updated since 2020/05/14, the same features are done with eslint-plugin-jsonc    |
 | [eslint-plugin-optimize-regex][optimize-regex]         | No longer maintained, not updated since 2023/09/10, the same features are done with unicorn/better-regex   |
 | [eslint-plugin-perf-standard][perf-standard]           | No longer maintained, not updated since 2016/03/30                                                         |
+| [eslint-plugin-react-redux][react-redux]               | We no longer use redux                                                                                     |
+| [eslint-plugin-scanjs-rules][scanjs-rules]             | Archived, not updated since 2021/06/09                                                                     |
 | [eslint-plugin-shopify][shopify]                       | Replaced by @shopify/eslint-plugin                                                                         |
+| [eslint-plugin-simple-import-sort][simple-import-sort] | The same features are done with eslint-plugin-perfectionist                                                |
+| [eslint-plugin-sort-class-members][sort-class-members] | The same features are done with eslint-plugin-perfectionist                                                |
+| [eslint-plugin-switch-case][switch-case]               | The same features are done with @stylistic/eslint-plugin                                                   |
 | [eslint-plugin-xss][xss]                               | Doesn't support ESLint v9 for now                                                                          |
 
 <!-- Included -->
