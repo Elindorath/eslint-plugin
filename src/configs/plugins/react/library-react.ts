@@ -1,8 +1,9 @@
-import type { Linter } from 'eslint'
 import reactPlugin from 'eslint-plugin-react'
 import globals from 'globals'
 
 import { OFF, ERROR } from '../../../constants'
+
+import type { ESLint, Linter } from 'eslint'
 
 
 const DISALLOW_IN_FUNC = 'disallow-in-func'
@@ -19,7 +20,11 @@ export const reactConfig: Linter.Config = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
-    react: reactPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    react: reactPlugin as unknown as ESLint.Plugin,
   },
 
   languageOptions: {

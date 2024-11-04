@@ -1,47 +1,53 @@
 // import process from 'node:process'
 
-import type { Linter } from 'eslint'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 import { OFF, ERROR } from '../../../constants'
 
+import type { ESLint, Linter } from 'eslint'
+
+
 export const importVanillaConfig: Linter.Config = {
   plugins: {
-    import: importPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    'import-x': importPlugin as unknown as ESLint.Plugin,
   },
 
   settings: {
-    'import/extensions': [
+    'import-x/extensions': [
       '.js',
       '.jsx',
       '.json',
       '.json5',
     ],
-    'import/ignore': [
+    'import-x/ignore': [
       'node_modules',
     ],
-    'import/core-modules': [],
-    'import/external-module-folders': [
+    'import-x/core-modules': [],
+    'import-x/external-module-folders': [
       'node_modules',
     ],
-    'import/parsers': {},
-    'import/resolver': {
+    'import-x/parsers': {},
+    'import-x/resolver': {
       node: true,
     },
     // Might change when using eslint_d
     // @see https://github.com/benmosher/eslint-plugin-import#importcache
-    'import/cache': {
+    'import-x/cache': {
       lifetime: Number.POSITIVE_INFINITY,
     },
-    'import/internal-regex': '',
+    'import-x/internal-regex': '',
   },
   rules: {
     /* ----- Helpful warnings ----- */
-    'import/export': [ERROR],
-    'import/no-deprecated': [ERROR],
-    'import/no-empty-named-blocks': [ERROR],
+    'import-x/export': [ERROR],
+    'import-x/no-deprecated': [ERROR],
+    'import-x/no-empty-named-blocks': [ERROR],
     // TODO: Needs to be modified for test, tools, ...
-    'import/no-extraneous-dependencies': [ERROR, {
+    'import-x/no-extraneous-dependencies': [ERROR, {
       devDependencies: false,
       optionalDependencies: false,
       peerDependencies: false, // default
@@ -50,11 +56,11 @@ export const importVanillaConfig: Linter.Config = {
       includeTypes: true,
       // packageDir: '',
     }],
-    'import/no-mutable-exports': [ERROR],
-    'import/no-named-as-default': [ERROR],
-    'import/no-named-as-default-member': [ERROR],
+    'import-x/no-mutable-exports': [ERROR],
+    'import-x/no-named-as-default': [ERROR],
+    'import-x/no-named-as-default-member': [ERROR],
     // OFF as it doesn't support flat config
-    'import/no-unused-modules': [OFF, {
+    'import-x/no-unused-modules': [OFF, {
       missingExports: true,
       unusedExports: true,
       // src: [process.cwd()], // default
@@ -62,64 +68,64 @@ export const importVanillaConfig: Linter.Config = {
     }],
 
     /* ----- Module systems ----- */
-    'import/no-amd': [ERROR],
+    'import-x/no-amd': [ERROR],
     // Dependent of the project type
-    'import/no-commonjs': [ERROR, {
+    'import-x/no-commonjs': [ERROR, {
       allowRequire: false, // default
       allowConditionalRequire: true, // default
       allowPrimitiveModules: false, // default
     }],
-    'import/no-import-module-exports': [ERROR, {
+    'import-x/no-import-module-exports': [ERROR, {
       exceptions: [],
     }],
-    'import/no-nodejs-modules': [ERROR, {
+    'import-x/no-nodejs-modules': [ERROR, {
       allow: [], // default
     }],
-    'import/unambiguous': [ERROR],
+    'import-x/unambiguous': [ERROR],
 
     /* ----- Static analysis ----- */
-    'import/default': [ERROR],
-    'import/named': [ERROR, {
+    'import-x/default': [ERROR],
+    'import-x/named': [ERROR, {
       commonjs: false, // default (undocumented)
     }],
-    'import/namespace': [ERROR, {
+    'import-x/namespace': [ERROR, {
       allowComputed: true,
     }],
-    'import/no-absolute-path': [ERROR, {
+    'import-x/no-absolute-path': [ERROR, {
       esmodule: true, // default
       commonjs: true, // default
       amd: true,
     }],
-    'import/no-cycle': [ERROR, {
+    'import-x/no-cycle': [ERROR, {
       maxDepth: Number.POSITIVE_INFINITY, // default
       commonjs: true,
       amd: true,
       ignoreExternal: false, // default
       allowUnsafeDynamicCyclicDependency: false, // default
     }],
-    'import/no-dynamic-require': [ERROR, {
+    'import-x/no-dynamic-require': [ERROR, {
       esmodule: false, // default (undocumented)
     }],
     // OFF as it would require us to use index files, which is not recommended in regards to tree-shaking
-    'import/no-internal-modules': [OFF, {
+    'import-x/no-internal-modules': [OFF, {
       allow: [], // default
     }],
     // OFF as it only make sense in Yarn/Lerna workspaces, which we don't use/support
-    'import/no-relative-packages': [OFF, {
+    'import-x/no-relative-packages': [OFF, {
       commonjs: false, // default (undocumented)
       amd: false, // default (undocumented)
       esmodule: true, // default (undocumented)
       // ignore: [''], // default  (undocumented)
     }],
     // TODO: Check if it works correctly with aliases
-    'import/no-relative-parent-imports': [ERROR, {
+    'import-x/no-relative-parent-imports': [ERROR, {
       commonjs: false, // default (undocumented)
       amd: false, // default (undocumented)
       esmodule: true, // default (undocumented)
       // ignore: [''], // default  (undocumented)
     }],
     // OFF as this rule is project specific
-    'import/no-restricted-paths': [OFF, {
+    'import-x/no-restricted-paths': [OFF, {
       // basePath: process.cwd(),
       // zones: [
       //   {
@@ -130,44 +136,45 @@ export const importVanillaConfig: Linter.Config = {
       //   }
       // ],
     }],
-    'import/no-self-import': [ERROR],
+    'import-x/no-self-import': [ERROR],
     // OFF as it doesn't work when an ES module doesn't specify the 'main' property in its 'package.json'
     // See:
     //  - https://github.com/import-js/eslint-plugin-import/issues/2703
     //  - https://github.com/browserify/resolve/issues/222
-    'import/no-unresolved': [OFF, {
+    'import-x/no-unresolved': [OFF, {
       commonjs: true,
       amd: true,
       // ignore: [], // default
       caseSensitive: true, // default
       caseSensitiveStrict: true,
     }],
-    'import/no-useless-path-segments': [ERROR, {
+    'import-x/no-useless-path-segments': [ERROR, {
       noUselessIndex: true,
     }],
-    'import/no-webpack-loader-syntax': [ERROR],
+    'import-x/no-webpack-loader-syntax': [ERROR],
 
     /* ----- Style guide ----- */
-    'import/dynamic-import-chunkname': [ERROR, {
-      importFunctions: ['import'], // default
-      webpackChunknameFormat: '[a-zA-Z0-9-/_]+', // default
-    }],
+    // This rule seems broken
+    // 'import-x/dynamic-import-chunkname': [ERROR, {
+    //   importFunctions: ['import'], // default
+    //   webpackChunknameFormat: '[a-zA-Z0-9-/_]+', // default
+    // }],
     // OFF as we prefer files to be structured from general to details
-    'import/exports-last': [OFF],
-    'import/extensions': [ERROR, 'always', {
+    'import-x/exports-last': [OFF],
+    'import-x/extensions': [ERROR, 'always', {
       ignorePackages: true,
       pattern: {
         js: 'ignorePackages',
       },
     }],
-    // OFF as it clashes with 'import/order', especially when dealing with type imports
-    'import/first': [OFF, 'absolute-first'],
-    'import/group-exports': [ERROR],
-    'import/max-dependencies': [ERROR, {
+    // OFF as it clashes with 'import-x/order', especially when dealing with type imports
+    'import-x/first': [OFF, 'absolute-first'],
+    'import-x/group-exports': [ERROR],
+    'import-x/max-dependencies': [ERROR, {
       max: 10, // default
       ignoreTypeImports: true,
     }],
-    'import/no-anonymous-default-export': [ERROR, {
+    'import-x/no-anonymous-default-export': [ERROR, {
       allowArray: false, // default
       allowArrowFunction: false, // default
       allowAnonymousClass: false, // default
@@ -178,30 +185,30 @@ export const importVanillaConfig: Linter.Config = {
       allowObject: false, // default
     }],
     // OFF as it is already checked by the 'no-restricted-exports' rule with finer grain
-    'import/no-default-export': [OFF],
-    // Superseded by the 'import/no-duplicates' rule
+    'import-x/no-default-export': [OFF],
+    // Superseded by the 'import-x/no-duplicates' rule
     'no-duplicate-imports': [OFF],
-    'import/no-duplicates': [ERROR, {
+    'import-x/no-duplicates': [ERROR, {
       'considerQueryString': false, // default
       'prefer-inline': false, // false
     }],
-    'import/no-named-default': [ERROR],
+    'import-x/no-named-default': [ERROR],
     // OFF as we prefer named exports in regards to tree-shaking
-    'import/no-named-export': [OFF],
+    'import-x/no-named-export': [OFF],
     // OFF as namespace imports can improve readability
-    'import/no-namespace': [OFF, {
+    'import-x/no-namespace': [OFF, {
       ignore: [], // default
     }],
-    'import/no-unassigned-import': [ERROR, {
+    'import-x/no-unassigned-import': [ERROR, {
       // Those are present in schema but are not documented and don't seem to be used
       // devDependencies: { type: ['boolean', 'array'] },
       // optionalDependencies: { type: ['boolean', 'array'] },
       // peerDependencies: { type: ['boolean', 'array'] },
       allow: [],
     }],
-    // OFF as it conflict with the 'import/order' rule
+    // OFF as it conflict with the 'import-x/order' rule
     'sort-imports': [OFF],
-    'import/order': [OFF, {
+    'import-x/order': [OFF, {
       'groups': [
         'builtin',
         'external',
@@ -231,7 +238,7 @@ export const importVanillaConfig: Linter.Config = {
       'warnOnUnassignedImports': false, // default
     }],
     // OFF as we prefer named exports in regards to tree-shaking
-    'import/prefer-default-export': [OFF, {
+    'import-x/prefer-default-export': [OFF, {
       target: 'single', // default
     }],
   },

@@ -2,7 +2,7 @@ import { mergeConfigs } from '../configMerger'
 
 import { ERROR } from '../constants'
 
-import { importVanillaLayoutConfig } from './plugins/import/vanilla-layout'
+import { importVanillaLayoutConfig } from './plugins/import-x/vanilla-layout'
 import { stylisticVanillaLayoutConfig } from './plugins/stylistic/vanilla-layout'
 import { unicornVanillaLayoutConfig } from './plugins/unicorn/vanilla-layout'
 

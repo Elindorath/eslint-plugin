@@ -4,6 +4,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import type { Linter } from 'eslint'
+
+/**
+ * TODO: fix it when this plugin expose typings
+ * @see: https://github.com/eslint-community/eslint-plugin-eslint-plugin/issues/310
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import eslintPluginPlugin from 'eslint-plugin-eslint-plugin'
 import { readPackageUpSync } from 'read-package-up'
 

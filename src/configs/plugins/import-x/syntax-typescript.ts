@@ -1,27 +1,32 @@
 import process from 'node:process'
 
-import { Linter } from 'eslint'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 
 import { OFF, ERROR } from '../../../constants'
+
+import type { ESLint, Linter } from 'eslint'
 
 
 export const importTypescriptConfig: Linter.Config = {
   plugins: {
-    import: importPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    'import-x': importPlugin as unknown as ESLint.Plugin,
   },
 
   settings: {
-    'import/extensions': [
+    'import-x/extensions': [
       '.ts',
       '.tsx',
       '.json',
       '.json5',
     ],
-    'import/parsers': {
+    'import-x/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
-    'import/resolver': {
+    'import-x/resolver': {
       typescript: {
         project: process.cwd(),
       },
@@ -31,7 +36,7 @@ export const importTypescriptConfig: Linter.Config = {
   rules: {
     /* ----- Helpful warnings ----- */
     // OFF as the plugin doesn't support CommonJS export
-    'import/no-unused-modules': [OFF, {
+    'import-x/no-unused-modules': [OFF, {
       missingExports: true,
       unusedExports: true,
       ignoreUnusedTypeExports: true,
@@ -41,20 +46,20 @@ export const importTypescriptConfig: Linter.Config = {
 
     /* ----- Module systems ----- */
     // OFF as we use commonjs in node context
-    'import/no-commonjs': [OFF, {
+    'import-x/no-commonjs': [OFF, {
       allowRequire: false, // default
       allowConditionalRequire: true, // default
       allowPrimitiveModules: false, // default
     }],
     // OFF as we use node module in node context
-    'import/no-nodejs-modules': [OFF, {
+    'import-x/no-nodejs-modules': [OFF, {
       allow: [], // default
     }],
 
     /* ----- Style guide ----- */
     // Might duplicate warning from the '@typescript-eslint/consistent-type-imports' rule
-    'import/consistent-type-specifier-style': [ERROR, 'prefer-top-level'],
-    'import/extensions': [ERROR, 'always', {
+    'import-x/consistent-type-specifier-style': [ERROR, 'prefer-top-level'],
+    'import-x/extensions': [ERROR, 'always', {
       ignorePackages: true,
       pattern: {
         ts: 'ignorePackages',

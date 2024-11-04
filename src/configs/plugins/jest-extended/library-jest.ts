@@ -1,4 +1,9 @@
 import type { Linter } from 'eslint'
+
+/**
+ * TODO: fix it when this plugin expose typings
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import jestExtendedPlugin from 'eslint-plugin-jest-extended'
 
 import { ERROR } from '../../../constants'

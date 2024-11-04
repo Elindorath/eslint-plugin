@@ -280,10 +280,6 @@ function mergeSettings(settings1: Settings, settings2: Settings) {
   }
 }
 
-type Entries<T> = {
+const objectEntries = Object.entries as <T extends object>(object: T) => Array<{
   [K in keyof T]: [K, T[K]];
-}[keyof T][];
-
-const objectEntries = Object.entries as <T extends object>(object: T) => {
-  [K in keyof T]: [K, T[K]];
-}[keyof T][]
+}[keyof T]>

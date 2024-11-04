@@ -1,4 +1,10 @@
 import type { Linter } from 'eslint'
+
+/**
+ * TODO: fix it when this plugin expose typings
+ * @see: https://github.com/eslint-community/eslint-plugin-promise/issues/488
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import promisePlugin from 'eslint-plugin-promise'
 
 import { OFF, ERROR } from '../../../constants'

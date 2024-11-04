@@ -1,16 +1,15 @@
-import type { Linter } from 'eslint'
-
-import { getRuleConfig } from '../../utils'
 import { mergeConfigs } from '../../configMerger'
+import { ERROR, OFF } from '../../constants'
+import { getRuleConfig } from '../../utils'
 import { environmentNodeConfig } from '../environment-node'
 import { overrideEslintConfig } from '../overrides/eslint-config'
 import { overridePackageJsonConfig } from '../overrides/package-json'
 import { overrideScriptsConfig } from '../overrides/scripts'
 import { syntaxTypescriptConfig } from '../syntax-typescript'
-import { vanillaLayoutConfig } from '../vanilla-layout'
 import { vanillaConfig } from '../vanilla'
+import { vanillaLayoutConfig } from '../vanilla-layout'
 
-import { OFF, ERROR } from '../../constants'
+import type { Linter } from 'eslint'
 
 
 const typescriptNamingConventionRuleConfig = getRuleConfig('@typescript-eslint/naming-convention', syntaxTypescriptConfig)

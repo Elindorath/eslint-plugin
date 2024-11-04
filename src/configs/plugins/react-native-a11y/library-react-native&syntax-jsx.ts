@@ -1,4 +1,9 @@
 import type { Linter } from 'eslint'
+
+/**
+ * TODO: fix it when this plugin expose typings
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import reactNativeA11yPlugin from 'eslint-plugin-react-native-a11y'
 
 import { ERROR } from '../../../constants'

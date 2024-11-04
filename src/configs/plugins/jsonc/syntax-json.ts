@@ -1,4 +1,4 @@
-import type { Linter } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
 import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
@@ -14,7 +14,11 @@ export const jsonConfig: Linter.Config = {
   },
 
   plugins: {
-    jsonc: jsoncPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    jsonc: jsoncPlugin as unknown as ESLint.Plugin,
   },
 
   rules: {

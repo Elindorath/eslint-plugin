@@ -3,7 +3,7 @@ import globals from 'globals'
 
 import { mergeConfigs } from '../configMerger'
 
-import { importCommonJsConfig } from './plugins/import/source-type-commonjs'
+import { importCommonJsConfig } from './plugins/import-x/source-type-commonjs'
 import { unicornCommonJsConfig } from './plugins/unicorn/source-type-commonjs'
 
 

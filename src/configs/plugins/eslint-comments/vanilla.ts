@@ -1,14 +1,18 @@
-'use strict'
-
 import type { Linter } from 'eslint'
+
+/**
+ * TODO: fix it when this plugin expose typings
+ * @see: https://github.com/eslint-community/eslint-plugin-eslint-comments/issues/214
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import eslintCommentsPlugin from '@eslint-community/eslint-plugin-eslint-comments'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants'
 
 const DIRECTIVES = {
-  ENABLE: 'eslint-enable',
   DISABLE: 'eslint-disable',
   DISABLE_NEXT_LINE: 'eslint-disable-next-line',
+  ENABLE: 'eslint-enable',
 }
 
 export const eslintCommentsVanillaConfig: Linter.Config = {

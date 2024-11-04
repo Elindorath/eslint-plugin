@@ -3,22 +3,27 @@
 import path from 'node:path'
 import process from 'node:process'
 
-import type { Linter } from 'eslint'
-import { plugin as typescriptPlugin, parser as typescriptParser } from 'typescript-eslint'
+import typescriptEslint from 'typescript-eslint'
 
 import { OFF, ERROR } from '../../../constants'
 import { getRuleConfig } from '../../../utils'
 import { eslintVanillaConfig } from '../eslint/vanilla'
 
+import type { ESLint, Linter } from 'eslint'
+
 
 // eslint-disable-next-line unicorn/prevent-abbreviations -- To match the rule name
 const [maxParamsSeverity, maxParamsConfig] = getRuleConfig('max-params', eslintVanillaConfig)
 
-export const typescriptConfig: Linter.Config = {
+export const typescriptConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
   languageOptions: {
-    parser: typescriptParser,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected Linter.Parser type.
+     * TODO: fix this when types are fixed
+     */
+    parser: typescriptEslint.parser as unknown as Linter.Parser,
     // Might be exported to environment
     parserOptions: {
       sourceType: 'module',
@@ -28,7 +33,11 @@ export const typescriptConfig: Linter.Config = {
   },
 
   plugins: {
-    '@typescript-eslint': typescriptPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    '@typescript-eslint': typescriptEslint.plugin as unknown as ESLint.Plugin,
   },
 
   rules: {
@@ -41,7 +50,7 @@ export const typescriptConfig: Linter.Config = {
     '@typescript-eslint/await-thenable': [ERROR],
     '@typescript-eslint/ban-ts-comment': [ERROR, {
       'ts-check': false, // default
-      'ts-expect-error': { descriptionFormat: '^: TS\\d+ because .+$' },
+      'ts-expect-error': { descriptionFormat: String.raw`^: TS\d+ because .+$` },
       'ts-ignore': true, // default
       'ts-nocheck': true, // default
       'minimumDescriptionLength': 12,
@@ -676,6 +685,6 @@ export const typescriptConfig: Linter.Config = {
     '@typescript-eslint/return-await': [ERROR, 'in-try-catch'], // default
     '@typescript-eslint/use-unknown-in-catch-callback-variable': [ERROR],
   },
-}
+} satisfies Linter.Config
 
 /* eslint-enable */

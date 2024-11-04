@@ -1,5 +1,10 @@
 import type { Linter } from 'eslint'
 
+/**
+ * TODO: fix it when this plugin expose typings
+ * @see: https://github.com/freaktechnik/eslint-plugin-array-func/issues/492
+ */
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import arrayFunctionPlugin from 'eslint-plugin-array-func'
 
 import { OFF, ERROR } from '../../../constants'

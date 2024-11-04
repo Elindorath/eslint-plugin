@@ -4,8 +4,8 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 import { OFF, ERROR } from '../../../constants'
 
 
-const labelAttributes = [] // default
-const controlComponents = [] // default
+const labelAttributes: string[] = [] // default
+const controlComponents: string[] = [] // default
 const imageComponents = ['Image', 'Picture']
 const anchorComponents = ['Link']
 const inputComponents = ['input', 'Input', 'Field']

@@ -1,12 +1,17 @@
-import type { Linter } from 'eslint'
 import perfectionistPlugin from 'eslint-plugin-perfectionist'
 
 import { ERROR } from '../../../constants'
 
+import type { ESLint, Linter } from 'eslint'
+
 
 export const perfectionistVanillaConfig: Linter.Config = {
   plugins: {
-    perfectionist: perfectionistPlugin,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    perfectionist: perfectionistPlugin as unknown as ESLint.Plugin,
   },
 
   settings: {
