@@ -34,7 +34,11 @@ For ease of use, this plugin also exposes special configurations that aggregate 
 - All files in the root `scripts` directory are treated as Node.js scripts that are used only in development environment.
 - All files with the suffix `.test.${extension}` are treated as jest test files.
 
-## Maintenance
+## Past and future
+
+ESLint APIs are evolving quickly recently, thus sets a bit more constraints on plugins. This helps to clarify their contracts for the users but not all of them are (yet) following the new format. We maintain the `Plugin.md` file to keep track of what plugins are currently configured, what plugins are currently considered but not yet configured, and what plugins were considered but rejected, or once configured but removed.
+
+## Maintenance (to be implemented)
 
 The Eslint ecosystem is evolving rapidly. To profit from the last improvements as soon as possible and to ease the maintenance burden, we rely on the renovate bot for managing the eslint plugins we use, with the auto merging option activated for minor and patch changes (not major as this would potentially introduce breaking changes). But doing so blindly would break the exhaustiveness principle on which this plugin is based on. We add a bit of intelligence like so:
 
