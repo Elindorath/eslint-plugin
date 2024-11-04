@@ -12,7 +12,7 @@
 | [eslint-plugin-canonical][canonical]                               |
 | [eslint-plugin-eslint-plugin][eslint-plugin]                       |
 | [eslint-plugin-filenames-simple][filenames-simple]                 |
-| [eslint-plugin-import][import]                                     |
+| [eslint-plugin-import-x][import-x]                                 |
 | [eslint-plugin-jest][jest]                                         |
 | [eslint-plugin-jest-dom][jest-dom]                                 |
 | [eslint-plugin-jest-extended][jest-extended]                       |
@@ -48,7 +48,6 @@
 | [@shopify/eslint-plugin][@shopify]                           |                                                    |
 | [eslint-plugin-toplevel][toplevel]                           |                                                    |
 | [eslint-plugin-atomic-design][atomic-design]                 |                                                    |
-| [eslint-plugin-import-x][import-x]                           | As a replacement of eslint-plugin-import           |
 | [eslint-plugin-depend][depend]                               |                                                    |
 | [eslint-plugin-compat][compat]                               |                                                    |
 | [eslint-plugin-write-good-comments][write-good-comments]     |                                                    |
@@ -102,6 +101,7 @@
 | [eslint-plugin-babel][babel]                           | We don't use babel parser                                                                                  |
 | [eslint-plugin-filenames][filenames]                   | No longer maintained, not updated since 2020/07/28                                                         |
 | [eslint-plugin-flowtype][flowtype]                     | We prefer using typescript over flowtype                                                                   |
+| [eslint-plugin-import][import]                         | Replaced by the more modern [eslint-plugin-import-x][import-x]                                             |
 | [eslint-plugin-json-format][json-format]               | No longer maintained, not updated since 2020/05/14, the same features are done with eslint-plugin-jsonc    |
 | [eslint-plugin-optimize-regex][optimize-regex]         | No longer maintained, not updated since 2023/09/10, the same features are done with unicorn/better-regex   |
 | [eslint-plugin-perf-standard][perf-standard]           | No longer maintained, not updated since 2016/03/30                                                         |
