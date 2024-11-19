@@ -5,7 +5,7 @@ import { ERROR } from '../../../constants'
 import type { Linter } from 'eslint'
 
 
-export const nNodeConfig: Linter.Config = {
+export const baseConfig = {
   plugins: {
     n: nPlugin,
   },
@@ -168,4 +168,4 @@ export const nNodeConfig: Linter.Config = {
     'n/prefer-promises/fs': [ERROR],
     'n/process-exit-as-throw': [ERROR],
   },
-}
+} satisfies Linter.Config

@@ -6,6 +6,7 @@ import { overrideEslintConfig } from '../overrides/eslint-config'
 import { overridePackageJsonConfig } from '../overrides/package-json'
 import { overrideScriptsConfig } from '../overrides/scripts'
 import { syntaxTypescriptConfig } from '../syntax-typescript'
+import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node'
 import { vanillaConfig } from '../vanilla'
 import { vanillaLayoutConfig } from '../vanilla-layout'
 
@@ -15,12 +16,13 @@ import type { Linter } from 'eslint'
 const typescriptNamingConventionRuleConfig = getRuleConfig('@typescript-eslint/naming-convention', syntaxTypescriptConfig)
 const [severity, ...options] = typescriptNamingConventionRuleConfig
 
-export const projectEslintPluginConfig: Linter.Config[] = [
+export const projectEslintPluginConfig = [
   mergeConfigs(
     vanillaConfig,
     vanillaLayoutConfig,
     syntaxTypescriptConfig,
     environmentNodeConfig,
+    syntaxTypescriptEnvironmentNodeConfig,
     {
       files: ['**/*.ts'],
       rules: {
@@ -71,10 +73,14 @@ export const projectEslintPluginConfig: Linter.Config[] = [
             modifiers: ['requiresQuotes'],
           },
         ],
+        // OFF as it is more convenient to centralize constants
+        'import-x/no-relative-parent-imports': [OFF],
+        // OFF as we rely on filenames to organize configurations
+        'filenames-simple/named-export': [OFF],
       },
     },
   ),
   overrideEslintConfig,
   overridePackageJsonConfig,
   overrideScriptsConfig,
-]
+] satisfies Linter.Config[]

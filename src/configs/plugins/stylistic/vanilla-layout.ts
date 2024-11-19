@@ -78,7 +78,13 @@ export const stylisticVanillaLayoutConfig: Linter.Config = {
     '@stylistic/eol-last': [ERROR, 'always'],
     '@stylistic/func-call-spacing': [ERROR, 'never'],
     '@stylistic/function-call-argument-newline': [ERROR, 'consistent'],
-    '@stylistic/function-call-spacing': [ERROR, 'never'],
+    '@stylistic/function-call-spacing': [ERROR, 'never', {
+      allowNewlines: false,
+      optionalChain: {
+        after: false,
+        before: false,
+      },
+    }],
     '@stylistic/function-paren-newline': [ERROR, 'multiline-arguments'],
     '@stylistic/generator-star-spacing': [ERROR, {
       before: false,

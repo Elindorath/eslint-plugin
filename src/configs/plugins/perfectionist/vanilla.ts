@@ -5,7 +5,7 @@ import { ERROR } from '../../../constants'
 import type { ESLint, Linter } from 'eslint'
 
 
-export const perfectionistVanillaConfig: Linter.Config = {
+export const perfectionistVanillaConfig = {
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
@@ -20,7 +20,7 @@ export const perfectionistVanillaConfig: Linter.Config = {
       order: 'asc',
       ignoreCase: true,
       specialCharacters: 'keep',
-      matcher: 'minimatch', // default
+      locales: 'en-US', // default
     }
 
     /**
@@ -30,9 +30,9 @@ export const perfectionistVanillaConfig: Linter.Config = {
      * ignoreCase
      * ignorePattern
      * specialCharacters
+     * locales
      * partitionByComment
      * partitionByNewLine
-     * matcher
      */
   },
 
@@ -46,7 +46,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
         'Group',
       ],
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       groupKind: 'spreads-first', // non default
     }],
@@ -55,11 +54,14 @@ export const perfectionistVanillaConfig: Linter.Config = {
       order: 'asc',
       ignoreCase: true,
       specialCharacters: 'keep',
+      locales: 'en-US', // default
       partitionByComment: [
         'Group',
       ],
-      matcher: 'minimatch',
+      partitionByNewLine: false,
 
+      ignoreCallbackDependenciesPatterns: [], // default
+      newlinesBetween: 'always', // default
       groups: [ // default
         'index-signature',
         'static-property',
@@ -77,6 +79,25 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ],
       customGroups: [], // default
     }],
+    'perfectionist/sort-decorators': [ERROR, {
+      type: 'natural',
+      order: 'asc', // default
+      specialCharacters: 'keep', // default
+      locales: 'en-US', // default
+      partitionByComment: false, // default
+
+      ignoreCase: true, // default
+      sortOnClasses: true, // default
+      sortOnMethods: true, // default
+      sortOnProperties: true, // default
+      sortOnAccessors: true, // default
+      sortOnParameters: true, // default
+      groups: [ // default
+        'unknown',
+      ],
+      // TODO: needs to be defined
+      customGroups: {},
+    }],
     'perfectionist/sort-enums': [ERROR, {
       type: 'natural',
       order: 'asc',
@@ -84,7 +105,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       sortByValue: false, // default
       forceNumericSort: false, // default
@@ -96,9 +116,19 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       groupKind: 'values-first', // non-default
+    }],
+    'perfectionist/sort-heritage-clauses': [ERROR, {
+      type: 'alphabetical',
+      order: 'asc',
+      ignoreCase: true,
+      specialCharacters: 'keep',
+      locales: 'en-US', // default
+      groups: [
+        'unknown',
+      ],
+      customGroups: {},
     }],
     // TODO: Need to choose between this rule, the core sort-imports rule, the import/order and prettier-plugin-sort-imports
     'perfectionist/sort-imports': [ERROR, {
@@ -106,10 +136,12 @@ export const perfectionistVanillaConfig: Linter.Config = {
       order: 'asc',
       ignoreCase: true,
       specialCharacters: 'keep',
-      matcher: 'minimatch',
+      locales: 'en-US', // default
 
       internalPattern: ['~/**'], // default
       sortSideEffects: false, // default
+      partitionByComment: false, // default
+      partitionByNewLine: false, // default
       newlinesBetween: 'always', // default
       maxLineLength: undefined, // default
       groups: [
@@ -140,8 +172,8 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ignorePattern: [],
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
+      newlinesBetween: 'always', // default
       groupKind: 'required-first',
       groups: [],
       customGroups: {},
@@ -154,8 +186,8 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
+      newlinesBetween: 'always', // default
       groups: [], // default
     }],
     // TODO: Might clash with the react/jsx-sort-props rule
@@ -165,7 +197,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ignoreCase: true,
       specialCharacters: 'keep',
       ignorePattern: [],
-      matcher: 'minimatch',
 
       groups: [], // default
       customGroups: {}, // default
@@ -177,7 +208,31 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
+    }],
+    'perfectionist/sort-modules': [ERROR, {
+      type: 'natural',
+      order: 'asc',
+      ignoreCase: true,
+      specialCharacters: 'keep',
+      partitionByComment: false,
+      partitionByNewLine: false,
+
+      newlinesBetween: true,
+      groups: [
+        'declare-enum',
+        'export-enum',
+        'enum',
+        ['declare-interface', 'declare-type'],
+        ['export-interface', 'export-type'],
+        ['interface', 'type'],
+        'declare-class',
+        'class',
+        'export-class',
+        'declare-function',
+        'export-function',
+        'function',
+      ],
+      customGroups: [],
     }],
     'perfectionist/sort-named-exports': [ERROR, {
       type: 'alphabetical',
@@ -186,7 +241,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       groupKind: 'values-first',
     }],
@@ -198,7 +252,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       ignoreAlias: true,
       groupKind: 'values-first',
@@ -211,8 +264,8 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByComment: false,
       partitionByNewLine: true,
-      matcher: 'minimatch',
 
+      newlinesBetween: 'always', // default
       groupKind: 'required-first',
       groups: [],
       customGroups: {},
@@ -226,11 +279,15 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ignorePattern: [],
       partitionByComment: false,
       partitionByNewLine: true,
-      matcher: 'minimatch',
 
+      newlinesBetween: 'always', // default
       destructureOnly: false, // default
       styledComponents: true, // default
-      groups: [],
+      groups: [
+        'unknown',
+        'multiline',
+        'method',
+      ],
       customGroups: {},
     }],
     'perfectionist/sort-sets': [ERROR, {
@@ -239,7 +296,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       ignoreCase: true,
       specialCharacters: 'keep',
       partitionByNewLine: false,
-      matcher: 'minimatch',
 
       groupKind: 'spreads-first',
     }],
@@ -248,6 +304,7 @@ export const perfectionistVanillaConfig: Linter.Config = {
       order: 'asc',
       ignoreCase: true,
       specialCharacters: 'keep',
+      locales: 'en-US', // default
     }],
     // TODO: Might clash with the @typescript-eslint/sort-type-constituents rule
     'perfectionist/sort-union-types': [ERROR, {
@@ -257,8 +314,8 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByNewLine: false,
       partitionByComment: false,
-      matcher: 'minimatch',
 
+      newlinesBetween: 'always', // default
       groups: [],
     }],
     // TODO: Might be OFF
@@ -269,7 +326,6 @@ export const perfectionistVanillaConfig: Linter.Config = {
       specialCharacters: 'keep',
       partitionByNewLine: false,
       partitionByComment: false,
-      matcher: 'minimatch',
     }],
   },
-}
+} satisfies Linter.Config

@@ -2,6 +2,7 @@
 
 import { readdir } from 'node:fs/promises'
 import process from 'node:process'
+import { URL } from 'node:url'
 
 import type { SetFieldType, SetRequired } from 'type-fest'
 import type { Linter, Rule } from 'eslint'
@@ -28,7 +29,7 @@ type PluginDescriptor = {
 //   ruleId: string;
 // }
 
-Error.stackTraceLimit = Infinity;
+Error.stackTraceLimit = Number.POSITIVE_INFINITY;
 
 const pluginConfigurationsDirectoryUrl = new URL('../src/configs/plugins/', import.meta.url)
 

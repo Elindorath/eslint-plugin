@@ -284,6 +284,7 @@ export const typescriptConfig = {
     '@typescript-eslint/no-confusing-void-expression': [ERROR, {
       ignoreArrowShorthand: false, // default
       ignoreVoidOperator: false, // default
+      ignoreVoidReturningFunctions: false, // default
     }],
     '@typescript-eslint/no-deprecated': [ERROR],
     '@typescript-eslint/no-duplicate-enum-values': [ERROR],
@@ -385,6 +386,7 @@ export const typescriptConfig = {
     '@typescript-eslint/no-unsafe-function-type': [ERROR],
     '@typescript-eslint/no-unsafe-member-access': [ERROR],
     '@typescript-eslint/no-unsafe-return': [ERROR],
+    '@typescript-eslint/no-unsafe-type-assertion': [ERROR],
     '@typescript-eslint/no-unsafe-unary-minus': [ERROR],
     '@typescript-eslint/no-useless-empty-export': [ERROR],
     '@typescript-eslint/no-wrapper-object-types': [ERROR],
@@ -482,6 +484,7 @@ export const typescriptConfig = {
       checkFunctionExpressions: true, // default
       checkMethodDeclarations: true, // default
     }],
+    '@typescript-eslint/related-getter-setter-pairs': [ERROR],
     '@typescript-eslint/require-array-sort-compare': [ERROR, {
       ignoreStringArrays: true, // default
     }],
