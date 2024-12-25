@@ -1,35 +1,49 @@
-/* eslint-disable import/no-dynamic-require, n/global-require -- TODO: fix */
+import { isArray, isPlainObject, isPrimitive } from 'is-what'
 
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { eslintVanillaConfig } from './configs/plugins/eslint/vanilla.ts'
+import { OFF } from './constants.ts'
 
-import { ESLint, Linter } from 'eslint'
-import fs from 'fs-extra'
-
-import { OFF } from './constants'
+import type { Linter } from 'eslint'
+import type { UnknownArray, UnknownRecord } from 'type-fest'
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+type FixedLinterConfig<Rules extends FixedRulesRecord = FixedRulesRecord> = Omit<Linter.Config, 'rules'> & {
+  rules?: Rules;
+}
 
-const configsPath = path.resolve(__dirname, 'build', 'configs.js')
+type FixedRulesRecord = {
+  [rule: string]: RuleSeverityAndOptions;
+}
 
-export function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: Linter.Config) {
+type RuleOption = boolean | number | string | UnknownArray | UnknownRecord
+
+type RuleSeverityAndOptions<Options extends RuleOption[] = RuleOption[]> = [Linter.RuleSeverity, ...Options]
+
+
+export {
+  buildPrefixedRulesFromConfig,
+  getRuleConfig,
+  getRuleConfigOverride,
+  overrideBaseConfigRule,
+  replaceConflictingRule,
+}
+
+function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: FixedLinterConfig) {
   return rules.reduce<Linter.Config>((agg, rule) => ({
     ...agg,
-    [rule]: [OFF],
     [`${prefix}/${rule}`]: getRuleConfig(rule, config),
+    [rule]: [OFF],
   }), {})
 }
 
-export function getRuleConfig(rule: string, config: Linter.Config) {
-  const formattedConfigName = config.name ? ` ${config.name}` : ''
+function getRuleConfig<RuleId extends string, Rules extends FixedRulesRecord>(rule: RuleId, config: FixedLinterConfig<Rules>) {
+  const formattedConfigName = (config.name === undefined || !config.name) ? '' : ` ${config.name}`
 
   if (!config.rules) {
     throw new TypeError(`config${formattedConfigName} has no rules`)
   }
 
-  if (!config.rules[rule]) {
+  if (!(rule in config.rules)) {
     throw new TypeError(`config${formattedConfigName} has no '${rule}' rule`)
   }
 
@@ -37,94 +51,77 @@ export function getRuleConfig(rule: string, config: Linter.Config) {
     throw new TypeError(`${rule} rule is not configured as an array`)
   }
 
-  const ruleConfig = config.rules[rule]
-
-  return ruleConfig
+  return config.rules[rule]
 }
 
-const INDENTATION_SPACE = 2
+function getRuleConfigOverride<Rules extends FixedRulesRecord>(
+  rule: string,
+  config: FixedLinterConfig<Rules>,
+  ...optionsOverride: Array<RuleOption | undefined>
+): [Linter.RuleSeverity, ...RuleOption[]] {
+  const [ruleSeverity, ...ruleOptions] = getRuleConfig(rule, config)
+  const finalConfigs: RuleOption[] = []
 
-export async function compileConfig() {
-  await fs.emptyDir(path.resolve(__dirname, 'build'))
+  for (const [index, ruleOption] of ruleOptions.entries()) {
+    const optionOverride = optionsOverride[index]
 
-  const files = await fs.readdir(`${path.resolve(__dirname, 'projects')}`)
+    finalConfigs[index] = overrideRuleOption(ruleOption, optionOverride)
+  }
 
-  const fileConfigMaps = await Promise.all(
-    files.map(async (fileBase) => {
-      const fileName = path.basename(fileBase, '.js')
-      const eslint = new ESLint({
-        baseConfig: require(path.resolve(__dirname, 'projects', fileBase)),
-      })
-
-      const config = await eslint.calculateConfigForFile(path.resolve(__dirname, 'projects', fileBase))
-
-      return {
-        [fileName]: {
-          ...config,
-          ignorePatterns: undefined,
-        },
-      }
-    })
-  )
-
-  const fileConfigMap = fileConfigMaps.reduce((agg, currentFileConfigMap) => ({
-    ...agg,
-    ...currentFileConfigMap,
-  }), {})
-
-  return fs.outputFile(configsPath, `module.exports = ${JSON.stringify(fileConfigMap, undefined, INDENTATION_SPACE)};`)
+  return [
+    ruleSeverity,
+    ...finalConfigs,
+  ]
 }
 
-// export function generateEslintConfig(config) {
-//   const configs = require(configsPath)
-//   const { extends: baseExtends, rules: baseRules, overrides } = config
+const RULE_ID_SPLITTER = '/'
 
-//   const basePluginsUnique = new Set(baseExtends.flatMap((name) => configs[normalizeConfigName(name)].plugins))
+function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOption | undefined>) {
+  const [, ...ruleIdRest] = ruleId.split(RULE_ID_SPLITTER)
+  const ruleName = ruleIdRest.join(RULE_ID_SPLITTER)
 
-//   const overridesWithoutDuplicatePlugins = overrides.map((overrideConfig) => {
-//     const { files, ...overrideConfigWithoutFiles } = overrideConfig
-//     const { extends: overridesExtend, rules: overridesRules } = overrideConfigWithoutFiles
+  return {
+    [ruleId]: getRuleConfigOverride(ruleName, eslintVanillaConfig, ...optionsOverride),
+    [ruleName]: [OFF],
+  }
+}
 
-//     const cliEngine = new CLIEngine({
-//       useEslintrc: false,
-//       baseConfig: overrideConfigWithoutFiles,
-//     })
+function overrideRuleOption(ruleOption: RuleOption, optionOverride?: RuleOption) {
+  if (optionOverride === undefined) {
+    return ruleOption
+  }
 
-//     const pluginsUnique = new Set(overridesExtend.flatMap((name) => configs[normalizeConfigName(name)].plugins))
+  if (isPrimitive(ruleOption) && isPrimitive(optionOverride)) {
+    return optionOverride
+  }
 
-//     // eslint-disable-next-line no-unused-vars -- The ignorePatterns var is not used, we use rest operator to exclude it
-//     const { ignorePatterns, ...computedConfig } = cliEngine.getConfigForFile('./.eslintrc.js')
+  if (isArray(ruleOption) && isArray(optionOverride)) {
+    return [
+      ...ruleOption,
+      ...optionOverride,
+    ]
+  }
 
-//     return {
-//       ...computedConfig,
-//       plugins: [...differenceRight(basePluginsUnique, pluginsUnique)],
-//       rules: {
-//         ...computedConfig.rules,
-//         ...baseRules,
-//         ...overridesRules,
-//       },
-//       files,
-//     }
-//   })
+  if (isPlainObject(ruleOption) && isPlainObject(optionOverride)) {
+    return {
+      ...ruleOption,
+      ...optionOverride,
+    }
+  }
 
-//   return {
-//     ...config,
-//     overrides: overridesWithoutDuplicatePlugins,
-//   }
-// }
+  throw new TypeError(`config overrides don't match the original rule configs`)
+}
 
-// function normalizeConfigName(name) {
-//   return name.slice(32)
-// }
+function replaceConflictingRule(ruleId: string, ruleOptions: RuleSeverityAndOptions, conflictingRuleIds: string[]) {
+  const conflictingRuleConfigurations = conflictingRuleIds.reduce((partialConflictingRuleConfigurations, conflictingRuleId) => {
+    return {
+      ...partialConflictingRuleConfigurations,
+      [conflictingRuleId]: [OFF],
+    }
+  }, {})
 
-// function differenceRight(setA, setB) {
-//   const diff = new Set(setB)
-
-//   for (const element of setA) {
-//     diff.delete(element)
-//   }
-
-//   return diff
-// }
-
-/* eslint-enable import/no-dynamic-require */
+  return {
+    ...conflictingRuleConfigurations,
+    [ruleId]: ruleOptions,
+  }
+}

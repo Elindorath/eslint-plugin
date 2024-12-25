@@ -1,10 +1,11 @@
-import type { Linter } from 'eslint'
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const unicornBrowserConfig: Linter.Config = {
+export const unicornBrowserConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -22,4 +23,4 @@ export const unicornBrowserConfig: Linter.Config = {
     'unicorn/prefer-query-selector': [ERROR],
     'unicorn/require-post-message-target-origin': [ERROR],
   },
-}
+} as const satisfies Linter.Config

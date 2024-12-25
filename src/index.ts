@@ -2,8 +2,12 @@
 
 import { name, version } from '../package.json' with { type: 'json' }
 
-import configs from './configs'
-import * as utils from './utils'
+import { configs } from './configs.ts'
+import { environments } from './environments.ts'
+import { languages } from './languages.ts'
+import { processors } from './processors.ts'
+import { rules } from './rules.ts'
+import * as utils from './utils.ts'
 
 
 const plugin = {
@@ -12,14 +16,16 @@ const plugin = {
     version,
   },
 
+  /* ----- Keeping meta on top ----- */
   configs,
-  // environments,
-  // languages,
-  // processors,
-  // rules,
+  environments,
+  languages,
+  processors,
+  rules,
   utils,
 }
 
+// eslint-disable-next-line no-restricted-exports -- Required by the ESLint plugin convention
 export default plugin
 
 /* eslint-enable */

@@ -1,10 +1,8 @@
-#! /usr/bin/env node
+#! /usr/bin/env -S yarn tsx
 
-'use strict'
+import { Linter } from 'eslint'
 
-const { Linter } = require('eslint')
-
-const { rules } = require('..')
+import plugin from '../src/index.ts'
 
 
 const linter = new Linter()
@@ -14,7 +12,7 @@ for (const key of builtInRules.keys()) {
   console.log(key)
 }
 
-for (const key of Object.keys(rules)) {
+for (const key of Object.keys(plugin.rules)) {
   if (!(/^mysticatea\/.+\//u).test(key)) {
     console.log(key)
   }

@@ -1,5 +1,3 @@
-import type { Linter } from 'eslint'
-
 /**
  * TODO: fix it when this plugin expose typings
  * @see: https://github.com/freaktechnik/eslint-plugin-array-func/issues/492
@@ -9,9 +7,12 @@ import arrayFunctionPlugin from 'eslint-plugin-array-func'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
+import type { Linter } from 'eslint'
 
-export const arrayFunctionVanillaConfig: Linter.Config = {
+
+export const arrayFunctionVanillaConfig = {
   plugins: {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'array-func': arrayFunctionPlugin,
   },
 
@@ -26,4 +27,4 @@ export const arrayFunctionVanillaConfig: Linter.Config = {
     // OFF as the rule 'unicorn/prefer-array-flat-map' check the same thing
     'array-func/prefer-flat-map': [OFF],
   },
-}
+} as const satisfies Linter.Config

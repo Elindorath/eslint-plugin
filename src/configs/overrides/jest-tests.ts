@@ -1,6 +1,6 @@
-import { mergeConfigs } from '../../configMerger'
-import { libraryJestSyntaxTypescriptConfig } from '../library-jest&syntax-typescript'
-import { vanillaConfig } from '../vanilla'
+import { mergeConfigs } from '../../configMerger.ts'
+import { libraryJestSyntaxTypescriptConfig } from '../library-jest&syntax-typescript.ts'
+import { vanillaConfig } from '../vanilla.ts'
 
 
 export const overrideJestTestsConfig = mergeConfigs(

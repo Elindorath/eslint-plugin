@@ -4,22 +4,25 @@ import { readdir } from 'node:fs/promises'
 import process from 'node:process'
 import { URL } from 'node:url'
 
-import type { SetFieldType, SetRequired } from 'type-fest'
-import type { Linter, Rule } from 'eslint'
-import { ESLint } from 'eslint'
-import Ajv from 'ajv'
 import betterAjvErrors from '@sidvind/better-ajv-errors'
+import Ajv from 'ajv'
 import metaSchema from 'ajv/lib/refs/json-schema-draft-04.json' with { type: 'json' }
+import { ESLint } from 'eslint'
+
+import type { Linter, Rule } from 'eslint'
 import type { JSONSchema4 } from 'json-schema'
+import type { SetFieldType, SetRequired } from 'type-fest'
 
 
 type ESLintPluginWithRule = SetRequired<ESLint.Plugin, 'rules'>
 
 type PluginDescriptor = {
-  prefix: string;
+  configurationDictionary: {
+    [key: string]: Linter.Config;
+  };
+  configuredRuleSet: Set<string>;
   instance: ESLintPluginWithRule;
-  configuredRuleSet: Set<string>,
-  configurationDictionary: Record<string, Linter.Config>,
+  prefix: string;
 }
 
 // TODO: This should be used instead of simple string for errors
@@ -29,23 +32,25 @@ type PluginDescriptor = {
 //   ruleId: string;
 // }
 
-Error.stackTraceLimit = Number.POSITIVE_INFINITY;
+Error.stackTraceLimit = Number.POSITIVE_INFINITY
 
 const pluginConfigurationsDirectoryUrl = new URL('../src/configs/plugins/', import.meta.url)
 
 const ajv = new Ajv({
   allErrors: true,
-  validateSchema: false,
+  // Required by '@sidvind/better-ajv-errors'
+  jsonPointers: true,
+  logger: false,
+  meta: false,
+  // eslint-disable-next-line unicorn/prevent-abbreviations -- Defined by ajv
   missingRefs: 'ignore',
   schemaId: 'auto',
   useDefaults: true,
-  meta: false,
+  validateSchema: false,
   verbose: true,
-  logger: false,
-  jsonPointers: true, // Required by '@sidvind/better-ajv-errors'
 })
 
-ajv.addMetaSchema(metaSchema);
+ajv.addMetaSchema(metaSchema)
 
 if (!ESLint.defaultConfig[0]?.plugins?.['@']) {
   throw new Error('Pseudo plugin from ESLint default config not found')
@@ -73,13 +78,13 @@ const eslintPseudoPlugin = ESLint.defaultConfig[0].plugins['@']
     const pluginDescriptor = await getPluginDescriptor(pluginName)
 
     if (isPluginDescriptorWithRules(pluginDescriptor)) {
-      const newRules = detectNewRules(pluginDescriptor.instance.rules, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
+      const notConfiguredRules = detectNotConfiguredRules(pluginDescriptor.instance.rules, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
       const deprecatedRules = detectDeprecatedRules(pluginDescriptor.instance.rules, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
       const removedRules = detectRemovedRules(pluginDescriptor.instance.rules, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
 
       const errors = validateConfigurations(pluginDescriptor, deprecatedRules, removedRules)
 
-      formatMessages(pluginName, newRules, deprecatedRules, removedRules, errors)
+      formatMessages(pluginName, notConfiguredRules, deprecatedRules, removedRules, errors)
     }
   }
 })().catch((error) => {
@@ -97,15 +102,15 @@ async function getPluginDescriptor(pluginName: string) {
   const configuredRuleSet = getConfiguredPluginRuleSet(configurationDictionary, prefix)
 
   return {
-    prefix,
-    instance,
-    configuredRuleSet,
     configurationDictionary,
+    configuredRuleSet,
+    instance,
+    prefix,
   }
 }
 
 async function getPluginConfigurationMap(pluginConfigurationFiles: string[], pluginConfigurationDirectoryUrl: URL) {
-  const pluginConfigurationMap: Record<string, Linter.Config> = {}
+  const pluginConfigurationMap: { [key: string]: Linter.Config; } = {}
 
   for (const pluginConfigurationFile of pluginConfigurationFiles) {
     if (pluginConfigurationFile !== '_compat.ts') {
@@ -176,7 +181,7 @@ function getConfiguredPluginRuleSet(pluginConfigurationMap: Record<string, Linte
   }, new Set())
 }
 
-function detectNewRules(pluginRules: Record<string, Rule.RuleModule>, configuredRuleSet: Set<string>, pluginPrefix: string) {
+function detectNotConfiguredRules(pluginRules: Record<string, Rule.RuleModule>, configuredRuleSet: Set<string>, pluginPrefix: string) {
   return Object.keys(pluginRules).reduce<string[]>((newRuleList, ruleName) => {
     if (!configuredRuleSet.has(getRuleIdFromName(ruleName, pluginPrefix)) && !pluginRules[ruleName].meta?.deprecated) {
       const isLayoutRule = pluginRules[ruleName].meta?.type === LAYOUT_TYPE
@@ -273,6 +278,8 @@ function validateRuleConfiguration(ruleId: string, ruleConfiguration: Linter.Rul
     potentialErrors.push(`LAYOUT ISSUE: ${ruleId}: the rule should be in a file suffixed with '${LAYOUT_TYPE_SUFFIX}' (in ${fileName})`)
   } else if (rule.meta.type !== LAYOUT_TYPE && fileName.includes(LAYOUT_TYPE_SUFFIX)) {
     potentialErrors.push(`LAYOUT ISSUE: ${ruleId}: the rule should NOT be in a file suffixed with '${LAYOUT_TYPE_SUFFIX}' (in ${fileName})`)
+  } else {
+    // Do nothing
   }
 
   if (schema === false) {

@@ -1,7 +1,7 @@
-import { mergeConfigs } from '../configMerger'
+import { mergeConfigs } from '../configMerger.ts'
 
-import { reactNativeConfig } from './plugins/react-native/library-react-native&syntax-jsx'
-import { reactNativeA11yConfig } from './plugins/react-native-a11y/library-react-native&syntax-jsx'
+import { reactNativeA11yConfig } from './plugins/react-native-a11y/library-react-native&syntax-jsx.ts'
+import { reactNativeConfig } from './plugins/react-native/library-react-native&syntax-jsx.ts'
 
 
 export const libraryReactNativeSyntaxJsxConfig = mergeConfigs(

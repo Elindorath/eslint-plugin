@@ -1,9 +1,8 @@
-import { mergeConfigs } from '../../configMerger'
-import { jsonFilesConfig } from '../plugins/json-files/vanilla'
-import { jsonConfig } from '../plugins/jsonc/syntax-json'
-import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout'
-
-import { OFF, ERROR } from '../../constants'
+import { mergeConfigs } from '../../configMerger.ts'
+import { ERROR, OFF } from '../../constants.ts'
+import { jsonFilesConfig } from '../plugins/json-files/vanilla.ts'
+import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout.ts'
+import { jsonConfig } from '../plugins/jsonc/syntax-json.ts'
 
 
 export const overridePackageJsonConfig = mergeConfigs(
@@ -15,11 +14,13 @@ export const overridePackageJsonConfig = mergeConfigs(
     rules: {
       'jsonc/key-name-casing': [ERROR, {
         'camelCase': true,
+        'ignores': [String.raw`^@[\w-]*/[\w-]+$`, String.raw`^\w+:\w+`],
+        'kebab-case': true,
+        // eslint-disable-next-line @typescript-eslint/naming-convention -- Defined by the rule
         'PascalCase': false,
         'SCREAMING_SNAKE_CASE': false,
-        'kebab-case': true,
+        // eslint-disable-next-line @typescript-eslint/naming-convention -- Defined by the rule
         'snake_case': false,
-        'ignores': ['^@[\\w-]*/[\\w-]+$', '^\\w+:\\w+'],
       }],
       // OFF as the ordering is handled by the 'json-files/sort-package-json' rule
       'jsonc/sort-keys': [OFF],

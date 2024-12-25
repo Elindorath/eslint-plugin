@@ -1,7 +1,7 @@
-import { mergeConfigs } from '../configMerger'
+import { mergeConfigs } from '../configMerger.ts'
 
-import { libraryReactConfig } from './library-react'
-import { syntaxJsxConfig } from './syntax-jsx'
+import { libraryReactConfig } from './library-react.ts'
+import { syntaxJsxConfig } from './syntax-jsx.ts'
 
 
 export const libraryReactSyntaxJsxConfig = mergeConfigs(

@@ -1,28 +1,30 @@
-import { Linter } from 'eslint'
 import sonarJsPlugin from 'eslint-plugin-sonarjs'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
 const MAX_COGNITIVE_COMPLEXITY = 15
 const MAX_SWITCH_CASES = 30
 const MIN_FUNCTION_BODY_LINE_COUNT = 3
 
-export const sonarJsVanillaConfig: Linter.Config = {
+export const sonarJsVanillaConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },
 
   rules: {
-    'sonarjs/cognitive-complexity': [ERROR, MAX_COGNITIVE_COMPLEXITY], // default
+    'sonarjs/cognitive-complexity': [ERROR, MAX_COGNITIVE_COMPLEXITY],
     'sonarjs/elseif-without-else': [ERROR],
-    'sonarjs/max-switch-cases': [ERROR, MAX_SWITCH_CASES], // default
+    'sonarjs/max-switch-cases': [ERROR, MAX_SWITCH_CASES],
     'sonarjs/no-all-duplicated-branches': [ERROR],
     'sonarjs/no-collapsible-if': [ERROR],
     'sonarjs/no-collection-size-mischeck': [ERROR],
     'sonarjs/no-duplicate-string': [ERROR, {
+      ignoreStrings: 'application/json',
+      // Configured value
       threshold: 2,
-      ignoreStrings: 'application/json', // default
     }],
     'sonarjs/no-duplicated-branches': [ERROR],
     'sonarjs/no-element-overwrite': [ERROR],
@@ -51,4 +53,4 @@ export const sonarJsVanillaConfig: Linter.Config = {
     'sonarjs/prefer-single-boolean-return': [ERROR],
     'sonarjs/prefer-while': [ERROR],
   },
-}
+} as const satisfies Linter.Config

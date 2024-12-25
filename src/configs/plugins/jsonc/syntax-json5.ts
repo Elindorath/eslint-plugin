@@ -1,14 +1,14 @@
-import type { ESLint, Linter } from 'eslint'
 import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
-import { getRuleConfig } from '../../../utils.js'
-import { eslintVanillaConfig } from '../eslint/vanilla.js'
+import { ERROR, OFF } from '../../../constants.ts'
+import { getRuleConfig } from '../../../utils.ts'
+import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
-import { OFF, ERROR } from '../../../constants'
+import type { ESLint, Linter } from 'eslint'
 
 
-export const json5Config: Linter.Config = {
+export const json5Config = {
   languageOptions: {
     parser: jsonParser,
   },
@@ -18,6 +18,7 @@ export const json5Config: Linter.Config = {
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
      * TODO: fix this when types are fixed
      */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
     jsonc: jsoncPlugin as unknown as ESLint.Plugin,
   },
 
@@ -26,12 +27,20 @@ export const json5Config: Linter.Config = {
     'jsonc/auto': [OFF],
 
     'jsonc/key-name-casing': [ERROR, {
+      // Configured value
       'camelCase': true,
-      'PascalCase': false,
-      'SCREAMING_SNAKE_CASE': false,
-      'kebab-case': false,
-      'snake_case': false,
+      // Configured value
       'ignores': [],
+      // Configured value
+      'kebab-case': false,
+      // Configured value
+      // eslint-disable-next-line @typescript-eslint/naming-convention -- Required by the rule
+      'PascalCase': false,
+      // Configured value
+      'SCREAMING_SNAKE_CASE': false,
+      // Configured value
+      // eslint-disable-next-line @typescript-eslint/naming-convention -- Required by the rule
+      'snake_case': false,
     }],
     'jsonc/no-bigint-literals': [ERROR],
     'jsonc/no-binary-expression': [ERROR],
@@ -51,17 +60,21 @@ export const json5Config: Linter.Config = {
     'jsonc/no-undefined-value': [ERROR],
     'jsonc/no-unicode-codepoint-escapes': [ERROR],
     'jsonc/sort-array-values': [ERROR, {
-      pathPattern: '.*',
+      // Configured value
       order: {
         type: 'asc',
       },
+      // Configured value
+      pathPattern: '.*',
     }],
     'jsonc/sort-keys': [ERROR, {
-      // hasProperties: [''],
-      pathPattern: '.*',
+      // Configured value
       order: {
         type: 'asc',
       },
+      // Configured value
+      pathPattern: '.*',
+      // hasProperties: [''],
     }],
     'jsonc/valid-json-number': [ERROR],
     'jsonc/vue-custom-block/no-parsing-error': [ERROR],
@@ -71,9 +84,9 @@ export const json5Config: Linter.Config = {
     'jsonc/no-floating-decimal': getRuleConfig('no-floating-decimal', eslintVanillaConfig),
     'jsonc/no-irregular-whitespace': getRuleConfig('no-irregular-whitespace', eslintVanillaConfig),
     'jsonc/no-multi-str': getRuleConfig('no-multi-str', eslintVanillaConfig),
-    'jsonc/no-octal-escape': getRuleConfig('no-octal-escape', eslintVanillaConfig),
     'jsonc/no-octal': getRuleConfig('no-octal', eslintVanillaConfig),
+    'jsonc/no-octal-escape': getRuleConfig('no-octal-escape', eslintVanillaConfig),
     'jsonc/no-sparse-arrays': getRuleConfig('no-sparse-arrays', eslintVanillaConfig),
     'jsonc/no-useless-escape': getRuleConfig('no-useless-escape', eslintVanillaConfig),
   },
-}
+} as const satisfies Linter.Config

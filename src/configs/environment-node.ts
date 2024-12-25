@@ -1,9 +1,9 @@
 import globals from 'globals'
 
-import { mergeConfigs } from '../configMerger'
+import { mergeConfigs } from '../configMerger.ts'
 
-import { nNodeConfig } from './plugins/n/environment-node'
-import { unicornNodeConfig } from './plugins/unicorn/environment-node'
+import { nNodeConfig } from './plugins/n/environment-node.ts'
+import { unicornNodeConfig } from './plugins/unicorn/environment-node.ts'
 
 
 export const environmentNodeConfig = mergeConfigs(

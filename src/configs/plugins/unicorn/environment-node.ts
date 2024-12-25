@@ -1,11 +1,11 @@
-import type { Linter } from 'eslint'
-
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const unicornNodeConfig: Linter.Config = {
+export const unicornNodeConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -13,4 +13,4 @@ export const unicornNodeConfig: Linter.Config = {
   rules: {
     'unicorn/prefer-node-protocol': [ERROR],
   },
-}
+} as const satisfies Linter.Config

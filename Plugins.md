@@ -44,6 +44,8 @@
 
 | Name                                                         | Reason                                             |
 | ------------------------------------------------------------ | -------------------------------------------------- |
+| [eslint-plugin-functional][functional]                       |                                                    |
+| [eslint-plugin-sonar][sonar]                                 |                                                    |
 | [eslint-plugin-decorator-position][decorator-position]       |                                                    |
 | [@shopify/eslint-plugin][@shopify]                           |                                                    |
 | [eslint-plugin-toplevel][toplevel]                           |                                                    |
@@ -152,6 +154,8 @@
 [typescript-eslint]: https://github.com/typescript-eslint/typescript-eslint
 
 <!-- Considering -->
+[functional]: https://github.com/eslint-functional/eslint-plugin-functional
+[sonar]: https://github.com/un-ts/eslint-plugin-sonar
 [decorator-position]: https://github.com/NullVoxPopuli/eslint-plugin-decorator-position
 [@shopify]: https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin
 [toplevel]: https://github.com/HKalbasi/eslint-plugin-toplevel

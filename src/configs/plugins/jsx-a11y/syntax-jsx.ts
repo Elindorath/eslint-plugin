@@ -1,16 +1,20 @@
-import type { Linter } from 'eslint'
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-const labelAttributes: string[] = [] // default
-const controlComponents: string[] = [] // default
-const imageComponents = ['Image', 'Picture']
-const anchorComponents = ['Link']
-const inputComponents = ['input', 'Input', 'Field']
-const labelComponents = ['Label']
-// default
+const labelAttributes: string[] = [] as const
+const controlComponents: string[] = [] as const
+// Configured value
+const imageComponents = ['Image', 'Picture'] as const
+// Configured value
+const anchorComponents = ['Link'] as const
+// Configured value
+const inputComponents = ['input', 'Input', 'Field'] as const
+// Configured value
+const labelComponents = ['Label'] as const
 const interactiveHandlers = [
   'onClick',
   'onMouseDown',
@@ -18,62 +22,72 @@ const interactiveHandlers = [
   'onKeyPress',
   'onKeyDown',
   'onKeyUp',
-]
+] as const
 
 
-export const jsxA11yConfig: Linter.Config = {
+export const jsxA11yConfig = {
   plugins: {
     'jsx-a11y': jsxA11yPlugin,
   },
 
   settings: {
     'jsx-a11y': {
-      polymorphicPropName: 'as',
       // TODO: Should be configured on a per project basis
       components: {},
+      polymorphicPropName: 'as',
     },
   },
 
+  /* ----- Rules ----- */
   rules: {
     'jsx-a11y/alt-text': [ERROR, {
-      'elements': ['img', 'object', 'area', 'input[type="image"]'], // default
-      'img': imageComponents,
-      'object': ['Object'],
+      // Configured value
       'area': ['Area'],
+      'elements': ['img', 'object', 'area', 'input[type="image"]'],
+      // Configured value
+      'img': imageComponents,
+      // Configured value
       'input[type="image"]': ['InputImage'],
+      // Configured value
+      'object': ['Object'],
     }],
     'jsx-a11y/anchor-ambiguous-text': [ERROR, {
-      words: ['click here', 'here', 'link', 'a link', 'learn more'], // default
+      words: ['click here', 'here', 'link', 'a link', 'learn more'],
     }],
     'jsx-a11y/anchor-has-content': [ERROR, {
+      // Configured value
       components: anchorComponents,
     }],
     'jsx-a11y/anchor-is-valid': [ERROR, {
+      aspects: ['noHref', 'invalidHref', 'preferButton'],
+      // Configured value
       components: anchorComponents,
+      // Configured value
       specialLink: ['href', 'url'],
-      aspects: ['noHref', 'invalidHref', 'preferButton'], // default
     }],
     'jsx-a11y/aria-activedescendant-has-tabindex': [ERROR, {}],
     'jsx-a11y/aria-props': [ERROR, {}],
     'jsx-a11y/aria-proptypes': [ERROR, {}],
     'jsx-a11y/aria-role': [ERROR, {
       allowedInvalidRoles: [],
-      ignoreNonDOM: false, // default
+      ignoreNonDOM: false,
     }],
     'jsx-a11y/aria-unsupported-elements': [ERROR, {}],
     'jsx-a11y/autocomplete-valid': [ERROR, {
+      // Configured value
       inputComponents,
     }],
     'jsx-a11y/click-events-have-key-events': [ERROR, {}],
     'jsx-a11y/control-has-associated-label': [ERROR, {
-      labelAttributes,
       controlComponents,
-      ignoreElements: [], // default
-      ignoreRoles: [], // default
-      depth: 2, // default
+      depth: 2,
+      ignoreElements: [],
+      ignoreRoles: [],
+      // Configured value
+      labelAttributes,
     }],
     'jsx-a11y/heading-has-content': [ERROR, {
-      components: [], // default
+      components: [],
     }],
     'jsx-a11y/html-has-lang': [ERROR, {}],
     'jsx-a11y/iframe-has-title': [ERROR, {}],
@@ -93,25 +107,30 @@ export const jsxA11yConfig: Linter.Config = {
       ],
     }],
     'jsx-a11y/label-has-associated-control': [ERROR, {
-      labelComponents,
-      labelAttributes,
-      controlComponents,
       assert: 'both',
-      depth: 2, // default
+      controlComponents,
+      depth: 2,
+      labelAttributes,
+      labelComponents,
     }],
     'jsx-a11y/lang': [ERROR, {}],
     'jsx-a11y/media-has-caption': [ERROR, {
+      // Configured value
       audio: ['Audio'],
-      video: ['Video'],
+      // Configured value
       track: ['Track'],
+      // Configured value
+      video: ['Video'],
     }],
     'jsx-a11y/mouse-events-have-key-events': [ERROR, {
+      // Configured value
       hoverInHandlers: [
         'onMouseOver',
         'onMouseEnter',
         'onPointerOver',
         'onPointerEnter',
       ],
+      // Configured value
       hoverOutHandlers: [
         'onMouseOut',
         'onMouseLeave',
@@ -123,37 +142,45 @@ export const jsxA11yConfig: Linter.Config = {
     'jsx-a11y/no-aria-hidden-on-focusable': [ERROR, {}],
     // OFF as autofocus could be a major UX improvements
     'jsx-a11y/no-autofocus': [OFF, {
-      ignoreNonDOM: false, // default
+      ignoreNonDOM: false,
     }],
     'jsx-a11y/no-distracting-elements': [ERROR, {
-      elements: ['marquee', 'blink'], // default
+      elements: ['marquee', 'blink'],
     }],
     'jsx-a11y/no-interactive-element-to-noninteractive-role': [ERROR, {
+      // Configured value
       tr: ['none', 'presentation'],
     }],
     'jsx-a11y/no-noninteractive-element-interactions': [ERROR, {
-      // default
       handlers: interactiveHandlers,
     }],
     'jsx-a11y/no-noninteractive-element-to-interactive-role': [ERROR, {
-      ul: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
-      ol: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
+      // Configured value
       li: ['menuitem', 'option', 'row', 'tab', 'treeitem'],
+      // Configured value
+      ol: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
+      // Configured value
       table: ['grid'],
+      // Configured value
       td: ['gridcell'],
+      // Configured value
+      ul: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
     }],
     'jsx-a11y/no-noninteractive-tabindex': [ERROR, {
-      tags: [],
-      roles: ['tabpanel'],
+      // Configured value
       allowExpressionValues: true,
+      // Configured value
+      roles: ['tabpanel'],
+      // Configured value
+      tags: [],
     }],
     'jsx-a11y/no-redundant-roles': [ERROR, {
       nav: ['navigation'],
     }],
     'jsx-a11y/no-static-element-interactions': [ERROR, {
-      // default
-      handlers: interactiveHandlers,
+      // Configured value
       allowExpressionValues: true,
+      handlers: interactiveHandlers,
     }],
     'jsx-a11y/prefer-tag-over-role': [ERROR, {}],
     'jsx-a11y/role-has-required-aria-props': [ERROR, {}],
@@ -161,4 +188,4 @@ export const jsxA11yConfig: Linter.Config = {
     'jsx-a11y/scope': [ERROR, {}],
     'jsx-a11y/tabindex-no-positive': [ERROR, {}],
   },
-}
+} as const satisfies Linter.Config

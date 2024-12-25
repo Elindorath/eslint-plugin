@@ -54,5 +54,6 @@
   "eslint.runtime": "/home/Elindorath/.config/asdf/installs/nodejs/20.18.0/bin/node",
   "eslint.execArgv": [
     "--experimental-require-module"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

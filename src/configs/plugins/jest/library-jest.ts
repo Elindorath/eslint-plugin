@@ -1,16 +1,17 @@
-import type { Linter } from 'eslint'
-
 import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
 
-import { OFF, WARN, ERROR } from '../../../constants'
+import { ERROR, OFF, WARN } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const jestConfig: Linter.Config = {
+export const jestConfig = {
   plugins: {
     jest: jestPlugin,
   },
 
+  /* ----- Language options ----- */
   languageOptions: {
     globals: {
       ...globals.jest,
@@ -19,18 +20,18 @@ export const jestConfig: Linter.Config = {
 
   rules: {
     'jest/consistent-test-it': [ERROR, {
-      fn: 'test', // default
-      withinDescribe: 'it', // default
+      fn: 'test',
+      withinDescribe: 'it',
     }],
     'jest/expect-expect': [ERROR, {
-      assertFunctionNames: ['expect'], // default
-      additionalTestBlockFunctions: [], // default
+      additionalTestBlockFunctions: [],
+      assertFunctionNames: ['expect'],
     }],
     'jest/max-expects': [ERROR, {
-      max: 5, // default
+      max: 5,
     }],
     'jest/max-nested-describe': [ERROR, {
-      max: 5, // default
+      max: 5,
     }],
     'jest/no-alias-methods': [ERROR],
     'jest/no-commented-out-tests': [ERROR],
@@ -46,23 +47,23 @@ export const jestConfig: Linter.Config = {
     'jest/no-focused-tests': [ERROR],
     // Could be debatable
     'jest/no-hooks': [ERROR, {
-      allow: [''], // default
+      allow: [''],
     }],
     'jest/no-identical-title': [ERROR],
     'jest/no-interpolation-in-snapshots': [ERROR],
     'jest/no-jasmine-globals': [ERROR],
     'jest/no-large-snapshots': [ERROR, {
-      maxSize: 50, // default
-      inlineMaxSize: 50, // default
-      allowedSnapshots: {}, // default
+      allowedSnapshots: {},
+      inlineMaxSize: 50,
+      maxSize: 50,
     }],
     'jest/no-mocks-import': [ERROR],
     // TODO: Should be populated with unwanted jest methods
-    'jest/no-restricted-jest-methods': [ERROR, {}], // default
+    'jest/no-restricted-jest-methods': [ERROR, {}],
     // TODO: Should be populated with unwanted matchers
-    'jest/no-restricted-matchers': [ERROR, {}], // default
+    'jest/no-restricted-matchers': [ERROR, {}],
     'jest/no-standalone-expect': [ERROR, {
-      additionalTestBlockFunctions: [], // default
+      additionalTestBlockFunctions: [],
     }],
     'jest/no-test-prefixes': [ERROR],
     'jest/no-test-return-statement': [ERROR],
@@ -81,21 +82,24 @@ export const jestConfig: Linter.Config = {
     'jest/prefer-each': [ERROR],
     'jest/prefer-equality-matcher': [ERROR],
     'jest/prefer-expect-assertions': [ERROR, {
+      // Configured value
       onlyFunctionsWithAsyncKeyword: true,
-      onlyFunctionsWithExpectInLoop: true,
+      // Configured value
       onlyFunctionsWithExpectInCallback: true,
+      // Configured value
+      onlyFunctionsWithExpectInLoop: true,
     }],
     'jest/prefer-expect-resolves': [ERROR],
     'jest/prefer-hooks-in-order': [ERROR],
     'jest/prefer-hooks-on-top': [ERROR],
     'jest/prefer-importing-jest-globals': [ERROR, {
-      types: [], // default
+      types: [],
     }],
     'jest/prefer-jest-mocked': [ERROR],
     'jest/prefer-lowercase-title': [ERROR, {
-      ignore: [], // default
-      allowedPrefixes: [], // default
-      ignoreTopLevelDescribe: false, // default
+      allowedPrefixes: [],
+      ignore: [],
+      ignoreTopLevelDescribe: false,
     }],
     'jest/prefer-mock-promise-shorthand': [ERROR],
     'jest/prefer-snapshot-hint': [ERROR, 'multi'],
@@ -105,34 +109,36 @@ export const jestConfig: Linter.Config = {
     'jest/prefer-to-contain': [ERROR],
     'jest/prefer-to-have-length': [ERROR],
     'jest/require-hook': [ERROR, {
-      allowedFunctionCalls: [], // default
+      allowedFunctionCalls: [],
     }],
     'jest/require-to-throw-message': [ERROR],
     'jest/require-top-level-describe': [ERROR, {
+      // Configured value
       maxNumberOfTopLevelDescribes: 1,
     }],
     'jest/valid-describe-callback': [ERROR],
-    'jest/valid-expect-in-promise': [ERROR],
     'jest/valid-expect': [ERROR, {
+      // Configured value
       alwaysAwait: true,
-      // default
       asyncMatchers: [
         'toResolve',
         'toReject',
       ],
-      minArgs: 1, // default
-      maxArgs: 1, // default
+      maxArgs: 1,
+      minArgs: 1,
     }],
+    'jest/valid-expect-in-promise': [ERROR],
     'jest/valid-title': [ERROR, {
-      ignoreSpaces: false, // default
-      ignoreTypeOfDescribeName: false, // default
-      ignoreTypeOfTestName: false, // default
-      disallowedWords: [], // default
-      mustNotMatch: {}, // default
+      disallowedWords: [],
+      ignoreSpaces: false,
+      ignoreTypeOfDescribeName: false,
+      ignoreTypeOfTestName: false,
+      // Configured value
       mustMatch: {
-        test: ['^that'],
         it: ['^should'],
+        test: ['^that'],
       },
+      mustNotMatch: {},
     }],
   },
-}
+} as const satisfies Linter.Config

@@ -1,9 +1,11 @@
 import perfectionistPlugin from 'eslint-plugin-perfectionist'
 
-import { ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
 
 import type { ESLint, Linter } from 'eslint'
 
+
+const VALUES_FIRST = 'values-first'
 
 export const perfectionistVanillaConfig = {
   plugins: {
@@ -11,17 +13,24 @@ export const perfectionistVanillaConfig = {
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
      * TODO: fix this when types are fixed
      */
-    perfectionist: perfectionistPlugin as unknown as ESLint.Plugin,
+    perfectionist: perfectionistPlugin as ESLint.Plugin,
   },
 
   settings: {
     perfectionist: {
-      type: 'natural',
-      order: 'asc',
       ignoreCase: true,
+      ignorePattern: [],
+      locales: 'en-US',
+      order: 'asc',
+      partitionByComment: [
+        '^Group.+',
+        '^----- [^-]+ -----$',
+      ],
+      partitionByNewLine: false,
       specialCharacters: 'keep',
-      locales: 'en-US', // default
-    }
+      // Configured value
+      type: 'natural',
+    },
 
     /**
      * All settings:
@@ -36,33 +45,25 @@ export const perfectionistVanillaConfig = {
      */
   },
 
+  /* ----- Rules ----- */
   rules: {
+    /**
+     * Other option objects can be defined with the following additional key:
+     * useConfigurationIf: {
+     *   allNamesMatchPattern: 'regex',
+     * }
+     */
     'perfectionist/sort-array-includes': [ERROR, {
-      type: 'natural',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: [
-        'Group',
+      customGroups: [],
+      // Configured value
+      groups: [
+        'spread',
+        'literal',
       ],
-      partitionByNewLine: false,
-
-      groupKind: 'spreads-first', // non default
     }],
     'perfectionist/sort-classes': [ERROR, {
-      type: 'natural',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      locales: 'en-US', // default
-      partitionByComment: [
-        'Group',
-      ],
-      partitionByNewLine: false,
-
-      ignoreCallbackDependenciesPatterns: [], // default
-      newlinesBetween: 'always', // default
-      groups: [ // default
+      customGroups: [],
+      groups: [
         'index-signature',
         'static-property',
         'static-block',
@@ -77,73 +78,43 @@ export const perfectionistVanillaConfig = {
         ['get-method', 'set-method'],
         'unknown',
       ],
-      customGroups: [], // default
+      ignoreCallbackDependenciesPatterns: [],
+      // Configured value
+      newlinesBetween: 'always',
     }],
     'perfectionist/sort-decorators': [ERROR, {
-      type: 'natural',
-      order: 'asc', // default
-      specialCharacters: 'keep', // default
-      locales: 'en-US', // default
-      partitionByComment: false, // default
-
-      ignoreCase: true, // default
-      sortOnClasses: true, // default
-      sortOnMethods: true, // default
-      sortOnProperties: true, // default
-      sortOnAccessors: true, // default
-      sortOnParameters: true, // default
-      groups: [ // default
-        'unknown',
-      ],
       // TODO: needs to be defined
       customGroups: {},
-    }],
-    'perfectionist/sort-enums': [ERROR, {
-      type: 'natural',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      sortByValue: false, // default
-      forceNumericSort: false, // default
-    }],
-    'perfectionist/sort-exports': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      groupKind: 'values-first', // non-default
-    }],
-    'perfectionist/sort-heritage-clauses': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      locales: 'en-US', // default
       groups: [
         'unknown',
       ],
+      sortOnAccessors: true,
+      sortOnClasses: true,
+      sortOnMethods: true,
+      sortOnParameters: true,
+      sortOnProperties: true,
+    }],
+    'perfectionist/sort-enums': [ERROR, {
+      forceNumericSort: false,
+      sortByValue: false,
+    }],
+    'perfectionist/sort-exports': [ERROR, {
+      // Configured value
+      groupKind: VALUES_FIRST,
+    }],
+    'perfectionist/sort-heritage-clauses': [ERROR, {
       customGroups: {},
+      groups: [
+        'unknown',
+      ],
     }],
     // TODO: Need to choose between this rule, the core sort-imports rule, the import/order and prettier-plugin-sort-imports
+    'sort-imports': [OFF],
+    // eslint-disable-next-line perfectionist/sort-objects -- To keep consistency
     'perfectionist/sort-imports': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      locales: 'en-US', // default
-
-      internalPattern: ['~/**'], // default
-      sortSideEffects: false, // default
-      partitionByComment: false, // default
-      partitionByNewLine: false, // default
-      newlinesBetween: 'always', // default
-      maxLineLength: undefined, // default
+      customGroups: { type: {}, value: {} },
+      environment: 'node',
+      // Configured value
       groups: [
         'builtin',
         'external',
@@ -159,65 +130,46 @@ export const perfectionistVanillaConfig = {
         'index-type',
         'sibling-type',
         'type',
+        'style',
       ],
-      customGroups: { type: {}, value: {} }, // default
-      environment: 'node', // default
+      internalPattern: ['^~/.*'],
+      maxLineLength: undefined,
+      newlinesBetween: 'always',
+      sortSideEffects: false,
     }],
+
+    /**
+     * Other option objects can be defined with the following additional key:
+     * useConfigurationIf: {
+     *   allNamesMatchPattern: 'regex',
+     *   declarationMatchesPattern: 'regex',
+     * }
+     */
     // TODO: Might clash with the @typescript-eslint/adjacent-overload-signatures
     'perfectionist/sort-interfaces': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      ignorePattern: [],
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      newlinesBetween: 'always', // default
-      groupKind: 'required-first',
-      groups: [],
       customGroups: {},
+      // Configured value
+      groups: [
+        'required',
+        'optional',
+        'unknown',
+      ],
+      newlinesBetween: 'ignore',
     }],
     // TODO: Might clash with the @typescript-eslint/sort-type-constituents rule
     'perfectionist/sort-intersection-types': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      newlinesBetween: 'always', // default
-      groups: [], // default
+      groups: [],
+      newlinesBetween: 'ignore',
     }],
     // TODO: Might clash with the react/jsx-sort-props rule
     'perfectionist/sort-jsx-props': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      ignorePattern: [],
-
-      groups: [], // default
-      customGroups: {}, // default
+      customGroups: {},
+      groups: [],
     }],
-    'perfectionist/sort-maps': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-    }],
+    'perfectionist/sort-maps': [ERROR],
     'perfectionist/sort-modules': [ERROR, {
-      type: 'natural',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      newlinesBetween: true,
+      customGroups: [],
+      // Configured value
       groups: [
         'declare-enum',
         'export-enum',
@@ -232,100 +184,80 @@ export const perfectionistVanillaConfig = {
         'export-function',
         'function',
       ],
-      customGroups: [],
+      newlinesBetween: 'ignore',
     }],
     'perfectionist/sort-named-exports': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
-      groupKind: 'values-first',
+      // Configured value
+      groupKind: VALUES_FIRST,
     }],
     // TODO: Might clash with the sort-imports core rule
     'perfectionist/sort-named-imports': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: false,
-
+      // Configured value
+      groupKind: VALUES_FIRST,
       ignoreAlias: true,
-      groupKind: 'values-first',
     }],
+
+    /**
+     * Other option objects can be defined with the following additional key:
+     * useConfigurationIf: {
+     *   allNamesMatchPattern: 'regex',
+     *   declarationMatchesPattern: 'regex',
+     * }
+     */
     // TODO: Might clash with the @typescript-eslint/adjacent-overload-signatures rule
     'perfectionist/sort-object-types': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByComment: false,
-      partitionByNewLine: true,
-
-      newlinesBetween: 'always', // default
-      groupKind: 'required-first',
-      groups: [],
       customGroups: {},
-    }],
-    // TODO: Might clash with the sort-keys core rule
-    'perfectionist/sort-objects': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      ignorePattern: [],
-      partitionByComment: false,
-      partitionByNewLine: true,
-
-      newlinesBetween: 'always', // default
-      destructureOnly: false, // default
-      styledComponents: true, // default
+      // Configured value
       groups: [
+        'required-member',
+        'optional-member',
         'unknown',
-        'multiline',
+      ],
+      newlinesBetween: 'ignore',
+    }],
+    'sort-keys': [OFF],
+
+    /**
+     * Other option objects can be defined with the following additional key:
+     * useConfigurationIf: {
+     *   allNamesMatchPattern: 'regex',
+     *   callingFunctionNamePattern: 'regex',
+     * }
+     */
+    // eslint-disable-next-line perfectionist/sort-objects -- To keep consistency
+    'perfectionist/sort-objects': [ERROR, {
+      // Configured value
+      customGroups: {
+        // cspell:disable-next-line -- Expected in regex.
+        probableIdentifiers: ['^(id|Id|ID)$', '^[iI]dentifier$', '^[nN]ame$', '^selector$'],
+      },
+      destructuredObjects: true,
+      // Configured value
+      groups: [
+        'probableIdentifiers',
+        ['unknown', 'multiline'],
         'method',
       ],
-      customGroups: {},
+      newlinesBetween: 'ignore',
+      objectDeclarations: true,
+      styledComponents: true,
     }],
     'perfectionist/sort-sets': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByNewLine: false,
-
-      groupKind: 'spreads-first',
+      customGroups: [],
+      // Configured value
+      groups: [
+        'spread',
+        'literal',
+        'unknown',
+      ],
     }],
-    'perfectionist/sort-switch-case': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      locales: 'en-US', // default
-    }],
+    'perfectionist/sort-switch-case': [ERROR],
     // TODO: Might clash with the @typescript-eslint/sort-type-constituents rule
     'perfectionist/sort-union-types': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByNewLine: false,
-      partitionByComment: false,
-
-      newlinesBetween: 'always', // default
       groups: [],
+      newlinesBetween: 'ignore',
     }],
     // TODO: Might be OFF
-    'perfectionist/sort-variable-declarations': [ERROR, {
-      type: 'alphabetical',
-      order: 'asc',
-      ignoreCase: true,
-      specialCharacters: 'keep',
-      partitionByNewLine: false,
-      partitionByComment: false,
-    }],
+    'perfectionist/sort-variable-declarations': [ERROR],
   },
-} satisfies Linter.Config
+} as const satisfies Linter.Config
