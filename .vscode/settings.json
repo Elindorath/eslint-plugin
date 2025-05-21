@@ -51,7 +51,7 @@
       "unstable_ts_config"
     ]
   },
-  "eslint.runtime": "/home/Elindorath/.config/asdf/installs/nodejs/20.18.0/bin/node",
+  "eslint.runtime": "/Users/elindorath/.config/asdf/installs/nodejs/24.0.2/bin/node",
   "eslint.execArgv": [
     "--experimental-require-module"
   ],

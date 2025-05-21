@@ -8,9 +8,9 @@
     "url": "github:elindorath/eslint-plugin"
   },
   "engines": {
-    "node": "22.12.0"
+    "node": "24.0.2"
   },
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.9.1",
   "main": "src/index.js",
   "files": [
     "src/**"
@@ -25,7 +25,7 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/compat": "^1.2.4",
-    "@eslint/json": "^0.9.0",
+    "@eslint/json": "^0.12.0",
     "@eslint/markdown": "^6.2.1",
     "@stylistic/eslint-plugin": "^2.12.1",
     "eslint": "^9.17.0",
