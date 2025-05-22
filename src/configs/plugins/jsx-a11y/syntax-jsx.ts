@@ -32,9 +32,9 @@ export const jsxA11yConfig = {
 
   settings: {
     'jsx-a11y': {
+      polymorphicPropName: 'as',
       // TODO: Should be configured on a per project basis
       components: {},
-      polymorphicPropName: 'as',
     },
   },
 

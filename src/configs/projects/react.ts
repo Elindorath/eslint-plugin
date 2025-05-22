@@ -2,6 +2,7 @@ import globals from 'globals'
 
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
+
 import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'

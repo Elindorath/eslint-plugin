@@ -129,10 +129,10 @@ export const jestConfig = {
     }],
     'jest/valid-expect-in-promise': [ERROR],
     'jest/valid-title': [ERROR, {
-      disallowedWords: [],
-      ignoreSpaces: false,
       ignoreTypeOfDescribeName: false,
       ignoreTypeOfTestName: false,
+      disallowedWords: [],
+      ignoreSpaces: false,
       // Configured value
       mustMatch: {
         it: ['^should'],

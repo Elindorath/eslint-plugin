@@ -1,5 +1,5 @@
 import { ERROR } from '../../../constants.ts'
-import { getRuleConfigOverride } from '../../../utils.ts'
+import { getRuleConfigOverride } from '../../../utilities.ts'
 
 import { baseConfig } from './baseConfig.ts'
 

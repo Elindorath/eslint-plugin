@@ -1,7 +1,7 @@
 import canonicalPlugin from 'eslint-plugin-canonical'
 
 import { ERROR, OFF } from '../../../constants.ts'
-import { overrideBaseConfigRule } from '../../../utils.ts'
+import { overrideBaseConfigRule } from '../../../utilities.ts'
 
 import type { Linter } from 'eslint'
 

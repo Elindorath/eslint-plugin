@@ -466,42 +466,17 @@ export const eslintVanillaConfig = {
     'no-restricted-properties': [ERROR],
     // TODO: should be configured by environment
     'no-restricted-syntax': [ERROR,
-      // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-instanceof-wrapper' rule
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='Boolean']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'boolean'" instead.`,
-      },
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='Number']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'number'" instead.`,
-      },
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='String']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'string'" instead.`,
-      },
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='Object']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'object'" instead.`,
-      },
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='Function']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'function'" instead.`,
-      },
-      {
-        selector: `BinaryExpression[operator='instanceof'][right.name='Symbol']`,
-        message: `Unexpected 'instanceof' operator. Use "typeof x === 'symbol'" instead.`,
-      },
       // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-literal-call' rule
       {
-        selector: `CallExpression[callee.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
+        selector: 'CallExpression[callee.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]',
         message: NOT_A_FUNCTION_MESSAGE,
       },
       {
-        selector: `NewExpression[callee.type=/^(?:(?:Array|Object)Expression|(?:Template)?Literal)$/u]`,
+        selector: 'NewExpression[callee.type=/^(?:(?:Array|Object)Expression|(?:Template)?Literal)$/u]',
         message: NOT_A_FUNCTION_MESSAGE,
       },
       {
-        selector: `TaggedTemplateExpression[tag.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]`,
+        selector: 'TaggedTemplateExpression[tag.type=/^(?:(?:Array|Class|Object)Expression|(?:Template)?Literal)$/u]',
         message: NOT_A_FUNCTION_MESSAGE,
       },
       // Reproduces the '@eslint-community/eslint-plugin-mysticatea/no-this-in-static' rule

@@ -3,7 +3,7 @@ import globals from 'globals'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 
 const INDENT_SPACE_COUNT = 2
@@ -14,12 +14,7 @@ export const reactConfig = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    react: reactPlugin as unknown as ESLint.Plugin,
+    react: reactPlugin,
   },
 
   /* ----- Language options ----- */

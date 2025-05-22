@@ -2,7 +2,8 @@ import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
 import { ERROR, OFF } from '../../../constants.ts'
-import { getRuleConfig } from '../../../utils.ts'
+import { getRuleConfig } from '../../../utilities.ts'
+
 import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
 import type { ESLint, Linter } from 'eslint'

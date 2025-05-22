@@ -2,8 +2,9 @@ import process from 'node:process'
 
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
-import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs.ts'
+
 import { environmentNodeConfig } from '../environment-node.ts'
+import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
 import { vanillaConfig } from '../vanilla.ts'
 
@@ -35,8 +36,8 @@ const webpackRules = {
   'unicorn/prevent-abbreviations': [ERROR, {
     // Configured value
     allowList: {
-      devServer: true,
       envName: true,
+      devServer: true,
     },
     // Configured value
     checkDefaultAndNamespaceImports: true,

@@ -7,7 +7,7 @@ import { environments } from './environments.ts'
 import { languages } from './languages.ts'
 import { processors } from './processors.ts'
 import { rules } from './rules.ts'
-import * as utils from './utils.ts'
+import * as utilities from './utilities.ts'
 
 
 const plugin = {
@@ -22,7 +22,7 @@ const plugin = {
   languages,
   processors,
   rules,
-  utils,
+  utilities,
 }
 
 // eslint-disable-next-line no-restricted-exports -- Required by the ESLint plugin convention

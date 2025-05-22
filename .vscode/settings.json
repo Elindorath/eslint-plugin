@@ -47,9 +47,7 @@
     "yoda"
   ],
   "eslint.options": {
-    "flags": [
-      "unstable_ts_config"
-    ]
+    "flags": []
   },
   "eslint.runtime": "/Users/elindorath/.config/asdf/installs/nodejs/24.0.2/bin/node",
   "eslint.execArgv": [

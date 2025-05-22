@@ -1,21 +1,23 @@
 import json from '@eslint/json'
 
-import { ERROR } from '../../../constants.ts'
-import { getRuleConfig } from '../../../utils.ts'
-import { eslintVanillaConfig } from '../eslint/vanilla.ts'
+import { ERROR, OFF } from '../../../constants.ts'
 
-import type { Linter } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
 
 
 export const jsoncConfig = {
   plugins: {
-    json,
+    /**
+     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
+     * TODO: fix this when types are fixed
+     */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
+    json: json as unknown as ESLint.Plugin,
   },
 
   /* ----- Language ----- */
   language: 'json/jsonc',
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Types definitions are not very well handled for other languages
   languageOptions: {
     allowTrailingCommas: true,
   } as Linter.LanguageOptions,
@@ -27,7 +29,8 @@ export const jsoncConfig = {
       form: 'NFC',
     }],
     'json/no-unsafe-values': [ERROR],
-    'json/sort-keys': getRuleConfig('sort-keys', eslintVanillaConfig),
+    // OFF as the ordering is handled by the 'jsonc/sort-keys' rule
+    'json/sort-keys': [OFF],
     'json/top-level-interop': [ERROR],
   },
 } as const satisfies Linter.Config

@@ -18,6 +18,8 @@ export const unicornVanillaConfig = {
       name: 'error',
       ignore: [],
     }],
+    // Not safe before ES2015, should be disabled in this case
+    'unicorn/consistent-date-clone': [ERROR],
     'unicorn/consistent-destructuring': [ERROR],
     'unicorn/consistent-empty-array-spread': [ERROR],
     'unicorn/consistent-existence-index-check': [ERROR],
@@ -26,7 +28,7 @@ export const unicornVanillaConfig = {
     }],
     'unicorn/custom-error-definition': [ERROR],
     'unicorn/error-message': [ERROR],
-    'unicorn/escape-case': [ERROR],
+    'unicorn/escape-case': [ERROR, 'uppercase'],
     // Related to the core rule no-warning-comments
     'unicorn/expiring-todo-comments': [ERROR, {
       allowWarningComments: true,
@@ -66,6 +68,7 @@ export const unicornVanillaConfig = {
     'unicorn/new-for-builtins': [ERROR],
     // TODO: Might be duplicate of the rule eslint-comments/no-unlimited-disable
     'unicorn/no-abusive-eslint-disable': [ERROR],
+    'unicorn/no-accessor-recursion': [ERROR],
     'unicorn/no-anonymous-default-export': [ERROR],
     // Debatable, the usage might prevail
     'unicorn/no-array-callback-reference': [ERROR],
@@ -84,7 +87,14 @@ export const unicornVanillaConfig = {
     'unicorn/no-empty-file': [ERROR],
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-hex-escape': [ERROR],
-    'unicorn/no-instanceof-array': [ERROR],
+    'unicorn/no-instanceof-builtins': [ERROR, {
+      exclude: [],
+      include: [],
+      // Configured value
+      strategy: 'strict',
+      // Configured value
+      useErrorIsError: true,
+    }],
     'unicorn/no-invalid-fetch-options': [ERROR],
     // Disabled the check of properties as external libraries don't offer much of a choice here
     'unicorn/no-keyword-prefix': [ERROR, {
@@ -96,6 +106,8 @@ export const unicornVanillaConfig = {
     'unicorn/no-length-as-slice-end': [ERROR],
     'unicorn/no-lonely-if': [ERROR],
     'unicorn/no-magic-array-flat-depth': [ERROR],
+    // TODO: Conflicts with the `import-x/no-named-default` rule, but might report more cases
+    'unicorn/no-named-default': [ERROR],
     'unicorn/no-negated-condition': [ERROR],
     'unicorn/no-negation-in-equality-check': [ERROR],
     // Supersedes the core rule no-nested-ternary
@@ -140,7 +152,9 @@ export const unicornVanillaConfig = {
       checkArguments: false,
     }],
     'unicorn/no-zero-fractions': [ERROR],
-    'unicorn/number-literal-case': [ERROR],
+    'unicorn/number-literal-case': [ERROR, {
+      hexadecimalValue: 'uppercase',
+    }],
     'unicorn/numeric-separators-style': [ERROR, {
       binary: {
         // Configured value

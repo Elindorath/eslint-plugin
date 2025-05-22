@@ -3,7 +3,8 @@ import stylisticPlugin from '@stylistic/eslint-plugin'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
-import type { Linter } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
+import type { SetRequired } from 'type-fest'
 
 
 const CODE_MAX_LEN = 180
@@ -67,12 +68,33 @@ export const stylisticVanillaLayoutConfig = {
         ArrayPattern: false,
         ArrowFunctionExpression: false,
         CallExpression: false,
+        ClassDeclaration: false,
+        ClassExpression: false,
+        ExportAllDeclaration: false,
+        ExportNamedDeclaration: false,
         FunctionDeclaration: false,
         FunctionExpression: false,
         ImportDeclaration: false,
+        ImportExpression: false,
         NewExpression: false,
         ObjectExpression: false,
         ObjectPattern: false,
+        SequenceExpression: false,
+        TSCallSignatureDeclaration: false,
+        TSConstructorType: false,
+        TSConstructSignatureDeclaration: false,
+        TSDeclareFunction: false,
+        TSEmptyBodyFunctionExpression: false,
+        TSEnumBody: false,
+        TSFunctionType: false,
+        TSIndexSignature: false,
+        TSInterfaceBody: false,
+        TSInterfaceDeclaration: false,
+        TSMethodSignature: false,
+        TSTupleType: false,
+        TSTypeLiteral: false,
+        TSTypeParameterDeclaration: false,
+        TSTypeParameterInstantiation: false,
         VariableDeclaration: false,
         /* eslint-enable @typescript-eslint/naming-convention */
       },
@@ -377,6 +399,8 @@ export const stylisticVanillaLayoutConfig = {
       // Configured value
       nestedBinaryExpressions: false,
       // Configured value
+      nestedConditionalExpressions: false,
+      // Configured value
       returnAssign: true,
       // Configured value
       ternaryOperandBinaryExpressions: false,
@@ -542,9 +566,10 @@ export const stylisticVanillaLayoutConfig = {
     }],
     '@stylistic/quotes': [ERROR, 'single', {
       // Configured value
-      allowTemplateLiterals: true,
+      allowTemplateLiterals: 'avoidEscape',
       // Configured value
       avoidEscape: true,
+      ignoreStringLiterals: false,
     }],
     '@stylistic/rest-spread-spacing': [ERROR, 'never'],
     '@stylistic/semi': [ERROR, 'never', {
@@ -571,6 +596,7 @@ export const stylisticVanillaLayoutConfig = {
       exceptions: [],
     }],
     '@stylistic/space-infix-ops': [ERROR, {
+      ignoreTypes: false,
       int32Hint: false,
     }],
     '@stylistic/space-unary-ops': [ERROR, {
@@ -627,3 +653,44 @@ export const stylisticVanillaLayoutConfig = {
 } as const satisfies Linter.Config
 
 /* eslint-enable */
+
+
+type PluginConfig<
+  PluginPrefix extends string,
+  PluginInstance extends SetRequired<ESLint.Plugin, 'rules'>
+> = {
+  plugins: { [key in PluginPrefix]: PluginInstance; };
+  rules: { [key in `${PluginPrefix}/${ObjectKeys<PluginInstance['rules']>}`]: [Linter.StringSeverity, ...unknown[]] };
+}
+
+function definePluginConfig<
+  PluginPrefix extends string,
+  PluginInstance extends SetRequired<ESLint.Plugin, 'rules'>
+>(config: PluginConfig<PluginPrefix, PluginInstance>) {
+
+}
+
+definePluginConfig({
+  plugins: { coucou: stylisticPlugin },
+  rules: {
+    'coucou/toi': [ERROR],
+  },
+} as const)
+
+type ObjectKeys<T extends object> = `${Exclude<keyof T, symbol>}`
+type InferPluginRuleNames<Plugin extends SetRequired<ESLint.Plugin, 'rules'>> = Plugin['rules'] extends Record<infer Keys, any> ? Keys : never;
+type TT = keyof Required<ESLint.Plugin>['rules']
+
+const objectKeys = Object.keys as <T extends object>(object: T) => Array<ObjectKeys<T>>
+
+// function extractRuleNames(plugin: SetRequired<ESLint.Plugin, 'rules'>) {
+//   return objectKeys(plugin.rules) as InferPluginRuleNames<typeof plugin>
+// }
+
+// const t = extractRuleNames(stylisticPlugin)
+
+function extractRuleNames<Rules extends SetRequired<ESLint.Plugin, 'rules'>['rules']>(rules: Rules) {
+  return objectKeys(rules)
+}
+
+const t = extractRuleNames(stylisticPlugin.rules)

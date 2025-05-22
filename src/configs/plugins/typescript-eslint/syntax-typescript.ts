@@ -6,7 +6,8 @@ import process from 'node:process'
 import typescriptEslint from 'typescript-eslint'
 
 import { ERROR, OFF } from '../../../constants.ts'
-import { getRuleConfig, overrideBaseConfigRule } from '../../../utils.ts'
+import { getRuleConfig, overrideBaseConfigRule } from '../../../utilities.ts'
+
 import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
 import type { ESLint, Linter } from 'eslint'
@@ -66,6 +67,7 @@ export const typescriptConfig = {
     '@typescript-eslint/consistent-indexed-object-style': [ERROR, 'index-signature'],
     '@typescript-eslint/consistent-return': getRuleConfig('consistent-return', eslintVanillaConfig),
     '@typescript-eslint/consistent-type-assertions': [ERROR, {
+      arrayLiteralTypeAssertions: 'allow',
       assertionStyle: 'as',
       objectLiteralTypeAssertions: 'allow',
     }],
@@ -107,6 +109,7 @@ export const typescriptConfig = {
       allowDirectConstAssertionInArrowFunctions: true,
       allowedNames: [],
       allowHigherOrderFunctions: true,
+      allowOverloadFunctions: false,
       allowTypedFunctionExpressions: true,
     }],
     // Should probably be tweaked in the future
@@ -302,7 +305,9 @@ export const typescriptConfig = {
       ignoreVoidOperator: false,
       ignoreVoidReturningFunctions: false,
     }],
-    '@typescript-eslint/no-deprecated': [ERROR],
+    '@typescript-eslint/no-deprecated': [ERROR, {
+      allow: [],
+    }],
     '@typescript-eslint/no-duplicate-enum-values': [ERROR],
     '@typescript-eslint/no-duplicate-type-constituents': [ERROR, {
       ignoreIntersections: false,
@@ -356,6 +361,9 @@ export const typescriptConfig = {
         variables: true,
       },
     }],
+    '@typescript-eslint/no-misused-spread': [ERROR, {
+      allow: [],
+    }],
     '@typescript-eslint/no-mixed-enums': [ERROR],
     '@typescript-eslint/no-namespace': [ERROR, {
       allowDeclarations: false,
@@ -381,8 +389,10 @@ export const typescriptConfig = {
       allowComparingNullableBooleansToTrue: false,
     }],
     '@typescript-eslint/no-unnecessary-condition': [ERROR, {
-      allowConstantLoopConditions: false,
+      allowConstantLoopConditions: 'never',
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+      // Configured value
+      checkTypePredicates: true,
     }],
     '@typescript-eslint/no-unnecessary-parameter-property-assignment': [ERROR],
     '@typescript-eslint/no-unnecessary-qualifier': [ERROR],
@@ -457,7 +467,9 @@ export const typescriptConfig = {
     '@typescript-eslint/prefer-namespace-keyword': [ERROR],
     '@typescript-eslint/prefer-nullish-coalescing': [ERROR, {
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+      ignoreBooleanCoercion: false,
       ignoreConditionalTests: false,
+      ignoreIfStatements: false,
       ignoreMixedLogicalExpressions: false,
       ignorePrimitives: {
         bigint: false,
@@ -538,6 +550,7 @@ export const typescriptConfig = {
       checkFunctionExpressions: true,
       checkMethodDeclarations: true,
     }],
+    'require-await': [OFF],
     '@typescript-eslint/related-getter-setter-pairs': [ERROR],
     '@typescript-eslint/require-array-sort-compare': [ERROR, {
       ignoreStringArrays: true,
@@ -577,8 +590,11 @@ export const typescriptConfig = {
       allowString: true,
     }],
     '@typescript-eslint/switch-exhaustiveness-check': [ERROR, {
+      allowDefaultCaseForExhaustiveSwitch: true,
       // Configured value
-      allowDefaultCaseForExhaustiveSwitch: false,
+      considerDefaultExhaustiveForUnions: true,
+      // Configured value
+      defaultCaseCommentPattern: '^no default -- [A-Z].+$',
       // Configured value
       requireDefaultForNonUnion: true,
     }],
@@ -605,6 +621,7 @@ export const typescriptConfig = {
     }],
     '@typescript-eslint/unified-signatures': [ERROR, {
       ignoreDifferentlyNamedParameters: false,
+      ignoreOverloadsWithDifferentJSDoc: false,
     }],
     // Extension rules
     'class-methods-use-this': [OFF],
@@ -640,7 +657,8 @@ export const typescriptConfig = {
       ignoreEnums: false,
       ignoreNumericLiteralTypes: false,
       ignoreReadonlyClassProperties: false,
-      ignoreTypeIndexes: false,
+      // Configured value
+      ignoreTypeIndexes: true,
     }),
     '@typescript-eslint/no-redeclare': [OFF, {
       builtinGlobals: true,
@@ -684,7 +702,14 @@ export const typescriptConfig = {
     '@typescript-eslint/no-shadow': [ERROR, {
       /* TODO: We might want to find a way to enforce the use of 'window.property' to use global */
       // Configured value
-      allow: ['event', 'name', 'parent', 'process'],
+      allow: [
+        'Buffer',
+        'process',
+        'TextDecoder',
+        'TextEncoder',
+        'URL',
+        'URLSearchParams',
+      ],
       // Configured value
       builtinGlobals: true,
       // Configured value

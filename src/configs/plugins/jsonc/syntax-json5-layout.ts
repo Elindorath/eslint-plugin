@@ -1,7 +1,8 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
-import { getRuleConfig } from '../../../utils.ts'
+import { getRuleConfig } from '../../../utilities.ts'
+
 import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
 
 import type { ESLint, Linter } from 'eslint'

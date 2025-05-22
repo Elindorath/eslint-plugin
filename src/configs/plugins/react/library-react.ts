@@ -3,7 +3,7 @@ import globals from 'globals'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 
 const DISALLOW_IN_FUNC = 'disallow-in-func'
@@ -20,12 +20,7 @@ export const reactConfig = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    react: reactPlugin as unknown as ESLint.Plugin,
+    react: reactPlugin,
   },
 
   /* ----- Language options ----- */
@@ -78,21 +73,21 @@ export const reactConfig = {
       ignoreClassFields: false,
     }],
     'react/display-name': [ERROR, {
+      ignoreTranspilerName: false,
       // Configured value
       checkContextObjects: true,
-      ignoreTranspilerName: false,
     }],
     'react/forbid-component-props': [ERROR, {
       /* Default props with extended messages */
       // Configured value
       forbid: [
         {
-          message: `Avoid using 'className' as it add a lots of complexity. See: https://medium.com/@JanPaul123/don-t-pass-css-classes-between-components-e9f7ab192785`,
           propName: 'className',
+          message: `Avoid using 'className' as it add a lots of complexity. See: https://medium.com/@JanPaul123/don-t-pass-css-classes-between-components-e9f7ab192785`,
         },
         {
-          message: `Avoid using 'style' as it add a lots of complexity. See: https://medium.com/@JanPaul123/don-t-pass-css-classes-between-components-e9f7ab192785`,
           propName: 'style',
+          message: `Avoid using 'style' as it add a lots of complexity. See: https://medium.com/@JanPaul123/don-t-pass-css-classes-between-components-e9f7ab192785`,
         },
       ],
     }],
@@ -100,8 +95,8 @@ export const reactConfig = {
       // Configured value
       forbid: [
         {
-          message: `Avoid using 'id's, it is a bad practice. See: https://dev.to/clairecodes/reasons-not-to-use-ids-in-css-4ni4`,
           propName: 'id',
+          message: `Avoid using 'id's, it is a bad practice. See: https://dev.to/clairecodes/reasons-not-to-use-ids-in-css-4ni4`,
         },
       ],
     }],
@@ -282,6 +277,8 @@ export const reactConfig = {
     // Might be changed
     'react/static-property-placement': [ERROR, STATIC_PUBLIC_FIELD, {
       // Configured value
+      displayName: STATIC_PUBLIC_FIELD,
+      // Configured value
       childContextTypes: STATIC_PUBLIC_FIELD,
       // Configured value
       contextType: STATIC_PUBLIC_FIELD,
@@ -289,8 +286,6 @@ export const reactConfig = {
       contextTypes: STATIC_PUBLIC_FIELD,
       // Configured value
       defaultProps: STATIC_PUBLIC_FIELD,
-      // Configured value
-      displayName: STATIC_PUBLIC_FIELD,
       // Configured value
       propTypes: STATIC_PUBLIC_FIELD,
     }],

@@ -3,6 +3,7 @@
 import { ERROR } from './constants.ts'
 
 import type { Linter } from 'eslint'
+import type { WritableDeep } from 'type-fest'
 
 
 type LanguageOptions = Linter.Config['languageOptions']
@@ -28,6 +29,18 @@ export function mergeConfigs(...configs: Linter.Config[]) {
   }, {})
 }
 
+type Cast<X, Y> = X extends Y ? X : Y
+
+type ArrayElement<A> = A extends ReadonlyArray<infer T>
+  ? T
+  : never
+
+type FromEntries<T> = T extends Array<[infer Key, unknown]>
+  ? { [K in Cast<Key, string>]: Extract<ArrayElement<T>, [K, unknown]>[1] }
+  : { [key in string]: unknown }
+
+const objectFromEntries = Object.fromEntries as <T>(entries: T) => FromEntries<WritableDeep<T>>
+
 const objectEntries = Object.entries as <T extends object>(object: T) => Array<{
   [K in keyof T]: [K, T[K]];
 }[keyof T]>
@@ -48,62 +61,47 @@ const CONFIG_MERGER = {
 } as const
 
 function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
-  const mergedConfig: Linter.Config = {
+  return {
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: ERROR,
+      reportUnusedInlineConfigs: ERROR,
     },
-  } as const
-
-  for (const [property, merger] of objectEntries(CONFIG_MERGER)) {
-    let mergedValue
-
-    if (property === 'files') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'ignores') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'languageOptions') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'processor') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'plugins') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'rules') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    } else if (property === 'settings') {
-      mergedValue = merger(config1[property], config2[property])
-
-      if (mergedValue) {
-        mergedConfig[property] = mergedValue
-      }
-    }
-  }
-
-  return mergedConfig
+    ...objectFromEntries(
+      objectEntries(CONFIG_MERGER)
+        .map(([property, merger]) => {
+          switch (property) {
+            case 'files': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'ignores': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'languageOptions': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'plugins': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'processor': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'rules': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'settings': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            default: {
+              property satisfies never
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- This should never happen
+              throw new TypeError(`no configuration merger found for property ${property}`)
+            }
+          }
+        })
+        .filter(([, merged]) => merged !== undefined)
+    ),
+  } satisfies Linter.Config
 }
 
 function mergeFiles(files1: Linter.Config['files'] = [], files2: Linter.Config['files'] = []) {
@@ -129,35 +127,40 @@ const LANGUAGE_OPTIONS_MERGER = {
 } as const
 
 function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions2: LanguageOptions) {
-  const mergedLanguageOptions: Linter.LanguageOptions = {}
-
-  for (const [property, merger] of objectEntries(LANGUAGE_OPTIONS_MERGER)) {
-    let mergedValue
-
-    if (property === 'ecmaVersion') {
-      mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-      mergedLanguageOptions[property] = mergedValue
-    } else if (property === 'sourceType') {
-      mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-      mergedLanguageOptions[property] = mergedValue
-    } else if (property === 'parser') {
-      mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-      mergedLanguageOptions[property] = mergedValue
-    } else if (property === 'parserOptions') {
-      mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-      mergedLanguageOptions[property] = mergedValue
-    } else if (property === 'globals') {
-      mergedValue = merger(languageOptions1?.[property], languageOptions2?.[property])
-      mergedLanguageOptions[property] = mergedValue
-    }
-  }
-
-  return Object.keys(mergedLanguageOptions).length > 0
-    ? mergedLanguageOptions
-    : undefined
+  return objectFromEntries(
+    objectEntries(LANGUAGE_OPTIONS_MERGER)
+      .map(([property, merger]) => {
+        switch (property) {
+          case 'ecmaVersion': {
+            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+          }
+          case 'globals': {
+            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+          }
+          case 'parser': {
+            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+          }
+          case 'parserOptions': {
+            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+          }
+          case 'sourceType': {
+            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+          }
+          default: {
+            property satisfies never
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- This should never happen
+            throw new TypeError(`no language option merger found for property ${property}`)
+          }
+        }
+      })
+      .filter(([, merged]) => merged !== undefined)
+  ) satisfies LanguageOptions
 }
 
-function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion) {
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- This is used to preserve given literals
+const mathMax = Math.max as <T extends number>(...values: [T, ...T[]]) => T
+
+function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion): EcmaVersion {
   if (version1 === undefined) {
     return version2
   }
@@ -174,7 +177,7 @@ function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion) {
     return version2
   }
 
-  return Math.max(version1, version2)
+  return mathMax(version1, version2)
 }
 
 /* eslint-disable perfectionist/sort-objects -- Keep order in place */

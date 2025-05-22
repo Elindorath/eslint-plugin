@@ -1,6 +1,7 @@
 import globals from 'globals'
 
 import { mergeConfigs } from '../../configMerger.ts'
+
 import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { libraryReactNativeSyntaxJsxConfig } from '../library-react-native&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'

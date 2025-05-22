@@ -1,0 +1,32 @@
+name: Test ESLint plugin update
+run-name: Test ESLint plugin update
+on: [pull_request]
+jobs:
+  test_update:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup node
+        id: node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.tool-versions'
+          check-latest: false
+          cache: 'yarn'
+
+      - name: Install node modules
+        id: node-modules
+        run: |
+          yarn install \
+            --immutable
+
+      - name: Run test
+        id: test
+        run: |
+          yarn run test-update

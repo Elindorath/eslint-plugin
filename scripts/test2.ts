@@ -1,11 +1,11 @@
 #! /usr/bin/env -S yarn tsx
 
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
 
-const ownFilename = fileURLToPath(import.meta.url)
-const ownDirname = path.dirname(ownFilename)
+const myCustomAlphabet = Alphabet
+  .generateRecommendedAlphabet()
+  .removeCharacters(['.', '/'])
+  .pushCharacters(['.', '/'])
+  .getCharacters()
 
-console.log('meta:', import.meta.url)
-console.log('filename:', ownFilename)
-console.log('dirname:', ownDirname)
+console.log(myCustomAlphabet)

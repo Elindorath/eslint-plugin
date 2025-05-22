@@ -1,14 +1,15 @@
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
-import { getRuleConfig } from '../../utils.ts'
+import { getRuleConfig } from '../../utilities.ts'
+
 import { environmentNodeConfig } from '../environment-node.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overridePackageJsonConfig } from '../overrides/package-json.ts'
 import { overrideScriptsConfig } from '../overrides/scripts.ts'
-import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
-import { vanillaLayoutConfig } from '../vanilla-layout.ts'
+import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node.ts'
 import { vanillaConfig } from '../vanilla.ts'
+import { vanillaLayoutConfig } from '../vanilla-layout.ts'
 
 import type { Linter } from 'eslint'
 

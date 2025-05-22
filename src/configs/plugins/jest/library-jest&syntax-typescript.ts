@@ -2,7 +2,8 @@ import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
 
 import { ERROR, OFF } from '../../../constants.ts'
-import { getRuleConfig } from '../../../utils.ts'
+import { getRuleConfig } from '../../../utilities.ts'
+
 import { typescriptConfig } from '../typescript-eslint/syntax-typescript.ts'
 
 import type { Linter } from 'eslint'
