@@ -23,6 +23,7 @@ export const vanillaConfig = mergeConfigs(
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: ERROR,
+      reportUnusedInlineConfigs: ERROR,
     },
   },
   eslintVanillaConfig,

@@ -503,10 +503,13 @@ export const eslintVanillaConfig = {
       hoist: 'all',
       ignoreOnInitialization: false,
     }],
-    'no-shadow-restricted-names': [ERROR],
+    'no-shadow-restricted-names': [ERROR, {
+      reportGlobalThis: true,
+    }],
     // Disabled as we use them, especially for const initialization
     'no-ternary': [OFF],
     'no-throw-literal': [ERROR],
+    'no-unassigned-vars': [ERROR],
     'no-undef-init': [ERROR],
     // OFF as we intend to stop using 'null'
     'no-undefined': [OFF],
@@ -532,6 +535,7 @@ export const eslintVanillaConfig = {
       allowTaggedTemplates: false,
       allowTernary: false,
       enforceForJSX: false,
+      ignoreDirectives: false,
     }],
     'no-unused-labels': [ERROR],
     'no-useless-call': [ERROR],
@@ -542,7 +546,9 @@ export const eslintVanillaConfig = {
     }],
     'no-useless-concat': [ERROR],
     'no-useless-constructor': [ERROR],
-    'no-useless-escape': [ERROR],
+    'no-useless-escape': [ERROR, {
+      allowRegexCharacters: [],
+    }],
     'no-useless-rename': [ERROR, {
       ignoreDestructuring: false,
       ignoreExport: false,

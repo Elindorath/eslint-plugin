@@ -10,6 +10,7 @@ export const vanillaLayoutConfig = mergeConfigs(
     linterOptions: {
       noInlineConfig: false,
       reportUnusedDisableDirectives: ERROR,
+      reportUnusedInlineConfigs: ERROR,
     },
   },
   importVanillaLayoutConfig,
