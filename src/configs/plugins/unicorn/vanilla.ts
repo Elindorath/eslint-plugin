@@ -74,9 +74,6 @@ export const unicornVanillaConfig = {
     'unicorn/no-array-callback-reference': [ERROR],
     'unicorn/no-array-for-each': [ERROR],
     'unicorn/no-array-method-this-argument': [ERROR],
-    'unicorn/no-array-push-push': [ERROR, {
-      ignore: [],
-    }],
     // Debatable, but OFF as we want to use reducers
     'unicorn/no-array-reduce': [OFF, {
       allowSimpleOperations: true,
@@ -103,7 +100,6 @@ export const unicornVanillaConfig = {
       disallowedPrefixes: ['new', 'class'],
       onlyCamelCase: true,
     }],
-    'unicorn/no-length-as-slice-end': [ERROR],
     'unicorn/no-lonely-if': [ERROR],
     'unicorn/no-magic-array-flat-depth': [ERROR],
     // TODO: Conflicts with the `import-x/no-named-default` rule, but might report more cases
@@ -130,6 +126,8 @@ export const unicornVanillaConfig = {
       // Configured value
       checkGlobalVariables: true,
     }],
+    'unicorn/no-unnecessary-array-flat-depth': [ERROR],
+    'unicorn/no-unnecessary-array-splice-count': [ERROR],
     'unicorn/no-unnecessary-await': [ERROR],
     // TODO: Should be configured for every supported environments
     'unicorn/no-unnecessary-polyfills': [ERROR, {
@@ -138,6 +136,7 @@ export const unicornVanillaConfig = {
         node: 'current',
       },
     }],
+    'unicorn/no-unnecessary-slice-end': [ERROR],
     // TODO: Check if the core rule 'prefer-destructuring' needs to be tweaked
     'unicorn/no-unreadable-array-destructuring': [ERROR],
     'unicorn/no-unreadable-iife': [ERROR],
@@ -211,6 +210,7 @@ export const unicornVanillaConfig = {
       ignoreUsedVariables: false,
     }],
     'unicorn/prefer-global-this': [ERROR],
+    'unicorn/prefer-import-meta-properties': [ERROR],
     'unicorn/prefer-includes': [ERROR],
     'unicorn/prefer-json-parse-buffer': [ERROR],
     'unicorn/prefer-logical-operator-over-ternary': [ERROR],
@@ -233,6 +233,9 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-regexp-test': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
     'unicorn/prefer-set-size': [ERROR],
+    'unicorn/prefer-single-call': [ERROR, {
+      ignore: [],
+    }],
     // Related to the core rule prefer-spread
     'unicorn/prefer-spread': [ERROR],
     'unicorn/prefer-string-raw': [ERROR],

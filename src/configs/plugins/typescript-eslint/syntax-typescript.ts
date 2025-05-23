@@ -399,9 +399,11 @@ export const typescriptConfig = {
     '@typescript-eslint/no-unnecessary-template-expression': [ERROR],
     '@typescript-eslint/no-unnecessary-type-arguments': [ERROR],
     '@typescript-eslint/no-unnecessary-type-assertion': [ERROR, {
+      checkLiteralConstAssertions: true,
       typesToIgnore: [],
     }],
     '@typescript-eslint/no-unnecessary-type-constraint': [ERROR],
+    '@typescript-eslint/no-unnecessary-type-conversion': [ERROR],
 
     /**
      * This rule could have unexpected behavior
@@ -423,6 +425,7 @@ export const typescriptConfig = {
     '@typescript-eslint/no-wrapper-object-types': [ERROR],
     '@typescript-eslint/non-nullable-type-assertion-style': [ERROR],
     '@typescript-eslint/only-throw-error': [ERROR, {
+      allowRethrowing: false,
       allowThrowingAny: false,
       allowThrowingUnknown: false,
     }],
