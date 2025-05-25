@@ -6,7 +6,6 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { ESLint, Linter } from 'eslint'
 
 
-const VALUES_FIRST = 'values-first'
 // cspell:disable-next-line -- Expected in regex.
 const PROBABLE_IDENTIFIERS_PATTERN = '(^id|Id|ID|^identifier|Identifier|^name|Name|^selector)$'
 const PATH_UP_REGEX_PATTERN = String.raw`\.\./`
@@ -136,36 +135,45 @@ export const perfectionistVanillaConfig = {
     // eslint-disable-next-line perfectionist/sort-objects -- To keep consistency
     'perfectionist/sort-imports': [ERROR, {
       // Configured value
-      customGroups: {
-        type: {},
-        value: {
-          /* eslint-disable @typescript-eslint/no-magic-numbers -- Irrelevant when used with `.repeat` */
-          parent1Up: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(1)}[^.]`,
-          parent2Up: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(2)}[^.]`,
-          parent3Up: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(3)}[^.]`,
-          parent4Up: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(4)}[^.]`,
-          /* eslint-enable */
+      customGroups: [
+        /* eslint-disable @typescript-eslint/no-magic-numbers -- Irrelevant when used with `.repeat` */
+        {
+          groupName: 'parent1Up',
+          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(1)}[^.]`,
         },
-      },
+        {
+          groupName: 'parent2Up',
+          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(2)}[^.]`,
+        },
+        {
+          groupName: 'parent3Up',
+          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(3)}[^.]`,
+        },
+        {
+          groupName: 'parent4Up',
+          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(4)}[^.]`,
+        },
+        /* eslint-enable */
+      ],
       environment: 'node',
       // Configured value
       groups: [
-        'builtin',
-        'external',
-        'internal',
+        'value-builtin',
+        'value-external',
+        'value-internal',
         'parent4Up',
         'parent3Up',
         'parent2Up',
         'parent1Up',
-        'index',
-        'sibling',
+        'value-index',
+        'value-sibling',
         'unknown',
-        'builtin-type',
-        'external-type',
-        'internal-type',
-        'parent-type',
-        'index-type',
-        'sibling-type',
+        'type-builtin',
+        'type-external',
+        'type-internal',
+        'type-parent',
+        'type-index',
+        'type-sibling',
         'type',
         'style',
       ],
@@ -203,7 +211,6 @@ export const perfectionistVanillaConfig = {
       ],
       newlinesBetween: 'ignore',
     }],
-    // TODO: Might clash with the @typescript-eslint/sort-type-constituents rule
     'perfectionist/sort-intersection-types': [ERROR, {
       // TODO: needs to be defined
       groups: [],
@@ -266,34 +273,24 @@ export const perfectionistVanillaConfig = {
       newlinesBetween: 'ignore',
     }],
     'perfectionist/sort-named-exports': [ERROR, {
-      // Configured value
-      groupKind: VALUES_FIRST,
-      // Currently not in v4.11.0, might be in v4.12.0
-      /**
-       * // TODO: needs to be defined
-       * customGroups: [],
-       * groups: [
-       *   'value-export',
-       *   'type-export',
-       *   'unknown',
-       * ],
-       */
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [
+        'value-export',
+        'type-export',
+        'unknown',
+      ],
       ignoreAlias: false,
     }],
     // TODO: Might clash with the sort-imports core rule
     'perfectionist/sort-named-imports': [ERROR, {
-      // Configured value
-      groupKind: VALUES_FIRST,
-      // Currently not in v4.11.0, might be in v4.12.0
-      /**
-       * // TODO: needs to be defined
-       * customGroups: [],
-       * groups: [
-       *   'value-import',
-       *   'type-import',
-       *   'unknown',
-       * ],
-       */
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [
+        'value-import',
+        'type-import',
+        'unknown',
+      ],
       ignoreAlias: true,
     }],
 
@@ -358,13 +355,22 @@ export const perfectionistVanillaConfig = {
       newlinesBetween: 'ignore',
     }],
     'perfectionist/sort-switch-case': [ERROR],
-    // TODO: Might clash with the @typescript-eslint/sort-type-constituents rule
     'perfectionist/sort-union-types': [ERROR, {
+      // TODO: needs to be defined
+      customGroups: [],
       // TODO: needs to be defined
       groups: [],
       newlinesBetween: 'ignore',
     }],
     // TODO: Might be OFF
-    'perfectionist/sort-variable-declarations': [ERROR],
+    'perfectionist/sort-variable-declarations': [ERROR, {
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [
+        'initialized',
+        'uninitialized',
+      ],
+      newlinesBetween: 'always',
+    }],
   },
 } as const satisfies Linter.Config

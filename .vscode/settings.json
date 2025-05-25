@@ -50,7 +50,8 @@
     "flags": [
     ]
   },
-  "eslint.runtime": "/Users/elindorath/.config/asdf/installs/nodejs/24.0.2/bin/node",
+  // "eslint.runtime": "/Users/elindorath/.config/asdf/installs/nodejs/24.0.2/bin/node",
+  "eslint.runtime": "/home/Elindorath/.config/asdf/installs/nodejs/24.0.2/bin/node",
   "eslint.execArgv": [
     "--experimental-require-module"
   ],
