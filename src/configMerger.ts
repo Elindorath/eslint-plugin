@@ -99,7 +99,9 @@ function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
             }
           }
         })
-        .filter(([, merged]) => merged !== undefined)
+        .filter(([, merged]) => {
+          return merged !== undefined
+        })
     ),
   } satisfies Linter.Config
 }
@@ -153,7 +155,9 @@ function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions
           }
         }
       })
-      .filter(([, merged]) => merged !== undefined)
+      .filter(([, merged]) => {
+        return merged !== undefined
+      })
   ) satisfies LanguageOptions
 }
 

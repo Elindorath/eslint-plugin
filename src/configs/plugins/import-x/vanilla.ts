@@ -247,6 +247,7 @@ export const importVanillaConfig = {
     'import-x/no-namespace': [OFF, {
       ignore: [],
     }],
+    'import-x/no-rename-default': [ERROR],
     'import-x/no-unassigned-import': [ERROR, {
       /**
        * Those are present in schema but are not documented and don't seem to be used

@@ -29,11 +29,13 @@ export {
 }
 
 function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: FixedLinterConfig) {
-  return rules.reduce<Linter.Config>((agg, rule) => ({
-    ...agg,
-    [`${prefix}/${rule}`]: getRuleConfig(rule, config),
-    [rule]: [OFF],
-  }), {})
+  return rules.reduce<Linter.Config>((agg, rule) => {
+    return {
+      ...agg,
+      [`${prefix}/${rule}`]: getRuleConfig(rule, config),
+      [rule]: [OFF],
+    }
+  }, {})
 }
 
 function getRuleConfig<RuleId extends string, Rules extends FixedRulesRecord>(rule: RuleId, config: FixedLinterConfig<Rules>) {

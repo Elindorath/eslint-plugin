@@ -26,7 +26,7 @@
     "import-x/resolver-next": [
       {
         "interfaceVersion": 3,
-        "name": "eslint-plugin-import-x built-in node resolver"
+        "name": "eslint-plugin-import-x:node"
       }
     ],
     "perfectionist": {
@@ -955,12 +955,18 @@
       }
     ],
     "no-shadow-restricted-names": [
-      2
+      2,
+      {
+        "reportGlobalThis": true
+      }
     ],
     "no-ternary": [
       0
     ],
     "no-throw-literal": [
+      2
+    ],
+    "no-unassigned-vars": [
       2
     ],
     "no-undef-init": [
@@ -995,7 +1001,8 @@
         "allowShortCircuit": false,
         "allowTernary": false,
         "allowTaggedTemplates": false,
-        "enforceForJSX": false
+        "enforceForJSX": false,
+        "ignoreDirectives": false
       }
     ],
     "no-unused-labels": [
@@ -1020,7 +1027,10 @@
       2
     ],
     "no-useless-escape": [
-      2
+      2,
+      {
+        "allowRegexCharacters": []
+      }
     ],
     "no-useless-rename": [
       2,
@@ -1535,6 +1545,9 @@
         "ignore": []
       }
     ],
+    "import-x/no-rename-default": [
+      2
+    ],
     "import-x/no-unassigned-import": [
       2,
       {
@@ -1783,33 +1796,42 @@
     "perfectionist/sort-imports": [
       2,
       {
-        "customGroups": {
-          "type": {},
-          "value": {
-            "parent1Up": "^\\.\\./[^.]",
-            "parent2Up": "^\\.\\./\\.\\./[^.]",
-            "parent3Up": "^\\.\\./\\.\\./\\.\\./[^.]",
-            "parent4Up": "^\\.\\./\\.\\./\\.\\./\\.\\./[^.]"
+        "customGroups": [
+          {
+            "groupName": "parent1Up",
+            "elementNamePattern": "^\\.\\./[^.]"
+          },
+          {
+            "groupName": "parent2Up",
+            "elementNamePattern": "^\\.\\./\\.\\./[^.]"
+          },
+          {
+            "groupName": "parent3Up",
+            "elementNamePattern": "^\\.\\./\\.\\./\\.\\./[^.]"
+          },
+          {
+            "groupName": "parent4Up",
+            "elementNamePattern": "^\\.\\./\\.\\./\\.\\./\\.\\./[^.]"
           }
-        },
+        ],
         "environment": "node",
         "groups": [
-          "builtin",
-          "external",
-          "internal",
+          "value-builtin",
+          "value-external",
+          "value-internal",
           "parent4Up",
           "parent3Up",
           "parent2Up",
           "parent1Up",
-          "index",
-          "sibling",
+          "value-index",
+          "value-sibling",
           "unknown",
-          "builtin-type",
-          "external-type",
-          "internal-type",
-          "parent-type",
-          "index-type",
-          "sibling-type",
+          "type-builtin",
+          "type-external",
+          "type-internal",
+          "type-parent",
+          "type-index",
+          "type-sibling",
           "type",
           "style"
         ],
@@ -1899,14 +1921,24 @@
     "perfectionist/sort-named-exports": [
       2,
       {
-        "groupKind": "values-first",
+        "customGroups": [],
+        "groups": [
+          "value-export",
+          "type-export",
+          "unknown"
+        ],
         "ignoreAlias": false
       }
     ],
     "perfectionist/sort-named-imports": [
       2,
       {
-        "groupKind": "values-first",
+        "customGroups": [],
+        "groups": [
+          "value-import",
+          "type-import",
+          "unknown"
+        ],
         "ignoreAlias": true
       }
     ],
@@ -1964,12 +1996,35 @@
     "perfectionist/sort-union-types": [
       2,
       {
-        "groups": [],
+        "customGroups": [],
+        "groups": [
+          "conditional",
+          "function",
+          "import",
+          "intersection",
+          "keyword",
+          "literal",
+          "operator",
+          "named",
+          "object",
+          "tuple",
+          "union",
+          "nullish",
+          "unknown"
+        ],
         "newlinesBetween": "ignore"
       }
     ],
     "perfectionist/sort-variable-declarations": [
-      2
+      2,
+      {
+        "customGroups": [],
+        "groups": [
+          "initialized",
+          "uninitialized"
+        ],
+        "newlinesBetween": "always"
+      }
     ],
     "promise/always-return": [
       2,
@@ -2094,24 +2149,235 @@
     "security/detect-unsafe-regex": [
       2
     ],
+    "sonarjs/arguments-usage": [
+      2
+    ],
+    "sonarjs/array-constructor": [
+      2
+    ],
+    "sonarjs/arrow-function-convention": [
+      2,
+      {
+        "requireBodyBraces": true,
+        "requireParameterParentheses": true
+      }
+    ],
+    "sonarjs/assertions-in-tests": [
+      2
+    ],
+    "sonarjs/bitwise-operators": [
+      2
+    ],
+    "sonarjs/block-scoped-var": [
+      2
+    ],
+    "sonarjs/bool-param-default": [
+      2
+    ],
+    "sonarjs/call-argument-line": [
+      2
+    ],
+    "sonarjs/certificate-transparency": [
+      2
+    ],
+    "sonarjs/chai-determinate-assertion": [
+      2
+    ],
+    "sonarjs/class-name": [
+      2,
+      {
+        "format": "^[A-Z][a-zA-Z0-9]*$"
+      }
+    ],
+    "sonarjs/code-eval": [
+      2
+    ],
     "sonarjs/cognitive-complexity": [
       2,
       15
     ],
+    "sonarjs/comma-or-logical-or-case": [
+      2
+    ],
+    "sonarjs/comment-regex": [
+      0,
+      {
+        "flags": "",
+        "message": "Avoid letting todo comments",
+        "regularExpression": "TODO:"
+      }
+    ],
+    "sonarjs/confidential-information-logging": [
+      2
+    ],
+    "sonarjs/constructor-for-side-effects": [
+      2
+    ],
+    "sonarjs/content-length": [
+      2,
+      {
+        "fileUploadSizeLimit": 8000000,
+        "standardSizeLimit": 2000000
+      }
+    ],
+    "sonarjs/content-security-policy": [
+      2
+    ],
+    "sonarjs/cookie-no-httponly": [
+      2
+    ],
+    "sonarjs/cookies": [
+      2
+    ],
+    "sonarjs/cors": [
+      2
+    ],
+    "sonarjs/csrf": [
+      2
+    ],
+    "sonarjs/cyclomatic-complexity": [
+      0
+    ],
+    "sonarjs/declarations-in-global-scope": [
+      0
+    ],
+    "sonarjs/destructuring-assignment-syntax": [
+      2
+    ],
+    "sonarjs/disabled-timeout": [
+      2
+    ],
     "sonarjs/elseif-without-else": [
       2
+    ],
+    "sonarjs/encryption-secure-mode": [
+      2
+    ],
+    "sonarjs/expression-complexity": [
+      2,
+      {
+        "max": 3
+      }
+    ],
+    "sonarjs/file-header": [
+      0
+    ],
+    "sonarjs/file-name-differ-from-class": [
+      2
+    ],
+    "sonarjs/file-permissions": [
+      2
+    ],
+    "sonarjs/file-uploads": [
+      2
+    ],
+    "sonarjs/fixme-tag": [
+      2
+    ],
+    "sonarjs/for-in": [
+      2
+    ],
+    "sonarjs/for-loop-increment-sign": [
+      2
+    ],
+    "sonarjs/frame-ancestors": [
+      2
+    ],
+    "sonarjs/function-inside-loop": [
+      2
+    ],
+    "sonarjs/function-name": [
+      2,
+      {
+        "format": "^[_a-z][a-zA-Z0-9]*$"
+      }
+    ],
+    "sonarjs/future-reserved-words": [
+      2
+    ],
+    "sonarjs/generator-without-yield": [
+      2
+    ],
+    "sonarjs/hashing": [
+      2
+    ],
+    "sonarjs/hidden-files": [
+      2
+    ],
+    "sonarjs/inconsistent-function-call": [
+      2
+    ],
+    "sonarjs/insecure-cookie": [
+      2
+    ],
+    "sonarjs/insecure-jwt-token": [
+      2
+    ],
+    "sonarjs/inverted-assertion-arguments": [
+      2
+    ],
+    "sonarjs/label-position": [
+      2
+    ],
+    "sonarjs/link-with-target-blank": [
+      2
+    ],
+    "sonarjs/max-lines": [
+      2,
+      {
+        "maximum": 1000
+      }
+    ],
+    "sonarjs/max-lines-per-function": [
+      2,
+      {
+        "maximum": 200
+      }
     ],
     "sonarjs/max-switch-cases": [
       2,
       30
     ],
+    "sonarjs/misplaced-loop-counter": [
+      2
+    ],
+    "sonarjs/nested-control-flow": [
+      2,
+      {
+        "maximumNestingLevel": 3
+      }
+    ],
     "sonarjs/no-all-duplicated-branches": [
+      2
+    ],
+    "sonarjs/no-angular-bypass-sanitization": [
+      2
+    ],
+    "sonarjs/no-async-constructor": [
+      2
+    ],
+    "sonarjs/no-built-in-override": [
+      2
+    ],
+    "sonarjs/no-case-label-in-switch": [
+      2
+    ],
+    "sonarjs/no-clear-text-protocols": [
+      2
+    ],
+    "sonarjs/no-code-after-done": [
       2
     ],
     "sonarjs/no-collapsible-if": [
       2
     ],
-    "sonarjs/no-collection-size-mischeck": [
+    "sonarjs/no-commented-code": [
+      2
+    ],
+    "sonarjs/no-dead-store": [
+      2
+    ],
+    "sonarjs/no-delete-var": [
       2
     ],
     "sonarjs/no-duplicate-string": [
@@ -2130,10 +2396,55 @@
     "sonarjs/no-empty-collection": [
       2
     ],
+    "sonarjs/no-empty-test-file": [
+      2
+    ],
+    "sonarjs/no-equals-in-for-termination": [
+      2
+    ],
+    "sonarjs/no-exclusive-tests": [
+      2
+    ],
     "sonarjs/no-extra-arguments": [
       2
     ],
+    "sonarjs/no-fallthrough": [
+      2
+    ],
+    "sonarjs/no-function-declaration-in-block": [
+      2
+    ],
+    "sonarjs/no-global-this": [
+      2
+    ],
+    "sonarjs/no-globals-shadowing": [
+      2
+    ],
     "sonarjs/no-gratuitous-expressions": [
+      2
+    ],
+    "sonarjs/no-hardcoded-ip": [
+      2
+    ],
+    "sonarjs/no-hardcoded-passwords": [
+      2,
+      {
+        "passwordWords": [
+          "password",
+          "pwd",
+          "passwd",
+          "passphrase"
+        ]
+      }
+    ],
+    "sonarjs/no-hardcoded-secrets": [
+      2,
+      {
+        "randomnessSensibility": 5,
+        "secretWords": "api[_.-]?key,auth,credential,secret,token"
+      }
+    ],
+    "sonarjs/no-hook-setter-in-body": [
       2
     ],
     "sonarjs/no-identical-conditions": [
@@ -2146,16 +2457,90 @@
       2,
       3
     ],
-    "sonarjs/no-ignored-return": [
-      0
+    "sonarjs/no-ignored-exceptions": [
+      2
+    ],
+    "sonarjs/no-implicit-dependencies": [
+      2,
+      {
+        "whitelist": []
+      }
+    ],
+    "sonarjs/no-implicit-global": [
+      2
+    ],
+    "sonarjs/no-incomplete-assertions": [
+      2
+    ],
+    "sonarjs/no-inconsistent-returns": [
+      2
+    ],
+    "sonarjs/no-internal-api-use": [
+      2
+    ],
+    "sonarjs/no-intrusive-permissions": [
+      2,
+      {
+        "permissions": [
+          "geolocation"
+        ]
+      }
+    ],
+    "sonarjs/no-invariant-returns": [
+      2
     ],
     "sonarjs/no-inverted-boolean-check": [
+      2
+    ],
+    "sonarjs/no-ip-forward": [
+      2
+    ],
+    "sonarjs/no-labels": [
+      2
+    ],
+    "sonarjs/no-literal-call": [
+      2
+    ],
+    "sonarjs/no-mime-sniff": [
+      2
+    ],
+    "sonarjs/no-mixed-content": [
+      2
+    ],
+    "sonarjs/no-nested-assignment": [
+      2
+    ],
+    "sonarjs/no-nested-conditional": [
+      2
+    ],
+    "sonarjs/no-nested-functions": [
+      2,
+      {
+        "threshold": 4
+      }
+    ],
+    "sonarjs/no-nested-incdec": [
       2
     ],
     "sonarjs/no-nested-switch": [
       2
     ],
+    "sonarjs/no-nested-template-literals": [
+      2
+    ],
     "sonarjs/no-one-iteration-loop": [
+      2
+    ],
+    "sonarjs/no-os-command-from-path": [
+      2
+    ],
+    "sonarjs/no-parameter-reassignment": [
+      2
+    ],
+    "sonarjs/no-primitive-wrappers": [
+      2
+    ],
+    "sonarjs/no-redundant-assignments": [
       2
     ],
     "sonarjs/no-redundant-boolean": [
@@ -2164,13 +2549,52 @@
     "sonarjs/no-redundant-jump": [
       2
     ],
+    "sonarjs/no-reference-error": [
+      2
+    ],
+    "sonarjs/no-referrer-policy": [
+      2
+    ],
+    "sonarjs/no-same-argument-assert": [
+      2
+    ],
     "sonarjs/no-same-line-conditional": [
+      2
+    ],
+    "sonarjs/no-skipped-tests": [
       2
     ],
     "sonarjs/no-small-switch": [
       2
     ],
+    "sonarjs/no-sonar-comments": [
+      2
+    ],
+    "sonarjs/no-table-as-layout": [
+      2
+    ],
+    "sonarjs/no-undefined-assignment": [
+      0
+    ],
+    "sonarjs/no-unenclosed-multiline-block": [
+      2
+    ],
+    "sonarjs/no-uniq-key": [
+      2
+    ],
+    "sonarjs/no-unsafe-unzip": [
+      2
+    ],
+    "sonarjs/no-unthrown-error": [
+      2
+    ],
     "sonarjs/no-unused-collection": [
+      2
+    ],
+    "sonarjs/no-unused-function-argument": [
+      2
+    ],
+    "sonarjs/no-unused-vars": [
       2
     ],
     "sonarjs/no-use-of-empty-return-value": [
@@ -2179,7 +2603,37 @@
     "sonarjs/no-useless-catch": [
       2
     ],
+    "sonarjs/no-useless-increment": [
+      2
+    ],
+    "sonarjs/no-useless-react-setstate": [
+      2
+    ],
+    "sonarjs/no-variable-usage-before-declaration": [
+      2
+    ],
+    "sonarjs/no-vue-bypass-sanitization": [
+      2
+    ],
+    "sonarjs/no-weak-cipher": [
+      2
+    ],
+    "sonarjs/no-weak-keys": [
+      2
+    ],
+    "sonarjs/no-wildcard-import": [
+      2
+    ],
     "sonarjs/non-existent-operator": [
+      2
+    ],
+    "sonarjs/object-alt-content": [
+      2
+    ],
+    "sonarjs/os-command": [
+      2
+    ],
+    "sonarjs/prefer-default-last": [
       2
     ],
     "sonarjs/prefer-immediate-return": [
@@ -2188,10 +2642,91 @@
     "sonarjs/prefer-object-literal": [
       2
     ],
+    "sonarjs/prefer-promise-shorthand": [
+      2
+    ],
     "sonarjs/prefer-single-boolean-return": [
       2
     ],
     "sonarjs/prefer-while": [
+      2
+    ],
+    "sonarjs/production-debug": [
+      2
+    ],
+    "sonarjs/pseudo-random": [
+      2
+    ],
+    "sonarjs/publicly-writable-directories": [
+      2
+    ],
+    "sonarjs/regex-complexity": [
+      2,
+      {
+        "threshold": 20
+      }
+    ],
+    "sonarjs/session-regeneration": [
+      2
+    ],
+    "sonarjs/shorthand-property-grouping": [
+      0
+    ],
+    "sonarjs/sql-queries": [
+      2
+    ],
+    "sonarjs/stable-tests": [
+      2
+    ],
+    "sonarjs/stateful-regex": [
+      2
+    ],
+    "sonarjs/strict-transport-security": [
+      2
+    ],
+    "sonarjs/super-invocation": [
+      2
+    ],
+    "sonarjs/table-header": [
+      2
+    ],
+    "sonarjs/table-header-reference": [
+      2
+    ],
+    "sonarjs/test-check-exception": [
+      2
+    ],
+    "sonarjs/todo-tag": [
+      0
+    ],
+    "sonarjs/too-many-break-or-continue-in-loop": [
+      2
+    ],
+    "sonarjs/unverified-certificate": [
+      2
+    ],
+    "sonarjs/unverified-hostname": [
+      2
+    ],
+    "sonarjs/updated-const-var": [
+      2
+    ],
+    "sonarjs/updated-loop-counter": [
+      2
+    ],
+    "sonarjs/variable-name": [
+      2,
+      {
+        "format": "^[_$A-Za-z][$A-Za-z0-9]*$|^[_$A-Z][_$A-Z0-9]+$"
+      }
+    ],
+    "sonarjs/weak-ssl": [
+      2
+    ],
+    "sonarjs/x-powered-by": [
+      2
+    ],
+    "sonarjs/xml-parser-xxe": [
       2
     ],
     "ternary/nesting": [
@@ -2322,12 +2857,6 @@
     "unicorn/no-array-method-this-argument": [
       2
     ],
-    "unicorn/no-array-push-push": [
-      2,
-      {
-        "ignore": []
-      }
-    ],
     "unicorn/no-array-reduce": [
       0,
       {
@@ -2355,7 +2884,7 @@
     "unicorn/no-instanceof-builtins": [
       2,
       {
-        "useErrorIsError": true,
+        "useErrorIsError": false,
         "strategy": "strict",
         "include": [],
         "exclude": []
@@ -2374,9 +2903,6 @@
         ],
         "onlyCamelCase": true
       }
-    ],
-    "unicorn/no-length-as-slice-end": [
-      2
     ],
     "unicorn/no-lonely-if": [
       2
@@ -2432,6 +2958,12 @@
         "checkGlobalVariables": true
       }
     ],
+    "unicorn/no-unnecessary-array-flat-depth": [
+      2
+    ],
+    "unicorn/no-unnecessary-array-splice-count": [
+      2
+    ],
     "unicorn/no-unnecessary-await": [
       2
     ],
@@ -2442,6 +2974,9 @@
           "node": "current"
         }
       }
+    ],
+    "unicorn/no-unnecessary-slice-end": [
+      2
     ],
     "unicorn/no-unreadable-array-destructuring": [
       2
@@ -2566,6 +3101,9 @@
     "unicorn/prefer-global-this": [
       2
     ],
+    "unicorn/prefer-import-meta-properties": [
+      2
+    ],
     "unicorn/prefer-includes": [
       2
     ],
@@ -2623,6 +3161,12 @@
     ],
     "unicorn/prefer-set-size": [
       2
+    ],
+    "unicorn/prefer-single-call": [
+      2,
+      {
+        "ignore": []
+      }
     ],
     "unicorn/prefer-spread": [
       2
@@ -4054,10 +4598,14 @@
     "@typescript-eslint/no-unnecessary-type-assertion": [
       2,
       {
+        "checkLiteralConstAssertions": true,
         "typesToIgnore": []
       }
     ],
     "@typescript-eslint/no-unnecessary-type-constraint": [
+      2
+    ],
+    "@typescript-eslint/no-unnecessary-type-conversion": [
       2
     ],
     "@typescript-eslint/no-unnecessary-type-parameters": [
@@ -4105,6 +4653,7 @@
     "@typescript-eslint/only-throw-error": [
       2,
       {
+        "allowRethrowing": false,
         "allowThrowingAny": false,
         "allowThrowingUnknown": false
       }
@@ -4518,6 +5067,207 @@
       2,
       "prefer-top-level"
     ],
+    "sonarjs/anchor-precedence": [
+      2
+    ],
+    "sonarjs/argument-type": [
+      2
+    ],
+    "sonarjs/arguments-order": [
+      2
+    ],
+    "sonarjs/array-callback-without-return": [
+      2
+    ],
+    "sonarjs/class-prototype": [
+      2
+    ],
+    "sonarjs/concise-regex": [
+      2
+    ],
+    "sonarjs/deprecation": [
+      0
+    ],
+    "sonarjs/different-types-comparison": [
+      2
+    ],
+    "sonarjs/disabled-auto-escaping": [
+      2
+    ],
+    "sonarjs/disabled-resource-integrity": [
+      2
+    ],
+    "sonarjs/duplicates-in-character-class": [
+      2
+    ],
+    "sonarjs/empty-string-repetition": [
+      2
+    ],
+    "sonarjs/existing-groups": [
+      2
+    ],
+    "sonarjs/function-return-type": [
+      0
+    ],
+    "sonarjs/in-operator-type-error": [
+      2
+    ],
+    "sonarjs/index-of-compare-to-positive-number": [
+      2
+    ],
+    "sonarjs/jsx-no-leaked-render": [
+      2
+    ],
+    "sonarjs/max-union-size": [
+      2,
+      {
+        "threshold": 3
+      }
+    ],
+    "sonarjs/new-operator-misuse": [
+      2,
+      {
+        "considerJSDoc": true
+      }
+    ],
+    "sonarjs/no-alphabetical-sort": [
+      2
+    ],
+    "sonarjs/no-array-delete": [
+      2
+    ],
+    "sonarjs/no-associative-arrays": [
+      2
+    ],
+    "sonarjs/no-collection-size-mischeck": [
+      2
+    ],
+    "sonarjs/no-control-regex": [
+      2
+    ],
+    "sonarjs/no-duplicate-in-composite": [
+      2
+    ],
+    "sonarjs/no-empty-after-reluctant": [
+      2
+    ],
+    "sonarjs/no-empty-alternatives": [
+      2
+    ],
+    "sonarjs/no-empty-character-class": [
+      2
+    ],
+    "sonarjs/no-empty-group": [
+      2
+    ],
+    "sonarjs/no-for-in-iterable": [
+      2
+    ],
+    "sonarjs/no-ignored-return": [
+      2
+    ],
+    "sonarjs/no-in-misuse": [
+      2
+    ],
+    "sonarjs/no-incorrect-string-concat": [
+      2
+    ],
+    "sonarjs/no-invalid-await": [
+      2
+    ],
+    "sonarjs/no-invalid-regexp": [
+      2
+    ],
+    "sonarjs/no-misleading-array-reverse": [
+      2
+    ],
+    "sonarjs/no-misleading-character-class": [
+      2
+    ],
+    "sonarjs/no-redundant-optional": [
+      2
+    ],
+    "sonarjs/no-regex-spaces": [
+      2
+    ],
+    "sonarjs/no-require-or-define": [
+      2
+    ],
+    "sonarjs/no-return-type-any": [
+      2
+    ],
+    "sonarjs/no-selector-parameter": [
+      2
+    ],
+    "sonarjs/no-try-promise": [
+      2
+    ],
+    "sonarjs/no-undefined-argument": [
+      2
+    ],
+    "sonarjs/no-useless-intersection": [
+      2
+    ],
+    "sonarjs/non-number-in-arithmetic-expression": [
+      2
+    ],
+    "sonarjs/null-dereference": [
+      2
+    ],
+    "sonarjs/operation-returning-nan": [
+      2
+    ],
+    "sonarjs/post-message": [
+      2
+    ],
+    "sonarjs/prefer-read-only-props": [
+      2
+    ],
+    "sonarjs/prefer-regexp-exec": [
+      2
+    ],
+    "sonarjs/prefer-type-guard": [
+      2
+    ],
+    "sonarjs/public-static-readonly": [
+      2
+    ],
+    "sonarjs/reduce-initial-value": [
+      2
+    ],
+    "sonarjs/redundant-type-aliases": [
+      0
+    ],
+    "sonarjs/single-char-in-character-classes": [
+      2
+    ],
+    "sonarjs/single-character-alternation": [
+      2
+    ],
+    "sonarjs/slow-regex": [
+      2
+    ],
+    "sonarjs/strings-comparison": [
+      2
+    ],
+    "sonarjs/unicode-aware-regex": [
+      2
+    ],
+    "sonarjs/unused-import": [
+      2
+    ],
+    "sonarjs/unused-named-groups": [
+      2
+    ],
+    "sonarjs/use-type-alias": [
+      2
+    ],
+    "sonarjs/values-not-convertible-to-numbers": [
+      2
+    ],
+    "sonarjs/void-use": [
+      2
+    ],
     "n/callback-return": [
       2,
       [
@@ -4724,27 +5474,27 @@
     "array-func:eslint-plugin-array-func@5.0.1",
     "@eslint-community/eslint-comments",
     "filenames-simple",
-    "import-x",
+    "import-x:eslint-plugin-import-x@4.13.3",
     "listeners",
     "no-constructor-bind",
     "no-secrets:eslint-plugin-no-secrets@2.1.1",
     "no-unsanitized:eslint-plugin-no-unsanitized@4.1.2",
     "no-use-extend-native:eslint-plugin-no-use-extend-native@0.7.2",
-    "perfectionist:eslint-plugin-perfectionist@4.11.0",
+    "perfectionist:eslint-plugin-perfectionist@4.13.0",
     "promise",
     "security:eslint-plugin-security@3.0.1",
     "sonarjs:eslint-plugin-sonarjs@0.0.0-SNAPSHOT",
     "ternary",
-    "unicorn:eslint-plugin-unicorn@58.0.0",
+    "unicorn:eslint-plugin-unicorn@59.0.1",
     "@stylistic",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.29.1",
-    "n:eslint-plugin-n@17.17.0"
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.33.0",
+    "n:eslint-plugin-n@17.18.0"
   ],
   "language": "@/js",
   "languageOptions": {
     "sourceType": "commonjs",
     "ecmaVersion": 2025,
-    "parser": "typescript-eslint/parser@8.29.1",
+    "parser": "typescript-eslint/parser@8.33.0",
     "parserOptions": {
       "project": "/home/Elindorath/dev/mine/eslint-plugin/tsconfig.json",
       "sourceType": "module",
@@ -4753,6 +5503,7 @@
     "globals": {
       "AbortController": false,
       "AbortSignal": false,
+      "AsyncDisposableStack": false,
       "atob": false,
       "Blob": false,
       "BroadcastChannel": false,
@@ -4771,6 +5522,7 @@
       "CryptoKey": false,
       "CustomEvent": false,
       "DecompressionStream": false,
+      "DisposableStack": false,
       "DOMException": false,
       "Event": false,
       "EventTarget": false,
@@ -4807,6 +5559,7 @@
       "setTimeout": false,
       "structuredClone": false,
       "SubtleCrypto": false,
+      "SuppressedError": false,
       "TextDecoder": false,
       "TextDecoderStream": false,
       "TextEncoder": false,
@@ -4814,6 +5567,7 @@
       "TransformStream": false,
       "TransformStreamDefaultController": false,
       "URL": false,
+      "URLPattern": false,
       "URLSearchParams": false,
       "WebAssembly": false,
       "WebSocket": false,

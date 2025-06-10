@@ -1,4 +1,3 @@
-import { defineConfig } from 'eslint/config'
 /**
  * TODO: fix it when this plugin expose typings
  * @see: https://github.com/freaktechnik/eslint-plugin-array-func/issues/492
@@ -29,18 +28,3 @@ export const arrayFunctionVanillaConfig = {
     'array-func/prefer-flat-map': [OFF],
   },
 } as const satisfies Linter.Config
-
-// type PluginConfig<PluginPrefix extends string, PluginInstance> = {
-//   plugins: { [key in PluginPrefix]: PluginInstance; };
-//   prefix: PluginPrefix;
-//   rules: { [key in `${PluginPrefix}/string`] }
-// }
-
-// function definePluginConfig<PluginPrefix, PluginInstance>(config: PluginConfig<PluginPrefix, PluginInstance>) {
-
-// }
-
-// definePluginConfig({
-//   plugins: { coucou: arrayFunctionPlugin },
-//   prefix: 'coucou',
-// } as const)

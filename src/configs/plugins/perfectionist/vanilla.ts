@@ -174,7 +174,6 @@ export const perfectionistVanillaConfig = {
         'type-parent',
         'type-index',
         'type-sibling',
-        'type',
         'style',
       ],
       internalPattern: ['^~/.*'],
@@ -358,8 +357,22 @@ export const perfectionistVanillaConfig = {
     'perfectionist/sort-union-types': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],
-      // TODO: needs to be defined
-      groups: [],
+      // TODO: needs to be refined
+      groups: [
+        'conditional',
+        'function',
+        'import',
+        'intersection',
+        'keyword',
+        'literal',
+        'operator',
+        'named',
+        'object',
+        'tuple',
+        'union',
+        'nullish',
+        'unknown',
+      ],
       newlinesBetween: 'ignore',
     }],
     // TODO: Might be OFF
