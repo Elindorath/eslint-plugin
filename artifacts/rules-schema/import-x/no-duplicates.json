@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "considerQueryString": {
+        "type": "boolean"
+      },
+      "prefer-inline": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

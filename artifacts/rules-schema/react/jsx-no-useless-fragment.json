@@ -1,0 +1,10 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowExpressions": {
+        "type": "boolean"
+      }
+    }
+  }
+]

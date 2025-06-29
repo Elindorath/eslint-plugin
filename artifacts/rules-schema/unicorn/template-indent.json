@@ -1,0 +1,48 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "indent": {
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^\\s+$"
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          }
+        ]
+      },
+      "tags": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "functions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "selectors": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "comments": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+]

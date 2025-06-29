@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowComputed": {
+        "description": "If `false`, will report computed (and thus, un-lintable) references to namespace members.",
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

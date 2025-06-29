@@ -1,0 +1,31 @@
+[
+  {
+    "type": "string"
+  },
+  {
+    "additionalProperties": false,
+    "properties": {
+      "classFields": {
+        "default": false,
+        "type": "boolean"
+      },
+      "ignoreDestructuring": {
+        "default": false,
+        "type": "boolean"
+      },
+      "ignoreNamedImports": {
+        "default": false,
+        "type": "boolean"
+      },
+      "onlyDeclarations": {
+        "default": false,
+        "type": "boolean"
+      },
+      "properties": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  }
+]

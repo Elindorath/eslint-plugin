@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "form": {
+        "enum": [
+          "NFC",
+          "NFD",
+          "NFKC",
+          "NFKD"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

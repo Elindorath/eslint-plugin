@@ -1,0 +1,58 @@
+{
+  "definitions": {
+    "basicConfig": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "always",
+            "never",
+            "consistent"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "multiline": {
+              "type": "boolean"
+            },
+            "minItems": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "type": "array",
+  "items": [
+    {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/basicConfig"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ArrayExpression": {
+              "$ref": "#/definitions/basicConfig"
+            },
+            "JSONArrayExpression": {
+              "$ref": "#/definitions/basicConfig"
+            },
+            "ArrayPattern": {
+              "$ref": "#/definitions/basicConfig"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    }
+  ]
+}

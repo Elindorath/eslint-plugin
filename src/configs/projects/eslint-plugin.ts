@@ -44,7 +44,6 @@ export const projectEslintPluginConfig = [
         'import-x/max-dependencies': [OFF],
         // OFF as it is more convenient to centralize constants
         'import-x/no-relative-parent-imports': [OFF],
-        'multiline-comment-style': [OFF, 'starred-block'],
         'quote-props': [OFF, 'consistent-as-needed', {
           keywords: false,
           numbers: false,

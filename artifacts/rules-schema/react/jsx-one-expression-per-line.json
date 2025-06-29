@@ -1,0 +1,19 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allow": {
+        "enum": [
+          "none",
+          "literal",
+          "single-child",
+          "non-jsx"
+        ]
+      }
+    },
+    "default": {
+      "allow": "none"
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "disallowRedundantWrapping": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

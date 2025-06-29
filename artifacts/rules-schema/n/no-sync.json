@@ -1,0 +1,74 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowAtRootLevel": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignores": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "const": "file"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "const": "lib"
+                },
+                "name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "const": "package"
+                },
+                "package": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "default": []
+      }
+    },
+    "additionalProperties": false
+  }
+]

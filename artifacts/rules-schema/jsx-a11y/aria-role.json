@@ -1,0 +1,18 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowedInvalidRoles": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "ignoreNonDOM": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  }
+]

@@ -5,7 +5,7 @@ import process from 'node:process'
 
 import { camelCase } from 'case-anything'
 import fs from 'fs-extra'
-import { packageDirectory } from 'pkg-dir'
+import { packageDirectory } from 'package-directory'
 
 import type { ESLint } from 'eslint'
 

@@ -1,0 +1,32 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "devDependencies": {
+        "type": [
+          "boolean",
+          "array"
+        ]
+      },
+      "optionalDependencies": {
+        "type": [
+          "boolean",
+          "array"
+        ]
+      },
+      "peerDependencies": {
+        "type": [
+          "boolean",
+          "array"
+        ]
+      },
+      "allow": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "enum": [
+        "rel"
+      ]
+    }
+  }
+]

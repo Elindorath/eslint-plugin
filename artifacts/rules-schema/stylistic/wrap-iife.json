@@ -1,0 +1,20 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "outside",
+      "inside",
+      "any"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "functionPrototypeMethods": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

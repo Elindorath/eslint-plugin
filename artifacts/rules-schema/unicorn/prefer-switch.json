@@ -1,0 +1,19 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "minimumCases": {
+        "type": "integer",
+        "minimum": 2
+      },
+      "emptyDefaultCase": {
+        "enum": [
+          "no-default-comment",
+          "do-nothing-comment",
+          "no-default-case"
+        ]
+      }
+    }
+  }
+]

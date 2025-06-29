@@ -1,0 +1,24 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "customValidators": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "skipShapeProps": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

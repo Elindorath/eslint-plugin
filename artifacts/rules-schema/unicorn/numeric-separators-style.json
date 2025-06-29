@@ -1,0 +1,79 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "binary": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "onlyIfContainsSeparator": {
+            "type": "boolean"
+          },
+          "minimumDigits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "groupLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "octal": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "onlyIfContainsSeparator": {
+            "type": "boolean"
+          },
+          "minimumDigits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "groupLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "hexadecimal": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "onlyIfContainsSeparator": {
+            "type": "boolean"
+          },
+          "minimumDigits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "groupLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "number": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "onlyIfContainsSeparator": {
+            "type": "boolean"
+          },
+          "minimumDigits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "groupLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "onlyIfContainsSeparator": {
+        "type": "boolean"
+      }
+    }
+  }
+]

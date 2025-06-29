@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignoreTranspilerName": {
+        "type": "boolean"
+      },
+      "checkContextObjects": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

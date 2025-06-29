@@ -1,0 +1,36 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "camelCase": {
+        "type": "boolean",
+        "default": true
+      },
+      "PascalCase": {
+        "type": "boolean",
+        "default": false
+      },
+      "SCREAMING_SNAKE_CASE": {
+        "type": "boolean",
+        "default": false
+      },
+      "kebab-case": {
+        "type": "boolean",
+        "default": false
+      },
+      "snake_case": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignores": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

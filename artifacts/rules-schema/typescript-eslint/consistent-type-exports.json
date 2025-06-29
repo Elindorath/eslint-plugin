@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "fixMixedExportsWithInlineTypeSpecifier": {
+        "type": "boolean",
+        "description": "Whether the rule will autofix \"mixed\" export cases using TS inline type specifiers."
+      }
+    }
+  }
+]

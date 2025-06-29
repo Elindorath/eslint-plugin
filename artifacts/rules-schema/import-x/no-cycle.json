@@ -1,0 +1,50 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "commonjs": {
+        "type": "boolean"
+      },
+      "amd": {
+        "type": "boolean"
+      },
+      "esmodule": {
+        "type": "boolean"
+      },
+      "ignore": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "maxDepth": {
+        "anyOf": [
+          {
+            "description": "maximum dependency depth to traverse",
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "enum": [
+              "∞"
+            ],
+            "type": "string"
+          }
+        ]
+      },
+      "ignoreExternal": {
+        "description": "ignore external modules",
+        "type": "boolean",
+        "default": false
+      },
+      "allowUnsafeDynamicCyclicDependency": {
+        "description": "Allow cyclic dependency if there is at least one dynamic import in the chain",
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

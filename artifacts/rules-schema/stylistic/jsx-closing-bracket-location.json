@@ -1,0 +1,74 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "after-props",
+          "props-aligned",
+          "tag-aligned",
+          "line-aligned"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "enum": [
+              "after-props",
+              "props-aligned",
+              "tag-aligned",
+              "line-aligned"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "nonEmpty": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "after-props",
+                  "props-aligned",
+                  "tag-aligned",
+                  "line-aligned"
+                ]
+              },
+              {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              }
+            ]
+          },
+          "selfClosing": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "after-props",
+                  "props-aligned",
+                  "tag-aligned",
+                  "line-aligned"
+                ]
+              },
+              {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

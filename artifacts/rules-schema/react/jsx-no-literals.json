@@ -1,0 +1,53 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "elementOverrides": {
+        "type": "object",
+        "patternProperties": {
+          "^[A-Z][\\w.]*$": {
+            "type": "object",
+            "properties": {
+              "applyToNestedElements": {
+                "type": "boolean"
+              },
+              "noStrings": {
+                "type": "boolean"
+              },
+              "allowedStrings": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ignoreProps": {
+                "type": "boolean"
+              },
+              "noAttributeStrings": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "noStrings": {
+        "type": "boolean"
+      },
+      "allowedStrings": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "ignoreProps": {
+        "type": "boolean"
+      },
+      "noAttributeStrings": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

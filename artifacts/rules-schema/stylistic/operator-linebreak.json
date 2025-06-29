@@ -1,0 +1,35 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "after",
+          "before",
+          "none"
+        ]
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "overrides": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "enum": [
+            "after",
+            "before",
+            "none",
+            "ignore"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

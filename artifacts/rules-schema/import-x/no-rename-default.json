@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "commonjs": {
+        "default": false,
+        "type": "boolean"
+      },
+      "preventRenamingBindings": {
+        "default": true,
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

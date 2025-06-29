@@ -1,0 +1,38 @@
+[
+  {
+    "oneOf": [
+      {
+        "enum": [
+          "nofunc"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "functions": {
+            "type": "boolean"
+          },
+          "classes": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "allowNamedExports": {
+            "type": "boolean"
+          },
+          "enums": {
+            "type": "boolean"
+          },
+          "typedefs": {
+            "type": "boolean"
+          },
+          "ignoreTypeReferences": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

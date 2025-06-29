@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "androidPathRegex": {
+        "type": "string"
+      },
+      "iosPathRegex": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -116,6 +116,9 @@ export const baseConfig = {
       allowAtRootLevel: false,
       ignores: [],
     }],
+    'n/no-top-level-await': [ERROR, {
+      ignoreBin: false,
+    }],
     'n/no-unpublished-bin': [ERROR],
     'n/no-unpublished-import': [ERROR, {
       ignorePrivate: true,

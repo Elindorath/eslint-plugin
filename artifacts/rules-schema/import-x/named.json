@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "commonjs": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

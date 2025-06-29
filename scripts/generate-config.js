@@ -5,7 +5,7 @@ const process = require('node:process')
 
 const { ESLint } = require('eslint')
 const fs = require('fs-extra')
-const packageDirectory = require('pkg-dir')
+const packageDirectory = require('package-directory')
 
 
 ;(async function main() {

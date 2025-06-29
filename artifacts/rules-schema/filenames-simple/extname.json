@@ -1,0 +1,11 @@
+[
+  {
+    "enum": [
+      "lowercase",
+      "lowercase-with-number",
+      "UPPERCASE",
+      "UPPERCASE_WITH_NUMBER"
+    ],
+    "default": "lowercase"
+  }
+]

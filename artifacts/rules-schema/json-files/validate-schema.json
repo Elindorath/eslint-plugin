@@ -1,0 +1,18 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "schema": {
+        "type": "string"
+      },
+      "prettyErrors": {
+        "type": "boolean",
+        "default": true
+      },
+      "avjFixerOptions": {
+        "type": "object"
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignore": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "WhileStatement",
+            "DoWhileStatement",
+            "ForStatement",
+            "ForInStatement",
+            "ForOfStatement"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

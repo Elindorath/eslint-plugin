@@ -6,6 +6,7 @@ import { readdir } from 'node:fs/promises'
 import { URL } from 'node:url'
 
 import { ESLint } from 'eslint'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import { config } from './config.ts'
 import { InconsistentPluginEntryError } from './errors/InconsistentPluginEntryError.ts'
@@ -14,9 +15,10 @@ import { InconsistentPluginPrefixError } from './errors/InconsistentPluginPrefix
 import { InvalidPluginEntryError } from './errors/InvalidPluginEntryError.ts'
 import { MultiplePluginsDefinedError } from './errors/MultiplePluginsDefinedError.ts'
 import { NoRulesFoundInPluginError } from './errors/NoRulesFoundInPluginError.ts'
+import { isRuleIdFromPlugin } from './utilities/eslint.ts'
 import { objectEntries, objectKeys } from './utilities/object.ts'
 
-import type { Linter } from 'eslint'
+import type { Linter, Rule } from 'eslint'
 
 import type {
   ESLintPluginWithRule,
@@ -36,9 +38,9 @@ export async function getPluginDescriptors(pluginNames: PluginName[]) {
   const promises: Array<Promise<PluginDescriptor>> = []
 
   for (const pluginName of pluginNames) {
-    if (pluginName === 'sonarjs') {
+    // if (pluginName === 'perfectionist') {
       promises.push(getPluginDescriptor(pluginName))
-    }
+    // }
   }
 
   return Promise.all(promises)
@@ -55,6 +57,7 @@ async function getPluginDescriptor(pluginName: PluginName): Promise<PluginDescri
   const configuredRuleSet = getConfiguredPluginRuleSet(pluginConfigurationEntries, prefix)
 
   return {
+    name: pluginName,
     configurationEntries: pluginConfigurationEntries,
     configuredRuleSet,
     instance,
@@ -168,16 +171,26 @@ function getConfiguredPluginRuleSet(pluginConfigurationEntries: PluginConfigurat
   return ruleSet
 }
 
-function isRuleIdFromPlugin(potentialRuleId: string, pluginPrefix: PluginPrefix): potentialRuleId is RuleId {
-  return potentialRuleId.startsWith(`${pluginPrefix}/`)
-}
-
 function getEslintPseudoPlugin() {
   if (!ESLint.defaultConfig[0]?.plugins?.['@']) {
     throw new Error('pseudo plugin from ESLint default config not found')
   }
 
-  return ESLint.defaultConfig[0].plugins['@']
+  return {
+    ...ESLint.defaultConfig[0].plugins['@'],
+    rules: getEslintCoreRules(),
+  }
+}
+
+function getEslintCoreRules() {
+  const coreRuleDefinitions: { [key: string]: Rule.RuleModule; } = {}
+
+  // eslint-disable-next-line @typescript-eslint/no-deprecated -- Currently the only way to get the core rules
+  for (const [ruleId, rule] of builtinRules) {
+    coreRuleDefinitions[ruleId] = rule
+  }
+
+  return coreRuleDefinitions
 }
 
 /* eslint-enable */

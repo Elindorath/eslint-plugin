@@ -1,0 +1,55 @@
+[
+  {
+    "oneOf": [
+      {
+        "properties": {
+          "case": {
+            "enum": [
+              "camelCase",
+              "snakeCase",
+              "kebabCase",
+              "pascalCase"
+            ]
+          },
+          "ignore": {
+            "type": "array",
+            "uniqueItems": true
+          },
+          "multipleFileExtensions": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "properties": {
+          "cases": {
+            "properties": {
+              "camelCase": {
+                "type": "boolean"
+              },
+              "snakeCase": {
+                "type": "boolean"
+              },
+              "kebabCase": {
+                "type": "boolean"
+              },
+              "pascalCase": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "ignore": {
+            "type": "array",
+            "uniqueItems": true
+          },
+          "multipleFileExtensions": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

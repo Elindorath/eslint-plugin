@@ -1,0 +1,22 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "words": {
+        "type": "boolean",
+        "default": true
+      },
+      "nonwords": {
+        "type": "boolean",
+        "default": false
+      },
+      "overrides": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

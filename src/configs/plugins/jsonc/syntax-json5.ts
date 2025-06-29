@@ -48,6 +48,7 @@ export const json5Config = {
     'jsonc/no-binary-numeric-literals': [ERROR],
     'jsonc/no-comments': [ERROR],
     'jsonc/no-escape-sequence-in-identifier': [ERROR],
+    'jsonc/no-floating-decimal': [ERROR],
     'jsonc/no-hexadecimal-numeric-literals': [ERROR],
     'jsonc/no-infinity': [ERROR],
     'jsonc/no-nan': [ERROR],
@@ -82,7 +83,6 @@ export const json5Config = {
 
     /* ----- Extended rules ----- */
     'jsonc/no-dupe-keys': getRuleConfig('no-dupe-keys', eslintVanillaConfig),
-    'jsonc/no-floating-decimal': getRuleConfig('no-floating-decimal', eslintVanillaConfig),
     'jsonc/no-irregular-whitespace': getRuleConfig('no-irregular-whitespace', eslintVanillaConfig),
     'jsonc/no-multi-str': getRuleConfig('no-multi-str', eslintVanillaConfig),
     'jsonc/no-octal': getRuleConfig('no-octal', eslintVanillaConfig),

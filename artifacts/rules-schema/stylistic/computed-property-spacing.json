@@ -1,0 +1,19 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "always",
+      "never"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "enforceForClassMembers": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "beside",
+      "below",
+      "any"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "overrides": {
+        "type": "object",
+        "properties": {
+          "if": {
+            "type": "string",
+            "enum": [
+              "beside",
+              "below",
+              "any"
+            ]
+          },
+          "else": {
+            "type": "string",
+            "enum": [
+              "beside",
+              "below",
+              "any"
+            ]
+          },
+          "while": {
+            "type": "string",
+            "enum": [
+              "beside",
+              "below",
+              "any"
+            ]
+          },
+          "do": {
+            "type": "string",
+            "enum": [
+              "beside",
+              "below",
+              "any"
+            ]
+          },
+          "for": {
+            "type": "string",
+            "enum": [
+              "beside",
+              "below",
+              "any"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "oneOf": [
+    {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pathPattern": {
+            "type": "string"
+          },
+          "hasProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "keyPattern": {
+                          "type": "string"
+                        },
+                        "order": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "asc",
+                                "desc"
+                              ]
+                            },
+                            "caseSensitive": {
+                              "type": "boolean"
+                            },
+                            "natural": {
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "uniqueItems": true
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "asc",
+                      "desc"
+                    ]
+                  },
+                  "caseSensitive": {
+                    "type": "boolean"
+                  },
+                  "natural": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "minKeys": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "allowLineSeparatedGroups": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pathPattern",
+          "order"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "caseSensitive": {
+              "type": "boolean"
+            },
+            "natural": {
+              "type": "boolean"
+            },
+            "minKeys": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "allowLineSeparatedGroups": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "additionalItems": false
+    }
+  ]
+}

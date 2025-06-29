@@ -1,0 +1,34 @@
+[
+  {
+    "properties": {
+      "aliases": {
+        "items": {
+          "properties": {
+            "alias": {
+              "type": "string"
+            },
+            "matchParent": {
+              "type": "string"
+            },
+            "matchPath": {
+              "type": "string"
+            },
+            "maxRelativeDepth": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "alias",
+            "matchPath"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "cwd": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+]

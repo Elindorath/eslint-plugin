@@ -1,0 +1,52 @@
+[
+  {
+    "$defs": {
+      "spacingConfig": {
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": "boolean"
+          },
+          "after": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "type": "object",
+    "properties": {
+      "before": {
+        "type": "boolean"
+      },
+      "after": {
+        "type": "boolean"
+      },
+      "overrides": {
+        "type": "object",
+        "properties": {
+          "colon": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          },
+          "arrow": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          },
+          "variable": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          },
+          "parameter": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          },
+          "property": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          },
+          "returnType": {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,650 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "always",
+          "never"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "IfStatementConsequent": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "IfStatementAlternative": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "DoWhileStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "ForInStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "ForOfStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "ForStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "WhileStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "SwitchStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "SwitchCase": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TryStatementBlock": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TryStatementHandler": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TryStatementFinalizer": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "BlockStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "ArrowFunctionExpression": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "FunctionDeclaration": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "FunctionExpression": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "Property": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "ClassBody": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "StaticBlock": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "WithStatement": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TSEnumBody": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TSInterfaceBody": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "TSModuleBlock": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minElements": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "multiline": {
+            "type": "boolean"
+          },
+          "minElements": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "consistent": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

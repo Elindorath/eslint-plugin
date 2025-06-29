@@ -1,0 +1,20 @@
+[
+  {
+    "enum": [
+      "asc",
+      "desc"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "ignoreClassNames": {
+        "type": "boolean"
+      },
+      "ignoreStyleProperties": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

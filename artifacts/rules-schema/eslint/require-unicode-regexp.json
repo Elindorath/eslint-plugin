@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "requireFlag": {
+        "enum": [
+          "u",
+          "v"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

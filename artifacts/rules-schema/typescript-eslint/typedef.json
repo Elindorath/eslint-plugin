@@ -1,0 +1,40 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "arrayDestructuring": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations on variables declared using array destructuring."
+      },
+      "arrowParameter": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations for parameters of arrow functions."
+      },
+      "memberVariableDeclaration": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations on member variables of classes."
+      },
+      "objectDestructuring": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations on variables declared using object destructuring."
+      },
+      "parameter": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations for parameters of functions and methods."
+      },
+      "propertyDeclaration": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations for properties of interfaces and types."
+      },
+      "variableDeclaration": {
+        "type": "boolean",
+        "description": "Whether to enforce type annotations for variable declarations, excluding array and object destructuring."
+      },
+      "variableDeclarationIgnoreFunction": {
+        "type": "boolean",
+        "description": "Whether to ignore variable declarations for non-arrow and arrow functions."
+      }
+    }
+  }
+]

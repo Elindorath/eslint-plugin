@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "before": {
+        "type": "boolean",
+        "default": true
+      },
+      "after": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

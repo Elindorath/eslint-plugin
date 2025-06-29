@@ -77,8 +77,6 @@ export const eslintVanillaConfig = {
     'no-misleading-character-class': [ERROR],
     'no-new-native-nonconstructor': [ERROR],
     // Should be disabled in Typescript projects as the compiler already checks this
-    'no-new-symbol': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
     'no-obj-calls': [ERROR],
     'no-promise-executor-return': [ERROR, {
       allowVoid: false,
@@ -139,6 +137,7 @@ export const eslintVanillaConfig = {
       functions: false,
       variables: true,
     }],
+    'no-useless-assignment': [ERROR],
     'no-useless-backreference': [ERROR],
     'require-atomic-updates': [ERROR, {
       allowProperties: false,
@@ -291,7 +290,6 @@ export const eslintVanillaConfig = {
     }, {
       ignoreTopLevelFunctions: false,
     }],
-    'multiline-comment-style': [ERROR, 'starred-block'],
     'new-cap': [ERROR, {
       capIsNew: true,
       capIsNewExceptionPattern: '',
@@ -309,10 +307,6 @@ export const eslintVanillaConfig = {
     }],
     'no-caller': [ERROR],
     'no-case-declarations': [ERROR],
-    'no-confusing-arrow': [ERROR, {
-      allowParens: true,
-      onlyOneSimpleParam: false,
-    }],
     'no-console': [ERROR, {
       allow: [''],
     }],
@@ -343,8 +337,6 @@ export const eslintVanillaConfig = {
       enforceForLogicalOperands: true,
     }],
     'no-extra-label': [ERROR],
-    'no-extra-semi': [ERROR],
-    'no-floating-decimal': [ERROR],
     'no-global-assign': [ERROR, {
       exceptions: [],
     }],
@@ -386,17 +378,6 @@ export const eslintVanillaConfig = {
       ignoreArrayIndexes: false,
       ignoreClassFieldInitialValues: false,
       ignoreDefaultValues: false,
-    }],
-    'no-mixed-operators': [ERROR, {
-      allowSamePrecedence: true,
-      groups: [
-        ['+', '-', '*', '/', '%', '**'],
-        ['&', '|', '^', '~', '<<', '>>', '>>>'],
-        ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
-        // Configured value
-        ['&&', '||', '??', '?:'],
-        ['in', 'instanceof'],
-      ],
     }],
     'no-multi-assign': [ERROR, {
       ignoreNonDeclaration: false,

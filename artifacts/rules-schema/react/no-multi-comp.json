@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignoreStateless": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

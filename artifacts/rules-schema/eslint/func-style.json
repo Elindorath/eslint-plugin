@@ -1,0 +1,33 @@
+[
+  {
+    "enum": [
+      "declaration",
+      "expression"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "allowArrowFunctions": {
+        "type": "boolean"
+      },
+      "allowTypeAnnotation": {
+        "type": "boolean"
+      },
+      "overrides": {
+        "type": "object",
+        "properties": {
+          "namedExports": {
+            "enum": [
+              "declaration",
+              "expression",
+              "ignore"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

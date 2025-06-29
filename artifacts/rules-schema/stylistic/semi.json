@@ -1,0 +1,56 @@
+{
+  "anyOf": [
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "never"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "beforeStatementContinuationChars": {
+              "type": "string",
+              "enum": [
+                "always",
+                "any",
+                "never"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "minItems": 0,
+      "maxItems": 2
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "always"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "omitLastInOneLineBlock": {
+              "type": "boolean"
+            },
+            "omitLastInOneLineClassBody": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "minItems": 0,
+      "maxItems": 2
+    }
+  ]
+}

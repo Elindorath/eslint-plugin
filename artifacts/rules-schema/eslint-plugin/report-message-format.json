@@ -1,0 +1,6 @@
+[
+  {
+    "description": "Format that all report messages must match.",
+    "type": "string"
+  }
+]

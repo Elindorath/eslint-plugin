@@ -1,0 +1,34 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignoreCase": {
+        "type": "boolean"
+      },
+      "memberSyntaxSortOrder": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "none",
+            "all",
+            "multiple",
+            "single"
+          ]
+        },
+        "uniqueItems": true,
+        "minItems": 4,
+        "maxItems": 4
+      },
+      "ignoreDeclarationSort": {
+        "type": "boolean"
+      },
+      "ignoreMemberSort": {
+        "type": "boolean"
+      },
+      "allowSeparatedGroups": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

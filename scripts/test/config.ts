@@ -7,4 +7,5 @@ const [, rootPath] = process.argv
 
 export const config: Config = {
   pluginConfigurationsDirectoryUrl: new URL('../src/configs/plugins/', pathToFileURL(rootPath)),
+  pluginRulesSchemaDirectoryUrl: new URL('../artifacts/rules-schema/', pathToFileURL(rootPath)),
 }

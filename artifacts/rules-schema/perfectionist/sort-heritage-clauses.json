@@ -1,0 +1,139 @@
+[
+  {
+    "properties": {
+      "fallbackSort": {
+        "properties": {
+          "order": {
+            "description": "Specifies whether to sort items in ascending or descending order.",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "alphabetical",
+              "natural",
+              "line-length",
+              "custom",
+              "unsorted"
+            ],
+            "description": "Specifies the sorting method.",
+            "type": "string"
+          }
+        },
+        "description": "Fallback sort order.",
+        "additionalProperties": false,
+        "minProperties": 1,
+        "type": "object"
+      },
+      "specialCharacters": {
+        "description": "Specifies whether to trim, remove, or keep special characters before sorting.",
+        "enum": [
+          "remove",
+          "trim",
+          "keep"
+        ],
+        "type": "string"
+      },
+      "ignoreCase": {
+        "description": "Controls whether sorting should be case-sensitive or not.",
+        "type": "boolean"
+      },
+      "alphabet": {
+        "description": "Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.",
+        "type": "string"
+      },
+      "locales": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        ],
+        "description": "Specifies the sorting locales."
+      },
+      "order": {
+        "description": "Specifies whether to sort items in ascending or descending order.",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string"
+      },
+      "type": {
+        "enum": [
+          "alphabetical",
+          "natural",
+          "line-length",
+          "custom",
+          "unsorted"
+        ],
+        "description": "Specifies the sorting method.",
+        "type": "string"
+      },
+      "customGroups": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
+        },
+        "description": "Specifies custom groups.",
+        "type": "object"
+      },
+      "groups": {
+        "items": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "properties": {
+                "newlinesBetween": {
+                  "description": "Specifies how to handle new lines between groups.",
+                  "enum": [
+                    "ignore",
+                    "always",
+                    "never"
+                  ],
+                  "type": "string"
+                },
+                "commentAbove": {
+                  "description": "Specifies a comment to enforce above the group.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1,
+              "type": "object"
+            }
+          ]
+        },
+        "description": "Specifies a list of groups for sorting.",
+        "type": "array"
+      }
+    },
+    "additionalProperties": false,
+    "type": "object"
+  }
+]

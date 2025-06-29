@@ -6,6 +6,39 @@ import { ERROR, OFF, WARN } from '../../../constants.ts'
 import type { Linter } from 'eslint'
 
 
+const additionalTestBlockFunctions = [
+  'test',
+  'test.each',
+  'test.concurrent',
+  'test.concurrent.each',
+  'test.concurrent.only.each',
+  'test.concurrent.skip.each',
+  'test.each',
+  'test.failing',
+  'test.failing.each',
+  'test.only.failing',
+  'test.skip.failing',
+  'test.only',
+  'test.only.each',
+  'test.skip',
+  'test.skip.each',
+  'it',
+  'it.each',
+  'it.concurrent',
+  'it.concurrent.each',
+  'it.concurrent.only.each',
+  'it.concurrent.skip.each',
+  'it.each',
+  'it.failing',
+  'it.failing.each',
+  'it.only.failing',
+  'it.skip.failing',
+  'it.only',
+  'it.only.each',
+  'it.skip',
+  'it.skip.each',
+]
+
 export const jestConfig = {
   plugins: {
     jest: jestPlugin,
@@ -24,7 +57,7 @@ export const jestConfig = {
       withinDescribe: 'it',
     }],
     'jest/expect-expect': [ERROR, {
-      additionalTestBlockFunctions: [],
+      additionalTestBlockFunctions,
       assertFunctionNames: ['expect'],
     }],
     'jest/max-expects': [ERROR, {
@@ -63,7 +96,7 @@ export const jestConfig = {
     // TODO: Should be populated with unwanted matchers
     'jest/no-restricted-matchers': [ERROR, {}],
     'jest/no-standalone-expect': [ERROR, {
-      additionalTestBlockFunctions: [],
+      additionalTestBlockFunctions,
     }],
     'jest/no-test-prefixes': [ERROR],
     'jest/no-test-return-statement': [ERROR],
@@ -80,6 +113,10 @@ export const jestConfig = {
     'jest/prefer-called-with': [ERROR],
     'jest/prefer-comparison-matcher': [ERROR],
     'jest/prefer-each': [ERROR],
+    'jest/prefer-ending-with-an-expect': [ERROR, {
+      additionalTestBlockFunctions,
+      assertFunctionNames: ['expect'],
+    }],
     'jest/prefer-equality-matcher': [ERROR],
     'jest/prefer-expect-assertions': [ERROR, {
       // Configured value

@@ -67,6 +67,7 @@ export const perfectionistVanillaConfig = {
         'literal',
       ],
       newlinesBetween: 'ignore',
+      useConfigurationIf: {},
     }],
     'perfectionist/sort-classes': [ERROR, {
       // TODO: needs to be defined
@@ -180,6 +181,9 @@ export const perfectionistVanillaConfig = {
       maxLineLength: undefined,
       newlinesBetween: 'always',
       sortSideEffects: false,
+      tsconfig: {
+        rootDir: '.',
+      },
 
       /* ----- Customized alphabet ----- */
       alphabet: Alphabet

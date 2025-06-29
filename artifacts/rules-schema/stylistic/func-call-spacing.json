@@ -1,0 +1,51 @@
+{
+  "anyOf": [
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "never"
+          ]
+        }
+      ],
+      "minItems": 0,
+      "maxItems": 1
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "always"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "allowNewlines": {
+              "type": "boolean"
+            },
+            "optionalChain": {
+              "type": "object",
+              "properties": {
+                "before": {
+                  "type": "boolean"
+                },
+                "after": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "minItems": 0,
+      "maxItems": 2
+    }
+  ]
+}

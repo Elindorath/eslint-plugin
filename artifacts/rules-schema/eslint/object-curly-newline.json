@@ -1,0 +1,148 @@
+[
+  {
+    "oneOf": [
+      {
+        "oneOf": [
+          {
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "multiline": {
+                "type": "boolean"
+              },
+              "minProperties": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "consistent": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "ObjectExpression": {
+            "oneOf": [
+              {
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minProperties": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "minProperties": 1
+              }
+            ]
+          },
+          "ObjectPattern": {
+            "oneOf": [
+              {
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minProperties": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "minProperties": 1
+              }
+            ]
+          },
+          "ImportDeclaration": {
+            "oneOf": [
+              {
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minProperties": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "minProperties": 1
+              }
+            ]
+          },
+          "ExportDeclaration": {
+            "oneOf": [
+              {
+                "enum": [
+                  "always",
+                  "never"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "multiline": {
+                    "type": "boolean"
+                  },
+                  "minProperties": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "consistent": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false,
+                "minProperties": 1
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "minProperties": 1
+      }
+    ]
+  }
+]

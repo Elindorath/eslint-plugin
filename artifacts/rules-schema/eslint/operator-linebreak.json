@@ -1,0 +1,27 @@
+[
+  {
+    "enum": [
+      "after",
+      "before",
+      "none",
+      null
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "overrides": {
+        "type": "object",
+        "additionalProperties": {
+          "enum": [
+            "after",
+            "before",
+            "none",
+            "ignore"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

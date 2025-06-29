@@ -1,0 +1,35 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "above",
+          "beside"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "enum": [
+              "above",
+              "beside"
+            ]
+          },
+          "ignorePattern": {
+            "type": "string"
+          },
+          "applyDefaultPatterns": {
+            "type": "boolean"
+          },
+          "applyDefaultIgnorePatterns": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

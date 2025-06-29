@@ -1,0 +1,98 @@
+[
+  {
+    "$defs": {
+      "multiLineOption": {
+        "type": "string",
+        "enum": [
+          "none",
+          "semi",
+          "comma"
+        ]
+      },
+      "singleLineOption": {
+        "type": "string",
+        "enum": [
+          "semi",
+          "comma"
+        ]
+      },
+      "delimiterConfig": {
+        "type": "object",
+        "properties": {
+          "multiline": {
+            "type": "object",
+            "properties": {
+              "delimiter": {
+                "$ref": "#/items/0/$defs/multiLineOption"
+              },
+              "requireLast": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "singleline": {
+            "type": "object",
+            "properties": {
+              "delimiter": {
+                "$ref": "#/items/0/$defs/singleLineOption"
+              },
+              "requireLast": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "type": "object",
+    "properties": {
+      "multiline": {
+        "type": "object",
+        "properties": {
+          "delimiter": {
+            "$ref": "#/items/0/$defs/multiLineOption"
+          },
+          "requireLast": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "singleline": {
+        "type": "object",
+        "properties": {
+          "delimiter": {
+            "$ref": "#/items/0/$defs/singleLineOption"
+          },
+          "requireLast": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "overrides": {
+        "type": "object",
+        "properties": {
+          "interface": {
+            "$ref": "#/items/0/$defs/delimiterConfig"
+          },
+          "typeLiteral": {
+            "$ref": "#/items/0/$defs/delimiterConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "multilineDetection": {
+        "type": "string",
+        "enum": [
+          "brackets",
+          "last-member"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

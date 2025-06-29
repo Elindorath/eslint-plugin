@@ -1,0 +1,63 @@
+[
+  {
+    "oneOf": [
+      {
+        "enum": [
+          "always",
+          "never",
+          "consecutive"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "separateRequires": {
+            "type": "boolean"
+          },
+          "var": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          },
+          "let": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          },
+          "const": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "initialized": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          },
+          "uninitialized": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

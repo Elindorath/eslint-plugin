@@ -1,0 +1,213 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "align": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "colon",
+                  "value"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "strict",
+                      "minimum"
+                    ]
+                  },
+                  "on": {
+                    "type": "string",
+                    "enum": [
+                      "colon",
+                      "value"
+                    ]
+                  },
+                  "beforeColon": {
+                    "type": "boolean"
+                  },
+                  "afterColon": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "strict",
+              "minimum"
+            ]
+          },
+          "beforeColon": {
+            "type": "boolean"
+          },
+          "afterColon": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "singleLine": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "minimum"
+                ]
+              },
+              "beforeColon": {
+                "type": "boolean"
+              },
+              "afterColon": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "multiLine": {
+            "type": "object",
+            "properties": {
+              "align": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "colon",
+                      "value"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "strict",
+                          "minimum"
+                        ]
+                      },
+                      "on": {
+                        "type": "string",
+                        "enum": [
+                          "colon",
+                          "value"
+                        ]
+                      },
+                      "beforeColon": {
+                        "type": "boolean"
+                      },
+                      "afterColon": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "minimum"
+                ]
+              },
+              "beforeColon": {
+                "type": "boolean"
+              },
+              "afterColon": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "singleLine": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "minimum"
+                ]
+              },
+              "beforeColon": {
+                "type": "boolean"
+              },
+              "afterColon": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "multiLine": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "minimum"
+                ]
+              },
+              "beforeColon": {
+                "type": "boolean"
+              },
+              "afterColon": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "align": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "strict",
+                  "minimum"
+                ]
+              },
+              "on": {
+                "type": "string",
+                "enum": [
+                  "colon",
+                  "value"
+                ]
+              },
+              "beforeColon": {
+                "type": "boolean"
+              },
+              "afterColon": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

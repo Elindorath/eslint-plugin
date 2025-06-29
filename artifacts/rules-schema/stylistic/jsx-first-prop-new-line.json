@@ -1,0 +1,12 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "always",
+      "never",
+      "multiline",
+      "multiline-multiprop",
+      "multiprop"
+    ]
+  }
+]

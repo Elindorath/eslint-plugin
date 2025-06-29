@@ -1,0 +1,102 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "before",
+          "after",
+          "both",
+          "neither"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": "boolean"
+          },
+          "after": {
+            "type": "boolean"
+          },
+          "named": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "anonymous": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "method": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

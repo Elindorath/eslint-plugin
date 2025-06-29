@@ -1,0 +1,12 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "allowAllPropertiesOnSameLine": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  }
+]

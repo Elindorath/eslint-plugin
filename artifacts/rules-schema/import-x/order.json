@@ -1,0 +1,204 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "groups": {
+        "type": "array"
+      },
+      "pathGroupsExcludedImportTypes": {
+        "type": "array"
+      },
+      "distinctGroup": {
+        "type": "boolean",
+        "default": true
+      },
+      "pathGroups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string"
+            },
+            "patternOptions": {
+              "type": "object"
+            },
+            "group": {
+              "type": "string",
+              "enum": [
+                "builtin",
+                "external",
+                "internal",
+                "unknown",
+                "parent",
+                "sibling",
+                "index",
+                "object",
+                "type"
+              ]
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "after",
+                "before"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "pattern",
+            "group"
+          ]
+        }
+      },
+      "newlines-between": {
+        "type": "string",
+        "enum": [
+          "ignore",
+          "always",
+          "always-and-inside-groups",
+          "never"
+        ]
+      },
+      "newlines-between-types": {
+        "type": "string",
+        "enum": [
+          "ignore",
+          "always",
+          "always-and-inside-groups",
+          "never"
+        ]
+      },
+      "consolidateIslands": {
+        "type": "string",
+        "enum": [
+          "inside-groups",
+          "never"
+        ]
+      },
+      "sortTypesGroup": {
+        "type": "boolean",
+        "default": false
+      },
+      "named": {
+        "default": false,
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "import": {
+                "type": "boolean"
+              },
+              "export": {
+                "type": "boolean"
+              },
+              "require": {
+                "type": "boolean"
+              },
+              "cjsExports": {
+                "type": "boolean"
+              },
+              "types": {
+                "type": "string",
+                "enum": [
+                  "mixed",
+                  "types-first",
+                  "types-last"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "alphabetize": {
+        "type": "object",
+        "properties": {
+          "caseInsensitive": {
+            "type": "boolean",
+            "default": false
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "ignore",
+              "asc",
+              "desc"
+            ],
+            "default": "ignore"
+          },
+          "orderImportKind": {
+            "type": "string",
+            "enum": [
+              "ignore",
+              "asc",
+              "desc"
+            ],
+            "default": "ignore"
+          }
+        },
+        "additionalProperties": false
+      },
+      "warnOnUnassignedImports": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false,
+    "dependencies": {
+      "newlines-between-types": {
+        "type": "object",
+        "properties": {
+          "sortTypesGroup": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          }
+        },
+        "required": [
+          "sortTypesGroup"
+        ]
+      },
+      "consolidateIslands": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "newlines-between": {
+                "type": "string",
+                "enum": [
+                  "always-and-inside-groups"
+                ]
+              }
+            },
+            "required": [
+              "newlines-between"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "newlines-between-types": {
+                "type": "string",
+                "enum": [
+                  "always-and-inside-groups"
+                ]
+              }
+            },
+            "required": [
+              "newlines-between-types"
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

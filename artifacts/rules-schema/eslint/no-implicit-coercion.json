@@ -1,0 +1,34 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "boolean": {
+        "type": "boolean"
+      },
+      "number": {
+        "type": "boolean"
+      },
+      "string": {
+        "type": "boolean"
+      },
+      "disallowTemplateShorthand": {
+        "type": "boolean"
+      },
+      "allow": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "~",
+            "!!",
+            "+",
+            "- -",
+            "-",
+            "*"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

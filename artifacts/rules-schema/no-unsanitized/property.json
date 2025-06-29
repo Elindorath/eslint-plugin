@@ -1,0 +1,35 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "escape": {
+        "type": "object",
+        "properties": {
+          "taggedTemplates": {
+            "type": "array",
+            "items": [
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "methods": {
+            "type": "array",
+            "items": [
+              {
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "variableTracing": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  {
+    "type": "object"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowAllCaps": {
+        "type": "boolean"
+      },
+      "allowLeadingUnderscore": {
+        "type": "boolean"
+      },
+      "allowNamespace": {
+        "type": "boolean"
+      },
+      "ignore": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

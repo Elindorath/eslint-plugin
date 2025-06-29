@@ -1,0 +1,15 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "enableDangerousAutofixThisMayCauseInfiniteLoops": false,
+    "properties": {
+      "additionalHooks": {
+        "type": "string"
+      },
+      "enableDangerousAutofixThisMayCauseInfiniteLoops": {
+        "type": "boolean"
+      }
+    }
+  }
+]

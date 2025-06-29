@@ -1,0 +1,56 @@
+{
+  "type": "array",
+  "additionalItems": false,
+  "items": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkImport": {
+          "type": "boolean"
+        },
+        "checkDynamicImport": {
+          "type": "boolean"
+        },
+        "checkExportFrom": {
+          "type": "boolean"
+        },
+        "checkRequire": {
+          "type": "boolean"
+        },
+        "extendDefaultStyles": {
+          "type": "boolean"
+        },
+        "styles": {
+          "$ref": "#/definitions/moduleStyles"
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "moduleStyles": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/styles"
+      }
+    },
+    "styles": {
+      "anyOf": [
+        {
+          "enum": [
+            false
+          ]
+        },
+        {
+          "$ref": "#/definitions/booleanObject"
+        }
+      ]
+    },
+    "booleanObject": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  }
+}

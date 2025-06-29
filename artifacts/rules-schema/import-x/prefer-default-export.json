@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "target": {
+        "type": "string",
+        "enum": [
+          "single",
+          "any"
+        ],
+        "default": "single"
+      }
+    },
+    "additionalProperties": false
+  }
+]

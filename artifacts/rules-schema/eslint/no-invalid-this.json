@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "capIsConstructor": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

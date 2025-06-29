@@ -1,0 +1,22 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowDefinitions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "allowFootnoteDefinitions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

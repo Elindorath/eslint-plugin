@@ -1,0 +1,17 @@
+[
+  {
+    "enum": [
+      "module.exports",
+      "exports"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "allowBatchAssign": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

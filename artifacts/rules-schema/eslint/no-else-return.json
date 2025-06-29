@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowElseIf": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

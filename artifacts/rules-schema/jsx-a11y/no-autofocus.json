@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "ignoreNonDOM": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  }
+]

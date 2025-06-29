@@ -1,0 +1,25 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "always",
+      "never"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "ignoreClassFields": {
+        "type": "boolean"
+      },
+      "destructureInSignature": {
+        "type": "string",
+        "enum": [
+          "always",
+          "ignore"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

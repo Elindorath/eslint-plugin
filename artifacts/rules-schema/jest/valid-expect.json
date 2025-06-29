@@ -1,0 +1,26 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "alwaysAwait": {
+        "type": "boolean",
+        "default": false
+      },
+      "asyncMatchers": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "minArgs": {
+        "type": "number",
+        "minimum": 0
+      },
+      "maxArgs": {
+        "type": "number",
+        "minimum": 1
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkArguments": {
+        "type": "boolean"
+      },
+      "checkArrowFunctionBody": {
+        "type": "boolean"
+      }
+    }
+  }
+]

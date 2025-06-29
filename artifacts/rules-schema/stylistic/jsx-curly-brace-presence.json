@@ -1,0 +1,44 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "props": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "ignore"
+            ]
+          },
+          "children": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "ignore"
+            ]
+          },
+          "propElementValues": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "ignore"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "string",
+        "enum": [
+          "always",
+          "never",
+          "ignore"
+        ]
+      }
+    ]
+  }
+]

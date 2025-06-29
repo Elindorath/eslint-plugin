@@ -1,0 +1,303 @@
+[
+  {
+    "oneOf": [
+      {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "versionHint"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versionHint": {
+                "enum": [
+                  "caret",
+                  "tilde",
+                  "pin"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "versionRegex"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "versionRegex": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pinUnstable"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pinUnstable": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "versionHint"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packageRegex": {
+                "type": "string"
+              },
+              "versionHint": {
+                "enum": [
+                  "caret",
+                  "tilde",
+                  "pin"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "versionRegex"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packageRegex": {
+                "type": "string"
+              },
+              "versionRegex": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pinUnstable"
+            ],
+            "properties": {
+              "dependencyTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "packageRegex": {
+                "type": "string"
+              },
+              "pinUnstable": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "versionHint"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "versionHint": {
+                  "enum": [
+                    "caret",
+                    "tilde",
+                    "pin"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "versionRegex"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "versionRegex": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "pinUnstable"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pinUnstable": {
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "versionHint"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packageRegex": {
+                  "type": "string"
+                },
+                "versionHint": {
+                  "enum": [
+                    "caret",
+                    "tilde",
+                    "pin"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "versionRegex"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packageRegex": {
+                  "type": "string"
+                },
+                "versionRegex": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "pinUnstable"
+              ],
+              "properties": {
+                "dependencyTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "packageRegex": {
+                  "type": "string"
+                },
+                "pinUnstable": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

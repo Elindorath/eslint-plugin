@@ -1,0 +1,80 @@
+{
+  "type": "array",
+  "additionalItems": false,
+  "items": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkProperties": {
+          "type": "boolean"
+        },
+        "checkVariables": {
+          "type": "boolean"
+        },
+        "checkDefaultAndNamespaceImports": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "pattern": "internal"
+        },
+        "checkShorthandImports": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "pattern": "internal"
+        },
+        "checkShorthandProperties": {
+          "type": "boolean"
+        },
+        "checkFilenames": {
+          "type": "boolean"
+        },
+        "extendDefaultReplacements": {
+          "type": "boolean"
+        },
+        "replacements": {
+          "$ref": "#/definitions/abbreviations"
+        },
+        "extendDefaultAllowList": {
+          "type": "boolean"
+        },
+        "allowList": {
+          "$ref": "#/definitions/booleanObject"
+        },
+        "ignore": {
+          "type": "array",
+          "uniqueItems": true
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "abbreviations": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/replacements"
+      }
+    },
+    "replacements": {
+      "anyOf": [
+        {
+          "enum": [
+            false
+          ]
+        },
+        {
+          "$ref": "#/definitions/booleanObject"
+        }
+      ]
+    },
+    "booleanObject": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  }
+}

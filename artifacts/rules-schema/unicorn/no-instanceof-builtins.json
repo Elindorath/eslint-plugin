@@ -1,0 +1,29 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "useErrorIsError": {
+        "type": "boolean"
+      },
+      "strategy": {
+        "enum": [
+          "loose",
+          "strict"
+        ]
+      },
+      "include": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "exclude": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

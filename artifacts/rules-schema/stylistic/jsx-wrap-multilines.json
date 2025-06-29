@@ -1,0 +1,112 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "declaration": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "assignment": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "return": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "arrow": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "condition": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "logical": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "prop": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      },
+      "propertyValue": {
+        "type": [
+          "string",
+          "boolean"
+        ],
+        "enum": [
+          true,
+          false,
+          "ignore",
+          "parens",
+          "parens-new-line"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

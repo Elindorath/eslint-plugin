@@ -1,0 +1,9 @@
+[
+  {
+    "type": "array",
+    "description": "What order to enforce for test case properties.",
+    "elements": {
+      "type": "string"
+    }
+  }
+]

@@ -1,0 +1,280 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "tab"
+        ]
+      },
+      {
+        "type": "integer",
+        "minimum": 0
+      }
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "SwitchCase": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 0
+      },
+      "VariableDeclarator": {
+        "oneOf": [
+          {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "first",
+                  "off"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "var": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "first",
+                      "off"
+                    ]
+                  }
+                ]
+              },
+              "let": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "first",
+                      "off"
+                    ]
+                  }
+                ]
+              },
+              "const": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "first",
+                      "off"
+                    ]
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "outerIIFEBody": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "off"
+            ]
+          }
+        ]
+      },
+      "MemberExpression": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "off"
+            ]
+          }
+        ]
+      },
+      "FunctionDeclaration": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "first",
+                  "off"
+                ]
+              }
+            ]
+          },
+          "body": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "FunctionExpression": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "first",
+                  "off"
+                ]
+              }
+            ]
+          },
+          "body": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "StaticBlock": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "CallExpression": {
+        "type": "object",
+        "properties": {
+          "arguments": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "first",
+                  "off"
+                ]
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArrayExpression": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "first",
+              "off"
+            ]
+          }
+        ]
+      },
+      "ObjectExpression": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "first",
+              "off"
+            ]
+          }
+        ]
+      },
+      "ImportDeclaration": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "first",
+              "off"
+            ]
+          }
+        ]
+      },
+      "flatTernaryExpressions": {
+        "type": "boolean",
+        "default": false
+      },
+      "offsetTernaryExpressions": {
+        "type": "boolean",
+        "default": false
+      },
+      "offsetTernaryExpressionsOffsetCallExpressions": {
+        "type": "boolean",
+        "default": true
+      },
+      "ignoredNodes": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "not": {
+            "pattern": ":exit$"
+          }
+        }
+      },
+      "ignoreComments": {
+        "type": "boolean",
+        "default": false
+      },
+      "tabLength": {
+        "type": "number",
+        "default": 4
+      }
+    },
+    "additionalProperties": false
+  }
+]

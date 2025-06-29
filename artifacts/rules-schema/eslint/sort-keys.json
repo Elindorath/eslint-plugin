@@ -1,0 +1,30 @@
+[
+  {
+    "enum": [
+      "asc",
+      "desc"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "caseSensitive": {
+        "type": "boolean"
+      },
+      "natural": {
+        "type": "boolean"
+      },
+      "minKeys": {
+        "type": "integer",
+        "minimum": 2
+      },
+      "allowLineSeparatedGroups": {
+        "type": "boolean"
+      },
+      "ignoreComputedKeys": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

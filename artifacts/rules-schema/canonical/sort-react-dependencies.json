@@ -1,0 +1,16 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "order": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "default": "asc"
+      }
+    },
+    "type": "object"
+  }
+]

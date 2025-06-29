@@ -1,0 +1,28 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "terms": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "ignore": {
+        "type": "array",
+        "uniqueItems": true
+      },
+      "ignoreDatesOnPullRequests": {
+        "type": "boolean"
+      },
+      "allowWarningComments": {
+        "type": "boolean"
+      },
+      "date": {
+        "type": "string",
+        "format": "date"
+      }
+    }
+  }
+]
