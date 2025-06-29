@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkInfinity": {
+        "type": "boolean"
+      },
+      "checkNaN": {
+        "type": "boolean"
+      }
+    }
+  }
+]

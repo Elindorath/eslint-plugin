@@ -1,0 +1,20 @@
+[
+  {
+    "enum": [
+      "functions",
+      "both"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "blockScopedFunctions": {
+        "enum": [
+          "allow",
+          "disallow"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

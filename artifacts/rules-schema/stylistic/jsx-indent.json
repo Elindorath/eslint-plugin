@@ -1,0 +1,27 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "tab"
+        ]
+      },
+      {
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "checkAttributes": {
+        "type": "boolean"
+      },
+      "indentLogicalExpressions": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

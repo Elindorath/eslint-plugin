@@ -1,0 +1,70 @@
+{
+  "$defs": {
+    "value": {
+      "type": "string",
+      "enum": [
+        "always-multiline",
+        "always",
+        "never",
+        "only-multiline"
+      ]
+    },
+    "valueWithIgnore": {
+      "type": "string",
+      "enum": [
+        "always-multiline",
+        "always",
+        "never",
+        "only-multiline",
+        "ignore"
+      ]
+    }
+  },
+  "type": "array",
+  "items": [
+    {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/value"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "arrays": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "objects": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "imports": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "exports": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "functions": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "importAttributes": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "dynamicImports": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "enums": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "generics": {
+              "$ref": "#/$defs/valueWithIgnore"
+            },
+            "tuples": {
+              "$ref": "#/$defs/valueWithIgnore"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  ],
+  "additionalItems": false
+}

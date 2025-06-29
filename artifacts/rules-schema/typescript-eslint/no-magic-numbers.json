@@ -1,0 +1,63 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "detectObjects": {
+        "type": "boolean",
+        "default": false
+      },
+      "enforceConst": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignore": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "pattern": "^[+-]?(?:0|[1-9][0-9]*)n$"
+            }
+          ]
+        },
+        "uniqueItems": true
+      },
+      "ignoreArrayIndexes": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignoreDefaultValues": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignoreClassFieldInitialValues": {
+        "type": "boolean",
+        "default": false
+      },
+      "ignoreEnums": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether enums used in TypeScript are considered okay."
+      },
+      "ignoreNumericLiteralTypes": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether numbers used in TypeScript numeric literal types are considered okay."
+      },
+      "ignoreReadonlyClassProperties": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether `readonly` class properties are considered okay."
+      },
+      "ignoreTypeIndexes": {
+        "type": "boolean",
+        "default": false,
+        "description": "Whether numbers used to index types are okay."
+      }
+    },
+    "additionalProperties": false
+  }
+]

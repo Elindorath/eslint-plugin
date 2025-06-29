@@ -1,0 +1,52 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allow": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "assert",
+            "buffer",
+            "child_process",
+            "cluster",
+            "console",
+            "constants",
+            "crypto",
+            "dgram",
+            "dns",
+            "events",
+            "fs",
+            "http",
+            "https",
+            "module",
+            "net",
+            "os",
+            "path",
+            "querystring",
+            "readline",
+            "repl",
+            "stream",
+            "string_decoder",
+            "timers",
+            "tls",
+            "tty",
+            "url",
+            "util",
+            "vm",
+            "zlib"
+          ]
+        },
+        "additionalItems": false,
+        "uniqueItems": true
+      },
+      "ignoreDirectDependencies": {
+        "type": "boolean"
+      },
+      "ignoreIndirectDependencies": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

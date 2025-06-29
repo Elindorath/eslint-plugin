@@ -1,0 +1,190 @@
+{
+  "anyOf": [
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "always",
+            "ignorePackages",
+            "never"
+          ]
+        }
+      ],
+      "additionalItems": false
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "always",
+            "ignorePackages",
+            "never"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "type": "string",
+                  "enum": [
+                    "always",
+                    "ignorePackages",
+                    "never"
+                  ]
+                }
+              }
+            },
+            "ignorePackages": {
+              "type": "boolean"
+            },
+            "checkTypeImports": {
+              "type": "boolean"
+            },
+            "pathGroupOverrides": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "type": "string"
+                  },
+                  "patternOptions": {
+                    "type": "object"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "enforce",
+                      "ignore"
+                    ]
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "pattern",
+                  "action"
+                ]
+              }
+            },
+            "fix": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "additionalItems": false
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "type": "string",
+                  "enum": [
+                    "always",
+                    "ignorePackages",
+                    "never"
+                  ]
+                }
+              }
+            },
+            "ignorePackages": {
+              "type": "boolean"
+            },
+            "checkTypeImports": {
+              "type": "boolean"
+            },
+            "pathGroupOverrides": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "type": "string"
+                  },
+                  "patternOptions": {
+                    "type": "object"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "enforce",
+                      "ignore"
+                    ]
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "pattern",
+                  "action"
+                ]
+              }
+            },
+            "fix": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "additionalItems": false
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "always",
+            "ignorePackages",
+            "never"
+          ]
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "string",
+              "enum": [
+                "always",
+                "ignorePackages",
+                "never"
+              ]
+            }
+          }
+        }
+      ],
+      "additionalItems": false
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "string",
+              "enum": [
+                "always",
+                "ignorePackages",
+                "never"
+              ]
+            }
+          }
+        }
+      ],
+      "additionalItems": false
+    }
+  ]
+}

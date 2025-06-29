@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowVoid": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

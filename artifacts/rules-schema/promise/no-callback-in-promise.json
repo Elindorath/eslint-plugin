@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "exceptions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "timeoutsErr": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

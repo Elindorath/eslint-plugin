@@ -1,0 +1,31 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "paths": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "importName": {
+              "type": "string"
+            },
+            "message": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": "array",
+        "uniqueItems": true
+      }
+    },
+    "type": "object"
+  }
+]

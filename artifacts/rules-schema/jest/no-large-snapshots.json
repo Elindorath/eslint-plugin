@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "maxSize": {
+        "type": "number"
+      },
+      "inlineMaxSize": {
+        "type": "number"
+      },
+      "allowedSnapshots": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

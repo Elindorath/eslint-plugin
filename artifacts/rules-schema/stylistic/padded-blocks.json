@@ -1,0 +1,58 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "always",
+          "never",
+          "start",
+          "end"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "blocks": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "start",
+              "end"
+            ]
+          },
+          "switches": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "start",
+              "end"
+            ]
+          },
+          "classes": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "start",
+              "end"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "minProperties": 1
+      }
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "allowSingleLineBlocks": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

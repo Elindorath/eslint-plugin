@@ -1,0 +1,9 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "prefer-single",
+      "prefer-double"
+    ]
+  }
+]

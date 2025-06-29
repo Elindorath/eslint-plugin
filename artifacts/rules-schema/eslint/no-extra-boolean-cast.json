@@ -1,0 +1,24 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "enforceForInnerExpressions": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "enforceForLogicalOperands": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

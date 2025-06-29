@@ -1,0 +1,36 @@
+[
+  {
+    "properties": {
+      "matchCallExpression": {
+        "type": "boolean"
+      },
+      "suffix": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "transforms": {
+        "oneOf": [
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "type": "object"
+  }
+]

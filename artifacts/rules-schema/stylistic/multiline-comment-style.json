@@ -1,0 +1,38 @@
+{
+  "anyOf": [
+    {
+      "type": "array",
+      "items": [
+        {
+          "enum": [
+            "starred-block",
+            "bare-block"
+          ],
+          "type": "string"
+        }
+      ],
+      "additionalItems": false
+    },
+    {
+      "type": "array",
+      "items": [
+        {
+          "enum": [
+            "separate-lines"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "checkJSDoc": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "additionalItems": false
+    }
+  ]
+}

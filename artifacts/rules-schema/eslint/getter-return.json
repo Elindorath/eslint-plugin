@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowImplicit": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

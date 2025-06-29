@@ -1,0 +1,94 @@
+{
+  "definitions": {
+    "basicConfig": {
+      "type": "object",
+      "properties": {
+        "when": {
+          "type": "string",
+          "enum": [
+            "always",
+            "never"
+          ]
+        },
+        "allowMultiline": {
+          "type": "boolean"
+        },
+        "spacing": {
+          "type": "object",
+          "properties": {
+            "objectLiterals": {
+              "type": "string",
+              "enum": [
+                "always",
+                "never"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "basicConfigOrBoolean": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/basicConfig"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "type": "array",
+  "items": [
+    {
+      "anyOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/definitions/basicConfig"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "attributes": {
+                  "$ref": "#/definitions/basicConfigOrBoolean"
+                },
+                "children": {
+                  "$ref": "#/definitions/basicConfigOrBoolean"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "enum": [
+            "always",
+            "never"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "allowMultiline": {
+          "type": "boolean"
+        },
+        "spacing": {
+          "type": "object",
+          "properties": {
+            "objectLiterals": {
+              "type": "string",
+              "enum": [
+                "always",
+                "never"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

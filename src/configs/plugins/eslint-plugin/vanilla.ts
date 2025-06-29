@@ -1,9 +1,4 @@
-/* eslint-disable n/no-sync -- TODO: Find a better way to handle this */
-
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-import type { Linter } from 'eslint'
+import process from 'node:process'
 
 /**
  * TODO: fix it when this plugin expose typings
@@ -13,34 +8,32 @@ import type { Linter } from 'eslint'
 import eslintPluginPlugin from 'eslint-plugin-eslint-plugin'
 import { readPackageUpSync } from 'read-package-up'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// TODO: Find a way to let cwd be the root directory in which the config is used
-const normalizedResult = readPackageUpSync({ cwd: __dirname, normalize: true })
+// eslint-disable-next-line n/no-sync -- TODO: Find a better way to handle this
+const normalizedResult = readPackageUpSync({ cwd: process.cwd(), normalize: true })
 
 if (!normalizedResult) {
   throw new Error('package.json not found')
 }
 
 const { packageJson } = normalizedResult
-const { repository } = packageJson
+const { repository, version } = packageJson
 
-/* eslint-enable */
 const repositoryUrl = typeof repository === 'string' ? repository : repository?.url
 
-if (!repositoryUrl) {
+if (repositoryUrl === undefined || !repositoryUrl) {
   throw new Error('missing repository in package.json')
 }
 
 const normalizedRepositoryUrl = repositoryUrl.replace('git+', '').replace('github:', 'https://github.com/')
-const { version } = packageJson
 
-export const eslintPluginConfig: Linter.Config = {
+export const eslintPluginConfig = {
   plugins: {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'eslint-plugin': eslintPluginPlugin,
   },
 
@@ -48,7 +41,6 @@ export const eslintPluginConfig: Linter.Config = {
     'eslint-plugin/consistent-output': [ERROR, 'always'],
     'eslint-plugin/fixer-return': [ERROR],
     'eslint-plugin/meta-property-ordering': [ERROR, [
-      // default
       'type',
       'docs',
       'fixable',
@@ -61,12 +53,13 @@ export const eslintPluginConfig: Linter.Config = {
     'eslint-plugin/no-deprecated-context-methods': [ERROR],
     'eslint-plugin/no-deprecated-report-api': [ERROR],
     'eslint-plugin/no-identical-tests': [ERROR],
+    'eslint-plugin/no-meta-schema-default': [ERROR],
     'eslint-plugin/no-missing-message-ids': [ERROR],
     'eslint-plugin/no-missing-placeholders': [ERROR],
-    'eslint-plugin/no-property-in-node': [ERROR, {
-      additionalNodeTypeFiles: [], // default
-    }],
     'eslint-plugin/no-only-tests': [ERROR],
+    'eslint-plugin/no-property-in-node': [ERROR, {
+      additionalNodeTypeFiles: [],
+    }],
     'eslint-plugin/no-unused-message-ids': [ERROR],
     'eslint-plugin/no-unused-placeholders': [ERROR],
     'eslint-plugin/no-useless-token-range': [ERROR],
@@ -75,33 +68,36 @@ export const eslintPluginConfig: Linter.Config = {
     'eslint-plugin/prefer-output-null': [ERROR],
     'eslint-plugin/prefer-placeholders': [ERROR],
     'eslint-plugin/prefer-replace-text': [ERROR],
-    'eslint-plugin/report-message-format': [ERROR, '[^a-z\'"{].*\\.$'],
+    'eslint-plugin/report-message-format': [ERROR, String.raw`[A-Z].*\.$`],
+    'eslint-plugin/require-meta-default-options': [ERROR],
     'eslint-plugin/require-meta-docs-description': [ERROR, {
-      pattern: '^(enforce|require|disallow)', // default
+      pattern: '^(enforce|require|disallow)',
     }],
     'eslint-plugin/require-meta-docs-recommended': [ERROR, {
-      allowNonBoolean: false, // default
+      allowNonBoolean: false,
     }],
     'eslint-plugin/require-meta-docs-url': [ERROR, {
+      // Configured value
       pattern: `${normalizedRepositoryUrl}/blob/v${version}/docs/rules/{{name}}.md`,
     }],
     'eslint-plugin/require-meta-fixable': [ERROR, {
+      // Configured value
       catchNoFixerButFixableProperty: true,
     }],
     'eslint-plugin/require-meta-has-suggestions': [ERROR],
     'eslint-plugin/require-meta-schema': [ERROR, {
+      // Configured value
       requireSchemaPropertyWhenOptionless: true,
     }],
     'eslint-plugin/require-meta-schema-description': [ERROR],
     'eslint-plugin/require-meta-type': [ERROR],
     'eslint-plugin/test-case-property-ordering': [ERROR, [
-      // default
       'code',
       'output',
       'options',
       'parserOptions',
       'errors',
     ]],
-    'eslint-plugin/test-case-shorthand-strings': [ERROR, 'as-needed'], // default
+    'eslint-plugin/test-case-shorthand-strings': [ERROR, 'as-needed'],
   },
-}
+} as const satisfies Linter.Config

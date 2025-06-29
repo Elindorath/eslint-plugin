@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "hexadecimalValue": {
+        "enum": [
+          "uppercase",
+          "lowercase"
+        ]
+      }
+    }
+  }
+]

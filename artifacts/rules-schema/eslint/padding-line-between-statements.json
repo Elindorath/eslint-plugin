@@ -1,0 +1,125 @@
+{
+  "definitions": {
+    "paddingType": {
+      "enum": [
+        "any",
+        "never",
+        "always"
+      ]
+    },
+    "statementType": {
+      "anyOf": [
+        {
+          "enum": [
+            "*",
+            "block-like",
+            "cjs-export",
+            "cjs-import",
+            "directive",
+            "expression",
+            "iife",
+            "multiline-block-like",
+            "multiline-expression",
+            "multiline-const",
+            "multiline-let",
+            "multiline-var",
+            "singleline-const",
+            "singleline-let",
+            "singleline-var",
+            "block",
+            "empty",
+            "function",
+            "break",
+            "case",
+            "class",
+            "const",
+            "continue",
+            "debugger",
+            "default",
+            "do",
+            "export",
+            "for",
+            "if",
+            "import",
+            "let",
+            "return",
+            "switch",
+            "throw",
+            "try",
+            "var",
+            "while",
+            "with"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "enum": [
+              "*",
+              "block-like",
+              "cjs-export",
+              "cjs-import",
+              "directive",
+              "expression",
+              "iife",
+              "multiline-block-like",
+              "multiline-expression",
+              "multiline-const",
+              "multiline-let",
+              "multiline-var",
+              "singleline-const",
+              "singleline-let",
+              "singleline-var",
+              "block",
+              "empty",
+              "function",
+              "break",
+              "case",
+              "class",
+              "const",
+              "continue",
+              "debugger",
+              "default",
+              "do",
+              "export",
+              "for",
+              "if",
+              "import",
+              "let",
+              "return",
+              "switch",
+              "throw",
+              "try",
+              "var",
+              "while",
+              "with"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ]
+    }
+  },
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "blankLine": {
+        "$ref": "#/definitions/paddingType"
+      },
+      "prev": {
+        "$ref": "#/definitions/statementType"
+      },
+      "next": {
+        "$ref": "#/definitions/statementType"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "blankLine",
+      "prev",
+      "next"
+    ]
+  }
+}

@@ -1,6 +1,7 @@
-import { mergeConfigs } from '../../configMerger'
-import { jsonConfig } from '../plugins/jsonc/syntax-json'
-import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout'
+import { mergeConfigs } from '../../configMerger.ts'
+
+import { jsonConfig } from '../plugins/jsonc/syntax-json.ts'
+import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout.ts'
 
 
 export const overrideJsonConfig = mergeConfigs(

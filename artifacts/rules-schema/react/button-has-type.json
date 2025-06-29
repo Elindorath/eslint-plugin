@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "button": {
+        "default": true,
+        "type": "boolean"
+      },
+      "submit": {
+        "default": true,
+        "type": "boolean"
+      },
+      "reset": {
+        "default": true,
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

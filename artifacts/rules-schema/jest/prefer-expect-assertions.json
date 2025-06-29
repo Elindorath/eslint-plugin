@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "onlyFunctionsWithAsyncKeyword": {
+        "type": "boolean"
+      },
+      "onlyFunctionsWithExpectInLoop": {
+        "type": "boolean"
+      },
+      "onlyFunctionsWithExpectInCallback": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "rule": {
+        "anyOf": [
+          {
+            "enum": [
+              "camelCase",
+              "kebab-case",
+              "PascalCase",
+              "snake_case"
+            ]
+          },
+          {
+            "type": "string",
+            "format": "regex"
+          }
+        ],
+        "default": "kebab-case"
+      },
+      "excepts": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "format": "regex"
+        },
+        "default": [
+          "index"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

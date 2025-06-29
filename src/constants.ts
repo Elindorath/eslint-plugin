@@ -1,3 +1,9 @@
-export const OFF = 'off'
-export const WARN = 'warn'
-export const ERROR = 'error'
+const OFF = 'off'
+const WARN = 'warn'
+const ERROR = 'error'
+
+export {
+  ERROR,
+  OFF,
+  WARN,
+}

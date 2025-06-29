@@ -1,0 +1,8 @@
+[
+  {
+    "enum": [
+      "node-only",
+      "require-npm"
+    ]
+  }
+]

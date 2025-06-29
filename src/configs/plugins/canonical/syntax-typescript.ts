@@ -1,48 +1,40 @@
-import type { Linter } from 'eslint'
-
-/**
- * TODO: fix it when this plugin expose typings
- * @see: https://github.com/gajus/eslint-plugin-canonical/issues/39
- */
-// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import canonicalPlugin from 'eslint-plugin-canonical'
 
-import { getRuleConfig } from '../../../utils'
-import { eslintVanillaConfig } from '../eslint/vanilla'
+import { ERROR, OFF } from '../../../constants.ts'
+import { overrideBaseConfigRule } from '../../../utilities.ts'
 
-import { OFF, ERROR } from '../../../constants'
+import type { Linter } from 'eslint'
 
 
-const [idMatchSeverityFromBase, idMatchRegexFromBase, idMatchConfigurationFromBase] = getRuleConfig('id-match', eslintVanillaConfig)
-
-export const canonicalTypescriptConfig: Linter.Config = {
+export const canonicalTypescriptConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },
 
   rules: {
     'canonical/filename-match-exported': [ERROR, {
-      matchCallExpression: false, // default
+      matchCallExpression: false,
       // eslint-disable-next-line unicorn/no-null -- Required by the schema rule
-      suffix: null, // default
+      suffix: null,
+
       /**
        * The documentation say that we can put `null` in the transforms array to allow non transformed file name.
        * But the rule schema doesn't match the documentation.
        * The empty string should works the same as a falsy value.
        * @see: https://github.com/gajus/eslint-plugin-canonical/blob/main/src/rules/filenameMatchExported.ts#L158
        */
+      // Configured value
       transforms: ['', 'pascal'],
     }],
     // OFF as it checks the same as the 'unicorn/filename-case' rule, but this might be more versatile
     'canonical/filename-match-regex': [OFF, {
-      ignoreExporting: false, // default
-      regex: '^[\\da-z]+(?:[A-Z][\\da-z]+)*$', // default (kind of)
+      ignoreExporting: false,
+      regex: String.raw`^[\da-z]+(?:[A-Z][\da-z]+)*$`,
     }],
     'canonical/filename-no-index': [ERROR],
-    'canonical/id-match': [idMatchSeverityFromBase, idMatchRegexFromBase, {
-      ...idMatchConfigurationFromBase,
-      ignoreNamedImports: false, // default
-    }],
+    ...overrideBaseConfigRule('canonical/id-match', undefined, {
+      ignoreNamedImports: false,
+    }),
     'canonical/no-reassign-imports': [ERROR],
 
     /**
@@ -65,7 +57,7 @@ export const canonicalTypescriptConfig: Linter.Config = {
     'canonical/prefer-use-mount': [ERROR],
     // Might be OFF if there is overlap with 'eslint-plugin-perfectionist'. TODO: check this
     'canonical/sort-react-dependencies': [ERROR, {
-      caseSensitive: true, // default
+      caseSensitive: true,
     }],
   },
-}
+} as const satisfies Linter.Config

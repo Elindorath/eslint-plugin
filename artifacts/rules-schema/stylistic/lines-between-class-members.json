@@ -1,0 +1,74 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "enforce": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "blankLine": {
+                  "type": "string",
+                  "enum": [
+                    "always",
+                    "never"
+                  ]
+                },
+                "prev": {
+                  "type": "string",
+                  "enum": [
+                    "method",
+                    "field",
+                    "*"
+                  ]
+                },
+                "next": {
+                  "type": "string",
+                  "enum": [
+                    "method",
+                    "field",
+                    "*"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "blankLine",
+                "prev",
+                "next"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "enforce"
+        ]
+      },
+      {
+        "type": "string",
+        "enum": [
+          "always",
+          "never"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "exceptAfterSingleLine": {
+        "type": "boolean",
+        "default": false
+      },
+      "exceptAfterOverload": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

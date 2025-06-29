@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "int32Hint": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

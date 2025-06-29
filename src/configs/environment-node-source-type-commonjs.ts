@@ -1,9 +1,9 @@
 import globals from 'globals'
 
-import { mergeConfigs } from '../configMerger'
+import { mergeConfigs } from '../configMerger.ts'
 
-import { environmentNodeConfig } from './environment-node'
-import { sourceTypeCommonJsConfig } from './source-type-commonjs'
+import { environmentNodeConfig } from './environment-node.ts'
+import { sourceTypeCommonJsConfig } from './source-type-commonjs.ts'
 
 
 export const environmentNodeSourceTypeCommonJsConfig = mergeConfigs(

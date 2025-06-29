@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkLoops": {
+        "enum": [
+          "all",
+          "allExceptWhileTrue",
+          "none",
+          true,
+          false
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

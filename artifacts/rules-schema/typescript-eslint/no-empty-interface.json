@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "allowSingleExtends": {
+        "type": "boolean",
+        "description": "Whether to allow empty interfaces that extend a single other interface."
+      }
+    }
+  }
+]

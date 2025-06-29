@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,26 +1,35 @@
-import type { Linter } from 'eslint'
-
 import noSecretsPlugin from 'eslint-plugin-no-secrets'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const noSecretsVanillaConfig: Linter.Config = {
+// eslint-disable-next-line no-secrets/no-pattern-match -- This is the name of the plugin.
+export const noSecretsVanillaConfig = {
   plugins: {
     'no-secrets': noSecretsPlugin,
   },
 
   rules: {
+    'no-secrets/no-pattern-match': [ERROR, {
+      // Configured value
+      patterns: {
+        // cspell:disable-next-line -- Expected in regex.
+        js: /(?:const|let)\s+\w*[Ss]ecret\w*/u,
+      },
+    }],
     'no-secrets/no-secrets': [ERROR, {
-      tolerance: 4, // default
+      additionalDelimiters: [],
+      // Configured value
       additionalRegexes: {
         'Basic Auth': 'Authorization: Basic [A-Za-z0-9+/=]*',
       },
-      ignoreContent: '', // default
-      ignoreModules: true, // default
-      ignoreIdentifiers: [], // default
-      ignoreCase: false, // default
-      additionalDelimiters: [], // default
+      ignoreCase: false,
+      ignoreContent: '',
+      ignoreIdentifiers: [],
+      ignoreModules: true,
+      tolerance: 4,
     }],
   },
-}
+} as const satisfies Linter.Config

@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowAtRootLevel": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

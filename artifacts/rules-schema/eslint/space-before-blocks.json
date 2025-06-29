@@ -1,0 +1,39 @@
+[
+  {
+    "oneOf": [
+      {
+        "enum": [
+          "always",
+          "never"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "enum": [
+              "always",
+              "never",
+              "off"
+            ]
+          },
+          "functions": {
+            "enum": [
+              "always",
+              "never",
+              "off"
+            ]
+          },
+          "classes": {
+            "enum": [
+              "always",
+              "never",
+              "off"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "fn": {
+        "type": "string",
+        "enum": [
+          "it",
+          "test"
+        ]
+      },
+      "withinDescribe": {
+        "type": "string",
+        "enum": [
+          "it",
+          "test"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

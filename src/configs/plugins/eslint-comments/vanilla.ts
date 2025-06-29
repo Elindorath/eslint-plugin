@@ -1,5 +1,3 @@
-import type { Linter } from 'eslint'
-
 /**
  * TODO: fix it when this plugin expose typings
  * @see: https://github.com/eslint-community/eslint-plugin-eslint-comments/issues/214
@@ -7,7 +5,9 @@ import type { Linter } from 'eslint'
 // @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import eslintCommentsPlugin from '@eslint-community/eslint-plugin-eslint-comments'
 
-import { ERROR, OFF } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 const DIRECTIVES = {
   DISABLE: 'eslint-disable',
@@ -15,8 +15,9 @@ const DIRECTIVES = {
   ENABLE: 'eslint-enable',
 }
 
-export const eslintCommentsVanillaConfig: Linter.Config = {
+export const eslintCommentsVanillaConfig = {
   plugins: {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     '@eslint-community/eslint-comments': eslintCommentsPlugin,
   },
   rules: {
@@ -33,7 +34,7 @@ export const eslintCommentsVanillaConfig: Linter.Config = {
      * BEWARE: this rule is a bit hacky, be careful with eslint updates.
      * @see: https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html#known-limitations
      *
-     * OFF as this rule relies on the `CLIEngine` class that were deprecated in ESLint v7.0.0.
+     * OFF as this rule relies on the `CLIEngine` class that was deprecated in ESLint v7.0.0.
      * We use the `linterOptions.reportUnusedDisableDirectives = ERROR` in configurations to achieve the same goal.
      */
     '@eslint-community/eslint-comments/no-unused-disable': [OFF],
@@ -53,4 +54,4 @@ export const eslintCommentsVanillaConfig: Linter.Config = {
       ignore: [DIRECTIVES.ENABLE],
     }],
   },
-}
+} as const satisfies Linter.Config

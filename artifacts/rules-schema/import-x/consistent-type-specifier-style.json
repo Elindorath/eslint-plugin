@@ -1,0 +1,10 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "prefer-top-level",
+      "prefer-inline"
+    ],
+    "default": "prefer-top-level"
+  }
+]

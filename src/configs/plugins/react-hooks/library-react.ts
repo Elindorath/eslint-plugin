@@ -1,26 +1,21 @@
-import type { Linter } from 'eslint'
-
-/**
- * TODO: fix it when this plugin expose typings
- * @see: https://github.com/facebook/react/issues/30119
- */
-// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const reactHooksConfig: Linter.Config = {
+export const reactHooksConfig = {
   plugins: {
     'react-hooks': reactHooksPlugin,
   },
 
   rules: {
-    'react-hooks/rules-of-hooks': [ERROR],
     // TODO: 'additionalHooks' should be configured on a per project basis
     'react-hooks/exhaustive-deps': [ERROR, {
-      additionalHooks: '', // default
-      enableDangerousAutofixThisMayCauseInfiniteLoops: false, // default
+      additionalHooks: '',
+      enableDangerousAutofixThisMayCauseInfiniteLoops: false,
     }],
+    'react-hooks/rules-of-hooks': [ERROR],
   },
-}
+} as const satisfies Linter.Config

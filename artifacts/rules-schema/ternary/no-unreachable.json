@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowDuplicateOrConditions": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "parentDir": {
+        "enum": [
+          "singular",
+          "plural"
+        ]
+      },
+      "file": {
+        "enum": [
+          "singular",
+          "plural"
+        ]
+      }
+    },
+    "minProperties": 1
+  }
+]

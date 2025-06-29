@@ -1,0 +1,24 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "disallowedPrefixes": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          }
+        ],
+        "minItems": 0,
+        "uniqueItems": true
+      },
+      "checkProperties": {
+        "type": "boolean"
+      },
+      "onlyCamelCase": {
+        "type": "boolean"
+      }
+    }
+  }
+]

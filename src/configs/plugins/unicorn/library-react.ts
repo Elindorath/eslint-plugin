@@ -1,32 +1,38 @@
-import type { Linter } from 'eslint'
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const unicornReactConfig: Linter.Config = {
+export const unicornReactConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
 
   rules: {
     'unicorn/prevent-abbreviations': [ERROR, {
-      // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
+      // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
+      allowList: {},
+      // Configured value
+      checkDefaultAndNamespaceImports: true,
+      checkFilenames: true,
+      // Configured value
+      checkProperties: true,
+      // Configured value
+      checkShorthandImports: false,
+      // Configured value
+      checkShorthandProperties: true,
+      checkVariables: true,
+      extendDefaultAllowList: true,
+      extendDefaultReplacements: true,
+      ignore: [],
+      // Configured value
       replacements: {
         props: {
           properties: false,
         },
       },
-      extendDefaultReplacements: true, // default
-      allowList: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
-      extendDefaultAllowList: true, // default
-      checkDefaultAndNamespaceImports: true,
-      checkShorthandImports: false,
-      checkShorthandProperties: true,
-      checkProperties: true,
-      checkVariables: true, // default
-      checkFilenames: true, // default
-      ignore: [], // default
     }],
   },
-}
+} as const satisfies Linter.Config

@@ -1,5 +1,3 @@
-import type { Linter } from 'eslint'
-
 /**
  * TODO: fix it when this plugin expose typings
  * @see: https://github.com/eslint-community/eslint-plugin-promise/issues/488
@@ -7,29 +5,36 @@ import type { Linter } from 'eslint'
 // @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import promisePlugin from 'eslint-plugin-promise'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const promiseVanillaConfig: Linter.Config = {
+export const promiseVanillaConfig = {
   plugins: {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     promise: promisePlugin,
   },
 
   rules: {
     'promise/always-return': [ERROR, {
-      ignoreLastCallback: false, // default
-      // Implemented in main, still not in last published version
-      // ignoreAssignmentVariable: [],
+      // Configured value, default is ['globalThis']
+      ignoreAssignmentVariable: [],
+      ignoreLastCallback: false,
     }],
     // Might be turned OFF
     'promise/avoid-new': [ERROR],
     'promise/catch-or-return': [ERROR, {
-      allowThen: false, // default
+      // Configured value
       allowFinally: true,
-      terminationMethod: '', // default
+      allowThen: false,
+      allowThenStrict: false,
+      terminationMethod: '',
     }],
     'promise/no-callback-in-promise': [ERROR, {
-      exceptions: [], // default
+      exceptions: [],
+      // Configured value
+      timeoutsErr: true,
     }],
     'promise/no-multiple-resolved': [ERROR],
     // OFF as we prefer to use the native implementation of Promise
@@ -39,21 +44,25 @@ export const promiseVanillaConfig: Linter.Config = {
     'promise/no-promise-in-callback': [ERROR],
     'promise/no-return-in-finally': [ERROR],
     'promise/no-return-wrap': [ERROR, {
-      allowReject: false, // default
+      allowReject: false,
     }],
     'promise/param-names': [ERROR, {
-      resolvePattern: '^_?resolve$', // default
-      rejectPattern: '^_?reject$', // default
+      rejectPattern: '^_?reject$',
+      resolvePattern: '^_?resolve$',
     }],
     'promise/prefer-await-to-callbacks': [ERROR],
     'promise/prefer-await-to-then': [ERROR, {
+      // Configured value
       strict: true,
     }],
+    'promise/prefer-catch': [ERROR],
     // TODO: Might be configured to use bluebird
     'promise/spec-only': [ERROR, {
-      allowedMethods: [], // default
+      allowedMethods: [],
     }],
     // Might be disabled in Typescript projects as it already warn about this
-    'promise/valid-params': [ERROR],
+    'promise/valid-params': [ERROR, {
+      exclude: [],
+    }],
   },
-}
+} as const satisfies Linter.Config

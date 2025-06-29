@@ -1,0 +1,20 @@
+[
+  {
+    "properties": {
+      "ignoreExporting": {
+        "type": "boolean"
+      },
+      "regex": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "type": "object"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "anyOf": [
+      {
+        "enum": [
+          "tag-aligned",
+          "line-aligned"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "location": {
+            "enum": [
+              "tag-aligned",
+              "line-aligned"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

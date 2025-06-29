@@ -48,11 +48,16 @@
   ],
   "eslint.options": {
     "flags": [
-      "unstable_ts_config"
     ]
   },
-  "eslint.runtime": "/home/Elindorath/.config/asdf/installs/nodejs/20.18.0/bin/node",
+  // "eslint.runtime": "/Users/elindorath/.local/share/mise/installs/node/24.2.0/bin/node",
+  "eslint.runtime": "/home/Elindorath/.local/share/mise/installs/node/24.2.0/bin/node",
   "eslint.execArgv": [
     "--experimental-require-module"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "/home/Elindorath/.local/share/mise/shims/node"
+  },
+  "python.defaultInterpreterPath": "/home/Elindorath/.local/share/mise/installs/python/3.13.4/bin/python"
 }

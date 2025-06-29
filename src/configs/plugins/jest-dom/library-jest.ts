@@ -1,11 +1,11 @@
-import type { Linter } from 'eslint'
-
 import jestDomPlugin from 'eslint-plugin-jest-dom'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const jestDomConfig: Linter.Config = {
+export const jestDomConfig = {
   plugins: {
     'jest-dom': jestDomPlugin,
   },
@@ -23,4 +23,4 @@ export const jestDomConfig: Linter.Config = {
     'jest-dom/prefer-to-have-text-content': [ERROR],
     'jest-dom/prefer-to-have-value': [ERROR],
   },
-}
+} as const satisfies Linter.Config

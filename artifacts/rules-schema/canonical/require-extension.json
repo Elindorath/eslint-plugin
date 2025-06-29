@@ -1,0 +1,11 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "ignorePackages": {
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  }
+]

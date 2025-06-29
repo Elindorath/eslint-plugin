@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "commentPattern": {
+        "type": "string"
+      },
+      "allowEmptyCase": {
+        "type": "boolean"
+      },
+      "reportUnusedFallthroughComment": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

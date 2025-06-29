@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "importFunctions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "allowEmpty": {
+        "type": "boolean"
+      },
+      "webpackChunknameFormat": {
+        "type": "string"
+      }
+    }
+  }
+]

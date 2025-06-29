@@ -1,0 +1,28 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "always",
+      "never"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "exceptions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "{}",
+            "[]",
+            "()",
+            "empty"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

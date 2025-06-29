@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowIndentationTabs": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

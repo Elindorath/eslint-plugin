@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "enforceForOrderingRelations": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

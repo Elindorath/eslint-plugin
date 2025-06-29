@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "customValidators": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "allowAsProps": {
+        "type": "boolean"
+      },
+      "propNamePattern": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

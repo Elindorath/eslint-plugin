@@ -1,0 +1,27 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "forbidDefaultForRequired": {
+        "type": "boolean"
+      },
+      "classes": {
+        "enum": [
+          "defaultProps",
+          "ignore"
+        ]
+      },
+      "functions": {
+        "enum": [
+          "defaultArguments",
+          "defaultProps",
+          "ignore"
+        ]
+      },
+      "ignoreFunctionalComponents": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

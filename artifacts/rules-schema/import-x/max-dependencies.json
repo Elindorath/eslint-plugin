@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "max": {
+        "type": "number"
+      },
+      "ignoreTypeImports": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

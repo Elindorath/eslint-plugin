@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "frontmatterTitle": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

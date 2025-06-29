@@ -1,0 +1,33 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "prevent": {
+        "default": false,
+        "type": "boolean"
+      },
+      "allowMultilines": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false,
+    "if": {
+      "properties": {
+        "allowMultilines": {
+          "const": true
+        }
+      }
+    },
+    "then": {
+      "properties": {
+        "prevent": {
+          "const": true
+        }
+      },
+      "required": [
+        "prevent"
+      ]
+    }
+  }
+]

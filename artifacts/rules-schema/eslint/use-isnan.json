@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "enforceForSwitchCase": {
+        "type": "boolean"
+      },
+      "enforceForIndexOf": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

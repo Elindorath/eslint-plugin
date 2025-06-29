@@ -1,0 +1,31 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "audio": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "video": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "track": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      }
+    }
+  }
+]

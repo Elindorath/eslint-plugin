@@ -1,0 +1,36 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "patterns": {
+        "type": "object",
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "suggest"
+              ],
+              "properties": {
+                "suggest": {
+                  "type": "string"
+                },
+                "fix": {
+                  "type": "boolean"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    }
+  }
+]

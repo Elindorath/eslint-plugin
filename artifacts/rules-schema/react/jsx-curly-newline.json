@@ -1,0 +1,32 @@
+[
+  {
+    "anyOf": [
+      {
+        "enum": [
+          "consistent",
+          "never"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "singleline": {
+            "enum": [
+              "consistent",
+              "require",
+              "forbid"
+            ]
+          },
+          "multiline": {
+            "enum": [
+              "consistent",
+              "require",
+              "forbid"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

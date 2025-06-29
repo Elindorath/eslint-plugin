@@ -1,0 +1,19 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "functionNames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "prefix": {
+        "type": "string"
+      },
+      "suffix": {
+        "type": "string"
+      }
+    }
+  }
+]

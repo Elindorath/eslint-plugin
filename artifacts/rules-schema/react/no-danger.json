@@ -1,0 +1,15 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "customComponentNames": {
+        "items": {
+          "type": "string"
+        },
+        "minItems": 0,
+        "type": "array",
+        "uniqueItems": true
+      }
+    }
+  }
+]

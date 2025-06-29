@@ -1,0 +1,85 @@
+[
+  {
+    "properties": {
+      "fallbackSort": {
+        "properties": {
+          "order": {
+            "description": "Specifies whether to sort items in ascending or descending order.",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "alphabetical",
+              "natural",
+              "line-length",
+              "custom",
+              "unsorted"
+            ],
+            "description": "Specifies the sorting method.",
+            "type": "string"
+          }
+        },
+        "description": "Fallback sort order.",
+        "additionalProperties": false,
+        "minProperties": 1,
+        "type": "object"
+      },
+      "specialCharacters": {
+        "description": "Specifies whether to trim, remove, or keep special characters before sorting.",
+        "enum": [
+          "remove",
+          "trim",
+          "keep"
+        ],
+        "type": "string"
+      },
+      "ignoreCase": {
+        "description": "Controls whether sorting should be case-sensitive or not.",
+        "type": "boolean"
+      },
+      "alphabet": {
+        "description": "Used only when the `type` option is set to `'custom'`. Specifies the custom alphabet for sorting.",
+        "type": "string"
+      },
+      "locales": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        ],
+        "description": "Specifies the sorting locales."
+      },
+      "order": {
+        "description": "Specifies whether to sort items in ascending or descending order.",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string"
+      },
+      "type": {
+        "enum": [
+          "alphabetical",
+          "natural",
+          "line-length",
+          "custom",
+          "unsorted"
+        ],
+        "description": "Specifies the sorting method.",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "type": "object"
+  }
+]

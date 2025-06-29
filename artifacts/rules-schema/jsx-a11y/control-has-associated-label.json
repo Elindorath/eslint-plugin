@@ -1,0 +1,44 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "labelAttributes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "controlComponents": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "ignoreElements": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "ignoreRoles": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "additionalItems": false
+      },
+      "depth": {
+        "description": "JSX tree depth limit to check for accessible label",
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+]

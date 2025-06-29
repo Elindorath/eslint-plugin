@@ -1,11 +1,11 @@
 import typescriptEslint from 'typescript-eslint'
 
-import { ERROR } from '../../../constants.js'
+import { ERROR } from '../../../constants.ts'
 
 import type { ESLint, Linter } from 'eslint'
 
 
-export const typescriptReactConfig: Linter.Config = {
+export const typescriptReactConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
   languageOptions: {
@@ -13,6 +13,7 @@ export const typescriptReactConfig: Linter.Config = {
      * We shouldn't override this type but there are inconsistencies with the expected Linter.Parser type.
      * TODO: fix this when types are fixed
      */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
     parser: typescriptEslint.parser as unknown as Linter.Parser,
     // Might be exported to environment
     parserOptions: {
@@ -26,6 +27,7 @@ export const typescriptReactConfig: Linter.Config = {
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
      * TODO: fix this when types are fixed
      */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
     '@typescript-eslint': typescriptEslint.plugin as unknown as ESLint.Plugin,
   },
 
@@ -59,4 +61,4 @@ export const typescriptReactConfig: Linter.Config = {
       },
     ],
   },
-}
+} as const satisfies Linter.Config

@@ -1,12 +1,13 @@
 import globals from 'globals'
 
-import { mergeConfigs } from '../../configMerger'
-import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx'
-import { libraryReactNativeSyntaxJsxConfig } from '../library-react-native&syntax-jsx'
-import { overrideEslintConfig } from '../overrides/eslint-config'
-import { overrideJestTestsConfig } from '../overrides/jest-tests'
-import { syntaxTypescriptConfig } from '../syntax-typescript'
-import { vanillaConfig } from '../vanilla'
+import { mergeConfigs } from '../../configMerger.ts'
+
+import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
+import { libraryReactNativeSyntaxJsxConfig } from '../library-react-native&syntax-jsx.ts'
+import { overrideEslintConfig } from '../overrides/eslint-config.ts'
+import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
+import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
+import { vanillaConfig } from '../vanilla.ts'
 
 
 export const projectReactNativeConfig = [

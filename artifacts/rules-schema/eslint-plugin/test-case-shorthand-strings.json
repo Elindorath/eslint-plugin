@@ -1,0 +1,11 @@
+[
+  {
+    "description": "What behavior to enforce of when shorthand strings should be banned or required.",
+    "enum": [
+      "as-needed",
+      "never",
+      "consistent",
+      "consistent-as-needed"
+    ]
+  }
+]

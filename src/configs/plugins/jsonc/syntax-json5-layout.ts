@@ -1,12 +1,14 @@
-import type { ESLint, Linter } from 'eslint'
 import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
-import { getRuleConfig } from '../../../utils'
-import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout'
+import { getRuleConfig } from '../../../utilities.ts'
+
+import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
+
+import type { ESLint, Linter } from 'eslint'
 
 
-export const json5LayoutConfig: Linter.Config = {
+export const json5LayoutConfig = {
   languageOptions: {
     parser: jsonParser,
   },
@@ -16,6 +18,7 @@ export const json5LayoutConfig: Linter.Config = {
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
      * TODO: fix this when types are fixed
      */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
     jsonc: jsoncPlugin as unknown as ESLint.Plugin,
   },
 
@@ -35,4 +38,4 @@ export const json5LayoutConfig: Linter.Config = {
     'jsonc/quotes': getRuleConfig('@stylistic/quotes', stylisticVanillaLayoutConfig),
     'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticVanillaLayoutConfig),
   },
-}
+} as const satisfies Linter.Config

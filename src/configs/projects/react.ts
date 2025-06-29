@@ -1,17 +1,17 @@
 import globals from 'globals'
 
-import { mergeConfigs } from '../../configMerger'
-import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx'
-import { overrideEslintConfig } from '../overrides/eslint-config'
-import { overrideJestTestsConfig } from '../overrides/jest-tests'
-import { overrideWebpackConfig } from '../overrides/webpack-config'
-import { importBrowserConfig } from '../plugins/import-x/environment-browser'
-import { typescriptReactConfig } from '../plugins/typescript-eslint/syntax-typescript&library-react'
-import { unicornBrowserConfig } from '../plugins/unicorn/environment-browser'
-import { syntaxTypescriptConfig } from '../syntax-typescript'
-import { vanillaConfig } from '../vanilla'
+import { mergeConfigs } from '../../configMerger.ts'
+import { ERROR, OFF } from '../../constants.ts'
 
-import { OFF, ERROR } from '../../constants'
+import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
+import { overrideEslintConfig } from '../overrides/eslint-config.ts'
+import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
+import { overrideWebpackConfig } from '../overrides/webpack-config.ts'
+import { importBrowserConfig } from '../plugins/import-x/environment-browser.ts'
+import { typescriptReactConfig } from '../plugins/typescript-eslint/syntax-typescript&library-react.ts'
+import { unicornBrowserConfig } from '../plugins/unicorn/environment-browser.ts'
+import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
+import { vanillaConfig } from '../vanilla.ts'
 
 
 const cssFilesGlob = '**/*.css.ts'
@@ -33,7 +33,7 @@ export const projectReactConfig = [
       },
       rules: {
         // OFF as it is unpractical in react projects
-        'import/no-relative-parent-imports': [OFF],
+        'import-x/no-relative-parent-imports': [OFF],
       },
     },
   ),

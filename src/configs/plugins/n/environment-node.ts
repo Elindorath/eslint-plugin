@@ -1,23 +1,34 @@
 import nPlugin from 'eslint-plugin-n'
 
-import { ERROR } from '../../../constants'
+import { ERROR } from '../../../constants.ts'
 
 import type { Linter } from 'eslint'
 
 
-export const nNodeConfig: Linter.Config = {
+export const nNodeConfig = {
   plugins: {
     n: nPlugin,
   },
 
   settings: {
     n: {
-      // Prefer using the 'engines' field in 'package.json'.
-      // version: '>= 16.0.0', // default
+      /**
+       * Default is read from the package.json's engine field.
+       */
+      // version: '>= 16.0.0',
 
-      allowModules: [], // default
+      // Should be configured on a per platform basis
+      allowModuless: [],
 
-      resolvePaths: [], // default
+      /**
+       * This should only be used in specific scenario.
+       */
+      resolvePathss: [],
+
+      /**
+       * This should only be used in specific scenario.
+       */
+      resolverConfig: {},
 
       // Used to convert paths when using transpiler.
       // convertPath: [
@@ -28,19 +39,26 @@ export const nNodeConfig: Linter.Config = {
       //   }
       // ],
 
-      tryExtensions: ['.js', '.json', '.node'], // default
+      tryExtensions: ['.js', '.json', '.node'],
 
-      // Default is searched up the file tree relative to the currently linted file.
+      /**
+       * Default is searched up the file tree relative to the currently linted file.
+       */
       // tsconfigPath: './tsconfig.json',
 
-      // Default is dependant of the 'tsconfig.json'.
-      // typescriptExtensionMap: 'react-jsx',
+      /**
+       * Default is dependant of the 'tsconfig.json'.
+       * The following is the default fallback.
+       */
+      // typescriptExtensionMap: 'preserve',
     },
   },
 
+  /* ----- Rules ----- */
   rules: {
     // Might be tweaked in the future
     'n/callback-return': [ERROR, [
+      // Configured value
       'callback',
       'cb',
       'next',
@@ -50,61 +68,44 @@ export const nNodeConfig: Linter.Config = {
     ]],
     // Should be changed depending of sourceType/environment
     'n/exports-style': [ERROR, 'module.exports', {
-      allowBatchAssign: false, // default
+      allowBatchAssign: false,
     }],
-    'n/file-extension-in-import': [ERROR, 'always', { // default
-      '.js': 'always', // Do the same as the 'always' string first option
+    'n/file-extension-in-import': [ERROR, 'always', {
+      // Do the same as the 'always' string first option
+      '.js': 'always',
     }],
     'n/global-require': [ERROR],
+    // Configured value
     'n/handle-callback-err': [ERROR, '^.*(?:e|E)rr(?:or)?|e|E'],
     'n/hashbang': [ERROR, {
-      convertPath: undefined,
-      ignoreUnpublished: true,
       additionalExecutables: [],
       // TODO: Should be configured for at least typescript
       executableMap: {
         '.js': 'node',
       },
+      // Configured value
+      ignoreUnpublished: true,
     }],
     'n/no-callback-literal': [ERROR],
     'n/no-deprecated-api': [ERROR, {
-      ignoreModuleItems: [], // default
-      ignoreGlobalItems: [], // default
+      ignoreGlobalItems: [],
+      ignoreModuleItems: [],
     }],
     'n/no-exports-assign': [ERROR],
-    'n/no-extraneous-import': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      // convertPath: [],
-    }],
-    'n/no-extraneous-require': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      // convertPath: [],
-      tryExtensions: [],
-    }],
+    'n/no-extraneous-import': [ERROR],
+    'n/no-extraneous-require': [ERROR],
     'n/no-missing-import': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      tsconfigPath: '',
-      typescriptExtensionMap: [],
-      ignoreTypeImport: false, // default
+      ignoreTypeImport: false,
     }],
-    'n/no-missing-require': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      tryExtensions: [],
-      tsconfigPath: '',
-      typescriptExtensionMap: [],
-    }],
+    'n/no-missing-require': [ERROR],
     'n/no-mixed-requires': [ERROR, {
+      allowCall: false,
       grouping: true,
-      allowCall: false, // default
     }],
     'n/no-new-require': [ERROR],
     'n/no-path-concat': [ERROR],
     'n/no-process-env': [ERROR, {
-      allowedVariables: [], // default
+      allowedVariables: [],
     }],
     'n/no-process-exit': [ERROR],
     // Might be overlapping with the 'no-restricted-imports' rule
@@ -112,38 +113,29 @@ export const nNodeConfig: Linter.Config = {
     // Might be overlapping with the 'no-restricted-imports' rule
     'n/no-restricted-require': [ERROR, []],
     'n/no-sync': [ERROR, {
-      allowAtRootLevel: false, // default
+      allowAtRootLevel: false,
+      ignores: [],
     }],
-    'n/no-unpublished-bin': [ERROR, {
-      // convertPath: [],
-    }],
+    'n/no-unpublished-bin': [ERROR],
     'n/no-unpublished-import': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      // convertPath: [],
-      ignoreTypeImport: false, // default
-      ignorePrivate: true, // default
+      ignorePrivate: true,
+      ignoreTypeImport: false,
     }],
     'n/no-unpublished-require': [ERROR, {
-      allowModules: [],
-      resolvePaths: [],
-      // convertPath: [],
-      tryExtensions: [],
-      ignorePrivate: true, // default
+      ignorePrivate: true,
     }],
     'n/no-unsupported-features/es-builtins': [ERROR, {
-      ignores: [], // default
+      ignores: [],
     }],
     'n/no-unsupported-features/es-syntax': [ERROR, {
-      ignores: [], // default
+      ignores: [],
     }],
     'n/no-unsupported-features/node-builtins': [ERROR, {
-      ignores: [], // default
+      ignores: [],
     }],
     // Override to allow node globals to be shadowed
     'no-shadow': [ERROR, {
-      builtinGlobals: true,
-      hoist: 'all',
+      // Configured value
       allow: [
         'Buffer',
         'process',
@@ -152,8 +144,14 @@ export const nNodeConfig: Linter.Config = {
         'URL',
         'URLSearchParams',
       ],
-      ignoreOnInitialization: false, // default
+      // Configured value
+      builtinGlobals: true,
+      // Configured value
+      hoist: 'all',
+      ignoreOnInitialization: false,
     }],
+
+    /* ----- Keep order logical ----- */
     'n/prefer-global/buffer': [ERROR, 'never'],
     'n/prefer-global/console': [ERROR, 'always'],
     'n/prefer-global/process': [ERROR, 'never'],
@@ -168,4 +166,4 @@ export const nNodeConfig: Linter.Config = {
     'n/prefer-promises/fs': [ERROR],
     'n/process-exit-as-throw': [ERROR],
   },
-}
+} as const satisfies Linter.Config

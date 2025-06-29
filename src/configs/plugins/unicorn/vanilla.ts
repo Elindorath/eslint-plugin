@@ -1,78 +1,82 @@
-import type { Linter } from 'eslint'
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const unicornVanillaConfig: Linter.Config = {
+export const unicornVanillaConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
 
   rules: {
     'unicorn/better-regex': [ERROR, {
-      sortCharacterClasses: true, // default
+      sortCharacterClasses: true,
     }],
     'unicorn/catch-error-name': [ERROR, {
-      name: 'error', // default
-      ignore: [], // default
+      name: 'error',
+      ignore: [],
     }],
+    // Not safe before ES2015, should be disabled in this case
+    'unicorn/consistent-date-clone': [ERROR],
     'unicorn/consistent-destructuring': [ERROR],
     'unicorn/consistent-empty-array-spread': [ERROR],
     'unicorn/consistent-existence-index-check': [ERROR],
     'unicorn/consistent-function-scoping': [ERROR, {
-      checkArrowFunctions: true, // default
+      checkArrowFunctions: true,
     }],
     'unicorn/custom-error-definition': [ERROR],
     'unicorn/error-message': [ERROR],
-    'unicorn/escape-case': [ERROR],
+    'unicorn/escape-case': [ERROR, 'uppercase'],
     // Related to the core rule no-warning-comments
     'unicorn/expiring-todo-comments': [ERROR, {
-      ignoreDatesOnPullRequests: true, // default
+      allowWarningComments: true,
+      ignore: [],
+      ignoreDatesOnPullRequests: true,
+      // Configured value
       terms: ['todo', 'fixme'],
-      allowWarningComments: true, // default
-      ignore: [], // default
-      // date: '<today>', // default
+      // date: '<today>',
     }],
     // Debatable, the usage might prevail
     'unicorn/explicit-length-check': [ERROR, {
-      'non-zero': 'greater-than', // default
+      'non-zero': 'greater-than',
     }],
     // TODO: Should be configured for special cases, like component file in react projects
     'unicorn/filename-case': [ERROR, {
+      // Configured value
       case: 'kebabCase',
+      // Configured value
       ignore: [
         /\.md$/ui,
       ],
     }],
     'unicorn/import-style': [ERROR, {
-      // default
+
+      checkDynamicImport: true,
+      checkExportFrom: false,
+      checkImport: true,
+      checkRequire: true,
+      extendDefaultStyles: true,
       styles: {
-        util: { named: true },
-        path: { default: true },
         chalk: { default: true },
+        path: { default: true },
+        util: { named: true },
       },
-      extendDefaultStyles: true, // default
-      checkImport: true, // default
-      checkDynamicImport: true, // default
-      checkExportFrom: false, // default
-      checkRequire: true, // default
     }],
     // Related to the core rule no-new-wrappers
     'unicorn/new-for-builtins': [ERROR],
     // TODO: Might be duplicate of the rule eslint-comments/no-unlimited-disable
     'unicorn/no-abusive-eslint-disable': [ERROR],
+    'unicorn/no-accessor-recursion': [ERROR],
     'unicorn/no-anonymous-default-export': [ERROR],
     // Debatable, the usage might prevail
     'unicorn/no-array-callback-reference': [ERROR],
     'unicorn/no-array-for-each': [ERROR],
     'unicorn/no-array-method-this-argument': [ERROR],
-    'unicorn/no-array-push-push': [ERROR, {
-      ignore: [], // default
-    }],
     // Debatable, but OFF as we want to use reducers
     'unicorn/no-array-reduce': [OFF, {
-      allowSimpleOperations: true, // default
+      allowSimpleOperations: true,
     }],
     'unicorn/no-await-expression-member': [ERROR],
     'unicorn/no-await-in-promise-methods': [ERROR],
@@ -80,17 +84,26 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/no-empty-file': [ERROR],
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-hex-escape': [ERROR],
-    'unicorn/no-instanceof-array': [ERROR],
+    'unicorn/no-instanceof-builtins': [ERROR, {
+      exclude: [],
+      include: [],
+      // Configured value
+      strategy: 'strict',
+      // Configured value
+      useErrorIsError: true,
+    }],
     'unicorn/no-invalid-fetch-options': [ERROR],
     // Disabled the check of properties as external libraries don't offer much of a choice here
     'unicorn/no-keyword-prefix': [ERROR, {
-      disallowedPrefixes: ['new', 'class'], // default
+      // Configured value
       checkProperties: false,
-      onlyCamelCase: true, // default
+      disallowedPrefixes: ['new', 'class'],
+      onlyCamelCase: true,
     }],
-    'unicorn/no-length-as-slice-end': [ERROR],
     'unicorn/no-lonely-if': [ERROR],
     'unicorn/no-magic-array-flat-depth': [ERROR],
+    // TODO: Conflicts with the `import-x/no-named-default` rule, but might report more cases
+    'unicorn/no-named-default': [ERROR],
     'unicorn/no-negated-condition': [ERROR],
     'unicorn/no-negation-in-equality-check': [ERROR],
     // Supersedes the core rule no-nested-ternary
@@ -99,6 +112,7 @@ export const unicornVanillaConfig: Linter.Config = {
     // TODO: Check if it's could be disabled as it might already be handle by the rule n/no-deprecated-api
     'unicorn/no-new-buffer': [ERROR],
     'unicorn/no-null': [ERROR, {
+      // Configured value
       checkStrictEquality: true,
     }],
     'unicorn/no-object-as-default-parameter': [ERROR],
@@ -109,15 +123,20 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/no-thenable': [ERROR],
     'unicorn/no-this-assignment': [ERROR],
     'unicorn/no-typeof-undefined': [ERROR, {
+      // Configured value
       checkGlobalVariables: true,
     }],
+    'unicorn/no-unnecessary-array-flat-depth': [ERROR],
+    'unicorn/no-unnecessary-array-splice-count': [ERROR],
     'unicorn/no-unnecessary-await': [ERROR],
     // TODO: Should be configured for every supported environments
     'unicorn/no-unnecessary-polyfills': [ERROR, {
+      // Configured value
       targets: {
         node: 'current',
       },
     }],
+    'unicorn/no-unnecessary-slice-end': [ERROR],
     // TODO: Check if the core rule 'prefer-destructuring' needs to be tweaked
     'unicorn/no-unreadable-array-destructuring': [ERROR],
     'unicorn/no-unreadable-iife': [ERROR],
@@ -128,57 +147,70 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/no-useless-spread': [ERROR],
     'unicorn/no-useless-switch-case': [ERROR],
     'unicorn/no-useless-undefined': [ERROR, {
+      // Configured value
       checkArguments: false,
     }],
     'unicorn/no-zero-fractions': [ERROR],
-    'unicorn/number-literal-case': [ERROR],
+    'unicorn/number-literal-case': [ERROR, {
+      hexadecimalValue: 'uppercase',
+    }],
     'unicorn/numeric-separators-style': [ERROR, {
-      hexadecimal: {
-        onlyIfContainsSeparator: false, // default
-        minimumDigits: 0,
-        groupLength: 2,
-      },
       binary: {
-        onlyIfContainsSeparator: false, // default
-        minimumDigits: 0,
+        // Configured value
         groupLength: 4,
+        // Configured value
+        minimumDigits: 0,
+        onlyIfContainsSeparator: false,
       },
-      octal: {
-        onlyIfContainsSeparator: false, // default
+      hexadecimal: {
+        // Configured value
+        groupLength: 2,
+        // Configured value
         minimumDigits: 0,
-        groupLength: 4,
+        onlyIfContainsSeparator: false,
       },
       number: {
-        onlyIfContainsSeparator: false, // default
-        minimumDigits: 0,
+        // Configured value
         groupLength: 3,
+        // Configured value
+        minimumDigits: 0,
+        onlyIfContainsSeparator: false,
+      },
+      octal: {
+        // Configured value
+        groupLength: 4,
+        // Configured value
+        minimumDigits: 0,
+        onlyIfContainsSeparator: false,
       },
     }],
     'unicorn/prefer-add-event-listener': [ERROR, {
-      excludedPackages: ['koa', 'sax'], // Default
+      excludedPackages: ['koa', 'sax'],
     }],
     'unicorn/prefer-array-find': [ERROR, {
+      // Configured value
       checkFromLast: true,
     }],
-    'unicorn/prefer-array-flat-map': [ERROR],
     'unicorn/prefer-array-flat': [ERROR, {
-      functions: [], // default
+      functions: [],
     }],
+    'unicorn/prefer-array-flat-map': [ERROR],
     'unicorn/prefer-array-index-of': [ERROR],
     'unicorn/prefer-array-some': [ERROR],
     // Debatable, the usage might prevail
     'unicorn/prefer-at': [ERROR, {
-      checkAllIndexAccess: false, // default
-      getLastElementFunctions: [], // default
+      checkAllIndexAccess: false,
+      getLastElementFunctions: [],
     }],
     'unicorn/prefer-code-point': [ERROR],
     'unicorn/prefer-date-now': [ERROR],
     'unicorn/prefer-default-parameters': [ERROR],
     'unicorn/prefer-event-target': [ERROR],
     'unicorn/prefer-export-from': [ERROR, {
-      ignoreUsedVariables: false, // default
+      ignoreUsedVariables: false,
     }],
     'unicorn/prefer-global-this': [ERROR],
+    'unicorn/prefer-import-meta-properties': [ERROR],
     'unicorn/prefer-includes': [ERROR],
     'unicorn/prefer-json-parse-buffer': [ERROR],
     'unicorn/prefer-logical-operator-over-ternary': [ERROR],
@@ -190,10 +222,10 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/prefer-native-coercion-functions': [ERROR],
     'unicorn/prefer-negative-index': [ERROR],
     'unicorn/prefer-number-properties': [ERROR, {
-      checkInfinity: true, // default
+      checkInfinity: true,
     }],
     'unicorn/prefer-object-from-entries': [ERROR, {
-      functions: [], // default
+      functions: [],
     }],
     'unicorn/prefer-optional-catch-binding': [ERROR],
     'unicorn/prefer-prototype-methods': [ERROR],
@@ -201,6 +233,9 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/prefer-regexp-test': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
     'unicorn/prefer-set-size': [ERROR],
+    'unicorn/prefer-single-call': [ERROR, {
+      ignore: [],
+    }],
     // Related to the core rule prefer-spread
     'unicorn/prefer-spread': [ERROR],
     'unicorn/prefer-string-raw': [ERROR],
@@ -210,47 +245,65 @@ export const unicornVanillaConfig: Linter.Config = {
     'unicorn/prefer-string-trim-start-end': [ERROR],
     'unicorn/prefer-structured-clone': [ERROR, {
       functions: [
-        '_.cloneDeep', // default
-        'lodash.cloneDeep', // default
+        '_.cloneDeep',
+        'lodash.cloneDeep',
       ],
     }],
     'unicorn/prefer-switch': [ERROR, {
-      minimumCases: 3, // default
-      emptyDefaultCase: 'no-default-comment', // default
+      emptyDefaultCase: 'no-default-comment',
+      minimumCases: 3,
     }],
-    'unicorn/prefer-ternary': [ERROR, 'always'], // default
+    'unicorn/prefer-ternary': [ERROR, 'always'],
     'unicorn/prefer-top-level-await': [ERROR],
     'unicorn/prefer-type-error': [ERROR],
-    // Should be configured according to specific project standard
-    // TODO: The non default configurations might be debatable
+
+    /**
+     * Should be configured according to specific project standard
+     * TODO: The non default configurations might be debatable
+     */
     'unicorn/prevent-abbreviations': [ERROR, {
-      replacements: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
-      extendDefaultReplacements: true, // default
-      allowList: {}, // default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
-      extendDefaultAllowList: true, // default
+      // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
+      allowList: {},
+      // Configured value
       checkDefaultAndNamespaceImports: true,
-      checkShorthandImports: true,
-      checkShorthandProperties: true,
+      checkFilenames: true,
+      // Configured value
       checkProperties: true,
-      checkVariables: true, // default
-      checkFilenames: true, // default
-      ignore: [], // default
+      // Configured value
+      checkShorthandImports: true,
+      // Configured value
+      checkShorthandProperties: true,
+      checkVariables: true,
+      extendDefaultAllowList: true,
+      extendDefaultReplacements: true,
+      ignore: [],
+      // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
+      replacements: {},
     }],
     // TODO: Testing the 'never' option, but we might find it clearer to use 'always' instead
-    'unicorn/relative-url-style': [ERROR, 'never'], // default
+    'unicorn/relative-url-style': [ERROR, 'never'],
     'unicorn/require-array-join-separator': [ERROR],
     'unicorn/require-number-to-fixed-digits-argument': [ERROR],
     // TODO: Should be configured with commonly used patterns
     'unicorn/string-content': [ERROR, {
+      // Configured value
       patterns: {
         '^http:\\/\\/': {
-          suggest: '^https:\\/\\/',
           message: 'Please secure your links or disable the rule on this line',
+          suggest: String.raw`^https:\/\/`,
         },
       },
     }],
     'unicorn/template-indent': [ERROR, {
-      // default
+      comments: [
+        'HTML',
+        'indent',
+      ],
+      functions: [
+        'dedent',
+        'stripIndent',
+      ],
+      selectors: [],
       tags: [
         'outdent',
         'dedent',
@@ -259,19 +312,8 @@ export const unicornVanillaConfig: Linter.Config = {
         'html',
         'styled',
       ],
-      // default
-      functions: [
-        'dedent',
-        'stripIndent',
-      ],
-      selectors: [], // default
-      // default
-      comments: [
-        'HTML',
-        'indent',
-      ],
     }],
     'unicorn/text-encoding-identifier-case': [ERROR],
     'unicorn/throw-new-error': [ERROR],
   },
-}
+} as const satisfies Linter.Config

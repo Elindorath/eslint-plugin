@@ -1,0 +1,35 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "consistent",
+          "never"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "singleline": {
+            "type": "string",
+            "enum": [
+              "consistent",
+              "require",
+              "forbid"
+            ]
+          },
+          "multiline": {
+            "type": "string",
+            "enum": [
+              "consistent",
+              "require",
+              "forbid"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

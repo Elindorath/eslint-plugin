@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "skip": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -5,10 +5,10 @@ const process = require('node:process')
 
 const { ESLint } = require('eslint')
 const fs = require('fs-extra')
-const packageDirectory = require('pkg-dir');
+const packageDirectory = require('package-directory')
 
 
-(async function main() {
+;(async function main() {
   const targetFile = path.resolve(__dirname, `../lib/configs.js`)
   const configFileNames = await fs.readdir(path.resolve(__dirname, `../lib/configs`))
 
@@ -40,8 +40,9 @@ ${configFileNames
     console.log(error.message)
     console.log('Failed to fix lint error, try to run it again')
   }
-// eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await
+// eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await in CommonJs
 })().catch((error) => {
   process.exitCode = 1
+  // eslint-disable-next-line promise/no-callback-in-promise -- This is a false positive
   console.error(error)
 })

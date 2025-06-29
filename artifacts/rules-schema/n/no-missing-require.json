@@ -1,0 +1,71 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowModules": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^(?:virtual:)?(?:@[a-zA-Z0-9_\\-.]+/)?[a-zA-Z0-9_\\-.]+$"
+        },
+        "uniqueItems": true
+      },
+      "tryExtensions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^\\."
+        },
+        "uniqueItems": true
+      },
+      "resolvePaths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "resolverConfig": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      },
+      "typescriptExtensionMap": {
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "pattern": "^(?:|\\.\\w+)$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^\\.\\w+$"
+                }
+              ],
+              "additionalItems": false
+            },
+            "uniqueItems": true
+          },
+          {
+            "type": "string",
+            "enum": [
+              "react",
+              "react-jsx",
+              "react-jsxdev",
+              "react-native",
+              "preserve"
+            ]
+          }
+        ]
+      },
+      "tsconfigPath": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

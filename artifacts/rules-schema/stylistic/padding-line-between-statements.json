@@ -1,0 +1,148 @@
+{
+  "$defs": {
+    "paddingType": {
+      "type": "string",
+      "enum": [
+        "any",
+        "never",
+        "always"
+      ]
+    },
+    "statementType": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "*",
+            "block-like",
+            "exports",
+            "require",
+            "directive",
+            "expression",
+            "iife",
+            "multiline-block-like",
+            "multiline-expression",
+            "multiline-const",
+            "multiline-export",
+            "multiline-let",
+            "multiline-var",
+            "singleline-const",
+            "singleline-export",
+            "singleline-let",
+            "singleline-var",
+            "block",
+            "empty",
+            "function",
+            "ts-method",
+            "break",
+            "case",
+            "class",
+            "const",
+            "continue",
+            "debugger",
+            "default",
+            "do",
+            "export",
+            "for",
+            "if",
+            "import",
+            "let",
+            "return",
+            "switch",
+            "throw",
+            "try",
+            "var",
+            "while",
+            "with",
+            "cjs-export",
+            "cjs-import",
+            "enum",
+            "interface",
+            "type",
+            "function-overload"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "*",
+              "block-like",
+              "exports",
+              "require",
+              "directive",
+              "expression",
+              "iife",
+              "multiline-block-like",
+              "multiline-expression",
+              "multiline-const",
+              "multiline-export",
+              "multiline-let",
+              "multiline-var",
+              "singleline-const",
+              "singleline-export",
+              "singleline-let",
+              "singleline-var",
+              "block",
+              "empty",
+              "function",
+              "ts-method",
+              "break",
+              "case",
+              "class",
+              "const",
+              "continue",
+              "debugger",
+              "default",
+              "do",
+              "export",
+              "for",
+              "if",
+              "import",
+              "let",
+              "return",
+              "switch",
+              "throw",
+              "try",
+              "var",
+              "while",
+              "with",
+              "cjs-export",
+              "cjs-import",
+              "enum",
+              "interface",
+              "type",
+              "function-overload"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "additionalItems": false
+        }
+      ]
+    }
+  },
+  "type": "array",
+  "additionalItems": false,
+  "items": {
+    "type": "object",
+    "properties": {
+      "blankLine": {
+        "$ref": "#/$defs/paddingType"
+      },
+      "prev": {
+        "$ref": "#/$defs/statementType"
+      },
+      "next": {
+        "$ref": "#/$defs/statementType"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "blankLine",
+      "prev",
+      "next"
+    ]
+  }
+}

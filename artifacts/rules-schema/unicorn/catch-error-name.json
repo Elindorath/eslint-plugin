@@ -1,0 +1,15 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "ignore": {
+        "type": "array",
+        "uniqueItems": true
+      }
+    }
+  }
+]

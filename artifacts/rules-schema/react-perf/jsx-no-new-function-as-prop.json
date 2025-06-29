@@ -1,0 +1,23 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "nativeAllowList": {
+        "oneOf": [
+          {
+            "enum": [
+              "all"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "type": "object"
+  }
+]

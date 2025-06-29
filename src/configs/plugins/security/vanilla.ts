@@ -1,10 +1,11 @@
-import type { Linter } from 'eslint'
 import securityPlugin from 'eslint-plugin-security'
 
-import { OFF, ERROR } from '../../../constants'
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
 
 
-export const securityVanillaConfig: Linter.Config = {
+export const securityVanillaConfig = {
   plugins: {
     security: securityPlugin,
   },
@@ -20,7 +21,7 @@ export const securityVanillaConfig: Linter.Config = {
     // TODO: Should ideally be ERROR but it is very restrictive due to lack of intelligence
     'security/detect-non-literal-fs-filename': [OFF],
     'security/detect-non-literal-regexp': [ERROR],
-    // OFF as it is a duplicate of the rule import/no-dynamic-require
+    // OFF as it is a duplicate of the rule import-x/no-dynamic-require
     'security/detect-non-literal-require': [OFF],
     // OFF as it is too restrictive
     'security/detect-object-injection': [OFF],
@@ -28,4 +29,4 @@ export const securityVanillaConfig: Linter.Config = {
     'security/detect-pseudoRandomBytes': [ERROR],
     'security/detect-unsafe-regex': [ERROR],
   },
-}
+} as const satisfies Linter.Config

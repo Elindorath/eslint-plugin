@@ -2,11 +2,11 @@
 
 - [ ] Rationalize the configs to make the best use of config cascading
 - [ ] Make a utility function to change only a subset of options of an already defined rule
-- [ ] Consider the changes required in staycation/mobile-app
+- [ ] Consider the changes required in [staycation/mobile-app](https://github.com/staycation/mobile-app)
 - [ ] Handle tsconfig.json & associates
 - [ ] Handle markdown
 - [ ] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
-- [ ] Flag non-default configuration values instead of the default one
+- [x] Flag non-default configuration values instead of the default one
 - [ ] Write missing rules for ESLint from [wotan](https://github.com/fimbullinter/wotan)
 - [ ] Develop a typescript error formatter
 - [ ] Consider using:

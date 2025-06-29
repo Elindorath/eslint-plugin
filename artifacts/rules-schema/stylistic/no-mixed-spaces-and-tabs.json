@@ -1,0 +1,15 @@
+[
+  {
+    "oneOf": [
+      {
+        "type": "string",
+        "enum": [
+          "smart-tabs"
+        ]
+      },
+      {
+        "type": "boolean"
+      }
+    ]
+  }
+]

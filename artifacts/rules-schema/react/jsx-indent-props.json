@@ -1,0 +1,36 @@
+[
+  {
+    "anyOf": [
+      {
+        "enum": [
+          "tab",
+          "first"
+        ]
+      },
+      {
+        "type": "integer"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "indentMode": {
+            "anyOf": [
+              {
+                "enum": [
+                  "tab",
+                  "first"
+                ]
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "ignoreTernaryOperator": {
+            "type": "boolean"
+          }
+        }
+      }
+    ]
+  }
+]

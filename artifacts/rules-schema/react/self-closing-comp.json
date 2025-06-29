@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "component": {
+        "default": true,
+        "type": "boolean"
+      },
+      "html": {
+        "default": true,
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

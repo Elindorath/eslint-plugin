@@ -1,0 +1,24 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "test": {
+        "type": "boolean",
+        "default": false
+      },
+      "consequent": {
+        "type": "boolean",
+        "default": true
+      },
+      "alternate": {
+        "type": "boolean",
+        "default": true
+      },
+      "depth": {
+        "type": "integer",
+        "default": -1
+      }
+    },
+    "additionalProperties": false
+  }
+]

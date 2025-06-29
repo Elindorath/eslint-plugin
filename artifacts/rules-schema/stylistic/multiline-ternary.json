@@ -1,0 +1,19 @@
+[
+  {
+    "type": "string",
+    "enum": [
+      "always",
+      "always-multiline",
+      "never"
+    ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "ignoreJSX": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  }
+]

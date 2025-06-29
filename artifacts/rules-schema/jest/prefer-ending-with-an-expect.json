@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "assertFunctionNames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "additionalTestBlockFunctions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowGlobals": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]

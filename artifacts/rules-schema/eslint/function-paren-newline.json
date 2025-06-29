@@ -1,0 +1,25 @@
+[
+  {
+    "oneOf": [
+      {
+        "enum": [
+          "always",
+          "never",
+          "consistent",
+          "multiline",
+          "multiline-arguments"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "minItems": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

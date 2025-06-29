@@ -1,8 +1,8 @@
-import { mergeConfigs } from '../configMerger'
+import { mergeConfigs } from '../configMerger.ts'
 
-import { reactConfig } from './plugins/react/library-react'
-import { reactHooksConfig } from './plugins/react-hooks/library-react'
-import { unicornReactConfig } from './plugins/unicorn/library-react'
+import { reactConfig } from './plugins/react/library-react.ts'
+import { reactHooksConfig } from './plugins/react-hooks/library-react.ts'
+import { unicornReactConfig } from './plugins/unicorn/library-react.ts'
 
 
 export const libraryReactConfig = mergeConfigs(

@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+]

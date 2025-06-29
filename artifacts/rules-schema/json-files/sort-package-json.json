@@ -1,0 +1,15 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "sortOrder": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

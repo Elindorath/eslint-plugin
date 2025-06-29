@@ -1,0 +1,53 @@
+{
+  "definitions": {
+    "value": {
+      "enum": [
+        "always-multiline",
+        "always",
+        "never",
+        "only-multiline"
+      ]
+    },
+    "valueWithIgnore": {
+      "enum": [
+        "always-multiline",
+        "always",
+        "ignore",
+        "never",
+        "only-multiline"
+      ]
+    }
+  },
+  "type": "array",
+  "items": [
+    {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/value"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "arrays": {
+              "$ref": "#/definitions/valueWithIgnore"
+            },
+            "objects": {
+              "$ref": "#/definitions/valueWithIgnore"
+            },
+            "imports": {
+              "$ref": "#/definitions/valueWithIgnore"
+            },
+            "exports": {
+              "$ref": "#/definitions/valueWithIgnore"
+            },
+            "functions": {
+              "$ref": "#/definitions/valueWithIgnore"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  ],
+  "additionalItems": false
+}

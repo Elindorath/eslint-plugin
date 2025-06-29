@@ -1,0 +1,19 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkLiteralConstAssertions": {
+        "type": "boolean",
+        "description": "Whether to check literal const assertions."
+      },
+      "typesToIgnore": {
+        "type": "array",
+        "description": "A list of type names to ignore.",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+]

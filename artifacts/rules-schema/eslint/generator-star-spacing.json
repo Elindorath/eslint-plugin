@@ -1,0 +1,98 @@
+[
+  {
+    "oneOf": [
+      {
+        "enum": [
+          "before",
+          "after",
+          "both",
+          "neither"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": "boolean"
+          },
+          "after": {
+            "type": "boolean"
+          },
+          "named": {
+            "oneOf": [
+              {
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "anonymous": {
+            "oneOf": [
+              {
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "method": {
+            "oneOf": [
+              {
+                "enum": [
+                  "before",
+                  "after",
+                  "both",
+                  "neither"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "boolean"
+                  },
+                  "after": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  }
+]

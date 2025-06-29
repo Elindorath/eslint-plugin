@@ -1,4 +1,5 @@
 import { ERROR } from '../../../constants.ts'
+import { getRuleConfigOverride } from '../../../utilities.ts'
 
 import { baseConfig } from './baseConfig.ts'
 
@@ -12,7 +13,7 @@ export const nNodeConfig = {
     ...baseConfig.settings,
     n: {
       ...baseConfig.settings.n,
-      tryExtensions: ['.ts', '.json'],
+      tryExtensions: ['.js', '.ts', '.json'],
       typescriptExtensionMap: [
         ['.ts', '.ts'],
         ['.tsx', '.tsx'],
@@ -22,26 +23,24 @@ export const nNodeConfig = {
     },
   },
 
+  /* ----- Rules ----- */
   rules: {
     ...baseConfig.rules,
     'n/file-extension-in-import': [ERROR, 'always', {
       '.ts': 'always',
     }],
-    'n/hashbang': [ERROR, {
-      ...baseConfig.rules['n/hashbang'][1],
+    'n/hashbang': getRuleConfigOverride('n/hashbang', baseConfig, {
       executableMap: {
         '.js': 'node',
         '.ts': 'tsx',
       },
-    }],
-    'n/no-missing-import': [ERROR, {
-      ...baseConfig.rules['n/no-missing-import'][1],
-      ignoreTypeImport: false,
-    }],
-    'n/no-unpublished-import': [ERROR, {
-      ...baseConfig.rules['n/no-unpublished-import'][1],
+    }),
+    'n/no-missing-import': getRuleConfigOverride('n/no-missing-import', baseConfig, {
+      ignoreTypeImport: true,
+    }),
+    'n/no-unpublished-import': getRuleConfigOverride('n/no-unpublished-import', baseConfig, {
       ignorePrivate: true,
-      ignoreTypeImport: false,
-    }],
+      ignoreTypeImport: true,
+    }),
   },
 } satisfies Linter.Config
