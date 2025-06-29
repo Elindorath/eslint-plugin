@@ -31,12 +31,15 @@ function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDe
     || pluginChangesDescriptor.deprecatedRuleNames.length > 0
     || pluginChangesDescriptor.notConfiguredRuleNames.length > 0
     || hasRuleConfigurationChanges
+  const pluginName = pluginChangesDescriptor.prefix.length > 0
+    ? pluginChangesDescriptor.prefix
+    : 'eslint'
 
   if (!hasSomethingToDisplay) {
     return 0
   }
 
-  console.log(`===== ${pluginChangesDescriptor.prefix} =====`)
+  console.log(`===== ${pluginName} =====`)
 
   if (pluginChangesDescriptor.absentConfiguredRuleNames.length > 0) {
     console.log('  Configured rules absent from plugin:')
