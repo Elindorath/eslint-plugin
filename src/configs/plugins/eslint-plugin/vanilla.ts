@@ -53,6 +53,7 @@ export const eslintPluginConfig = {
     'eslint-plugin/no-deprecated-context-methods': [ERROR],
     'eslint-plugin/no-deprecated-report-api': [ERROR],
     'eslint-plugin/no-identical-tests': [ERROR],
+    'eslint-plugin/no-meta-replaced-by': [ERROR],
     'eslint-plugin/no-meta-schema-default': [ERROR],
     'eslint-plugin/no-missing-message-ids': [ERROR],
     'eslint-plugin/no-missing-placeholders': [ERROR],
