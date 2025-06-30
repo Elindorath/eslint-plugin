@@ -3,4 +3,11 @@
   assignees: ['Elindorath'],
   dependencyDashboard: true,
   prHourlyLimit: 0,
+  prConcurrentLimit: 0,
+  packageRules: [
+    {
+      matchPackageNames: ['ajv', '@sidvind/better-ajv-errors'],
+      enabled: false,
+    },
+  ],
 }
