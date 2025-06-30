@@ -19,6 +19,12 @@ export const markdownVanillaConfig = {
       required: [],
     }],
     '@eslint/markdown/heading-increment': [ERROR],
+
+    /**
+     * This rule requires language: "markdown/gfm"
+     * TODO: Might be moved to a gfm specific config
+     */
+    '@eslint/markdown/no-bare-urls': [ERROR],
     '@eslint/markdown/no-duplicate-definitions': [ERROR, {
       allowDefinitions: [],
       allowFootnoteDefinitions: [],
@@ -35,14 +41,15 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-invalid-label-refs': [ERROR],
     '@eslint/markdown/no-missing-atx-heading-space': [ERROR],
     '@eslint/markdown/no-missing-label-refs': [ERROR],
-    // '@eslint/markdown/no-missing-link-fragments': [ERROR, {
-    //   allowPattern: '',
-    //   ignoreCase: false,
-    // }],
+    '@eslint/markdown/no-missing-link-fragments': [ERROR, {
+      allowPattern: '',
+      ignoreCase: false,
+    }],
     '@eslint/markdown/no-multiple-h1': [ERROR, {
       // Configured value
       frontmatterTitle: '',
     }],
+    '@eslint/markdown/no-reversed-media-syntax': [ERROR],
     '@eslint/markdown/require-alt-text': [ERROR],
     '@eslint/markdown/table-column-count': [ERROR],
   },
