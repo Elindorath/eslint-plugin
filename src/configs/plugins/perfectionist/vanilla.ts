@@ -89,7 +89,7 @@ export const perfectionistVanillaConfig = {
       ],
       ignoreCallbackDependenciesPatterns: [],
       // Configured value
-      newlinesBetween: 'always',
+      newlinesBetween: 1,
     }],
     'perfectionist/sort-decorators': [ERROR, {
       // TODO: needs to be defined
@@ -122,7 +122,7 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       // Configured value
-      newlinesBetween: 'always',
+      newlinesBetween: 1,
     }],
     'perfectionist/sort-heritage-clauses': [ERROR, {
       // TODO: needs to be defined
@@ -179,7 +179,7 @@ export const perfectionistVanillaConfig = {
       ],
       internalPattern: ['^~/.*'],
       maxLineLength: undefined,
-      newlinesBetween: 'always',
+      newlinesBetween: 1,
       sortSideEffects: false,
       tsconfig: {
         rootDir: '.',
@@ -387,7 +387,7 @@ export const perfectionistVanillaConfig = {
         'initialized',
         'uninitialized',
       ],
-      newlinesBetween: 'always',
+      newlinesBetween: 1,
     }],
   },
 } as const satisfies Linter.Config
