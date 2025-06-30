@@ -297,6 +297,8 @@ export const typescriptConfig = {
       },
     ],
     '@typescript-eslint/no-base-to-string': [ERROR, {
+      // Configured value
+      checkUnknown: true,
       ignoredTypeNames: ['Error', 'RegExp', 'URL', 'URLSearchParams'],
     }],
     '@typescript-eslint/no-confusing-non-null-assertion': [ERROR],
@@ -553,7 +555,6 @@ export const typescriptConfig = {
       checkFunctionExpressions: true,
       checkMethodDeclarations: true,
     }],
-    'require-await': [OFF],
     '@typescript-eslint/related-getter-setter-pairs': [ERROR],
     '@typescript-eslint/require-array-sort-compare': [ERROR, {
       ignoreStringArrays: true,
