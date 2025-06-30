@@ -17,6 +17,7 @@
   ],
   "type": "module",
   "scripts": {
+    "extract-meta": "node scripts/extract-meta.ts",
     "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
     "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
     "test-update": "./scripts/test-update.ts",
