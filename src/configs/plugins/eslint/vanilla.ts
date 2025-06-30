@@ -46,6 +46,8 @@ export const eslintVanillaConfig = {
     'no-dupe-keys': [ERROR],
     'no-duplicate-case': [ERROR],
     'no-duplicate-imports': [ERROR, {
+      // Configured value
+      allowSeparateTypeImports: true,
       includeExports: true,
     }],
     'no-empty-character-class': [ERROR],
