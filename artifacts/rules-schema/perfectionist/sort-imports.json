@@ -127,12 +127,20 @@
                 {
                   "properties": {
                     "newlinesInside": {
-                      "description": "Specifies how to handle new lines between members of the custom group.",
-                      "enum": [
-                        "always",
-                        "never"
-                      ],
-                      "type": "string"
+                      "oneOf": [
+                        {
+                          "description": "Specifies how to handle newlines between members of the custom group.",
+                          "enum": [
+                            "always",
+                            "never"
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      ]
                     },
                     "fallbackSort": {
                       "properties": {
@@ -357,12 +365,20 @@
                 {
                   "properties": {
                     "newlinesInside": {
-                      "description": "Specifies how to handle new lines between members of the custom group.",
-                      "enum": [
-                        "always",
-                        "never"
-                      ],
-                      "type": "string"
+                      "oneOf": [
+                        {
+                          "description": "Specifies how to handle newlines between members of the custom group.",
+                          "enum": [
+                            "always",
+                            "never"
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      ]
                     },
                     "fallbackSort": {
                       "properties": {
@@ -830,13 +846,21 @@
         "type": "boolean"
       },
       "newlinesBetween": {
-        "description": "Specifies how to handle new lines between groups.",
-        "enum": [
-          "ignore",
-          "always",
-          "never"
-        ],
-        "type": "string"
+        "oneOf": [
+          {
+            "description": "Specifies how to handle newlines between groups.",
+            "enum": [
+              "ignore",
+              "always",
+              "never"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "minimum": 0
+          }
+        ]
       },
       "internalPattern": {
         "oneOf": [
@@ -911,13 +935,21 @@
             {
               "properties": {
                 "newlinesBetween": {
-                  "description": "Specifies how to handle new lines between groups.",
-                  "enum": [
-                    "ignore",
-                    "always",
-                    "never"
-                  ],
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups.",
+                      "enum": [
+                        "ignore",
+                        "always",
+                        "never"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
                 },
                 "commentAbove": {
                   "description": "Specifies a comment to enforce above the group.",

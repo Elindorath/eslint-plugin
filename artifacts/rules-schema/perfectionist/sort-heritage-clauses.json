@@ -110,13 +110,21 @@
             {
               "properties": {
                 "newlinesBetween": {
-                  "description": "Specifies how to handle new lines between groups.",
-                  "enum": [
-                    "ignore",
-                    "always",
-                    "never"
-                  ],
-                  "type": "string"
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups.",
+                      "enum": [
+                        "ignore",
+                        "always",
+                        "never"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
                 },
                 "commentAbove": {
                   "description": "Specifies a comment to enforce above the group.",
