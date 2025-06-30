@@ -5,10 +5,6 @@
       "allowAllPropertiesOnSameLine": {
         "type": "boolean",
         "default": false
-      },
-      "allowMultiplePropertiesPerLine": {
-        "type": "boolean",
-        "default": false
       }
     },
     "additionalProperties": false

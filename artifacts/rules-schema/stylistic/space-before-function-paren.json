@@ -34,6 +34,14 @@
               "never",
               "ignore"
             ]
+          },
+          "catch": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never",
+              "ignore"
+            ]
           }
         },
         "additionalProperties": false

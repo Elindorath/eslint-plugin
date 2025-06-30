@@ -85,6 +85,21 @@
                     ]
                   }
                 ]
+              },
+              "using": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "first",
+                      "off"
+                    ]
+                  }
+                ]
               }
             },
             "additionalProperties": false
