@@ -43,5 +43,10 @@
       matchPackageNames: ['ajv', '@sidvind/better-ajv-errors'],
       enabled: false,
     },
+    // Adjust changelog
+    {
+      matchPackageNames: ['typescript-eslint'],
+      changelogUrl: 'https://github.com/typescript-eslint/typescript-eslint/blob/{{{prettyNewVersion}}}/CHANGELOG.md',
+    },
   ],
 }
