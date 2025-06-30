@@ -68,7 +68,7 @@ __metadata:
     eslint-plugin-no-secrets: "npm:2.2.1"
     eslint-plugin-no-unsanitized: "npm:4.1.2"
     eslint-plugin-no-use-extend-native: "npm:0.7.2"
-    eslint-plugin-perfectionist: "npm:4.14.0"
+    eslint-plugin-perfectionist: "npm:4.15.0"
     eslint-plugin-promise: "npm:7.2.1"
     eslint-plugin-react: "npm:7.37.5"
     eslint-plugin-react-hooks: "npm:5.2.0"
@@ -934,14 +934,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.34.0, @typescript-eslint/types@npm:^8.33.1, @typescript-eslint/types@npm:^8.34.0":
+"@typescript-eslint/types@npm:8.34.0, @typescript-eslint/types@npm:^8.34.0":
   version: 8.34.0
   resolution: "@typescript-eslint/types@npm:8.34.0"
   checksum: 10c0/5d32b2ac03e4cbc1ac1777a53ee83d6d7887a783363bab4f0a6f7550a9e9df0254971cdf71e13b988e2215f2939e7592404856b8acb086ec63c4479c0225c742
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.35.0, @typescript-eslint/types@npm:^8.35.0":
+"@typescript-eslint/types@npm:8.35.0, @typescript-eslint/types@npm:^8.34.1, @typescript-eslint/types@npm:^8.35.0":
   version: 8.35.0
   resolution: "@typescript-eslint/types@npm:8.35.0"
   checksum: 10c0/a2711a932680805e83252b5d7c55ac30437bdc4d40c444606cf6ccb6ba23a682da015ec03c64635e77bf733f84d9bb76810bf4f7177fd3a660db8a2c8a05e845
@@ -1006,7 +1006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.34.0, @typescript-eslint/utils@npm:^8.26.1, @typescript-eslint/utils@npm:^8.33.1":
+"@typescript-eslint/utils@npm:8.34.0, @typescript-eslint/utils@npm:^8.26.1":
   version: 8.34.0
   resolution: "@typescript-eslint/utils@npm:8.34.0"
   dependencies:
@@ -1036,7 +1036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:^8.0.0":
+"@typescript-eslint/utils@npm:^8.0.0, @typescript-eslint/utils@npm:^8.34.1":
   version: 8.35.0
   resolution: "@typescript-eslint/utils@npm:8.35.0"
   dependencies:
@@ -3062,16 +3062,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-perfectionist@npm:4.14.0":
-  version: 4.14.0
-  resolution: "eslint-plugin-perfectionist@npm:4.14.0"
+"eslint-plugin-perfectionist@npm:4.15.0":
+  version: 4.15.0
+  resolution: "eslint-plugin-perfectionist@npm:4.15.0"
   dependencies:
-    "@typescript-eslint/types": "npm:^8.33.1"
-    "@typescript-eslint/utils": "npm:^8.33.1"
+    "@typescript-eslint/types": "npm:^8.34.1"
+    "@typescript-eslint/utils": "npm:^8.34.1"
     natural-orderby: "npm:^5.0.0"
   peerDependencies:
     eslint: ">=8.45.0"
-  checksum: 10c0/cda51f843b0da44f6a5c030a747ea52af22fe151f9e9d3ecb9a169dc1de9516e5d1578c0bad4f92f2395409dbda38d801dfadfbe74c22c12697fd1938f1dcf39
+  checksum: 10c0/e6fd86a083be063580bde3947e885b6f3a18b8c47a77874a64d0e22a54e6bafcb356bcc5f0c00634ea7ee1c8744757b3e6f2dc478f01e4874090ffc1aea9efa6
   languageName: node
   linkType: hard
 
