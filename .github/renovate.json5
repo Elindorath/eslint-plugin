@@ -6,6 +6,12 @@
   prConcurrentLimit: 0,
   packageRules: [
     {
+      matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
+      automerge: true,
+      automergeType: 'pr',
+      automergeStrategy: 'squash',
+    },
+    {
       matchPackageNames: ['ajv', '@sidvind/better-ajv-errors'],
       enabled: false,
     },
