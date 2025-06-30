@@ -296,5 +296,13 @@ export const importVanillaConfig = {
     'import-x/prefer-default-export': [OFF, {
       target: 'single',
     }],
+
+    /**
+     * Doesn't do anything as is, requires patterns to be configured
+     * TODO: Might be moved to a react specific config
+     */
+    'import-x/prefer-namespace-import': [ERROR, {
+      patterns: [],
+    }],
   },
 } as const satisfies Linter.Config
