@@ -4,13 +4,41 @@
   dependencyDashboard: true,
   prHourlyLimit: 0,
   prConcurrentLimit: 0,
+  labels: ['renovate'],
   packageRules: [
+    // Automerge
     {
       matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
       automerge: true,
       automergeType: 'pr',
       automergeStrategy: 'squash',
     },
+    // Labels
+    {
+      matchDepTypes: ['dependencies'],
+      addLabels: ['dependencies'],
+    },
+    {
+      matchDepTypes: ['devDependencies'],
+      addLabels: ['dev-dependencies'],
+    },
+    {
+      matchUpdateTypes: ['major'],
+      addLabels: ['major'],
+    },
+    {
+      matchUpdateTypes: ['minor'],
+      addLabels: ['minor'],
+    },
+    {
+      matchUpdateTypes: ['patch'],
+      addLabels: ['patch'],
+    },
+    {
+      matchUpdateTypes: ['pin', 'digest'],
+      addLabels: ['pin'],
+    },
+    // Disable
     {
       matchPackageNames: ['ajv', '@sidvind/better-ajv-errors'],
       enabled: false,
