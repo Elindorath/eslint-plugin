@@ -63,6 +63,21 @@
             },
             "nestedConditionalExpressions": {
               "type": "boolean"
+            },
+            "allowNodesInSpreadElement": {
+              "type": "object",
+              "properties": {
+                "ConditionalExpression": {
+                  "type": "boolean"
+                },
+                "LogicalExpression": {
+                  "type": "boolean"
+                },
+                "AwaitExpression": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
             }
           },
           "additionalProperties": false

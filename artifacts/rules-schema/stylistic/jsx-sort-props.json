@@ -27,13 +27,23 @@
         "type": "boolean"
       },
       "reservedFirst": {
-        "type": [
-          "array",
-          "boolean"
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "boolean"
+          }
         ]
       },
       "reservedLast": {
-        "type": "array"
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "locale": {
         "type": "string",

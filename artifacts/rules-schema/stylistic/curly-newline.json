@@ -551,60 +551,6 @@
               }
             ]
           },
-          "TSEnumBody": {
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "always",
-                  "never"
-                ]
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "multiline": {
-                    "type": "boolean"
-                  },
-                  "minElements": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "consistent": {
-                    "type": "boolean"
-                  }
-                },
-                "additionalProperties": false
-              }
-            ]
-          },
-          "TSInterfaceBody": {
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "always",
-                  "never"
-                ]
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "multiline": {
-                    "type": "boolean"
-                  },
-                  "minElements": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "consistent": {
-                    "type": "boolean"
-                  }
-                },
-                "additionalProperties": false
-              }
-            ]
-          },
           "TSModuleBlock": {
             "oneOf": [
               {

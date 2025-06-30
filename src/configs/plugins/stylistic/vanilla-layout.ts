@@ -106,7 +106,6 @@ export const stylisticVanillaLayoutConfig = {
     '@stylistic/curly-newline': [ERROR, 'always'],
     '@stylistic/dot-location': [ERROR, 'property'],
     '@stylistic/eol-last': [ERROR, 'always'],
-    '@stylistic/func-call-spacing': [ERROR, 'never'],
     '@stylistic/function-call-argument-newline': [ERROR, 'consistent'],
     '@stylistic/function-call-spacing': [ERROR, 'never'],
     '@stylistic/function-paren-newline': [ERROR, 'multiline-arguments'],
@@ -168,6 +167,7 @@ export const stylisticVanillaLayoutConfig = {
       VariableDeclarator: {
         const: 3,
         let: 2,
+        using: 'first',
         var: 2,
       },
       /* eslint-enable @typescript-eslint/naming-convention */
@@ -383,6 +383,14 @@ export const stylisticVanillaLayoutConfig = {
     }],
     '@stylistic/no-extra-parens': [ERROR, 'all', {
       // Configured value
+      allowNodesInSpreadElement: {
+        /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
+        AwaitExpression: true,
+        ConditionalExpression: true,
+        LogicalExpression: true,
+        /* eslint-enable @typescript-eslint/naming-convention */
+      },
+      // Configured value
       allowParensAfterCommentPattern: '@type',
       // Configured value
       conditionalAssign: true,
@@ -462,6 +470,12 @@ export const stylisticVanillaLayoutConfig = {
       ObjectExpression: { consistent: true },
       // Configured value
       ObjectPattern: { consistent: true },
+      // Configured value
+      TSEnumBody: { consistent: true },
+      // Configured value
+      TSInterfaceBody: { consistent: true },
+      // Configured value
+      TSTypeLiteral: { consistent: true },
       /* eslint-enable @typescript-eslint/naming-convention */
     }],
     '@stylistic/object-curly-spacing': [ERROR, 'always', {
@@ -511,11 +525,11 @@ export const stylisticVanillaLayoutConfig = {
       // Configured value
       { blankLine: 'always', next: 'return', prev: '*' },
       // Configured value
-      { blankLine: 'always', next: '*', prev: ['const', 'let', 'var'] },
+      { blankLine: 'always', next: '*', prev: ['const', 'let', 'var', 'using'] },
       // Configured value
-      { blankLine: 'always', next: ['const', 'let', 'var'], prev: ['*'] },
+      { blankLine: 'always', next: ['const', 'let', 'var', 'using'], prev: ['*'] },
       // Configured value
-      { blankLine: 'any', next: ['const', 'let', 'var'], prev: ['const', 'let', 'var'] },
+      { blankLine: 'any', next: ['const', 'let', 'var', 'using'], prev: ['const', 'let', 'var', 'using'] },
 
       /**
        * "block-like"
@@ -554,6 +568,7 @@ export const stylisticVanillaLayoutConfig = {
        * "throw"
        * "try"
        * "type"
+       * "using"
        * "var"
        * "while"
        * "with"
@@ -585,10 +600,12 @@ export const stylisticVanillaLayoutConfig = {
       classes: 'always',
       functions: 'always',
       keywords: 'always',
+      modules: 'always',
     }],
     '@stylistic/space-before-function-paren': [ERROR, {
       anonymous: 'always',
       asyncArrow: 'always',
+      catch: 'always',
       // Configured value
       named: 'never',
     }],
