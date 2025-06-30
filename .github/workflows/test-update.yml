@@ -3,7 +3,7 @@ run-name: Test ESLint plugin update
 on: [pull_request]
 jobs:
   test_update:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         id: checkout
