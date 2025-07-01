@@ -76,7 +76,7 @@
     "@types/eslint-plugin-security": "3.0.0",
     "@types/fs-extra": "11.0.4",
     "@types/json-schema": "7.0.15",
-    "@types/node": "24.0.8",
+    "@types/node": "24.0.10",
     "ajv": "6.12.6",
     "better-typescript-lib": "2.11.0",
     "case-anything": "3.1.2",
