@@ -1,6 +1,7 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
 import jsonParser from 'jsonc-eslint-parser'
 
+import { ERROR } from '../../../constants.ts'
 import { getRuleConfig } from '../../../utilities.ts'
 
 import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
@@ -31,7 +32,19 @@ export const json5LayoutConfig = {
     'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticVanillaLayoutConfig),
     'jsonc/indent': getRuleConfig('@stylistic/indent', stylisticVanillaLayoutConfig),
     'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticVanillaLayoutConfig),
-    'jsonc/object-curly-newline': getRuleConfig('@stylistic/object-curly-newline', stylisticVanillaLayoutConfig),
+    // Same configuration as the @stylistic/object-curly-newline rule but it diverged slightly
+    'jsonc/object-curly-newline': [ERROR, {
+      /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
+      // Configured value
+      ExportDeclaration: { consistent: true },
+      // Configured value
+      ImportDeclaration: { consistent: true },
+      // Configured value
+      ObjectExpression: { consistent: true },
+      // Configured value
+      ObjectPattern: { consistent: true },
+      /* eslint-enable @typescript-eslint/naming-convention */
+    }],
     'jsonc/object-curly-spacing': getRuleConfig('@stylistic/object-curly-spacing', stylisticVanillaLayoutConfig),
     'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticVanillaLayoutConfig),
     'jsonc/quote-props': getRuleConfig('@stylistic/quote-props', stylisticVanillaLayoutConfig),
