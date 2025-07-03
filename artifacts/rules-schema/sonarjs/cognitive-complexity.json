@@ -16,13 +16,6 @@
     },
     {
       "type": "string"
-    },
-    {
-      "type": "string",
-      "enum": [
-        "sonar-runtime",
-        "metric"
-      ]
     }
   ]
 }

@@ -53,7 +53,6 @@ export const sonarjsTypescriptConfig = {
     'sonarjs/no-ignored-return': [ERROR],
     'sonarjs/no-in-misuse': [ERROR],
     'sonarjs/no-incorrect-string-concat': [ERROR],
-    'sonarjs/no-invalid-await': [ERROR],
     'sonarjs/no-invalid-regexp': [ERROR],
     'sonarjs/no-misleading-array-reverse': [ERROR],
     'sonarjs/no-misleading-character-class': [ERROR],
