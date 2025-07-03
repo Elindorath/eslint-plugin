@@ -1,9 +1,1 @@
-[
-  {
-    "type": "string",
-    "enum": [
-      "sonar-runtime",
-      "metric"
-    ]
-  }
-]
+{}
