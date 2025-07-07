@@ -84,7 +84,7 @@ __metadata:
     globals: "npm:16.3.0"
     is-what: "npm:5.2.1"
     jiti: "npm:2.4.2"
-    json-diff-ts: "npm:4.6.3"
+    json-diff-ts: "npm:4.8.1"
     jsonc-eslint-parser: "npm:2.4.0"
     package-directory: "npm:8.1.0"
     read-package-up: "npm:11.0.0"
@@ -2533,18 +2533,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-toolkit@npm:^1.39.3":
-  version: 1.39.5
-  resolution: "es-toolkit@npm:1.39.5"
-  dependenciesMeta:
-    "@trivago/prettier-plugin-sort-imports@4.3.0":
-      unplugged: true
-    prettier-plugin-sort-re-exports@0.0.1:
-      unplugged: true
-  checksum: 10c0/4ab7ddee48832c1bb40e85f3095b998b0790b8c014af7d01a7096e46c0cfcef43b725abc8ac789d60d2ea372e067406ff936fd18446fa4d4c12cb803e08aa4e0
-  languageName: node
-  linkType: hard
-
 "esbuild@npm:~0.25.0":
   version: 0.25.4
   resolution: "esbuild@npm:0.25.4"
@@ -4484,12 +4472,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-diff-ts@npm:4.6.3":
-  version: 4.6.3
-  resolution: "json-diff-ts@npm:4.6.3"
-  dependencies:
-    es-toolkit: "npm:^1.39.3"
-  checksum: 10c0/e0ce04c9b5f3fabeb033b6dc52883e38cebf5314527c249e32339a11309ecc1c83248a4b5d764ed7700cbfcf0f3393edeee232ebd9eb4e2a4f549d61a4a1f89e
+"json-diff-ts@npm:4.8.1":
+  version: 4.8.1
+  resolution: "json-diff-ts@npm:4.8.1"
+  checksum: 10c0/cd8d870e9debe715f79764b814690dcf86a66f53c8f5e19796cc70207721c5a3e9c8f6c60fd369cc074944f83296a774a1a9aa1ae49cceb65e2a002979935dd5
   languageName: node
   linkType: hard
 
