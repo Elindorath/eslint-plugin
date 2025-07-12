@@ -1,19 +1,23 @@
 /* eslint-disable perfectionist/sort-modules, require-await -- Temporary disabled to avoid unnecessary noise */
 
-import { isObject } from 'is-what'
 import { diff } from 'json-diff-ts'
 
-import { getRuleIdFromName, getRuleNameFromId, isRuleIdFromPlugin } from './utilities/eslint.ts'
-import { objectEntries, objectKeys } from './utilities/object.ts'
-
-import type { Linter, Rule } from 'eslint'
-import type { IChange } from 'json-diff-ts'
-import type { JSONSchema4 } from 'json-schema'
-import type { Writable } from 'type-fest'
-
-import type { PluginChangesDescriptor, PluginConfigurationEntry, PluginDescriptor, PluginPrefix, RuleId, RuleName } from './types.ts'
 import { getPluginRulesMeta } from './getPluginsRulesMeta.ts'
 import { readPluginRuleSchemas } from './readPluginRuleSchemas.ts'
+import { getRuleIdFromName, getRuleNameFromId } from './utilities/eslint.ts'
+import { objectEntries, objectKeys } from './utilities/object.ts'
+
+import type { Rule } from 'eslint'
+import type { IChange } from 'json-diff-ts'
+import type { Writable } from 'type-fest'
+
+import type {
+  PluginChangesDescriptor,
+  PluginDescriptor,
+  PluginPrefix,
+  RuleId,
+  RuleName,
+} from './types.ts'
 
 
 export async function getPluginChangesDescriptors(pluginDescriptors: PluginDescriptor[]) {
@@ -158,118 +162,6 @@ async function getRuleConfigurationChanges(pluginDescriptor: PluginDescriptor) {
   }
 
   return pluginRuleSchemaChanges
-}
-
-function getRuleConfigurationChangesOld(pluginRules: { [key: RuleName]: Rule.RuleModule; }, configuredRuleSet: Set<RuleId>, configurationEntries: PluginConfigurationEntry[], pluginPrefix: string) {
-  for (const [, config] of configurationEntries) {
-    if (config.rules === undefined) {
-      continue
-    }
-
-    for (const [ruleId, ruleConfiguration] of objectEntries(config.rules)) {
-      if (!isRuleIdFromPlugin(ruleId as RuleId, pluginPrefix)) {
-        continue
-      }
-
-      const ruleName = getRuleNameFromId(ruleId as RuleId, pluginPrefix)
-
-      const schema = pluginRules[ruleName].meta?.schema
-
-      if (schema === undefined || schema === false) {
-        console.log(`Schema of rule ${ruleId} is ${schema}`)
-        continue
-      }
-
-      if (ruleConfiguration === undefined) {
-        console.log(`No configuration for rule ${ruleId}`)
-        continue
-      }
-
-      // if (pluginPrefix === 'perfectionist' && ruleName === 'sort-classes') {
-      //   console.log('SORT-CLASSES', JSON.stringify(pluginRules[ruleName].meta?.schema, undefined, 2))
-      // }
-
-      analyzeSchema(schema, ruleConfiguration, ruleId as RuleId, config.settings?.[pluginPrefix])
-    }
-  }
-
-  return []
-}
-
-function analyzeSchema(ruleSchema: JSONSchema4 | JSONSchema4[], ruleConfiguration: Linter.RuleEntry<unknown[]>, ruleId: RuleId, ruleSettings: unknown | undefined) {
-  const normalizedSchema = normalizeSchema(ruleSchema, ruleId)
-
-  console.log(`RULE ID: ${ruleId}`)
-  console.log(JSON.stringify(normalizedSchema, undefined, 2))
-
-  if (normalizedSchema.type === 'object') {
-    if (!Array.isArray(ruleConfiguration)) {
-      console.log(`Rule configuration is not an array for rule ${ruleId}`)
-
-      return
-    }
-
-    const [, ruleConfigurationWithoutSeverity] = ruleConfiguration
-
-    if (ruleConfigurationWithoutSeverity === undefined) {
-      return ruleId
-    }
-
-    if (isObject(ruleConfigurationWithoutSeverity)) {
-      const normalizedSchemaProperties = new Set(objectKeys(normalizedSchema.properties ?? {}))
-      const ruleConfigurationProperties = new Set(objectKeys(ruleConfigurationWithoutSeverity))
-      const settingsProperties = new Set(objectKeys(ruleSettings ?? {}))
-      const allProperties = new Set([...ruleConfigurationProperties, ...settingsProperties])
-
-      const possiblyMissingProperties = normalizedSchemaProperties.difference(ruleConfigurationProperties)
-      const missingProperties = possiblyMissingProperties.size > 0 ? normalizedSchemaProperties.difference(allProperties) : possiblyMissingProperties
-
-      const extraProperties = ruleConfigurationProperties.difference(normalizedSchemaProperties)
-
-      console.log(`All properties: ${[...allProperties].join(', ')}`)
-
-      console.log(`Missing properties: ${[...missingProperties].join(', ')}`)
-      console.log(`Extra properties: ${[...extraProperties].join(', ')}`)
-    }
-  } else {
-    console.log(`Schema is not an object for rule ${ruleId}`)
-  }
-}
-
-function normalizeSchema(schema: JSONSchema4 | JSONSchema4[], ruleId: RuleId): JSONSchema4 {
-  if (Array.isArray(schema)) {
-    if (schema.length > 1) {
-      throw new Error(`Schema array of more than 1 item is not supported (${schema.length} items for rule ${ruleId})`)
-    }
-
-    console.log(`SCHEMA ARRAY ${ruleId}`)
-
-    return schema[0]
-  }
-
-  if (Array.isArray(schema.items)) {
-    if (schema.items.length > 1) {
-      throw new Error(`Schema items of more than 1 item is not supported (${schema.items.length} items for rule ${ruleId})`)
-    }
-
-    console.log(`SCHEMA ITEMS ${ruleId}`)
-
-    return schema.items[0]
-  }
-
-  if (schema.type === 'array') {
-    if (schema.items === undefined) {
-      throw new Error(`Schema items is undefined for rule ${ruleId}`)
-    }
-
-    console.log(`SCHEMA OBJECT ITEMS ${ruleId}`)
-
-    return schema.items
-  }
-
-  console.log(`SCHEMA OBJECT ${ruleId}`)
-
-  return schema
 }
 
 function asWritableArray<T>(readonlyArray?: readonly T[]): Writable<T[]> | undefined {
