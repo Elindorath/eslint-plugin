@@ -38,9 +38,7 @@ export async function getPluginDescriptors(pluginNames: PluginName[]) {
   const promises: Array<Promise<PluginDescriptor>> = []
 
   for (const pluginName of pluginNames) {
-    // if (pluginName === 'perfectionist') {
-      promises.push(getPluginDescriptor(pluginName))
-    // }
+    promises.push(getPluginDescriptor(pluginName))
   }
 
   return Promise.all(promises)

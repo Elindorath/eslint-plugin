@@ -3,11 +3,12 @@
 import type { URL } from 'node:url'
 
 import type { ESLint, Linter } from 'eslint'
+import type { IChange } from 'json-diff-ts'
 import type { JSONSchema4 } from 'json-schema'
 import type { SetRequired/* , Tagged */ } from 'type-fest'
-import type { IChange } from 'json-diff-ts'
 
 type Config = {
+  jsonIndentationSpacesCount: number;
   pluginConfigurationsDirectoryUrl: URL;
   pluginRulesSchemaDirectoryUrl: URL;
 }
@@ -40,6 +41,10 @@ type PluginPrefix = string
 // type PluginFilename = Tagged<string, 'PluginFilename'>
 // type PluginPrefix = Tagged<string, 'PluginPrefix'>
 
+type PluginRuleSchemaDescriptor = {
+  pluginName: PluginName;
+  ruleSchemaEntries: RuleSchemaEntry[];
+}
 type PluginRulesMeta = { [key: RuleName]: RuleSchema; }
 type RuleId = `${PluginPrefix}/${RuleName}`
 
@@ -47,10 +52,6 @@ type RuleName = string
 
 type RuleSchema = false | JSONSchema4 | JSONSchema4[] | undefined
 type RuleSchemaEntry = [RuleName, RuleSchema]
-type PluginRuleSchemaDescriptor = {
-  pluginName: PluginName;
-  ruleSchemaEntries: RuleSchemaEntry[];
-}
 
 export type {
   Config,

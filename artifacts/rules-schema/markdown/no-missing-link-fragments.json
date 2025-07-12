@@ -3,12 +3,10 @@
     "type": "object",
     "properties": {
       "ignoreCase": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "allowPattern": {
-        "type": "string",
-        "default": ""
+        "type": "string"
       }
     },
     "additionalProperties": false

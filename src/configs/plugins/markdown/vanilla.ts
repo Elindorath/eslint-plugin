@@ -32,7 +32,11 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-duplicate-headings': [ERROR, {
       checkSiblingsOnly: false,
     }],
-    '@eslint/markdown/no-empty-definitions': [ERROR],
+    '@eslint/markdown/no-empty-definitions': [ERROR, {
+      allowDefinitions: ['//'],
+      allowFootnoteDefinitions: [],
+      checkFootnoteDefinitions: true,
+    }],
     '@eslint/markdown/no-empty-images': [ERROR],
     '@eslint/markdown/no-empty-links': [ERROR],
     '@eslint/markdown/no-html': [ERROR, {
@@ -43,6 +47,7 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-missing-label-refs': [ERROR],
     '@eslint/markdown/no-missing-link-fragments': [ERROR, {
       allowPattern: '',
+      // Configured value
       ignoreCase: false,
     }],
     '@eslint/markdown/no-multiple-h1': [ERROR, {
@@ -50,6 +55,10 @@ export const markdownVanillaConfig = {
       frontmatterTitle: '',
     }],
     '@eslint/markdown/no-reversed-media-syntax': [ERROR],
+    '@eslint/markdown/no-unused-definitions': [ERROR, {
+      allowDefinitions: ['//'],
+      allowFootnoteDefinitions: [],
+    }],
     '@eslint/markdown/require-alt-text': [ERROR],
     '@eslint/markdown/table-column-count': [ERROR],
   },

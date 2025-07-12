@@ -2,6 +2,7 @@
 
 /* eslint-disable max-statements, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
+import { config } from './config.ts'
 import { objectEntries, objectKeys } from './utilities/object.ts'
 
 import type { IChange } from 'json-diff-ts'
@@ -87,7 +88,7 @@ function displayRuleChanges(changes: IChange[]) {
 }
 
 function displayRuleChange(change: IChange) {
-  const changeAsJsonStrings = JSON.stringify(change, undefined, 2).split('\n')
+  const changeAsJsonStrings = JSON.stringify(change, undefined, config.jsonIndentationSpacesCount).split('\n')
 
   for (const changeAsJsonString of changeAsJsonStrings) {
     console.log(`      ${changeAsJsonString}`)
