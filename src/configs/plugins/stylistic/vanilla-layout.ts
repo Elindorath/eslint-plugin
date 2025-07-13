@@ -20,7 +20,7 @@ export const stylisticVanillaLayoutConfig = {
   },
 
   /**
-   * This plugin is a combination of 4 different plugins:
+   * This plugin was a combination of 4 different plugins:
    *   - @stylistic/eslint-plugin-js
    *   - @stylistic/eslint-plugin-ts
    *   - @stylistic/eslint-plugin-jsx
@@ -691,6 +691,9 @@ definePluginConfig({
   plugins: { coucou: stylisticPlugin },
   rules: {
     'coucou/toi': [ERROR],
+    'coucou/yield-star-spacing': [ERROR, {
+      afte: true,
+    }],
   },
 } as const)
 
