@@ -50,6 +50,7 @@ const CONFIG_MERGER = {
   // name: mergeNames,
   files: mergeFiles,
   ignores: mergeIgnores,
+  language: mergeLanguage,
   languageOptions: mergeLanguageOptions,
 
   /* TODO: implement this */
@@ -75,6 +76,9 @@ function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
               return [property, merger(config1[property], config2[property])] as const
             }
             case 'ignores': {
+              return [property, merger(config1[property], config2[property])] as const
+            }
+            case 'language': {
               return [property, merger(config1[property], config2[property])] as const
             }
             case 'languageOptions': {
@@ -118,6 +122,22 @@ function mergeIgnores(ignores1: Linter.Config['ignores'] = [], ignores2: Linter.
     ...ignores1,
     ...ignores2,
   ]
+}
+
+function mergeLanguage(language1: Linter.Config['language'], language2: Linter.Config['language']) {
+  if (language1 === language2) {
+    return language1
+  }
+
+  if (language1 === undefined) {
+    return language2
+  }
+
+  if (language2 === undefined) {
+    return language1
+  }
+
+  throw new Error(`Two different languages were provided: ${language1} and ${language2}`)
 }
 
 const LANGUAGE_OPTIONS_MERGER = {

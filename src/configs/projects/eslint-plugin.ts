@@ -4,6 +4,7 @@ import { getRuleConfig } from '../../utilities.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
+import { overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overridePackageJsonConfig } from '../overrides/package-json.ts'
 import { overrideScriptsConfig } from '../overrides/scripts.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
@@ -85,4 +86,5 @@ export const projectEslintPluginConfig = [
   overrideEslintConfig,
   overridePackageJsonConfig,
   overrideScriptsConfig,
+  overrideMarkdownConfig,
 ] as const satisfies Linter.Config[]

@@ -6,6 +6,7 @@ import { ERROR, OFF } from '../../constants.ts'
 import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
+import { overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overrideWebpackConfig } from '../overrides/webpack-config.ts'
 import { importBrowserConfig } from '../plugins/import-x/environment-browser.ts'
 import { typescriptReactConfig } from '../plugins/typescript-eslint/syntax-typescript&library-react.ts'
@@ -70,5 +71,6 @@ export const projectReactConfig = [
   },
   overrideEslintConfig,
   overrideJestTestsConfig,
+  overrideMarkdownConfig,
   ...overrideWebpackConfig,
 ]

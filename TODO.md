@@ -4,7 +4,7 @@
 - [ ] Make a utility function to change only a subset of options of an already defined rule
 - [ ] Consider the changes required in [staycation/mobile-app](https://github.com/staycation/mobile-app)
 - [ ] Handle tsconfig.json & associates
-- [ ] Handle markdown
+- [x] Handle markdown
 - [x] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
 - [x] Flag non-default configuration values instead of the default one
 - [ ] Write missing rules for ESLint from [wotan](https://github.com/fimbullinter/wotan)

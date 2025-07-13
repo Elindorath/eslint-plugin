@@ -14,6 +14,11 @@ export const markdownVanillaConfig = {
     '@eslint/markdown': markdownPlugin,
   },
 
+  /* ----- Language ----- */
+  language: '@eslint/markdown/gfm',
+
+  processor: '@eslint/markdown/markdown',
+
   rules: {
     '@eslint/markdown/fenced-code-language': [ERROR, {
       required: [],
