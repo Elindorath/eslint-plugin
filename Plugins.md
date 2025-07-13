@@ -79,6 +79,7 @@
 | [@html-eslint/eslint-plugin][@html-eslint]                   |                                                    |
 | [eslint-plugin-zod][zod]                                     |                                                    |
 | [@eslint-react/eslint-plugin][@eslint-react]                 | As a replacement of eslint-plugin-react            |
+| [eslint-plugin-jsx-a11y-x][jsx-a11y-x]                       | As a replacement of eslint-plugin-jsx-a11y         |
 | [@next/eslint-plugin-next][@next/next]                       |                                                    |
 | [@tanstack/eslint-plugin-query][@tanstack/query]             |                                                    |
 | [eslint-plugin-expo][expo]                                   |                                                    |
@@ -190,6 +191,7 @@
 [@html-eslint]: https://github.com/yeonjuan/html-eslint
 [zod]: https://github.com/gajus/eslint-plugin-zod
 [@eslint-react]: https://github.com/Rel1cx/eslint-react
+[jsx-a11y-x]: https://github.com/es-tooling/eslint-plugin-jsx-a11y-x
 [@next/next]: https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin
 [@tanstack/query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
 [expo]: https://github.com/expo/expo/tree/main/packages/eslint-plugin-expo

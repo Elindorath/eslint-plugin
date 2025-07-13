@@ -5,7 +5,7 @@
 - [ ] Consider the changes required in [staycation/mobile-app](https://github.com/staycation/mobile-app)
 - [ ] Handle tsconfig.json & associates
 - [ ] Handle markdown
-- [ ] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
+- [x] Make a function that can show a diff of the rules of a currently plugin version installed and a new one
 - [x] Flag non-default configuration values instead of the default one
 - [ ] Write missing rules for ESLint from [wotan](https://github.com/fimbullinter/wotan)
 - [ ] Develop a typescript error formatter
@@ -18,14 +18,14 @@
   - [ ] <https://github.com/semantic-release/semantic-release>
   - [ ] <https://github.com/googleapis/release-please>
   - [ ] <https://github.com/coderaiser/putout>
-  - [ ] [better-typescript-lib](https://github.com/uhyo/better-typescript-lib)
+  - [x] [better-typescript-lib](https://github.com/uhyo/better-typescript-lib)
   - [ ] [lint-to-the-future](https://github.com/mansona/lint-to-the-future)
   - [ ] [n8n](https://github.com/n8n-io/n8n) (with its [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-n8n-nodes-base))
   - [x] <https://github.com/readmeio/better-ajv-errors>, <https://github.com/ext/better-ajv-errors> or <https://github.com/grantila/awesome-ajv-errors> to enhanced schema validation errors output
   - [x] <https://dprint.dev/> This tool is promising but it is in a too early stage, it misses a lot of configuration options.
 - [ ] Find a proper way to:
-  - [ ] Detect new rules or changes in rules in new dependencies version (running weekly)
-  - [ ] Automatically merge new dependencies version that doesn't change the config
+  - [x] Detect new rules or changes in rules in new dependencies version (running weekly)
+  - [x] Automatically merge new dependencies version that doesn't change the config
   - [ ] Expose an easy way to describe a project structure in order to apply the right rules to the right files
   - [ ] Run CSpell check in CI <https://cspell.org/docs/installation/>
   - [ ] Write an eslint rule to enforce css properties ordering
