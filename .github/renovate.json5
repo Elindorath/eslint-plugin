@@ -48,5 +48,10 @@
       matchPackageNames: ['typescript-eslint'],
       changelogUrl: 'https://github.com/typescript-eslint/typescript-eslint/blob/{{{prettyNewVersion}}}/CHANGELOG.md',
     },
+    // Prevent holding broken npm packages
+    {
+      matchDatasources: ['npm'],
+      minimumReleaseAge: '3 days',
+    },
   ],
 }
