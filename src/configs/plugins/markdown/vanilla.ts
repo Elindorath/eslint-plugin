@@ -65,6 +65,8 @@ export const markdownVanillaConfig = {
       allowFootnoteDefinitions: [],
     }],
     '@eslint/markdown/require-alt-text': [ERROR],
-    '@eslint/markdown/table-column-count': [ERROR],
+    '@eslint/markdown/table-column-count': [ERROR, {
+      checkMissingCells: true,
+    }],
   },
 } as const satisfies Linter.Config
