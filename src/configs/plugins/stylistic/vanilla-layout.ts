@@ -149,11 +149,15 @@ export const stylisticVanillaLayoutConfig = {
         body: 1,
         // Configured value
         parameters: 'first',
+        // Configured value
+        returnType: 0,
       },
       FunctionExpression: {
         body: 1,
         // Configured value
         parameters: 'first',
+        // Configured value
+        returnType: 0,
       },
       ImportDeclaration: 1,
       MemberExpression: 1,

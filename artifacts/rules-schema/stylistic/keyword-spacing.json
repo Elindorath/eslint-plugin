@@ -721,6 +721,18 @@
             },
             "additionalProperties": false
           },
+          "accessor": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "as": {
             "type": "object",
             "properties": {

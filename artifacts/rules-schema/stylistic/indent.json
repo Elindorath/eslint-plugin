@@ -155,6 +155,10 @@
           "body": {
             "type": "integer",
             "minimum": 0
+          },
+          "returnType": {
+            "type": "integer",
+            "minimum": 0
           }
         },
         "additionalProperties": false
@@ -178,6 +182,10 @@
             ]
           },
           "body": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "returnType": {
             "type": "integer",
             "minimum": 0
           }
