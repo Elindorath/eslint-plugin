@@ -78,6 +78,10 @@ export const unicornVanillaConfig = {
     'unicorn/no-array-reduce': [OFF, {
       allowSimpleOperations: true,
     }],
+    'unicorn/no-array-reverse': [ERROR, {
+      // Configured value
+      allowExpressionStatement: false,
+    }],
     'unicorn/no-await-expression-member': [ERROR],
     'unicorn/no-await-in-promise-methods': [ERROR],
     'unicorn/no-console-spaces': [ERROR],
@@ -141,6 +145,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-unreadable-array-destructuring': [ERROR],
     'unicorn/no-unreadable-iife': [ERROR],
     'unicorn/no-unused-properties': [ERROR],
+    'unicorn/no-useless-error-capture-stack-trace': [ERROR],
     'unicorn/no-useless-fallback-in-spread': [ERROR],
     'unicorn/no-useless-length-check': [ERROR],
     'unicorn/no-useless-promise-resolve-reject': [ERROR],
@@ -202,6 +207,7 @@ export const unicornVanillaConfig = {
       checkAllIndexAccess: false,
       getLastElementFunctions: [],
     }],
+    'unicorn/prefer-class-fields': [ERROR],
     'unicorn/prefer-code-point': [ERROR],
     'unicorn/prefer-date-now': [ERROR],
     'unicorn/prefer-default-parameters': [ERROR],
@@ -283,6 +289,7 @@ export const unicornVanillaConfig = {
     // TODO: Testing the 'never' option, but we might find it clearer to use 'always' instead
     'unicorn/relative-url-style': [ERROR, 'never'],
     'unicorn/require-array-join-separator': [ERROR],
+    'unicorn/require-module-specifiers': [ERROR],
     'unicorn/require-number-to-fixed-digits-argument': [ERROR],
     // TODO: Should be configured with commonly used patterns
     'unicorn/string-content': [ERROR, {
