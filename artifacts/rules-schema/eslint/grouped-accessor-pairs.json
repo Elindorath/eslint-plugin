@@ -5,5 +5,14 @@
       "getBeforeSet",
       "setBeforeGet"
     ]
+  },
+  {
+    "type": "object",
+    "properties": {
+      "enforceForTSTypes": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
   }
 ]
