@@ -1,0 +1,44 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "PascalCase",
+          "camelCase",
+          "kebab-case",
+          "snake_case"
+        ]
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "excepts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "regex"
+            }
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "rule": {
+            "type": "string",
+            "enum": [
+              "PascalCase",
+              "camelCase",
+              "kebab-case",
+              "snake_case"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

@@ -55,7 +55,8 @@ export const reactConfig = {
       rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
       validateNested: false,
     }],
-    'react/button-has-type': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/dom/no-missing-button-type rule
+    'react/button-has-type': [OFF, {
       button: true,
       reset: true,
       submit: true,
@@ -67,12 +68,14 @@ export const reactConfig = {
     'react/default-props-match-prop-types': [ERROR, {
       allowRequiredDefaults: false,
     }],
-    'react/destructuring-assignment': [ERROR, 'always', {
+    // OFF as it is replaced by the @eslint-react/prefer-destructuring-assignment rule
+    'react/destructuring-assignment': [OFF, 'always', {
       // Configured value
       destructureInSignature: 'always',
       ignoreClassFields: false,
     }],
-    'react/display-name': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-missing-component-display-name rule
+    'react/display-name': [OFF, {
       ignoreTranspilerName: false,
       // Configured value
       checkContextObjects: true,
@@ -106,40 +109,62 @@ export const reactConfig = {
     'react/forbid-foreign-prop-types': [ERROR, {
       allowInPropTypes: false,
     }],
-    'react/forbid-prop-types': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/forbid-prop-types': [OFF, {
       // Configured value
       checkChildContextTypes: true,
       // Configured value
       checkContextTypes: true,
       forbid: ['any', 'array', 'object'],
     }],
-    'react/forward-ref-uses-ref': [ERROR],
+    // OFF as it is replaced by the @eslint-react/no-useless-forward-ref rule
+    'react/forward-ref-uses-ref': [OFF],
     'react/function-component-definition': [ERROR, {
       // Configured value
       namedComponents: FUNCTION_TYPE.ARROW,
       // Configured value
       unnamedComponents: FUNCTION_TYPE.ARROW,
     }],
-    'react/hook-use-state': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/naming-convention/use-state rule
+    'react/hook-use-state': [OFF, {
       allowDestructuredState: false,
     }],
-    'react/iframe-missing-sandbox': [ERROR],
-    'react/no-access-state-in-setstate': [ERROR],
+    // OFF as it is replaced by the @eslint-react/dom/no-missing-iframe-sandbox rule
+    'react/iframe-missing-sandbox': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-access-state-in-setstate rule
+    'react/no-access-state-in-setstate': [OFF],
     'react/no-adjacent-inline-elements': [ERROR],
-    'react/no-array-index-key': [ERROR],
+    // OFF as it is replaced by the @eslint-react/no-array-index-key rule
+    'react/no-array-index-key': [OFF],
     'react/no-arrow-function-lifecycle': [ERROR],
-    'react/no-children-prop': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-children-prop rule
+    'react/no-children-prop': [OFF, {
       allowFunctions: false,
     }],
-    'react/no-danger': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/dom/no-dangerously-set-innerhtml rule
+    'react/no-danger': [OFF, {
       customComponentNames: [],
     }],
-    'react/no-danger-with-children': [ERROR],
-    'react/no-deprecated': [ERROR],
-    'react/no-did-mount-set-state': [ERROR, DISALLOW_IN_FUNC],
-    'react/no-did-update-set-state': [ERROR, DISALLOW_IN_FUNC],
-    'react/no-direct-mutation-state': [ERROR],
-    'react/no-find-dom-node': [ERROR],
+    // OFF as it is replaced by the @eslint-react/dom/no-dangerously-set-innerhtml-with-children rule
+    'react/no-danger-with-children': [OFF],
+
+    /**
+     * OFF as it is replaced by the following rules:
+     * - @eslint-react/no-component-will-mount
+     * - @eslint-react/no-component-will-receive-props
+     * - @eslint-react/no-component-will-update
+     * - @eslint-react/no-create-ref
+     * - @eslint-react/no-forward-ref
+     */
+    'react/no-deprecated': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-set-state-in-component-did-mount rule
+    'react/no-did-mount-set-state': [OFF, DISALLOW_IN_FUNC],
+    // OFF as it is replaced by the @eslint-react/no-set-state-in-component-did-update rule
+    'react/no-did-update-set-state': [OFF, DISALLOW_IN_FUNC],
+    // OFF as it is replaced by the @eslint-react/no-direct-mutation-state rule
+    'react/no-direct-mutation-state': [OFF],
+    // OFF as it is replaced by the @eslint-react/dom/no-find-dom-node rule
+    'react/no-find-dom-node': [OFF],
     'react/no-invalid-html-attribute': [ERROR, ['rel']],
     'react/no-is-mounted': [ERROR],
 
@@ -151,13 +176,18 @@ export const reactConfig = {
     'react/no-multi-comp': [ERROR, {
       ignoreStateless: false,
     }],
-    'react/no-namespace': [ERROR],
-    'react/no-object-type-as-default-prop': [ERROR],
-    'react/no-redundant-should-component-update': [ERROR],
-    'react/no-render-return-value': [ERROR],
+    // OFF as it is replaced by the @eslint-react/dom/no-namespace rule
+    'react/no-namespace': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-unstable-default-props rule
+    'react/no-object-type-as-default-prop': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-redundant-should-component-update rule
+    'react/no-redundant-should-component-update': [OFF],
+    // OFF as it is replaced by the @eslint-react/dom/no-render-return-value rule
+    'react/no-render-return-value': [OFF],
     // OFF as we use (even enforce) local component state
     'react/no-set-state': [OFF],
-    'react/no-string-refs': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-string-refs rule
+    'react/no-string-refs': [OFF, {
       // Configured value
       noTemplateLiterals: true,
     }],
@@ -185,40 +215,57 @@ export const reactConfig = {
         },
       ],
     }],
-    'react/no-unknown-property': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/dom/no-unknown-property rule
+    'react/no-unknown-property': [OFF, {
       ignore: [],
     }],
-    'react/no-unsafe': [ERROR, {
+
+    /**
+     * OFF as it is replaced by the following rules:
+     * - @eslint-react/no-unsafe-component-will-mount
+     * - @eslint-react/no-unsafe-component-will-receive-props
+     * - @eslint-react/no-unsafe-component-will-update
+     */
+    'react/no-unsafe': [OFF, {
       // Configured value
       checkAliases: true,
     }],
-    'react/no-unstable-nested-components': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-nested-component-definitions rule
+    'react/no-unstable-nested-components': [OFF, {
       allowAsProps: false,
       customValidators: [],
     }],
-    'react/no-unused-class-component-methods': [ERROR],
-    'react/no-unused-prop-types': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-unused-class-component-members rule
+    'react/no-unused-class-component-methods': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/no-unused-prop-types': [OFF, {
       customValidators: [],
       ignore: [],
       skipShapeProps: true,
     }],
-    'react/no-unused-state': [ERROR],
-    'react/no-will-update-set-state': [ERROR, DISALLOW_IN_FUNC],
-    'react/prefer-es6-class': [ERROR, 'always'],
-    // TODO: Might not work properly with Typescript, need testing
-    'react/prefer-exact-props': [ERROR],
-    'react/prefer-read-only-props': [ERROR],
+    // OFF as it is replaced by the @eslint-react/no-unused-state rule
+    'react/no-unused-state': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-set-state-in-component-will-update rule
+    'react/no-will-update-set-state': [OFF, DISALLOW_IN_FUNC],
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/prefer-es6-class': [OFF, 'always'],
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/prefer-exact-props': [OFF],
+    // OFF as it is replaced by the @eslint-react/prefer-read-only-props rule
+    'react/prefer-read-only-props': [OFF],
     'react/prefer-stateless-function': [ERROR, {
       ignorePureComponents: false,
     }],
-    'react/prop-types': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/prop-types': [OFF, {
       customValidators: [],
       ignore: [],
       skipUndeclared: false,
     }],
     // OFF as we use the JSX transform from React 17
     'react/react-in-jsx-scope': [OFF],
-    'react/require-default-props': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/require-default-props': [OFF, {
       classes: 'defaultProps',
       // Configured value
       forbidDefaultForRequired: true,
@@ -231,7 +278,8 @@ export const reactConfig = {
       allowDecorators: [],
     }],
     'react/require-render-return': [ERROR],
-    'react/self-closing-comp': [ERROR, {
+    // OFF as it is replaced by the @stylistic/jsx-self-closing-comp rule
+    'react/self-closing-comp': [OFF, {
       component: true,
       html: true,
     }],
@@ -258,11 +306,13 @@ export const reactConfig = {
         'everything-else',
       ],
     }],
-    'react/sort-default-props': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/sort-default-props': [OFF, {
       // Configured value
       ignoreCase: true,
     }],
-    'react/sort-prop-types': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-prop-types rule
+    'react/sort-prop-types': [OFF, {
       // Configured value
       callbacksLast: true,
       // Configured value
@@ -292,6 +342,7 @@ export const reactConfig = {
     'react/style-prop-object': [ERROR, {
       allow: [],
     }],
-    'react/void-dom-elements-no-children': [ERROR],
+    // OFF as it is replaced by the @eslint-react/dom/no-void-elements-with-children rule
+    'react/void-dom-elements-no-children': [OFF],
   },
 } as const satisfies Linter.Config

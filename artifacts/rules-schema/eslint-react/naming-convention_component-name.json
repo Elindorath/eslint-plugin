@@ -1,0 +1,42 @@
+[
+  {
+    "anyOf": [
+      {
+        "type": "string",
+        "enum": [
+          "PascalCase",
+          "CONSTANT_CASE"
+        ]
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "allowAllCaps": {
+            "type": "boolean"
+          },
+          "allowLeadingUnderscore": {
+            "type": "boolean"
+          },
+          "allowNamespace": {
+            "type": "boolean"
+          },
+          "excepts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "regex"
+            }
+          },
+          "rule": {
+            "type": "string",
+            "enum": [
+              "PascalCase",
+              "CONSTANT_CASE"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

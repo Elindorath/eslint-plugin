@@ -1,0 +1,18 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "requireDataLowercase": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  }
+]
