@@ -47,6 +47,7 @@
   },
   {
     "type": "object",
+    "additionalProperties": false,
     "properties": {
       "enforceForDeclarationWithTypeAnnotation": {
         "type": "boolean",

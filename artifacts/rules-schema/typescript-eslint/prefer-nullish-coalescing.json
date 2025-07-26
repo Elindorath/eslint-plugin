@@ -28,6 +28,7 @@
         "oneOf": [
           {
             "type": "object",
+            "additionalProperties": false,
             "description": "Which primitives types may be ignored.",
             "properties": {
               "bigint": {
