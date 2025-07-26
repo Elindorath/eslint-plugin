@@ -49,6 +49,7 @@ export const reactConfig = {
 
   /* ----- Rules ----- */
   rules: {
+    // OFF as it is replaced by the @eslint-react/jsx-shorthand-boolean and @eslint-react/avoid-shorthand-boolean rules
     'react/jsx-boolean-value': [OFF, 'never'],
     'react/jsx-child-element-spacing': [OFF],
     'react/jsx-closing-bracket-location': [OFF, {
@@ -85,6 +86,7 @@ export const reactConfig = {
       when: 'never',
     }],
     'react/jsx-equals-spacing': [OFF, 'never'],
+    // OFF as it is replaced by the @eslint-react/naming-convention/filename-extension rule
     'react/jsx-filename-extension': [OFF, {
       // Configured value
       allow: 'as-needed',
@@ -92,6 +94,7 @@ export const reactConfig = {
       extensions: ['.jsx', '.tsx'],
     }],
     'react/jsx-first-prop-new-line': [OFF, 'multiline'],
+    // OFF as it is replaced by the @eslint-react/jsx-shorthand-fragment and @eslint-react/avoid-shorthand-fragment rules
     'react/jsx-fragments': [OFF, 'syntax'],
     'react/jsx-handler-names': [OFF, {
       // Configured value
@@ -112,7 +115,8 @@ export const reactConfig = {
       // Configured value
       indentMode: 'first',
     }],
-    'react/jsx-key': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-missing-key rule
+    'react/jsx-key': [OFF, {
       // Configured value
       checkFragmentShorthand: true,
       // Configured value
@@ -142,13 +146,17 @@ export const reactConfig = {
       ignoreDOMComponents: false,
       ignoreRefs: false,
     }],
-    'react/jsx-no-comment-textnodes': [ERROR],
-    'react/jsx-no-constructed-context-values': [ERROR],
-    'react/jsx-no-duplicate-props': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/jsx-no-comment-textnodes and @eslint-react/no-comment-textnodes rules
+    'react/jsx-no-comment-textnodes': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-unstable-context-value rule
+    'react/jsx-no-constructed-context-values': [OFF],
+    // OFF as it is replaced by the @eslint-react/no-duplicate-jsx-props rule
+    'react/jsx-no-duplicate-props': [OFF, {
       // Configured value
       ignoreCase: true,
     }],
-    'react/jsx-no-leaked-render': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-leaked-conditional-rendering rule
+    'react/jsx-no-leaked-render': [OFF, {
       validStrategies: ['ternary', 'coerce'],
     }],
     'react/jsx-no-literals': [OFF, {
@@ -159,8 +167,10 @@ export const reactConfig = {
       // Configured value
       noStrings: true,
     }],
-    'react/jsx-no-script-url': [ERROR],
-    'react/jsx-no-target-blank': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/dom/no-script-url rule
+    'react/jsx-no-script-url': [OFF],
+    // OFF as it is replaced by the @eslint-react/dom/no-unsafe-target-blank rule
+    'react/jsx-no-target-blank': [OFF, {
       allowReferrer: false,
       enforceDynamicLinks: 'always',
       // Configured value
@@ -169,16 +179,20 @@ export const reactConfig = {
       // Configured value
       warnOnSpreadAttributes: true,
     }],
-    'react/jsx-no-undef': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/jsx-no-undef rule
+    'react/jsx-no-undef': [OFF, {
       allowGlobals: false,
     }],
-    'react/jsx-no-useless-fragment': [ERROR, {
+    // OFF as it is replaced by the @eslint-react/no-useless-fragment rule
+    'react/jsx-no-useless-fragment': [OFF, {
       // TODO: might be turned to true in Typescript context
       allowExpressions: false,
     }],
+    // OFF as it is replaced by the @stylistic/jsx-one-expression-per-line rule
     'react/jsx-one-expression-per-line': [OFF, {
       allow: 'none',
     }],
+    // OFF as it is replaced by the @eslint-react/naming-convention/component-name rule
     'react/jsx-pascal-case': [OFF, {
       allowAllCaps: false,
       allowLeadingUnderscore: false,
@@ -186,6 +200,7 @@ export const reactConfig = {
       allowNamespace: true,
       ignore: [],
     }],
+    // OFF as it is replaced by the @stylistic/jsx-props-no-multi-spaces rule
     'react/jsx-props-no-multi-spaces': [OFF],
     'react/jsx-props-no-spread-multi': [ERROR],
     // OFF as it doesn't allow HOC
@@ -195,6 +210,7 @@ export const reactConfig = {
       explicitSpread: 'enforce',
       html: 'enforce',
     }],
+    // OFF as it is replaced by the @stylistic/jsx-sort-props rule
     'react/jsx-sort-props': [OFF, {
       // Configured value
       callbacksLast: true,
@@ -209,6 +225,7 @@ export const reactConfig = {
       shorthandFirst: true,
       shorthandLast: false,
     }],
+    // OFF as it is replaced by the @stylistic/jsx-tag-spacing rule
     'react/jsx-tag-spacing': [OFF, {
       afterOpening: 'never',
       // Configured value
@@ -216,9 +233,11 @@ export const reactConfig = {
       beforeSelfClosing: 'always',
       closingSlash: 'never',
     }],
-    // OFF as we use the JSX transform from React 17
+    // OFF as it is replaced by the @eslint-react/jsx-uses-react rule
     'react/jsx-uses-react': [OFF],
-    'react/jsx-uses-vars': [ERROR],
+    // OFF as it is replaced by the @eslint-react/jsx-uses-vars rule
+    'react/jsx-uses-vars': [OFF],
+    // OFF as it is replaced by the @stylistic/jsx-wrap-multilines rule
     'react/jsx-wrap-multilines': [OFF, {
       // Configured value
       arrow: PARENS_NEW_LINE,

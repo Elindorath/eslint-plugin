@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "allowExpressions": {
+        "type": "boolean",
+        "description": "Allow fragments with a single expression child"
+      }
+    }
+  }
+]
