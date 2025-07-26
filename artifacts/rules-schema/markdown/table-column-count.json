@@ -1,1 +1,11 @@
-{}
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkMissingCells": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]
