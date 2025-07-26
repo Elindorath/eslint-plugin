@@ -68,7 +68,7 @@
     "jsonc-eslint-parser": "2.4.0",
     "read-package-up": "11.0.0",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.37.0"
+    "typescript-eslint": "8.38.0"
   },
   "devDependencies": {
     "@sidvind/better-ajv-errors": "3.0.1",
