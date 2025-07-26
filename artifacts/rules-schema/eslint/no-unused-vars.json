@@ -47,6 +47,9 @@
           "ignoreClassWithStaticInitBlock": {
             "type": "boolean"
           },
+          "ignoreUsingDeclarations": {
+            "type": "boolean"
+          },
           "reportUsedIgnorePattern": {
             "type": "boolean"
           }

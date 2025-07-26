@@ -126,6 +126,7 @@ export const eslintVanillaConfig = {
       destructuredArrayIgnorePattern: '',
       ignoreClassWithStaticInitBlock: false,
       ignoreRestSiblings: false,
+      ignoreUsingDeclarations: false,
       reportUsedIgnorePattern: false,
       vars: 'all',
       varsIgnorePattern: '',
@@ -157,6 +158,8 @@ export const eslintVanillaConfig = {
     /* ----- Suggestions ----- */
     'accessor-pairs': [ERROR, {
       enforceForClassMembers: true,
+      // Configured value
+      enforceForTSTypes: true,
       getWithoutSet: false,
       setWithoutGet: true,
     }],
@@ -224,7 +227,10 @@ export const eslintVanillaConfig = {
     'func-style': [ERROR, 'declaration', {
       allowArrowFunctions: true,
     }],
-    'grouped-accessor-pairs': [ERROR, 'getBeforeSet'],
+    'grouped-accessor-pairs': [ERROR, 'getBeforeSet', {
+      // Configured value
+      enforceForTSTypes: true,
+    }],
     // Might be disabled for comfort
     'guard-for-in': [ERROR],
     // Should be populated with known bad naming
