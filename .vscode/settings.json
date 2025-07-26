@@ -50,14 +50,14 @@
     "flags": [
     ]
   },
-  // "eslint.runtime": "/Users/elindorath/.local/share/mise/installs/node/24.2.0/bin/node",
-  "eslint.runtime": "/home/Elindorath/.local/share/mise/installs/node/24.2.0/bin/node",
+  "eslint.runtime": "${workspaceFolder}/.vscode/mise-tools/node",
   "eslint.execArgv": [
     "--experimental-require-module"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "/home/Elindorath/.local/share/mise/shims/node"
+    "pwa-node": "${workspaceFolder}/.vscode/mise-tools/node"
   },
-  "python.defaultInterpreterPath": "/home/Elindorath/.local/share/mise/installs/python/3.13.4/bin/python"
+  "python.defaultInterpreterPath": "${workspaceFolder}/.vscode/mise-tools/python",
+  "mise.configureExtensionsUseSymLinks": true
 }
