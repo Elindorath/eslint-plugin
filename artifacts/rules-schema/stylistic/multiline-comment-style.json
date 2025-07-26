@@ -27,6 +27,9 @@
           "properties": {
             "checkJSDoc": {
               "type": "boolean"
+            },
+            "checkExclamation": {
+              "type": "boolean"
             }
           },
           "additionalProperties": false
