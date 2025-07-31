@@ -1,5 +1,5 @@
 import { mergeConfigs } from '../../configMerger.ts'
-import { ERROR, OFF } from '../../constants.ts'
+import { ERROR, FILES, OFF } from '../../constants.ts'
 import { getRuleConfig } from '../../utilities.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
@@ -20,13 +20,15 @@ const [severity, ...options] = typescriptNamingConventionRuleConfig
 
 export const projectEslintPluginConfig = [
   mergeConfigs(
+    {
+      files: [...FILES.TYPESCRIPT, ...FILES.JAVASCRIPT],
+    },
     vanillaConfig,
     vanillaLayoutConfig,
     syntaxTypescriptConfig,
     environmentNodeConfig,
     syntaxTypescriptEnvironmentNodeConfig,
     {
-      files: ['**/*.ts'],
       rules: {
         // OFF as it prevents us to respect the rule configuration format convention
         '@stylistic/array-bracket-newline': [OFF],
