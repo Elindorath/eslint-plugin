@@ -731,13 +731,19 @@ export const typescriptConfig = {
       // Configured value
       enforceForJSX: true,
     }],
-    // Disabled as Typescript compiler already checks this
-    'no-redeclare': [OFF],
-    'no-restricted-imports': [OFF],
-    'no-shadow': [OFF],
-    'no-unused-expressions': [OFF],
     // Might be tweaked in the future
-    ...overrideBaseConfigRule('@typescript-eslint/no-unused-vars'),
+    '@typescript-eslint/no-unused-vars': [ERROR, {
+      args: 'after-used',
+      argsIgnorePattern: '',
+      caughtErrors: 'all',
+      caughtErrorsIgnorePattern: '',
+      destructuredArrayIgnorePattern: '',
+      ignoreClassWithStaticInitBlock: false,
+      ignoreRestSiblings: false,
+      reportUsedIgnorePattern: false,
+      vars: 'all',
+      varsIgnorePattern: '',
+    }],
     '@typescript-eslint/no-use-before-define': [ERROR, {
       // Configured value
       allowNamedExports: true,
@@ -757,7 +763,12 @@ export const typescriptConfig = {
     '@typescript-eslint/require-await': [ERROR],
     '@typescript-eslint/return-await': [ERROR, 'in-try-catch'],
     '@typescript-eslint/use-unknown-in-catch-callback-variable': [ERROR],
+    // Disabled as Typescript compiler already checks this
+    'no-redeclare': [OFF],
+    'no-restricted-imports': [OFF],
     'no-return-await': [OFF],
+    'no-shadow': [OFF],
+    'no-unused-expressions': [OFF],
     'no-use-before-define': [OFF],
     'no-useless-constructor': [OFF],
     'require-await': [OFF],

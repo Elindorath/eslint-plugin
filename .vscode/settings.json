@@ -52,7 +52,7 @@
   },
   "eslint.runtime": "./.vscode/mise-tools/node",
   "eslint.execArgv": [
-    "--experimental-require-module"
+    "--trace-require-module=all"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "debug.javascript.defaultRuntimeExecutable": {

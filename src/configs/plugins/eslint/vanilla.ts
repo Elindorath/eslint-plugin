@@ -430,8 +430,13 @@ export const eslintVanillaConfig = {
     }],
     // TODO: Should be configured by environment: for browser, see https://github.com/facebook/create-react-app/tree/main/packages/confusing-browser-globals
     'no-restricted-globals': [ERROR, {
-      name: 'parseInt',
-      message: `Don't use the global form of 'parseInt', prefer using 'Number.parseInt'`,
+      // Configured value
+      checkGlobalObject: true,
+      globalObjects: [],
+      globals: [{
+        name: 'parseInt',
+        message: `Don't use the global form of 'parseInt', prefer using 'Number.parseInt'`,
+      }],
     }],
     'no-restricted-imports': [ERROR, {
       paths: [],
@@ -564,11 +569,15 @@ export const eslintVanillaConfig = {
     }],
     'one-var': [ERROR, {
       // Configured value
+      awaitUsing: 'never',
+      // Configured value
       const: 'never',
       // Configured value
       let: 'never',
       // Configured value
       separateRequires: true,
+      // Configured value
+      using: 'never',
       // Configured value
       var: 'never',
     }],
