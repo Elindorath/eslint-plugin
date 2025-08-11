@@ -34,6 +34,20 @@
               "never",
               "consecutive"
             ]
+          },
+          "using": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
+          },
+          "awaitUsing": {
+            "enum": [
+              "always",
+              "never",
+              "consecutive"
+            ]
           }
         },
         "additionalProperties": false
