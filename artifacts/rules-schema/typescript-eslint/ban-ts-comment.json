@@ -30,7 +30,6 @@
     "properties": {
       "minimumDescriptionLength": {
         "type": "number",
-        "default": 3,
         "description": "A minimum character length for descriptions when `allow-with-description` is enabled."
       },
       "ts-check": {
