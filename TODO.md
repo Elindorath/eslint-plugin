@@ -18,6 +18,7 @@
   - [ ] <https://github.com/semantic-release/semantic-release>
   - [ ] <https://github.com/googleapis/release-please>
   - [ ] <https://github.com/coderaiser/putout>
+  - [ ] [biome](https://biomejs.dev/)
   - [x] [better-typescript-lib](https://github.com/uhyo/better-typescript-lib)
   - [ ] [lint-to-the-future](https://github.com/mansona/lint-to-the-future)
   - [ ] [n8n](https://github.com/n8n-io/n8n) (with its [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-n8n-nodes-base))
