@@ -10,7 +10,7 @@
   "engines": {
     "node": "24.6.0"
   },
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "yarn@4.9.3",
   "main": "src/index.js",
   "files": [
     "src/**"
