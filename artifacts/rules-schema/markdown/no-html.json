@@ -8,6 +8,9 @@
           "type": "string"
         },
         "uniqueItems": true
+      },
+      "allowedIgnoreCase": {
+        "type": "boolean"
       }
     },
     "additionalProperties": false

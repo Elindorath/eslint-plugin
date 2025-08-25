@@ -2,8 +2,8 @@
   {
     "type": "object",
     "properties": {
-      "frontmatterTitle": {
-        "type": "string"
+      "checkStrikethrough": {
+        "type": "boolean"
       }
     },
     "additionalProperties": false

@@ -23,7 +23,10 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/fenced-code-language': [ERROR, {
       required: [],
     }],
-    '@eslint/markdown/heading-increment': [ERROR],
+    '@eslint/markdown/heading-increment': [ERROR, {
+      // Configured value
+      frontmatterTitle: '',
+    }],
 
     /**
      * This rule requires language: "markdown/gfm"
@@ -46,9 +49,13 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-empty-links': [ERROR],
     '@eslint/markdown/no-html': [ERROR, {
       allowed: [],
+      allowedIgnoreCase: false,
     }],
     '@eslint/markdown/no-invalid-label-refs': [ERROR],
-    '@eslint/markdown/no-missing-atx-heading-space': [ERROR],
+    '@eslint/markdown/no-missing-atx-heading-space': [ERROR, {
+      // Configured value
+      checkClosedHeadings: true,
+    }],
     '@eslint/markdown/no-missing-label-refs': [ERROR],
     '@eslint/markdown/no-missing-link-fragments': [ERROR, {
       allowPattern: '',
@@ -60,6 +67,9 @@ export const markdownVanillaConfig = {
       frontmatterTitle: '',
     }],
     '@eslint/markdown/no-reversed-media-syntax': [ERROR],
+    '@eslint/markdown/no-space-in-emphasis': [ERROR, {
+      checkStrikethrough: true,
+    }],
     '@eslint/markdown/no-unused-definitions': [ERROR, {
       allowDefinitions: ['//'],
       allowFootnoteDefinitions: [],
