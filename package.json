@@ -18,8 +18,8 @@
   "type": "module",
   "scripts": {
     "extract-meta": "node scripts/extract-meta.ts",
-    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
-    "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
+    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --concurrency auto --fix .",
+    "lint": "NODE_OPTIONS='--experimental-require-module' eslint --concurrency auto .",
     "test-update": "./scripts/test-update.ts",
     "type-check": "tsc",
     "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js"
