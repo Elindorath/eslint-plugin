@@ -1,1 +1,11 @@
-{}
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkClosedHeadings": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]
