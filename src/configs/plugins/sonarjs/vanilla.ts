@@ -191,7 +191,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-nested-incdec': [ERROR],
     'sonarjs/no-nested-switch': [ERROR],
     'sonarjs/no-nested-template-literals': [ERROR],
-    'sonarjs/no-one-iteration-loop': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/no-os-command-from-path': [ERROR],
     'sonarjs/no-parameter-reassignment': [ERROR],
