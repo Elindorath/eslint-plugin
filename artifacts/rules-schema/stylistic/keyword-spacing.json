@@ -25,6 +25,54 @@
             },
             "additionalProperties": false
           },
+          "arguments": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "as": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "async": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "await": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "boolean": {
             "type": "object",
             "properties": {
@@ -217,6 +265,18 @@
             },
             "additionalProperties": false
           },
+          "eval": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "export": {
             "type": "object",
             "properties": {
@@ -301,7 +361,31 @@
             },
             "additionalProperties": false
           },
+          "from": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "function": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "get": {
             "type": "object",
             "properties": {
               "before": {
@@ -409,6 +493,18 @@
             },
             "additionalProperties": false
           },
+          "let": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "long": {
             "type": "object",
             "properties": {
@@ -446,6 +542,18 @@
             "additionalProperties": false
           },
           "null": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "of": {
             "type": "object",
             "properties": {
               "before": {
@@ -506,6 +614,18 @@
             "additionalProperties": false
           },
           "return": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "set": {
             "type": "object",
             "properties": {
               "before": {
@@ -649,7 +769,31 @@
             },
             "additionalProperties": false
           },
+          "type": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
           "typeof": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "using": {
             "type": "object",
             "properties": {
               "before": {
@@ -721,138 +865,6 @@
             },
             "additionalProperties": false
           },
-          "accessor": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "as": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "async": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "await": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "from": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "get": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "let": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "of": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "satisfies": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "set": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
-          "using": {
-            "type": "object",
-            "properties": {
-              "before": {
-                "type": "boolean"
-              },
-              "after": {
-                "type": "boolean"
-              }
-            },
-            "additionalProperties": false
-          },
           "yield": {
             "type": "object",
             "properties": {
@@ -865,7 +877,19 @@
             },
             "additionalProperties": false
           },
-          "type": {
+          "accessor": {
+            "type": "object",
+            "properties": {
+              "before": {
+                "type": "boolean"
+              },
+              "after": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "satisfies": {
             "type": "object",
             "properties": {
               "before": {
