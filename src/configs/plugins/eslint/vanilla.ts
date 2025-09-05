@@ -627,6 +627,9 @@ export const eslintVanillaConfig = {
     'prefer-rest-params': [ERROR],
     'prefer-spread': [ERROR],
     'prefer-template': [ERROR],
+    'preserve-caught-error': [ERROR, {
+      requireCatchParameter: true,
+    }],
     'radix': [ERROR, 'always'],
     'require-await': [ERROR],
     'require-unicode-regexp': [ERROR],
