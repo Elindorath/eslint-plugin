@@ -82,6 +82,10 @@ export const unicornVanillaConfig = {
       // Configured value
       allowExpressionStatement: false,
     }],
+    'unicorn/no-array-sort': [ERROR, {
+      // Configured value
+      allowExpressionStatement: false,
+    }],
     'unicorn/no-await-expression-member': [ERROR],
     'unicorn/no-await-in-promise-methods': [ERROR],
     'unicorn/no-console-spaces': [ERROR],
@@ -207,6 +211,7 @@ export const unicornVanillaConfig = {
       checkAllIndexAccess: false,
       getLastElementFunctions: [],
     }],
+    'unicorn/prefer-bigint-literals': [ERROR],
     'unicorn/prefer-class-fields': [ERROR],
     'unicorn/prefer-code-point': [ERROR],
     'unicorn/prefer-date-now': [ERROR],
@@ -289,6 +294,7 @@ export const unicornVanillaConfig = {
     // TODO: Testing the 'never' option, but we might find it clearer to use 'always' instead
     'unicorn/relative-url-style': [ERROR, 'never'],
     'unicorn/require-array-join-separator': [ERROR],
+    'unicorn/require-module-attributes': [ERROR],
     'unicorn/require-module-specifiers': [ERROR],
     'unicorn/require-number-to-fixed-digits-argument': [ERROR],
     // TODO: Should be configured with commonly used patterns
