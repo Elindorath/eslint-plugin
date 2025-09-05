@@ -132,6 +132,7 @@ export const stylisticVanillaLayoutConfig = {
     }],
     '@stylistic/implicit-arrow-linebreak': [ERROR, 'beside'],
     '@stylistic/indent': [ERROR, INDENT_SPACE_COUNT, {
+      assignmentOperator: 1,
       flatTernaryExpressions: false,
       ignoreComments: false,
       ignoredNodes: [],
@@ -406,6 +407,7 @@ export const stylisticVanillaLayoutConfig = {
       enforceForNewInMemberExpressions: true,
       // Configured value
       enforceForSequenceExpressions: true,
+      ignoredNodes: [],
       // Configured value
       ignoreJSX: 'multi-line',
       // Configured value

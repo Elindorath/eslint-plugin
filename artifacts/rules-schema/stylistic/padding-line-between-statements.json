@@ -30,7 +30,6 @@
         "for",
         "if",
         "import",
-        "return",
         "switch",
         "throw",
         "try",
@@ -40,7 +39,6 @@
         "cjs-import",
         "enum",
         "interface",
-        "type",
         "function-overload",
         "block-like",
         "singleline-block-like",
@@ -48,6 +46,9 @@
         "expression",
         "singleline-expression",
         "multiline-expression",
+        "return",
+        "singleline-return",
+        "multiline-return",
         "export",
         "singleline-export",
         "multiline-export",
@@ -62,7 +63,10 @@
         "multiline-const",
         "using",
         "singleline-using",
-        "multiline-using"
+        "multiline-using",
+        "type",
+        "singleline-type",
+        "multiline-type"
       ]
     },
     "statementOption": {
