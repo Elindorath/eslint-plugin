@@ -46,7 +46,7 @@ __metadata:
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:24.3.1"
     ajv: "npm:6.12.6"
-    better-typescript-lib: "npm:2.11.0"
+    better-typescript-lib: "npm:2.12.0"
     case-anything: "npm:3.1.2"
     eslint: "npm:9.35.0"
     eslint-import-resolver-typescript: "npm:4.4.4"
@@ -1086,156 +1086,156 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript/lib-decorators@npm:@better-typescript-lib/decorators@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/decorators@npm:2.11.0"
+"@typescript/lib-decorators@npm:@better-typescript-lib/decorators@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/decorators@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/9e35b63f36bb9484eeb750921d257ea73684c23de13fbb260ab8a251b72659137c849b82a90d6e0e7fc917c1536a5ff1c67048948d41f72d8bf0dcf5c9176714
+  checksum: 10c0/41ee3056ab33d023dd0973b0438f12f7ea64a1adc8f7c448604dc9547859056420fc5db0bd61d3d760aa631f61468f0b78ba57257668a0405a94471e42353150
   languageName: node
   linkType: hard
 
-"@typescript/lib-dom@npm:@better-typescript-lib/dom@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/dom@npm:2.11.0"
+"@typescript/lib-dom@npm:@better-typescript-lib/dom@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/dom@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/327aaa5a2a07e5f7b5a8fb136057d67e13536b8f86163e794e599fb8ad69e6b619afeed37b2658b93544db06ce0a889536ba75b68687d919b66a086218f3be63
+  checksum: 10c0/2fe535bf8248a8fc533e436efe93eed4f9bbd8077955ff36c3860fae980894abaeb17cf91aa484b6cd57f5909cf6dbbabc7d16e9dcdbceac7602756545aa169e
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2015@npm:@better-typescript-lib/es2015@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2015@npm:2.11.0"
+"@typescript/lib-es2015@npm:@better-typescript-lib/es2015@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2015@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/3fd829d908d2e847edcb256ea67ae531a2d4db8b25eb73cc3652ed9527b1365b27b81f7cd5ae0bcfa446df8acd73d67ec165b59772b3edbb1ae324c3c82cd620
+  checksum: 10c0/596a162c557dbda230e509459ed1e811a5b12cb25c214455fe30e058b3eb5d4c9c5809a6cdbd0613d1c58d01ee6ee2eb2b3b50d0d86517f6d0433e7bb375d4bc
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2016@npm:@better-typescript-lib/es2016@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2016@npm:2.11.0"
+"@typescript/lib-es2016@npm:@better-typescript-lib/es2016@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2016@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/a825e24fd77da74e877230952b4ec97ded969546cf22731ecb91a96bbb2f08dd027d5dc7f2e39ced619c43188a4dbcf8253259ad17f9d432953afe2278c68446
+  checksum: 10c0/732c5cd1a2b310a4d9227ce512cd88b5ae52258199758385717d97d575197f2637110da42490037057b03469b812d1968aa0cf76a4c15293999d59898d97ccc9
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2017@npm:@better-typescript-lib/es2017@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2017@npm:2.11.0"
+"@typescript/lib-es2017@npm:@better-typescript-lib/es2017@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2017@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/f3cb6af1a0950a964784dd91553282ba21ce4b4cce3a93204c973720ce46eb56225edd12c9ec8b2f1206e990ed2f85e994959d9036827afa2cf011e4378c2a60
+  checksum: 10c0/9c99dfb0a6049cb60eece7850599db13db70ac2e0df2d4dacd02218576085438fdca5868baa3b1ba7c6e029b4c17c400fd3d591260410017f7385244947b9e17
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2018@npm:@better-typescript-lib/es2018@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2018@npm:2.11.0"
+"@typescript/lib-es2018@npm:@better-typescript-lib/es2018@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2018@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/e783d621cb27cfd3683dbf5cc2dabb497198870b272ad55af97d708a0d020a85891e8c83b264c707cabc2d368897aab342fe9d15b5a7a06cdb0ad00157dac0b4
+  checksum: 10c0/62a770e78f15e37d45bdb37d69037dd2dc1b1e725459f8aac8fb4d3f56396ddbf10254ba383175cded38daac683eb7163a47fa13ab504c5f65eba60a8b4de9b9
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2019@npm:@better-typescript-lib/es2019@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2019@npm:2.11.0"
+"@typescript/lib-es2019@npm:@better-typescript-lib/es2019@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2019@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/ea557ce8398e1525211129f2bdfc2bb7036140fea1335745eb1e0db9026077f77e70f1bd5fc16dc80de61757d3c085a92c1954092d627b71748b952831e2b601
+  checksum: 10c0/2eb7a789718b5b01b7ee9cf123f5a7b5b5d9925b021b0f4b0557ce6279fc26bf231f5f06a936f6ebebfc4863b9ae2ab8a0a09e98cef47e1b162649705673fd3d
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2020@npm:@better-typescript-lib/es2020@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2020@npm:2.11.0"
+"@typescript/lib-es2020@npm:@better-typescript-lib/es2020@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2020@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/b2f33c6bf578da89ccdc9024231f851f507a46ae8a35a4895410ca4248ad8ce16276adcb403451eec760c728f2c47ad8f6033e55a21f8e613848521bf777288c
+  checksum: 10c0/6ec9c032ed87c892ac5a011691ea28d61e66b6f5108139d1f0b4a2bcb549bc5b54b151f909ee1279ace53c5e4d2c23dc7f2b5d66f0b122dfd605222c4b143bbc
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2021@npm:@better-typescript-lib/es2021@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2021@npm:2.11.0"
+"@typescript/lib-es2021@npm:@better-typescript-lib/es2021@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2021@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/66610a9ecd446fee2242bbe2c40dedd0336aad0970d147cab2c3e4e3ee61eb98877a14de85610860ee0b8c7b471a8c123a52edbf69236ed23d89fc5a2034fd06
+  checksum: 10c0/20aa91b3dc5044b4ae7d1f18f9dd402bf74754f832c784ee4081dc432189ca54aaba8776617448ef685d64146009ddf6ae61037af91c9c48447c0a1b29dca88e
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2022@npm:@better-typescript-lib/es2022@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2022@npm:2.11.0"
+"@typescript/lib-es2022@npm:@better-typescript-lib/es2022@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2022@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/c604f0ef78a59d6542f1e2cc0f5282588f210cedd6e5165ca302563707efe42b6fb1df1638cd02bbe1afad147c9999e4489cee6d07b510af605d26fa88d45e08
+  checksum: 10c0/313b2011c620047e970385c99b69e5cb882bae2bc9b2466de8e4fb6662a9b45b135ef65ce7119262ec8bbf371c668f75f6855f643bd0ce55b06e06d7f676f34e
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2023@npm:@better-typescript-lib/es2023@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2023@npm:2.11.0"
+"@typescript/lib-es2023@npm:@better-typescript-lib/es2023@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2023@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/e0c787d3e5645429d05f760a915c51d223d3c038fd1bcb492acb98f7eef50434be4df9b2c1d6676afd61b6bb7e2a10c2e6df5417adcb9097326877386ef98653
+  checksum: 10c0/3e607e3ed38b47e37788f0bd3dda29320189d41e79cef91386848d3baf609fa7a3af40f9b76e45ace1081bf4343da4ab70702268440896427a2428d3df213195
   languageName: node
   linkType: hard
 
-"@typescript/lib-es2024@npm:@better-typescript-lib/es2024@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es2024@npm:2.11.0"
+"@typescript/lib-es2024@npm:@better-typescript-lib/es2024@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es2024@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/8967aad08081f4a182042eb531e96be21066ec3bdf7bd833b012d93bb578f1f759cfb4b42946931d0fd524bc06721f448e8770547b863e6f27631509f6a3a44c
+  checksum: 10c0/2f60cf4832475ab11166760ac4b4cace006e10eea7d884d9a82dbd2a5414b38d901319997a204d012be3f47834cbfb143f219c60b17e8d3782138dd3e5386774
   languageName: node
   linkType: hard
 
-"@typescript/lib-es5@npm:@better-typescript-lib/es5@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es5@npm:2.11.0"
+"@typescript/lib-es5@npm:@better-typescript-lib/es5@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es5@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/2387915f186a07632729aeca802e3855308b013a1b8b8a8e18fe8a724a81362474d877f8b12111877dfea56556d32d01f9879b6862b59b25248f9a278cbdc451
+  checksum: 10c0/836f818fb8fc1182b10d679c98aae4e8684a21f7d13a71b32f041d1c2fa12af2cf055df572e8e88f47a094d81a086ec3d4897c5e9d209c9f066b4abdd8b42859
   languageName: node
   linkType: hard
 
-"@typescript/lib-es6@npm:@better-typescript-lib/es6@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/es6@npm:2.11.0"
+"@typescript/lib-es6@npm:@better-typescript-lib/es6@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/es6@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/9954ca2227468850341f80d235794c34557a14090bfd7d904125383f8f46ee60b0ace1ae20a59bd9fba1517770eb7f64515762c2ae776085521de708d7375e46
+  checksum: 10c0/0b6841af06657763d392c97ff5221a93747862a378174a78a7e9743edc95f86e877caded42cd34903a72aa1f96144c4c65363307e6dd87ccded93a4db9dbd928
   languageName: node
   linkType: hard
 
-"@typescript/lib-esnext@npm:@better-typescript-lib/esnext@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/esnext@npm:2.11.0"
+"@typescript/lib-esnext@npm:@better-typescript-lib/esnext@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/esnext@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/969fa897a21cd04d1c68e672de55c5df4d8066299493325f4acc3dafdab0ff7e944d3bb72ccbfbb03a5fed0d9e50fd99e0dcd8921d73a5e2ffedac9814fb0fa7
+  checksum: 10c0/8e972cba4cf71de1bdae0c5c21048208771dbc0f50fe0c495555b2379114a2b877784d0c8cc8cdb679d32f3d1f3593009e588b0768f5b9c3a5ce19fab7f8ea44
   languageName: node
   linkType: hard
 
-"@typescript/lib-scripthost@npm:@better-typescript-lib/scripthost@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/scripthost@npm:2.11.0"
+"@typescript/lib-scripthost@npm:@better-typescript-lib/scripthost@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/scripthost@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/a27a9c0b46d89305908f0c7911a1418c0fd05952d5f116cd98fb33769007d8e913905517c59dec848725ec3e903a5d2eda9de51b47dd9e8e2007e1f297830a3b
+  checksum: 10c0/ab7956fa240500c5a3a3dc960a22745084d5601e462c49e9bf46ad453ec7f2eef4b8fec576cc209e3c4571bb79efb9394fa77846969b989adcc35ef97f5473ca
   languageName: node
   linkType: hard
 
-"@typescript/lib-webworker@npm:@better-typescript-lib/webworker@2.11.0":
-  version: 2.11.0
-  resolution: "@better-typescript-lib/webworker@npm:2.11.0"
+"@typescript/lib-webworker@npm:@better-typescript-lib/webworker@2.12.0":
+  version: 2.12.0
+  resolution: "@better-typescript-lib/webworker@npm:2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/bbb54b70b91f9175f9b46edd0ba1aaba293591a9f90d8f75176dc206cd6201b6ae5ef6c1e6e1c9a0b79e3c05579ed67c6c39b64ded060039667f75c7f4a5e693
+  checksum: 10c0/c8eacbf5900998bfe3587cca8faaf0a8ee69c58db8661e24329c49620f6304562f39d3772ae76d16f74ea64e4afc04efa78080939b3ffaed2e788a58c0b9d04f
   languageName: node
   linkType: hard
 
@@ -1911,30 +1911,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-typescript-lib@npm:2.11.0":
-  version: 2.11.0
-  resolution: "better-typescript-lib@npm:2.11.0"
+"better-typescript-lib@npm:2.12.0":
+  version: 2.12.0
+  resolution: "better-typescript-lib@npm:2.12.0"
   dependencies:
-    "@typescript/lib-decorators": "npm:@better-typescript-lib/decorators@2.11.0"
-    "@typescript/lib-dom": "npm:@better-typescript-lib/dom@2.11.0"
-    "@typescript/lib-es2015": "npm:@better-typescript-lib/es2015@2.11.0"
-    "@typescript/lib-es2016": "npm:@better-typescript-lib/es2016@2.11.0"
-    "@typescript/lib-es2017": "npm:@better-typescript-lib/es2017@2.11.0"
-    "@typescript/lib-es2018": "npm:@better-typescript-lib/es2018@2.11.0"
-    "@typescript/lib-es2019": "npm:@better-typescript-lib/es2019@2.11.0"
-    "@typescript/lib-es2020": "npm:@better-typescript-lib/es2020@2.11.0"
-    "@typescript/lib-es2021": "npm:@better-typescript-lib/es2021@2.11.0"
-    "@typescript/lib-es2022": "npm:@better-typescript-lib/es2022@2.11.0"
-    "@typescript/lib-es2023": "npm:@better-typescript-lib/es2023@2.11.0"
-    "@typescript/lib-es2024": "npm:@better-typescript-lib/es2024@2.11.0"
-    "@typescript/lib-es5": "npm:@better-typescript-lib/es5@2.11.0"
-    "@typescript/lib-es6": "npm:@better-typescript-lib/es6@2.11.0"
-    "@typescript/lib-esnext": "npm:@better-typescript-lib/esnext@2.11.0"
-    "@typescript/lib-scripthost": "npm:@better-typescript-lib/scripthost@2.11.0"
-    "@typescript/lib-webworker": "npm:@better-typescript-lib/webworker@2.11.0"
+    "@typescript/lib-decorators": "npm:@better-typescript-lib/decorators@2.12.0"
+    "@typescript/lib-dom": "npm:@better-typescript-lib/dom@2.12.0"
+    "@typescript/lib-es2015": "npm:@better-typescript-lib/es2015@2.12.0"
+    "@typescript/lib-es2016": "npm:@better-typescript-lib/es2016@2.12.0"
+    "@typescript/lib-es2017": "npm:@better-typescript-lib/es2017@2.12.0"
+    "@typescript/lib-es2018": "npm:@better-typescript-lib/es2018@2.12.0"
+    "@typescript/lib-es2019": "npm:@better-typescript-lib/es2019@2.12.0"
+    "@typescript/lib-es2020": "npm:@better-typescript-lib/es2020@2.12.0"
+    "@typescript/lib-es2021": "npm:@better-typescript-lib/es2021@2.12.0"
+    "@typescript/lib-es2022": "npm:@better-typescript-lib/es2022@2.12.0"
+    "@typescript/lib-es2023": "npm:@better-typescript-lib/es2023@2.12.0"
+    "@typescript/lib-es2024": "npm:@better-typescript-lib/es2024@2.12.0"
+    "@typescript/lib-es5": "npm:@better-typescript-lib/es5@2.12.0"
+    "@typescript/lib-es6": "npm:@better-typescript-lib/es6@2.12.0"
+    "@typescript/lib-esnext": "npm:@better-typescript-lib/esnext@2.12.0"
+    "@typescript/lib-scripthost": "npm:@better-typescript-lib/scripthost@2.12.0"
+    "@typescript/lib-webworker": "npm:@better-typescript-lib/webworker@2.12.0"
   peerDependencies:
     typescript: ">=4.5.2"
-  checksum: 10c0/754b4060d438181dd689217030d2200c5fc7b2aba1ff1961eeb0fb0a196cd8f7d947616324e746450e02edde2eead39e0edb35f12adbfcce39941cbea9205909
+  checksum: 10c0/0dac27dbd90a7465d6731f11943def58baaf3f48bf0e9c8ec1b91ff634295cdd0525fd2a6c4e08e698f51a006dddbbb750e642e80d016e67695cbf21fb578d78
   languageName: node
   linkType: hard
 
