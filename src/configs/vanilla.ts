@@ -2,6 +2,7 @@ import { mergeConfigs } from '../configMerger.ts'
 import { ERROR } from '../constants.ts'
 
 import { arrayFunctionVanillaConfig } from './plugins/array-func/vanilla.ts'
+import { cspellVanillaConfig } from './plugins/cspell/vanilla.ts'
 import { eslintVanillaConfig } from './plugins/eslint/vanilla.ts'
 import { eslintCommentsVanillaConfig } from './plugins/eslint-comments/vanilla.ts'
 import { filenamesVanillaConfig } from './plugins/filenames-simple/vanilla.ts'
@@ -28,6 +29,7 @@ export const vanillaConfig = mergeConfigs(
   },
   eslintVanillaConfig,
   arrayFunctionVanillaConfig,
+  cspellVanillaConfig,
   eslintCommentsVanillaConfig,
   filenamesVanillaConfig,
   importVanillaConfig,
