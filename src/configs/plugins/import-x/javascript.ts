@@ -9,7 +9,7 @@ import type { ESLint, Linter } from 'eslint'
 
 const { createNodeResolver } = importPlugin
 
-export const importVanillaConfig = {
+export const javascriptConfig = {
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
