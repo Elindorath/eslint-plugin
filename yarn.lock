@@ -85,7 +85,7 @@ __metadata:
     is-what: "npm:5.4.0"
     jiti: "npm:2.5.1"
     json-diff-ts: "npm:4.8.2"
-    jsonc-eslint-parser: "npm:2.4.0"
+    jsonc-eslint-parser: "npm:2.4.1"
     package-directory: "npm:8.1.0"
     read-package-up: "npm:11.0.0"
     tsx: "npm:4.20.5"
@@ -4535,7 +4535,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-eslint-parser@npm:2.4.0, jsonc-eslint-parser@npm:^2.4.0":
+"jsonc-eslint-parser@npm:2.4.1":
+  version: 2.4.1
+  resolution: "jsonc-eslint-parser@npm:2.4.1"
+  dependencies:
+    acorn: "npm:^8.5.0"
+    eslint-visitor-keys: "npm:^3.0.0"
+    espree: "npm:^9.0.0"
+    semver: "npm:^7.3.5"
+  checksum: 10c0/735bd33435fee002bf7f07d23ba969b994971ab3b333a0e2641b79cd413819fe36540ba6ed29da9ebc69062625e8bfb167ff4415321f9640fdd9d0cf92dfa999
+  languageName: node
+  linkType: hard
+
+"jsonc-eslint-parser@npm:^2.4.0":
   version: 2.4.0
   resolution: "jsonc-eslint-parser@npm:2.4.0"
   dependencies:

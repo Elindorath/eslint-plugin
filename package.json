@@ -65,7 +65,7 @@
     "fs-extra": "11.3.2",
     "globals": "16.4.0",
     "is-what": "5.4.0",
-    "jsonc-eslint-parser": "2.4.0",
+    "jsonc-eslint-parser": "2.4.1",
     "read-package-up": "11.0.0",
     "typescript": "5.9.2",
     "typescript-eslint": "8.44.0"
