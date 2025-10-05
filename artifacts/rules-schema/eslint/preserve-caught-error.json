@@ -4,7 +4,6 @@
     "properties": {
       "requireCatchParameter": {
         "type": "boolean",
-        "default": false,
         "description": "Requires the catch blocks to always have the caught error parameter so it is not discarded."
       }
     },

@@ -76,7 +76,9 @@ export const eslintVanillaConfig = {
       skipTemplates: false,
     }],
     'no-loss-of-precision': [ERROR],
-    'no-misleading-character-class': [ERROR],
+    'no-misleading-character-class': [ERROR, {
+      allowEscape: false,
+    }],
     'no-new-native-nonconstructor': [ERROR],
     // Should be disabled in Typescript projects as the compiler already checks this
     'no-obj-calls': [ERROR],
@@ -628,6 +630,7 @@ export const eslintVanillaConfig = {
     'prefer-spread': [ERROR],
     'prefer-template': [ERROR],
     'preserve-caught-error': [ERROR, {
+      // Configured value
       requireCatchParameter: true,
     }],
     'radix': [ERROR, 'always'],

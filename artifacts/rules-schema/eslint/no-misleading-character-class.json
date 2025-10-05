@@ -3,8 +3,7 @@
     "type": "object",
     "properties": {
       "allowEscape": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false
