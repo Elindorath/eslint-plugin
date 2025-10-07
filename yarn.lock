@@ -60,7 +60,7 @@ __metadata:
     eslint-plugin-jest-extended: "npm:3.0.1"
     eslint-plugin-jest-formatting: "npm:3.1.0"
     eslint-plugin-json-files: "npm:5.1.2"
-    eslint-plugin-jsonc: "npm:2.20.1"
+    eslint-plugin-jsonc: "npm:2.21.0"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
     eslint-plugin-listeners: "npm:1.5.1"
     eslint-plugin-n: "npm:17.21.3"
@@ -2325,6 +2325,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"diff-sequences@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "diff-sequences@npm:27.5.1"
+  checksum: 10c0/a52566d891b89a666f48ba69f54262fa8293ae6264ae04da82c7bf3b6661cba75561de0729f18463179d56003cc0fd69aa09845f2c2cd7a353b1ec1e1a96beb9
+  languageName: node
+  linkType: hard
+
 "dir-glob@npm:^3.0.1":
   version: 3.0.1
   resolution: "dir-glob@npm:3.0.1"
@@ -2967,11 +2974,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsonc@npm:2.20.1":
-  version: 2.20.1
-  resolution: "eslint-plugin-jsonc@npm:2.20.1"
+"eslint-plugin-jsonc@npm:2.21.0":
+  version: 2.21.0
+  resolution: "eslint-plugin-jsonc@npm:2.21.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.5.1"
+    diff-sequences: "npm:^27.5.1"
     eslint-compat-utils: "npm:^0.6.4"
     eslint-json-compat-utils: "npm:^0.2.1"
     espree: "npm:^9.6.1 || ^10.3.0"
@@ -2981,7 +2989,7 @@ __metadata:
     synckit: "npm:^0.6.2 || ^0.7.3 || ^0.11.5"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 10c0/a75923263436a92c2d7232677cabdac06c966ca9fccfe7edea190dc762c28538f1df22d4deb81f8ba11df742f3bdfbfde3b059d8174d8814fa1667d01eb1163e
+  checksum: 10c0/ca4169dfb1390648d0dc49b9533f6969794017e0768ce8b8e59916be7e930a740ed1fb85aa46b73e900357418c17bd3154d449f288067f1e86a9313c8cce6230
   languageName: node
   linkType: hard
 
