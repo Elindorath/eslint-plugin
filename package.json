@@ -53,7 +53,7 @@
     "eslint-plugin-perfectionist": "4.15.0",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-react-hooks": "6.1.1",
     "eslint-plugin-react-i18n": "1.0.3",
     "eslint-plugin-react-native": "5.0.0",
     "eslint-plugin-react-native-a11y": "3.5.1",
