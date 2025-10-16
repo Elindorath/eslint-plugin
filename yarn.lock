@@ -37,7 +37,7 @@ __metadata:
     "@eslint-community/eslint-plugin-eslint-comments": "npm:4.5.0"
     "@eslint/compat": "npm:1.4.0"
     "@eslint/json": "npm:0.13.2"
-    "@eslint/markdown": "npm:7.2.0"
+    "@eslint/markdown": "npm:7.4.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     "@stylistic/eslint-plugin": "npm:5.3.1"
     "@types/eslint-plugin-jsx-a11y": "npm:6.10.1"
@@ -450,12 +450,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/markdown@npm:7.2.0":
-  version: 7.2.0
-  resolution: "@eslint/markdown@npm:7.2.0"
+"@eslint/markdown@npm:7.4.0":
+  version: 7.4.0
+  resolution: "@eslint/markdown@npm:7.4.0"
   dependencies:
-    "@eslint/core": "npm:^0.15.2"
-    "@eslint/plugin-kit": "npm:^0.3.5"
+    "@eslint/core": "npm:^0.16.0"
+    "@eslint/plugin-kit": "npm:^0.4.0"
     github-slugger: "npm:^2.0.0"
     mdast-util-from-markdown: "npm:^2.0.2"
     mdast-util-frontmatter: "npm:^2.0.1"
@@ -463,7 +463,7 @@ __metadata:
     micromark-extension-frontmatter: "npm:^2.0.0"
     micromark-extension-gfm: "npm:^3.0.0"
     micromark-util-normalize-identifier: "npm:^2.0.1"
-  checksum: 10c0/e9ec365ab0eb069c236fbf48170f147a559119182b939483f9a2ede7268fd112e81dbfedbcb7fcc20cc30617d2b51b52e587acfd9abf025bb219ac933aec6218
+  checksum: 10c0/d4f2e39de7fefd81523e43c3a530384e9a7e22f1e44bcaa35327da0e88d6b47a67dce54aa948d92ab6da228655756fdf0756b8ee51fb1221bec35aa3b348bda4
   languageName: node
   linkType: hard
 
