@@ -63,7 +63,7 @@
     "eslint-plugin-ternary": "2.0.0",
     "eslint-plugin-unicorn": "61.0.2",
     "fs-extra": "11.3.2",
-    "globals": "16.4.0",
+    "globals": "16.5.0",
     "is-what": "5.5.0",
     "jsonc-eslint-parser": "2.4.1",
     "read-package-up": "11.0.0",
