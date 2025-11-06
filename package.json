@@ -84,6 +84,6 @@
     "json-diff-ts": "4.8.2",
     "package-directory": "8.1.0",
     "tsx": "4.20.6",
-    "type-fest": "5.1.0"
+    "type-fest": "5.2.0"
   }
 }
