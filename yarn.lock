@@ -36,7 +36,7 @@ __metadata:
   dependencies:
     "@eslint-community/eslint-plugin-eslint-comments": "npm:4.5.0"
     "@eslint/compat": "npm:1.4.1"
-    "@eslint/json": "npm:0.13.2"
+    "@eslint/json": "npm:0.14.0"
     "@eslint/markdown": "npm:7.2.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     "@stylistic/eslint-plugin": "npm:5.3.1"
@@ -447,15 +447,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/json@npm:0.13.2":
-  version: 0.13.2
-  resolution: "@eslint/json@npm:0.13.2"
+"@eslint/json@npm:0.14.0":
+  version: 0.14.0
+  resolution: "@eslint/json@npm:0.14.0"
   dependencies:
-    "@eslint/core": "npm:^0.15.2"
-    "@eslint/plugin-kit": "npm:^0.3.5"
-    "@humanwhocodes/momoa": "npm:^3.3.9"
+    "@eslint/core": "npm:^0.17.0"
+    "@eslint/plugin-kit": "npm:^0.4.1"
+    "@humanwhocodes/momoa": "npm:^3.3.10"
     natural-compare: "npm:^1.4.0"
-  checksum: 10c0/1e024e33687a2cb26261856f0c5d459d06100b2e09718d6b1e8b63f6595e879fea6a7944f97abd07309b937773fc75c7dc4d61f4fc070422a0c8740c40334774
+  checksum: 10c0/1832b0d07dbf314213e02ba8c391b8f2095e72c8ff091226b0048d8db24900048015e51e2906ae71423174c1524779d94e32140db2d608d4337deb2a208c5fb5
   languageName: node
   linkType: hard
 
@@ -513,6 +513,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/plugin-kit@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@eslint/plugin-kit@npm:0.4.1"
+  dependencies:
+    "@eslint/core": "npm:^0.17.0"
+    levn: "npm:^0.4.1"
+  checksum: 10c0/51600f78b798f172a9915dffb295e2ffb44840d583427bc732baf12ecb963eb841b253300e657da91d890f4b323d10a1bd12934bf293e3018d8bb66fdce5217b
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -544,10 +554,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/momoa@npm:^3.3.9":
-  version: 3.3.9
-  resolution: "@humanwhocodes/momoa@npm:3.3.9"
-  checksum: 10c0/591e1ef6b6e299a57006a052199a0b5f854dfbd0016c7862eb21fe7441a1426ef2ea75c006863693eb98fc46d4a60a82319546adb0277df2814b543a8dad7a7b
+"@humanwhocodes/momoa@npm:^3.3.10":
+  version: 3.3.10
+  resolution: "@humanwhocodes/momoa@npm:3.3.10"
+  checksum: 10c0/b80a99f517195ca11d9c3c19431ec5b1b9f4cd21437ed463b2db7e5244a0cdde70148b419e4721baa689b86b8bef2adbb6d1b2c1d140938f1af4640682e3b6d6
   languageName: node
   linkType: hard
 
