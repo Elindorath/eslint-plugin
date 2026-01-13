@@ -731,7 +731,6 @@ export const typescriptConfig = {
       // Configured value
       enforceForJSX: true,
     }],
-    // Might be tweaked in the future
     '@typescript-eslint/no-unused-vars': [ERROR, {
       args: 'after-used',
       argsIgnorePattern: '',
