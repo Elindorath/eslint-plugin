@@ -41,7 +41,7 @@ __metadata:
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     "@stylistic/eslint-plugin": "npm:5.3.1"
     "@types/eslint-plugin-jsx-a11y": "npm:6.10.1"
-    "@types/eslint-plugin-security": "npm:3.0.0"
+    "@types/eslint-plugin-security": "npm:3.0.1"
     "@types/fs-extra": "npm:11.0.4"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:24.10.9"
@@ -751,12 +751,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-plugin-security@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@types/eslint-plugin-security@npm:3.0.0"
+"@types/eslint-plugin-security@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@types/eslint-plugin-security@npm:3.0.1"
   dependencies:
     "@types/eslint": "npm:*"
-  checksum: 10c0/70d9a8344d75ae447afa004847f8cea57ee78436572410b2c5f73fb6252e5024f777e4e749f17e1099428244510ae4e6c255677bb9d83612c22df28e3c2da391
+  checksum: 10c0/e126a319b70f0b687602e02379685348c1bc8b38a5155874d3bc1b1c99ebaaa7333b89cbe18d1eb4c4af0a3622855338bec5df7e25f41a4c616f72245132fa19
   languageName: node
   linkType: hard
 
