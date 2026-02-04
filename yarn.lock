@@ -86,7 +86,7 @@ __metadata:
     jiti: "npm:2.6.1"
     json-diff-ts: "npm:4.8.2"
     jsonc-eslint-parser: "npm:2.4.2"
-    package-directory: "npm:8.1.0"
+    package-directory: "npm:8.2.0"
     read-package-up: "npm:11.0.0"
     tsx: "npm:4.21.0"
     type-fest: "npm:5.4.3"
@@ -5839,12 +5839,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"package-directory@npm:8.1.0":
-  version: 8.1.0
-  resolution: "package-directory@npm:8.1.0"
+"package-directory@npm:8.2.0":
+  version: 8.2.0
+  resolution: "package-directory@npm:8.2.0"
   dependencies:
     find-up-simple: "npm:^1.0.0"
-  checksum: 10c0/29eee99ac9979dc852bbaab64968123ba44abaa8f2d49add065101612db81f3d4ac1eb27df3b1893878cd67dd8b5c36186876a139ec4fdd6a755abc810ce2749
+  checksum: 10c0/a2426d4ec22098ba8f35e9d0fa0935e0040ddd276d91330c790a68e36c01a41985ddd81ab1878e5ce9d395d98ca04aab99d107cb68431ff77a087c15e14d40a2
   languageName: node
   linkType: hard
 
