@@ -44,7 +44,7 @@ __metadata:
     "@types/eslint-plugin-security": "npm:3.0.1"
     "@types/fs-extra": "npm:11.0.4"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.10"
+    "@types/node": "npm:25.2.0"
     ajv: "npm:6.12.6"
     better-typescript-lib: "npm:2.12.0"
     case-anything: "npm:3.1.2"
@@ -845,12 +845,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.10.10":
-  version: 24.10.10
-  resolution: "@types/node@npm:24.10.10"
+"@types/node@npm:25.2.0":
+  version: 25.2.0
+  resolution: "@types/node@npm:25.2.0"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10c0/ae6871069373cf9ea2f9f9c6d42af6d0a66a213f8688c1b4ced6466cbcdd0f926e4603480a454b1df330feb1243d2ac50749895eddf5667e25e6873d3f8b9488
+  checksum: 10c0/89559ea0de5c8c2da051b384f2cd3161012446816e05d18841838f814e57eb1865f000622e903f08d14f5242736063ed4003a4a359730fdd367e35e2122a8fce
   languageName: node
   linkType: hard
 
