@@ -65,7 +65,7 @@ __metadata:
     eslint-plugin-listeners: "npm:1.5.1"
     eslint-plugin-n: "npm:17.21.3"
     eslint-plugin-no-constructor-bind: "npm:2.0.4"
-    eslint-plugin-no-secrets: "npm:2.2.1"
+    eslint-plugin-no-secrets: "npm:2.2.2"
     eslint-plugin-no-unsanitized: "npm:4.1.4"
     eslint-plugin-no-use-extend-native: "npm:0.7.2"
     eslint-plugin-perfectionist: "npm:4.15.1"
@@ -3194,12 +3194,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-no-secrets@npm:2.2.1":
-  version: 2.2.1
-  resolution: "eslint-plugin-no-secrets@npm:2.2.1"
+"eslint-plugin-no-secrets@npm:2.2.2":
+  version: 2.2.2
+  resolution: "eslint-plugin-no-secrets@npm:2.2.2"
   peerDependencies:
     eslint: ">=5"
-  checksum: 10c0/c8b90551847ab4f2338890618676c4d2983c7ee997984be1c9def9aa164cb47c4cae74994965e16170a5e776a531622d4d9b3f093ae2b5a20d95c34022dbc4ed
+  checksum: 10c0/70ca9044454b1c4764b58fdaceace1b118092ad3ca86951bd2a66c63ec0d92dec1af3f9e2452e58fc6e53fef7dac6a9d7f21305b272b8e59265ab16130eeb74f
   languageName: node
   linkType: hard
 
