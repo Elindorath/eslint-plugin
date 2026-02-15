@@ -445,14 +445,17 @@ export const eslintVanillaConfig = {
       // Configured value
       patterns: [
         {
+          allowTypeImports: false,
           group: ['underscore'],
           message: `'underscore' have many issues. Please consider 'radash' if you really need an utility library.`,
         },
         {
+          allowTypeImports: false,
           group: ['lodash'],
           message: `'lodash' have many issues. Please consider 'radash' if you really need an utility library.`,
         },
         {
+          allowTypeImports: false,
           group: ['moment'],
           message: `'moment' is now considered legacy. Please consider 'date-fns' or 'luxon'.`,
         },
