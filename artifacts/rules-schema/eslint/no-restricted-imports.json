@@ -28,6 +28,10 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "allowTypeImports": {
+                "type": "boolean",
+                "description": "Whether to allow type-only imports for a path."
               }
             },
             "additionalProperties": false,
@@ -79,6 +83,10 @@
                         "items": {
                           "type": "string"
                         }
+                      },
+                      "allowTypeImports": {
+                        "type": "boolean",
+                        "description": "Whether to allow type-only imports for a path."
                       }
                     },
                     "additionalProperties": false,
@@ -149,6 +157,10 @@
                       },
                       "caseSensitive": {
                         "type": "boolean"
+                      },
+                      "allowTypeImports": {
+                        "type": "boolean",
+                        "description": "Whether to allow type-only imports for a pattern."
                       }
                     },
                     "additionalProperties": false,
