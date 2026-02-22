@@ -64,6 +64,12 @@ export const unicornVanillaConfig = {
         util: { named: true },
       },
     }],
+    'unicorn/isolated-functions': [ERROR, {
+      functions: ['makeSynchronous'],
+      selectors: [],
+      comments: ['@isolated'],
+      overrideGlobals: undefined,
+    }],
     // Related to the core rule no-new-wrappers
     'unicorn/new-for-builtins': [ERROR],
     // TODO: Might be duplicate of the rule eslint-comments/no-unlimited-disable
@@ -92,6 +98,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-empty-file': [ERROR],
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-hex-escape': [ERROR],
+    'unicorn/no-immediate-mutation': [ERROR],
     'unicorn/no-instanceof-builtins': [ERROR, {
       exclude: [],
       include: [],
@@ -149,6 +156,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-unreadable-array-destructuring': [ERROR],
     'unicorn/no-unreadable-iife': [ERROR],
     'unicorn/no-unused-properties': [ERROR],
+    'unicorn/no-useless-collection-argument': [ERROR],
     'unicorn/no-useless-error-capture-stack-trace': [ERROR],
     'unicorn/no-useless-fallback-in-spread': [ERROR],
     'unicorn/no-useless-length-check': [ERROR],
@@ -242,6 +250,7 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-prototype-methods': [ERROR],
     'unicorn/prefer-reflect-apply': [ERROR],
     'unicorn/prefer-regexp-test': [ERROR],
+    'unicorn/prefer-response-static-json': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
     'unicorn/prefer-set-size': [ERROR],
     'unicorn/prefer-single-call': [ERROR, {
@@ -326,7 +335,9 @@ export const unicornVanillaConfig = {
         'styled',
       ],
     }],
-    'unicorn/text-encoding-identifier-case': [ERROR],
+    'unicorn/text-encoding-identifier-case': [ERROR, {
+      withDash: false,
+    }],
     'unicorn/throw-new-error': [ERROR],
   },
 } as const satisfies Linter.Config

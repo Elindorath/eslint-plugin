@@ -1,0 +1,16 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "require": {
+        "description": "When should the name property be required on a test case object.",
+        "enum": [
+          "always",
+          "objects",
+          "objects-with-config"
+        ]
+      }
+    },
+    "type": "object"
+  }
+]
