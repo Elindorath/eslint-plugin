@@ -1,5 +1,5 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
-import jsonParser from 'jsonc-eslint-parser'
+import * as jsoncParser from 'jsonc-eslint-parser'
 
 import { ERROR } from '../../../constants.ts'
 import { getRuleConfig } from '../../../utilities.ts'
@@ -13,7 +13,7 @@ const INDENT_SPACE_COUNT = 2
 
 export const jsonLayoutConfig = {
   languageOptions: {
-    parser: jsonParser,
+    parser: jsoncParser,
   },
 
   plugins: {
