@@ -1,10 +1,5 @@
 import process from 'node:process'
 
-/**
- * TODO: fix it when this plugin expose typings
- * @see: https://github.com/eslint-community/eslint-plugin-eslint-plugin/issues/310
- */
-// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import eslintPluginPlugin from 'eslint-plugin-eslint-plugin'
 import { readPackageUpSync } from 'read-package-up'
 
@@ -33,7 +28,6 @@ const normalizedRepositoryUrl = repositoryUrl.replace('git+', '').replace('githu
 
 export const eslintPluginConfig = {
   plugins: {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'eslint-plugin': eslintPluginPlugin,
   },
 
