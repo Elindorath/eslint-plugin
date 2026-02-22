@@ -53,6 +53,7 @@ export const eslintPluginConfig = {
     'eslint-plugin/no-deprecated-context-methods': [ERROR],
     'eslint-plugin/no-deprecated-report-api': [ERROR],
     'eslint-plugin/no-identical-tests': [ERROR],
+    'eslint-plugin/no-matching-violation-suggest-message-ids': [ERROR],
     'eslint-plugin/no-meta-replaced-by': [ERROR],
     'eslint-plugin/no-meta-schema-default': [ERROR],
     'eslint-plugin/no-missing-message-ids': [ERROR],
@@ -92,6 +93,8 @@ export const eslintPluginConfig = {
     }],
     'eslint-plugin/require-meta-schema-description': [ERROR],
     'eslint-plugin/require-meta-type': [ERROR],
+    // Configured value
+    'eslint-plugin/require-test-case-name': [ERROR, 'always'],
     'eslint-plugin/test-case-property-ordering': [ERROR, [
       'code',
       'output',
@@ -100,5 +103,6 @@ export const eslintPluginConfig = {
       'errors',
     ]],
     'eslint-plugin/test-case-shorthand-strings': [ERROR, 'as-needed'],
+    'eslint-plugin/unique-test-case-names': [ERROR],
   },
 } as const satisfies Linter.Config
