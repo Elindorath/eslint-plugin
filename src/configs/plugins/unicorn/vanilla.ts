@@ -65,10 +65,10 @@ export const unicornVanillaConfig = {
       },
     }],
     'unicorn/isolated-functions': [ERROR, {
-      functions: ['makeSynchronous'],
-      selectors: [],
       comments: ['@isolated'],
+      functions: ['makeSynchronous'],
       overrideGlobals: undefined,
+      selectors: [],
     }],
     // Related to the core rule no-new-wrappers
     'unicorn/new-for-builtins': [ERROR],
