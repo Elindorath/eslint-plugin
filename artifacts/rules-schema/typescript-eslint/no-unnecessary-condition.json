@@ -7,10 +7,12 @@
         "description": "Whether to ignore constant loop conditions, such as `while (true)`.",
         "oneOf": [
           {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Always ignore or not ignore the loop conditions"
           },
           {
             "type": "string",
+            "description": "Which situations to ignore constant conditions in.",
             "enum": [
               "always",
               "never",

@@ -419,10 +419,17 @@ export const typescriptConfig = {
     '@typescript-eslint/no-unsafe-declaration-merging': [ERROR],
     '@typescript-eslint/no-unsafe-enum-comparison': [ERROR],
     '@typescript-eslint/no-unsafe-function-type': [ERROR],
-    '@typescript-eslint/no-unsafe-member-access': [ERROR],
+    '@typescript-eslint/no-unsafe-member-access': [ERROR, {
+      allowOptionalChaining: false,
+    }],
     '@typescript-eslint/no-unsafe-return': [ERROR],
     '@typescript-eslint/no-unsafe-type-assertion': [ERROR],
     '@typescript-eslint/no-unsafe-unary-minus': [ERROR],
+    'no-unused-private-class-members': [OFF],
+    '@typescript-eslint/no-unused-private-class-members': [ERROR],
+    '@typescript-eslint/no-useless-default-assignment': [ERROR, {
+      allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+    }],
     '@typescript-eslint/no-useless-empty-export': [ERROR],
     '@typescript-eslint/no-wrapper-object-types': [ERROR],
     '@typescript-eslint/non-nullable-type-assertion-style': [ERROR],
@@ -593,6 +600,9 @@ export const typescriptConfig = {
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
       allowString: true,
     }],
+    '@typescript-eslint/strict-void-return': [ERROR, {
+      allowReturnAny: false,
+    }],
     '@typescript-eslint/switch-exhaustiveness-check': [ERROR, {
       allowDefaultCaseForExhaustiveSwitch: true,
       // Configured value
@@ -738,8 +748,13 @@ export const typescriptConfig = {
       caughtErrors: 'all',
       caughtErrorsIgnorePattern: '',
       destructuredArrayIgnorePattern: '',
+      enableAutofixRemoval: {
+        // Configured value
+        imports: true,
+      },
       ignoreClassWithStaticInitBlock: false,
       ignoreRestSiblings: false,
+      ignoreUsingDeclarations: false,
       reportUsedIgnorePattern: false,
       vars: 'all',
       varsIgnorePattern: '',
