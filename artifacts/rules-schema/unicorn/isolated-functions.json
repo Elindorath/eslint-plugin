@@ -1,0 +1,47 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "overrideGlobals": {
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "readonly",
+                "writable",
+                "writeable",
+                "off"
+              ]
+            }
+          ]
+        }
+      },
+      "functions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "selectors": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "comments": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+]
