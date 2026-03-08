@@ -59,6 +59,7 @@
             "repl.REPLServer",
             "repl.Recoverable",
             "repl.REPL_MODE_MAGIC",
+            "repl.builtinModules",
             "safe-buffer.Buffer()",
             "new safe-buffer.Buffer()",
             "safe-buffer.SlowBuffer",

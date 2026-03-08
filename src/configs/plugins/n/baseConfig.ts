@@ -156,10 +156,12 @@ export const baseConfig = {
 
     /* ----- Keep order logical ----- */
     'n/prefer-global/buffer': [ERROR, 'never'],
+    'n/prefer-global/crypto': [ERROR, 'never'],
     'n/prefer-global/console': [ERROR, 'always'],
     'n/prefer-global/process': [ERROR, 'never'],
     'n/prefer-global/text-decoder': [ERROR, 'never'],
     'n/prefer-global/text-encoder': [ERROR, 'never'],
+    'n/prefer-global/timers': [ERROR, 'never'],
     'n/prefer-global/url': [ERROR, 'never'],
     'n/prefer-global/url-search-params': [ERROR, 'never'],
     'n/prefer-node-protocol': [ERROR, {
