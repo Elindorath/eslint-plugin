@@ -43,7 +43,7 @@ __metadata:
   dependencies:
     "@eslint-community/eslint-plugin-eslint-comments": "npm:4.7.1"
     "@eslint/compat": "npm:2.0.3"
-    "@eslint/json": "npm:1.0.1"
+    "@eslint/json": "npm:1.1.0"
     "@eslint/markdown": "npm:7.2.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     "@stylistic/eslint-plugin": "npm:5.3.1"
@@ -452,15 +452,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/core@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@eslint/core@npm:1.1.0"
-  dependencies:
-    "@types/json-schema": "npm:^7.0.15"
-  checksum: 10c0/0f875d6f24fbf67cc796e01c2ca82884f755488052ed84183e56377c5b90fe10b491a26e600642db4daea1d5d8ab7906ec12f2bd5cbdb5004b0ef73c802bdb57
-  languageName: node
-  linkType: hard
-
 "@eslint/core@npm:^1.1.1":
   version: 1.1.1
   resolution: "@eslint/core@npm:1.1.1"
@@ -518,15 +509,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/json@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@eslint/json@npm:1.0.1"
+"@eslint/json@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@eslint/json@npm:1.1.0"
   dependencies:
-    "@eslint/core": "npm:^1.1.0"
-    "@eslint/plugin-kit": "npm:^0.6.0"
+    "@eslint/core": "npm:^1.1.1"
+    "@eslint/plugin-kit": "npm:^0.6.1"
     "@humanwhocodes/momoa": "npm:^3.3.10"
     natural-compare: "npm:^1.4.0"
-  checksum: 10c0/9d1288e63557fbcea415ac069625192e91d62513a4e4c9abd67e4a2cfa2e2ff04e02572d78ca40aad468d243db8043070ae314a281b417066e87d92fcc6ac3d6
+  checksum: 10c0/e27666b9a38c6dc00b52f70e409f2211ead44bebff034f7aec8b0844b23b111b32e286806bb21d02d68be40c93ac240eb5678df89accdddf368abae7f569f1bf
   languageName: node
   linkType: hard
 
@@ -591,13 +582,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/plugin-kit@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "@eslint/plugin-kit@npm:0.6.0"
+"@eslint/plugin-kit@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "@eslint/plugin-kit@npm:0.6.1"
   dependencies:
-    "@eslint/core": "npm:^1.1.0"
+    "@eslint/core": "npm:^1.1.1"
     levn: "npm:^0.4.1"
-  checksum: 10c0/1d726338a9f4537fe2848796c44d801093ea3a99166dbc45bc6f7742fa2ad74ce0c2f114092ce4460710a9dfe5ea6e3500446f81842388bf81328c97c3a43d9d
+  checksum: 10c0/f8354a7b92cc41e7a55d51986d192134be84f9dc0c91b5e649d075d733b56981c4ca8bf4460d54120c4c87b47984167bad2cb9bceb303f11b0a3bad22b3ed06a
   languageName: node
   linkType: hard
 
