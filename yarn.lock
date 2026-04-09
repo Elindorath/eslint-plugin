@@ -91,7 +91,7 @@ __metadata:
     globals: "npm:17.4.0"
     is-what: "npm:5.5.0"
     jiti: "npm:2.6.1"
-    json-diff-ts: "npm:4.10.3"
+    json-diff-ts: "npm:4.10.4"
     jsonc-eslint-parser: "npm:3.1.0"
     package-directory: "npm:8.2.0"
     read-package-up: "npm:12.0.0"
@@ -4843,10 +4843,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-diff-ts@npm:4.10.3":
-  version: 4.10.3
-  resolution: "json-diff-ts@npm:4.10.3"
-  checksum: 10c0/f04af25793dc7f7e3418992c4f054a9189f426d836f0463d421adee3e7bc72564fc1a19f81f33b450baeda9ed3581f60bc5357ca26bfbc983473a2596a0ca291
+"json-diff-ts@npm:4.10.4":
+  version: 4.10.4
+  resolution: "json-diff-ts@npm:4.10.4"
+  checksum: 10c0/6c37e04cf5184b74de89ff75d78ca623c6ed4bbb25a460df1ad4a60b967f95cf5f19ff8f9a48a26cef7ef428de88d95a549d15c11f53a9fd5f3a07471fc5099a
   languageName: node
   linkType: hard
 
