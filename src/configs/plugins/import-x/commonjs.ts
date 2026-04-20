@@ -5,7 +5,7 @@ import { OFF } from '../../../constants.ts'
 import type { ESLint, Linter } from 'eslint'
 
 
-export const importCommonJsConfig = {
+export const commonJsConfig = {
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.

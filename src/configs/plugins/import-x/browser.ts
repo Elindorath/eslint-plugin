@@ -5,7 +5,7 @@ import { ERROR } from '../../../constants.ts'
 import type { ESLint, Linter } from 'eslint'
 
 
-export const importBrowserConfig = {
+export const browserConfig = {
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.

@@ -1,7 +1,7 @@
 import { mergeConfigs } from '../configMerger.ts'
 import { ERROR } from '../constants.ts'
 
-import { importVanillaLayoutConfig } from './plugins/import-x/vanilla-layout.ts'
+import { importVanillaLayoutConfig } from './plugins/import-x/javascript-layout.ts'
 import { stylisticVanillaLayoutConfig } from './plugins/stylistic/vanilla-layout.ts'
 import { unicornVanillaLayoutConfig } from './plugins/unicorn/vanilla-layout.ts'
 
