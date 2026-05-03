@@ -41,7 +41,9 @@ export const promiseVanillaConfig = {
     'promise/no-native': [OFF],
     'promise/no-nesting': [ERROR],
     'promise/no-new-statics': [ERROR],
-    'promise/no-promise-in-callback': [ERROR],
+    'promise/no-promise-in-callback': [ERROR, {
+      exemptDeclarations: false,
+    }],
     'promise/no-return-in-finally': [ERROR],
     'promise/no-return-wrap': [ERROR, {
       allowReject: false,
