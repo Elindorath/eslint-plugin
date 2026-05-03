@@ -15,6 +15,9 @@
           "type": "string"
         },
         "uniqueItems": true
+      },
+      "checkFootnoteDefinitions": {
+        "type": "boolean"
       }
     },
     "additionalProperties": false

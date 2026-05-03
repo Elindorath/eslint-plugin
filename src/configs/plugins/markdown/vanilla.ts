@@ -23,6 +23,7 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/fenced-code-language': [ERROR, {
       required: [],
     }],
+    '@eslint/markdown/fenced-code-meta': [ERROR, 'always'],
     '@eslint/markdown/heading-increment': [ERROR, {
       // Configured value
       frontmatterTitle: '',
@@ -36,6 +37,7 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-duplicate-definitions': [ERROR, {
       allowDefinitions: [],
       allowFootnoteDefinitions: [],
+      checkFootnoteDefinitions: true,
     }],
     '@eslint/markdown/no-duplicate-headings': [ERROR, {
       checkSiblingsOnly: false,
@@ -76,6 +78,7 @@ export const markdownVanillaConfig = {
     '@eslint/markdown/no-unused-definitions': [ERROR, {
       allowDefinitions: ['//'],
       allowFootnoteDefinitions: [],
+      checkFootnoteDefinitions: true,
     }],
     '@eslint/markdown/require-alt-text': [ERROR],
     '@eslint/markdown/table-column-count': [ERROR, {
