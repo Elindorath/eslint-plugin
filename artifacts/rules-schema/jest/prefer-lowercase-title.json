@@ -24,6 +24,10 @@
       "ignoreTopLevelDescribe": {
         "type": "boolean",
         "default": false
+      },
+      "ignoreTodos": {
+        "type": "boolean",
+        "default": false
       }
     },
     "additionalProperties": false
