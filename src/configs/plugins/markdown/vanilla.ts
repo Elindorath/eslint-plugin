@@ -56,7 +56,9 @@ export const markdownVanillaConfig = {
       // Configured value
       checkClosedHeadings: true,
     }],
-    '@eslint/markdown/no-missing-label-refs': [ERROR],
+    '@eslint/markdown/no-missing-label-refs': [ERROR, {
+      allowLabels: [],
+    }],
     '@eslint/markdown/no-missing-link-fragments': [ERROR, {
       allowPattern: '',
       // Configured value
@@ -66,6 +68,7 @@ export const markdownVanillaConfig = {
       // Configured value
       frontmatterTitle: '',
     }],
+    '@eslint/markdown/no-reference-like-urls': [ERROR],
     '@eslint/markdown/no-reversed-media-syntax': [ERROR],
     '@eslint/markdown/no-space-in-emphasis': [ERROR, {
       checkStrikethrough: true,
