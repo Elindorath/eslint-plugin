@@ -8,15 +8,18 @@
         "additionalProperties": false,
         "properties": {
           "onlyIfContainsSeparator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether to only enforce the style if the number already contains a separator."
           },
           "minimumDigits": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "description": "The minimum number of digits before separators are enforced."
           },
           "groupLength": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 1,
+            "description": "The number of digits in each group."
           }
         }
       },
@@ -25,15 +28,18 @@
         "additionalProperties": false,
         "properties": {
           "onlyIfContainsSeparator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether to only enforce the style if the number already contains a separator."
           },
           "minimumDigits": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "description": "The minimum number of digits before separators are enforced."
           },
           "groupLength": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 1,
+            "description": "The number of digits in each group."
           }
         }
       },
@@ -42,15 +48,18 @@
         "additionalProperties": false,
         "properties": {
           "onlyIfContainsSeparator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether to only enforce the style if the number already contains a separator."
           },
           "minimumDigits": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "description": "The minimum number of digits before separators are enforced."
           },
           "groupLength": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 1,
+            "description": "The number of digits in each group."
           }
         }
       },
@@ -59,20 +68,24 @@
         "additionalProperties": false,
         "properties": {
           "onlyIfContainsSeparator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether to only enforce the style if the number already contains a separator."
           },
           "minimumDigits": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "description": "The minimum number of digits before separators are enforced."
           },
           "groupLength": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 1,
+            "description": "The number of digits in each group."
           }
         }
       },
       "onlyIfContainsSeparator": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to only enforce the style if the number already contains a separator."
       }
     }
   }

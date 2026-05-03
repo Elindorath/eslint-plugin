@@ -4,11 +4,13 @@
     "additionalProperties": false,
     "properties": {
       "name": {
-        "type": "string"
+        "type": "string",
+        "description": "The expected name for the error variable."
       },
       "ignore": {
         "type": "array",
-        "uniqueItems": true
+        "uniqueItems": true,
+        "description": "Patterns to ignore."
       }
     }
   }

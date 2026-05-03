@@ -4,10 +4,12 @@
     "additionalProperties": false,
     "properties": {
       "checkInfinity": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to check usage of the global `Infinity`."
       },
       "checkNaN": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to check usage of the global `NaN`."
       }
     }
   }

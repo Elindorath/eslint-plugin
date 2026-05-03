@@ -8,7 +8,8 @@
         "items": {
           "type": "string"
         },
-        "uniqueItems": true
+        "uniqueItems": true,
+        "description": "Packages to exclude from checking."
       }
     }
   }

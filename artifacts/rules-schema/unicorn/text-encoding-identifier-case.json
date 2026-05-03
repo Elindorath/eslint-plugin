@@ -4,7 +4,8 @@
     "additionalProperties": false,
     "properties": {
       "withDash": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to prefer identifiers with a dash, like `utf-8` instead of `utf8`."
       }
     }
   }

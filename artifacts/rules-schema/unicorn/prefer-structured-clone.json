@@ -5,7 +5,8 @@
     "properties": {
       "functions": {
         "type": "array",
-        "uniqueItems": true
+        "uniqueItems": true,
+        "description": "Additional functions to check."
       }
     }
   }

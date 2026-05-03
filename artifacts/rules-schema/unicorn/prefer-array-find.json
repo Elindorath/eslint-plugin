@@ -4,7 +4,8 @@
     "additionalProperties": false,
     "properties": {
       "checkFromLast": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to also check for patterns that can be replaced with `findLast()`."
       }
     }
   }
