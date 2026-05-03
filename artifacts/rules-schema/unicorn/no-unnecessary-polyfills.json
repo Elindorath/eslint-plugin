@@ -9,15 +9,19 @@
       "targets": {
         "oneOf": [
           {
-            "type": "string"
+            "type": "string",
+            "description": "A browserslist query string."
           },
           {
-            "type": "array"
+            "type": "array",
+            "description": "An array of browserslist query strings."
           },
           {
-            "type": "object"
+            "type": "object",
+            "description": "A browserslist targets object."
           }
-        ]
+        ],
+        "description": "The target environments."
       }
     }
   }

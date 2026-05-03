@@ -11,13 +11,16 @@
           }
         ],
         "minItems": 0,
-        "uniqueItems": true
+        "uniqueItems": true,
+        "description": "The prefixes to disallow."
       },
       "checkProperties": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to check property names."
       },
       "onlyCamelCase": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to only check camelCase names."
       }
     }
   }

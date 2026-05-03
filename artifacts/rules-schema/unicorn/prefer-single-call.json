@@ -5,7 +5,8 @@
     "properties": {
       "ignore": {
         "type": "array",
-        "uniqueItems": true
+        "uniqueItems": true,
+        "description": "Methods to ignore."
       }
     }
   }

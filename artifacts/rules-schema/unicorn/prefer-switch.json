@@ -5,14 +5,16 @@
     "properties": {
       "minimumCases": {
         "type": "integer",
-        "minimum": 2
+        "minimum": 2,
+        "description": "The minimum number of `if`/`else if` cases before suggesting a `switch` statement."
       },
       "emptyDefaultCase": {
         "enum": [
           "no-default-comment",
           "do-nothing-comment",
           "no-default-case"
-        ]
+        ],
+        "description": "How to handle an empty `default` case."
       }
     }
   }

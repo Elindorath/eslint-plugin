@@ -4,7 +4,8 @@
     "additionalProperties": false,
     "properties": {
       "sortCharacterClasses": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether to sort character classes."
       }
     }
   }

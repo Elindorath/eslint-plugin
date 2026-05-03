@@ -26,6 +26,7 @@ export const unicornVanillaConfig = {
     'unicorn/consistent-function-scoping': [ERROR, {
       checkArrowFunctions: true,
     }],
+    'unicorn/consistent-template-literal-escape': [ERROR],
     'unicorn/custom-error-definition': [ERROR],
     'unicorn/error-message': [ERROR],
     'unicorn/escape-case': [ERROR, 'uppercase'],
@@ -33,6 +34,7 @@ export const unicornVanillaConfig = {
     'unicorn/expiring-todo-comments': [ERROR, {
       allowWarningComments: true,
       ignore: [],
+      ignoreDates: false,
       ignoreDatesOnPullRequests: true,
       // Configured value
       terms: ['todo', 'fixme'],
@@ -159,6 +161,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-useless-collection-argument': [ERROR],
     'unicorn/no-useless-error-capture-stack-trace': [ERROR],
     'unicorn/no-useless-fallback-in-spread': [ERROR],
+    'unicorn/no-useless-iterator-to-array': [ERROR],
     'unicorn/no-useless-length-check': [ERROR],
     'unicorn/no-useless-promise-resolve-reject': [ERROR],
     'unicorn/no-useless-spread': [ERROR],
@@ -253,6 +256,7 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-response-static-json': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
     'unicorn/prefer-set-size': [ERROR],
+    'unicorn/prefer-simple-condition-first': [ERROR],
     'unicorn/prefer-single-call': [ERROR, {
       ignore: [],
     }],
@@ -316,6 +320,7 @@ export const unicornVanillaConfig = {
         },
       },
     }],
+    'unicorn/switch-case-break-position': [ERROR],
     'unicorn/template-indent': [ERROR, {
       comments: [
         'HTML',
