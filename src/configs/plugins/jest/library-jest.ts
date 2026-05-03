@@ -69,7 +69,10 @@ export const jestConfig = {
     'jest/no-alias-methods': [ERROR],
     'jest/no-commented-out-tests': [ERROR],
     'jest/no-conditional-expect': [ERROR],
-    'jest/no-conditional-in-test': [ERROR],
+    'jest/no-conditional-in-test': [ERROR, {
+      // Configured value
+      allowOptionalChaining: false,
+    }],
     'jest/no-confusing-set-timeout': [ERROR],
     'jest/no-deprecated-functions': [ERROR],
     // Only WARN because it is better to have a skipped test than no test at all
@@ -100,6 +103,7 @@ export const jestConfig = {
     }],
     'jest/no-test-prefixes': [ERROR],
     'jest/no-test-return-statement': [ERROR],
+    'jest/no-unneeded-async-expect-function': [ERROR],
     // OFF as it requires typescript
     'jest/no-untyped-mock-factory': [OFF],
     'jest/padding-around-after-all-blocks': [ERROR],
@@ -136,14 +140,18 @@ export const jestConfig = {
     'jest/prefer-lowercase-title': [ERROR, {
       allowedPrefixes: [],
       ignore: [],
+      ignoreTodos: false,
       ignoreTopLevelDescribe: false,
     }],
     'jest/prefer-mock-promise-shorthand': [ERROR],
+    'jest/prefer-mock-return-shorthand': [ERROR],
     'jest/prefer-snapshot-hint': [ERROR, 'multi'],
     'jest/prefer-spy-on': [ERROR],
     'jest/prefer-strict-equal': [ERROR],
     'jest/prefer-to-be': [ERROR],
     'jest/prefer-to-contain': [ERROR],
+    'jest/prefer-to-have-been-called': [ERROR],
+    'jest/prefer-to-have-been-called-times': [ERROR],
     'jest/prefer-to-have-length': [ERROR],
     'jest/require-hook': [ERROR, {
       allowedFunctionCalls: [],
@@ -165,6 +173,15 @@ export const jestConfig = {
       minArgs: 1,
     }],
     'jest/valid-expect-in-promise': [ERROR],
+    'jest/valid-mock-module-path': [ERROR, {
+      moduleFileExtensions: [
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.json',
+      ],
+    }],
     'jest/valid-title': [ERROR, {
       ignoreTypeOfDescribeName: false,
       ignoreTypeOfTestName: false,
