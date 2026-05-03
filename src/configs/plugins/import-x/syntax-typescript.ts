@@ -49,6 +49,7 @@ export const importTypescriptConfig = {
       // Configured value
       missingExports: true,
       src: [process.cwd()],
+      suppressMissingFileEnumeratorAPIWarning: false,
       // Configured value
       unusedExports: true,
     }],

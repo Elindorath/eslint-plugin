@@ -31,6 +31,10 @@
       "ignoreUnusedTypeExports": {
         "description": "ignore type exports without any usage",
         "type": "boolean"
+      },
+      "suppressMissingFileEnumeratorAPIWarning": {
+        "description": "ESLint 10 and later versions remove the FileEnumerator API, which is required by the \"no-unused-modules\" rule. Therefore a warning message will be logged before an alternative is implemented. You can suppress the warning with this option",
+        "type": "boolean"
       }
     },
     "anyOf": [

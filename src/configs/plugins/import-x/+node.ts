@@ -36,6 +36,7 @@ export const nodeConfig = {
       // Configured value
       missingExports: true,
       src: [process.cwd()],
+      suppressMissingFileEnumeratorAPIWarning: false,
       // Configured value
       unusedExports: true,
     }],
