@@ -68,6 +68,7 @@ export const sonarJsVanillaConfig = {
     'sonarjs/destructuring-assignment-syntax': [ERROR],
     // TODO: Should be put in a library mocha specific configuration file
     'sonarjs/disabled-timeout': [ERROR],
+    'sonarjs/dynamically-constructed-templates': [ERROR],
     'sonarjs/elseif-without-else': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/encryption-secure-mode': [ERROR],
@@ -92,6 +93,7 @@ export const sonarJsVanillaConfig = {
     }],
     'sonarjs/future-reserved-words': [ERROR],
     'sonarjs/generator-without-yield': [ERROR],
+    'sonarjs/hardcoded-secret-signatures': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/hashing': [ERROR],
     // TODO: Should be put in a library express specific configuration file
@@ -258,6 +260,7 @@ export const sonarJsVanillaConfig = {
     'sonarjs/regex-complexity': [ERROR, {
       threshold: 20,
     }],
+    'sonarjs/review-blockchain-mnemonic': [ERROR],
     // TODO: Should be put in a library express specific configuration file
     'sonarjs/session-regeneration': [ERROR],
     // OFF as we prefer to sort properties alphabetically
