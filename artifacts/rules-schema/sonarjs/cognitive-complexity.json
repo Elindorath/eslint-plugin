@@ -10,12 +10,18 @@
           "minimum": 0
         },
         {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "silence-issues"
+          ]
         }
       ]
     },
     {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "silence-issues"
+      ]
     }
   ]
 }

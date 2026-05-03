@@ -68,6 +68,8 @@ export const sonarJsVanillaConfig = {
     'sonarjs/destructuring-assignment-syntax': [ERROR],
     // TODO: Should be put in a library mocha specific configuration file
     'sonarjs/disabled-timeout': [ERROR],
+    // TODO: Should be put in a library dompurify specific configuration file
+    'sonarjs/dompurify-unsafe-config': [ERROR],
     'sonarjs/dynamically-constructed-templates': [ERROR],
     'sonarjs/elseif-without-else': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
@@ -206,6 +208,8 @@ export const sonarJsVanillaConfig = {
     // TODO: Should be put in a library chai/mocha specific configuration file
     'sonarjs/no-same-argument-assert': [ERROR],
     'sonarjs/no-same-line-conditional': [ERROR],
+    // TODO: Should be put in a library cookie-session, express-session, cookies or csurf specific configuration file
+    'sonarjs/no-session-cookies-on-static-assets': [ERROR],
     // TODO: Should be put in a library chai/mocha specific configuration file
     'sonarjs/no-skipped-tests': [ERROR],
     'sonarjs/no-small-switch': [ERROR],
@@ -272,7 +276,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/stateful-regex': [ERROR],
     // TODO: Should be put in a library express specific configuration file
     'sonarjs/strict-transport-security': [ERROR],
-    'sonarjs/super-invocation': [ERROR],
     // TODO: Should be put in a syntax jsx specific configuration file
     'sonarjs/table-header': [ERROR],
     // TODO: Should be put in a syntax jsx specific configuration file
