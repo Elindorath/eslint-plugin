@@ -59,7 +59,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:4.4.5"
     eslint-plugin-array-func: "npm:5.1.1"
     eslint-plugin-canonical: "npm:5.1.3"
-    eslint-plugin-eslint-plugin: "npm:7.3.2"
+    eslint-plugin-eslint-plugin: "npm:7.5.0"
     eslint-plugin-filenames-simple: "npm:0.9.0"
     eslint-plugin-import-x: "npm:4.16.2"
     eslint-plugin-jest: "npm:29.15.5"
@@ -3152,15 +3152,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-eslint-plugin@npm:7.3.2":
-  version: 7.3.2
-  resolution: "eslint-plugin-eslint-plugin@npm:7.3.2"
+"eslint-plugin-eslint-plugin@npm:7.5.0":
+  version: 7.5.0
+  resolution: "eslint-plugin-eslint-plugin@npm:7.5.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     estraverse: "npm:^5.3.0"
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: 10c0/7089f8fe79c9c296e5c343defa3da906a5cba5147a4a7dc6d605834452bae047408b8b81736e7272b407df9ffbc9700c6b022c2ebc97d818284836394cc4da71
+  checksum: 10c0/b9cb51d5653506c8440d7bb06ff8bc3b94bf47b70af5326809b913cb7a0fa787810b2793cb73190c70447e2a7b0d65e54f79c3f9132e6c7b14bb44ccdf2df229
   languageName: node
   linkType: hard
 
