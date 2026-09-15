@@ -66,7 +66,7 @@ __metadata:
     eslint-plugin-jest-dom: "npm:5.6.0"
     eslint-plugin-jest-extended: "npm:3.0.1"
     eslint-plugin-jest-formatting: "npm:3.1.0"
-    eslint-plugin-json-files: "npm:5.1.4"
+    eslint-plugin-json-files: "npm:6.0.0"
     eslint-plugin-jsonc: "npm:2.21.1"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
     eslint-plugin-listeners: "npm:1.6.0"
@@ -3259,9 +3259,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-json-files@npm:5.1.4":
-  version: 5.1.4
-  resolution: "eslint-plugin-json-files@npm:5.1.4"
+"eslint-plugin-json-files@npm:6.0.0":
+  version: 6.0.0
+  resolution: "eslint-plugin-json-files@npm:6.0.0"
   dependencies:
     ajv: "npm:^8.2.0"
     better-ajv-errors: "npm:^2.0.0"
@@ -3271,7 +3271,7 @@ __metadata:
     sort-package-json: "npm:^1.22.1"
   peerDependencies:
     eslint: ">=5"
-  checksum: 10c0/0bfd2977e27d52d5b6fbb81ce5d0c492147ff5077bd145898b7dae3f542a701ae915e0a7d768b349ec1af2b9d4a76fda2e99f6a8118240b2625134002def0325
+  checksum: 10c0/c46639fbbdf839f5a59486f4cd31f5ae5b25b350e242149887661ca54ec7d2a1637fe9bf9b715089ed4b0d36d8d60f74742e61b517b3c38fd944ef4ff00c7351
   languageName: node
   linkType: hard
 
