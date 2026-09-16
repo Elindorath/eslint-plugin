@@ -619,17 +619,6 @@ export const typescriptConfig = {
       // Configured value
       types: 'never',
     }],
-    // Disabled as Typescript is better at inferring types
-    '@typescript-eslint/typedef': [OFF, {
-      arrayDestructuring: false,
-      arrowParameter: false,
-      memberVariableDeclaration: false,
-      objectDestructuring: false,
-      parameter: false,
-      propertyDeclaration: false,
-      variableDeclaration: false,
-      variableDeclarationIgnoreFunction: false,
-    }],
     '@typescript-eslint/unbound-method': [ERROR, {
       ignoreStatic: false,
     }],

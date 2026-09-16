@@ -235,7 +235,6 @@ export const stylisticVanillaLayoutConfig = {
       allowNamespace: true,
       ignore: [],
     }],
-    '@stylistic/jsx-props-no-multi-spaces': [ERROR],
     '@stylistic/jsx-quotes': [ERROR, 'prefer-double'],
     '@stylistic/jsx-self-closing-comp': [ERROR, {
       component: true,

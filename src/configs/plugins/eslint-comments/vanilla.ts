@@ -23,15 +23,6 @@ export const eslintCommentsVanillaConfig = {
     '@eslint-community/eslint-comments/no-aggregating-enable': [OFF],
     '@eslint-community/eslint-comments/no-duplicate-disable': [ERROR],
     '@eslint-community/eslint-comments/no-unlimited-disable': [ERROR],
-
-    /**
-     * BEWARE: this rule is a bit hacky, be careful with eslint updates.
-     * @see: https://eslint-community.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html#known-limitations
-     *
-     * OFF as this rule relies on the `CLIEngine` class that was deprecated in ESLint v7.0.0.
-     * We use the `linterOptions.reportUnusedDisableDirectives = ERROR` in configurations to achieve the same goal.
-     */
-    '@eslint-community/eslint-comments/no-unused-disable': [OFF],
     '@eslint-community/eslint-comments/no-unused-enable': [ERROR],
 
     /* ----- Stylistic issues ----- */
