@@ -17,7 +17,7 @@ type Config = {
 type ESLintPluginWithRule = SetRequired<ESLint.Plugin, 'rules'>
 type PluginChangesDescriptor = {
   absentConfiguredRuleNames: RuleName[];
-  deprecatedRuleNames: RuleId[];
+  deprecatedRuleNames: RuleName[];
   notConfiguredRuleNames: RuleName[];
   prefix: PluginPrefix;
   ruleConfigurationChanges: { [key: RuleName]: IChange[]; };
