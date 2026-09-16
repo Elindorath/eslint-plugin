@@ -25,7 +25,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/aws-s3-bucket-granted-access': [ERROR],
     'sonarjs/aws-s3-bucket-insecure-http': [ERROR],
     'sonarjs/aws-s3-bucket-public-access': [ERROR],
-    'sonarjs/aws-s3-bucket-server-encryption': [ERROR],
     'sonarjs/aws-s3-bucket-versioning': [ERROR],
     'sonarjs/aws-sagemaker-unencrypted-notebook': [ERROR],
     'sonarjs/aws-sns-unencrypted-topics': [ERROR],
