@@ -1,8 +1,3 @@
-/**
- * TODO: fix it when this plugin expose typings
- * @see: https://github.com/eslint-community/eslint-plugin-eslint-comments/issues/214
- */
-// @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import eslintCommentsPlugin from '@eslint-community/eslint-plugin-eslint-comments'
 
 import { ERROR, OFF } from '../../../constants.ts'
@@ -17,7 +12,6 @@ const DIRECTIVES = {
 
 export const eslintCommentsVanillaConfig = {
   plugins: {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     '@eslint-community/eslint-comments': eslintCommentsPlugin,
   },
   rules: {
@@ -44,6 +38,7 @@ export const eslintCommentsVanillaConfig = {
     // Does nothing as is, needs a list of glob rules
     '@eslint-community/eslint-comments/no-restricted-disable': [ERROR],
     '@eslint-community/eslint-comments/no-use': [ERROR, {
+      additionalDirectives: [],
       allow: [
         DIRECTIVES.ENABLE,
         DIRECTIVES.DISABLE,
@@ -51,6 +46,7 @@ export const eslintCommentsVanillaConfig = {
       ],
     }],
     '@eslint-community/eslint-comments/require-description': [ERROR, {
+      additionalDirectives: [],
       ignore: [DIRECTIVES.ENABLE],
     }],
   },

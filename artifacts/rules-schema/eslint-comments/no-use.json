@@ -2,22 +2,18 @@
   {
     "type": "object",
     "properties": {
+      "additionalDirectives": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
       "allow": {
         "type": "array",
         "items": {
-          "enum": [
-            "eslint",
-            "eslint-disable",
-            "eslint-disable-line",
-            "eslint-disable-next-line",
-            "eslint-enable",
-            "eslint-env",
-            "exported",
-            "global",
-            "globals"
-          ]
+          "type": "string"
         },
-        "additionalItems": false,
         "uniqueItems": true
       }
     },
