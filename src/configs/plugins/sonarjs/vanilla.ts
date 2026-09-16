@@ -45,8 +45,6 @@ export const sonarJsVanillaConfig = {
       message: 'Avoid letting todo comments',
       regularExpression: 'TODO:',
     }],
-    // TODO: Should be put in a library signale specific configuration file
-    'sonarjs/confidential-information-logging': [ERROR],
     'sonarjs/constructor-for-side-effects': [ERROR],
     // TODO: Should be put in a library formidable, multer or body-parser specific configuration file
     'sonarjs/content-length': [ERROR, {
@@ -89,8 +87,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/fixme-tag': [ERROR],
     'sonarjs/for-in': [ERROR],
     'sonarjs/for-loop-increment-sign': [ERROR],
-    // TODO: Should be put in a library express specific configuration file
-    'sonarjs/frame-ancestors': [ERROR],
     'sonarjs/function-inside-loop': [ERROR],
     'sonarjs/function-name': [ERROR, {
       format: '^[_a-z][a-zA-Z0-9]*$',
@@ -100,8 +96,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/hardcoded-secret-signatures': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/hashing': [ERROR],
-    // TODO: Should be put in a library express specific configuration file
-    'sonarjs/hidden-files': [ERROR],
     // TODO: Should be put in a tests specific configuration file
     'sonarjs/hooks-before-test-cases': [ERROR],
     'sonarjs/inconsistent-function-call': [ERROR],
@@ -196,20 +190,13 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-internal-api-use': [ERROR],
     // TODO: Should be put in a tests specific configuration file
     'sonarjs/no-interpolation-in-inline-snapshots': [ERROR],
-    'sonarjs/no-intrusive-permissions': [ERROR, {
-      permissions: ['geolocation'],
-    }],
     'sonarjs/no-invariant-returns': [ERROR],
     'sonarjs/no-inverted-boolean-check': [ERROR],
-    // TODO: Should be put in a library http-proxy or http-proxy-middleware specific configuration file
-    'sonarjs/no-ip-forward': [ERROR],
     'sonarjs/no-labels': [ERROR],
     'sonarjs/no-literal-call': [ERROR],
     // TODO: Should be put in a library express specific configuration file
     'sonarjs/no-mime-sniff': [ERROR],
     'sonarjs/no-mixed-completion-style': [ERROR],
-    // TODO: Should be put in a library express specific configuration file
-    'sonarjs/no-mixed-content': [ERROR],
     'sonarjs/no-nested-assignment': [ERROR],
     'sonarjs/no-nested-conditional': [ERROR],
     'sonarjs/no-nested-functions': [ERROR, {
@@ -249,8 +236,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-unenclosed-multiline-block': [ERROR],
     // TODO: Should be put in a library react specific configuration file
     'sonarjs/no-uniq-key': [ERROR],
-    // TODO: Should be put in a library tar, adm-zip, jszip, yauzl or extract-zip specific configuration file
-    'sonarjs/no-unsafe-unzip': [ERROR],
     'sonarjs/no-unthrown-error': [ERROR],
     'sonarjs/no-unused-collection': [ERROR],
     'sonarjs/no-unused-function-argument': [ERROR],
@@ -269,8 +254,6 @@ export const sonarJsVanillaConfig = {
     'sonarjs/non-existent-operator': [ERROR],
     // TODO: Should be put in a environment browser specific configuration file
     'sonarjs/object-alt-content': [ERROR],
-    // TODO: Should be put in a environment node specific configuration file
-    'sonarjs/os-command': [ERROR],
     'sonarjs/parameterized-tests': [ERROR],
     'sonarjs/prefer-default-last': [ERROR],
     'sonarjs/prefer-immediate-return': [ERROR],

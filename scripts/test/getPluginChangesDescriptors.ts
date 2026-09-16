@@ -35,9 +35,13 @@ async function getPluginChangesDescriptor(pluginDescriptor: PluginDescriptor): P
 
   const deprecatedRuleMap = getDeprecatedRuleMap(objectEntries(pluginDescriptor.instance.rules), pluginDescriptor.prefix)
 
-  const deprecatedConfiguredRuleNames = [...pluginDescriptor.configuredRuleSet].filter((ruleName) => {
-    return deprecatedRuleMap.has(ruleName)
-  })
+  const deprecatedConfiguredRuleNames = [...pluginDescriptor.configuredRuleSet]
+    .map((ruleId) => {
+      return getRuleNameFromId(ruleId, pluginDescriptor.prefix)
+    })
+    .filter((ruleName) => {
+      return deprecatedRuleMap.has(ruleName)
+    })
   const noDeprecatedRuleNames = ruleNames.filter((ruleName) => {
     return !deprecatedRuleMap.has(ruleName)
   })
