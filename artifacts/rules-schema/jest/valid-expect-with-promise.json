@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkThenables": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  }
+]
