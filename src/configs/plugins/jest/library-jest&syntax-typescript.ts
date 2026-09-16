@@ -29,6 +29,8 @@ export const jestTypescriptConfig = {
     // eslint-disable-next-line perfectionist/sort-objects -- TODO: Replace this when we find a way to express linked rules
     '@typescript-eslint/unbound-method': [OFF],
     'jest/unbound-method': getRuleConfig('@typescript-eslint/unbound-method', typescriptConfig),
-    'jest/valid-expect-with-promise': [ERROR],
+    'jest/valid-expect-with-promise': [ERROR, {
+      checkThenables: false,
+    }],
   },
 } as const satisfies Linter.Config
