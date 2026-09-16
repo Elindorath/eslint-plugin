@@ -16,6 +16,7 @@ export const jestDomConfig = {
     'jest-dom/prefer-enabled-disabled': [ERROR],
     'jest-dom/prefer-focus': [ERROR],
     'jest-dom/prefer-in-document': [ERROR],
+    'jest-dom/prefer-pressed': [ERROR],
     'jest-dom/prefer-required': [ERROR],
     'jest-dom/prefer-to-have-attribute': [ERROR],
     'jest-dom/prefer-to-have-class': [ERROR],
