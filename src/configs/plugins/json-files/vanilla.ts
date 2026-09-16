@@ -23,8 +23,6 @@ export const jsonFilesConfig = {
     // OFF as we don't use volta
     'json-files/ensure-volta-extends': [OFF],
     'json-files/ensure-workspaces': [ERROR],
-    // TODO: Deprecated, replace it by the corresponding one in @stylistic
-    'json-files/eol-last': [ERROR, 'always'],
     'json-files/no-branch-in-dependencies': [ERROR, {
       ignore: [],
       // Configured value

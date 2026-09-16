@@ -4,12 +4,14 @@ import { ERROR, OFF } from '../../constants.ts'
 import { jsonConfig } from '../plugins/jsonc/syntax-json.ts'
 import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout.ts'
 import { jsonFilesConfig } from '../plugins/json-files/vanilla.ts'
+import { stylisticJsonLayoutConfig } from '../plugins/stylistic/syntax-json-layout.ts'
 
 
 export const overridePackageJsonConfig = mergeConfigs(
   jsonConfig,
   jsonLayoutConfig,
   jsonFilesConfig,
+  stylisticJsonLayoutConfig,
   {
     files: ['**/package.json'],
     rules: {
