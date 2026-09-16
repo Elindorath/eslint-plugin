@@ -115,6 +115,8 @@ export const importVanillaConfig = {
       amd: true,
       commonjs: true,
       esmodule: true,
+      // Undocumented option
+      ignore: [''],
     }],
     'import-x/no-cycle': [ERROR, {
       allowUnsafeDynamicCyclicDependency: false,
@@ -188,7 +190,7 @@ export const importVanillaConfig = {
       caseSensitiveStrict: true,
       // Configured value
       commonjs: true,
-      ignore: [],
+      ignore: [''],
     }],
     'import-x/no-useless-path-segments': [ERROR, {
       noUselessIndex: false,
@@ -246,7 +248,7 @@ export const importVanillaConfig = {
     'import-x/no-named-export': [OFF],
     // OFF as namespace imports can improve readability
     'import-x/no-namespace': [OFF, {
-      ignore: [],
+      ignore: [''],
     }],
     'import-x/no-rename-default': [ERROR],
     'import-x/no-unassigned-import': [ERROR, {
