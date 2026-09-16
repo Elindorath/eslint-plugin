@@ -1,0 +1,55 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "checks": {
+        "type": "object",
+        "description": "Which ineffective-schema checks to enforce.",
+        "properties": {
+          "emptyRoot": {
+            "type": "boolean",
+            "description": "Whether to reject an empty object-form schema."
+          },
+          "bareArrayRoot": {
+            "type": "boolean",
+            "description": "Whether to reject an object-form schema that only asserts an array type."
+          },
+          "nonArrayRootType": {
+            "type": "boolean",
+            "description": "Whether to reject an object-form schema that excludes arrays."
+          },
+          "nonConstrainingRoot": {
+            "type": "boolean",
+            "description": "Whether to reject an object-form schema with no array-applicable keyword."
+          },
+          "ignoredKeywords": {
+            "type": "boolean",
+            "description": "Whether to reject keywords ignored by ESLint’s configured Ajv."
+          },
+          "ignoredRefSiblings": {
+            "type": "boolean",
+            "description": "Whether to reject constraint siblings ignored beside $ref."
+          },
+          "unresolvedRefs": {
+            "type": "boolean",
+            "description": "Whether to reject references ESLint cannot resolve."
+          },
+          "ignoredAdditionalItems": {
+            "type": "boolean",
+            "description": "Whether to reject additionalItems when items is not tuple-form."
+          },
+          "incompatibleTypeKeywords": {
+            "type": "boolean",
+            "description": "Whether to reject keywords incompatible with the declared type."
+          },
+          "impossibleBounds": {
+            "type": "boolean",
+            "description": "Whether to reject contradictory minimum and maximum bounds."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

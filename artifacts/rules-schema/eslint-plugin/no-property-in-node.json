@@ -4,7 +4,7 @@
     "properties": {
       "additionalNodeTypeFiles": {
         "description": "Any additional regular expressions to consider source files defining AST Node types.",
-        "elements": {
+        "items": {
           "type": "string"
         },
         "type": "array"

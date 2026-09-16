@@ -1,0 +1,31 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "checks": {
+        "type": "object",
+        "description": "Which schema completeness checks to enforce.",
+        "properties": {
+          "explicitAdditionalProperties": {
+            "type": "boolean",
+            "description": "Whether object schemas must state an additionalProperties policy."
+          },
+          "explicitItems": {
+            "type": "boolean",
+            "description": "Whether array schemas must state an items policy."
+          },
+          "typedItems": {
+            "type": "boolean",
+            "description": "Whether array item schemas must constrain their type."
+          },
+          "boundedTuples": {
+            "type": "boolean",
+            "description": "Whether tuple schemas must state how additional items are handled."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+]

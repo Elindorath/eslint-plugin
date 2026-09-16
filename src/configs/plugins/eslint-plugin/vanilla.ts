@@ -47,6 +47,28 @@ export const eslintPluginConfig = {
     'eslint-plugin/no-deprecated-context-methods': [ERROR],
     'eslint-plugin/no-deprecated-report-api': [ERROR],
     'eslint-plugin/no-identical-tests': [ERROR],
+    'eslint-plugin/no-incomplete-meta-schema': [ERROR, {
+      checks: {
+        boundedTuples: true,
+        explicitAdditionalProperties: true,
+        explicitItems: true,
+        typedItems: true,
+      },
+    }],
+    'eslint-plugin/no-incorrect-meta-schema': [ERROR, {
+      checks: {
+        bareArrayRoot: true,
+        emptyRoot: true,
+        ignoredAdditionalItems: true,
+        ignoredKeywords: true,
+        ignoredRefSiblings: true,
+        impossibleBounds: true,
+        incompatibleTypeKeywords: true,
+        nonArrayRootType: true,
+        nonConstrainingRoot: true,
+        unresolvedRefs: true,
+      },
+    }],
     'eslint-plugin/no-matching-violation-suggest-message-ids': [ERROR],
     'eslint-plugin/no-meta-replaced-by': [ERROR],
     'eslint-plugin/no-meta-schema-default': [ERROR],
@@ -81,6 +103,7 @@ export const eslintPluginConfig = {
       catchNoFixerButFixableProperty: true,
     }],
     'eslint-plugin/require-meta-has-suggestions': [ERROR],
+    'eslint-plugin/require-meta-languages': [ERROR],
     'eslint-plugin/require-meta-schema': [ERROR, {
       // Configured value
       requireSchemaPropertyWhenOptionless: true,
@@ -89,6 +112,7 @@ export const eslintPluginConfig = {
     'eslint-plugin/require-meta-type': [ERROR],
     // Configured value
     'eslint-plugin/require-test-case-name': [ERROR, 'always'],
+    'eslint-plugin/require-test-error-positions': [ERROR],
     'eslint-plugin/test-case-property-ordering': [ERROR, [
       'code',
       'output',
