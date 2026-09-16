@@ -2,6 +2,12 @@
   {
     "type": "object",
     "properties": {
+      "additionalDirectives": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "ignore": {
         "type": "array",
         "items": {
