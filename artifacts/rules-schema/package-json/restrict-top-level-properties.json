@@ -1,0 +1,36 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "ban": {
+        "description": "List of top-level properties to ban. Each entry can be a property name string or an object with a property name and an optional custom message.",
+        "items": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "message": {
+                  "description": "Custom message to append to the error report.",
+                  "type": "string"
+                },
+                "property": {
+                  "description": "The top-level property name to ban.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "property"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "type": "array"
+      }
+    },
+    "type": "object"
+  }
+]

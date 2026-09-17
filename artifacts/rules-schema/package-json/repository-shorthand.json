@@ -1,0 +1,18 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "form": {
+        "description": "Specifies which repository form to enforce.",
+        "enum": [
+          "object",
+          "shorthand"
+        ],
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "type": "object"
+  }
+]

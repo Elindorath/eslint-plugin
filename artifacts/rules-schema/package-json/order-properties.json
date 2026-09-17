@@ -1,0 +1,31 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "order": {
+        "anyOf": [
+          {
+            "enum": [
+              "sort-package-json"
+            ],
+            "type": [
+              "string"
+            ]
+          },
+          {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "array"
+            ]
+          }
+        ],
+        "description": "Specifies the sorting order of top-level properties."
+      }
+    },
+    "type": "object"
+  }
+]

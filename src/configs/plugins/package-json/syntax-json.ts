@@ -1,0 +1,155 @@
+import packageJsonPlugin from 'eslint-plugin-package-json'
+
+import { ERROR, OFF } from '../../../constants.ts'
+
+import type { Linter } from 'eslint'
+
+
+export const packageJsonConfig = {
+  plugins: {
+    'package-json': packageJsonPlugin,
+  },
+
+  rules: {
+    'package-json/bin-name-casing': [ERROR],
+    'package-json/exports-subpaths-style': [ERROR, {
+      prefer: 'explicit',
+    }],
+    'package-json/no-empty-fields': [ERROR, {
+      ignoreProperties: [
+        'files',
+      ],
+    }],
+    'package-json/no-local-dependencies': [OFF, {
+      ignorePrivate: true,
+    }],
+    'package-json/no-redundant-files': [ERROR],
+    'package-json/no-redundant-publishConfig': [ERROR],
+    'package-json/order-properties': [ERROR, {
+      order: 'sort-package-json',
+    }],
+    'package-json/prefer-rolling-workspace-spec': [OFF, {
+      ignoreDependencies: [],
+      ignorePatterns: [],
+    }],
+    'package-json/repository-shorthand': [ERROR, {
+      form: 'object',
+    }],
+    'package-json/require-attribution': [ERROR, {
+      ignorePrivate: true,
+      preferContributorsOnly: false,
+    }],
+    // ON as the package is published with a single maintainer
+    'package-json/require-author': [ERROR],
+    'package-json/require-bin': [OFF],
+    'package-json/require-browser': [OFF],
+    // ON as consumers need somewhere to report issues
+    'package-json/require-bugs': [ERROR],
+    'package-json/require-bundleDependencies': [OFF],
+    'package-json/require-config': [OFF],
+    'package-json/require-contributors': [OFF],
+    'package-json/require-cpu': [OFF],
+    'package-json/require-dependencies': [OFF],
+    'package-json/require-description': [ERROR],
+    'package-json/require-devDependencies': [OFF],
+    'package-json/require-devEngines': [OFF],
+    'package-json/require-directories': [OFF],
+    // ON as the supported node version is part of the contract
+    'package-json/require-engines': [ERROR],
+    'package-json/require-exports': [ERROR],
+    'package-json/require-files': [ERROR],
+    'package-json/require-funding': [OFF],
+    'package-json/require-gypfile': [OFF],
+    // ON as the package is published
+    'package-json/require-homepage': [ERROR],
+    // ON as the package is published and needs to be discoverable
+    'package-json/require-keywords': [ERROR],
+    'package-json/require-libc': [OFF],
+    'package-json/require-license': [ERROR],
+    'package-json/require-main': [OFF],
+    'package-json/require-man': [OFF],
+    'package-json/require-module': [OFF],
+    'package-json/require-name': [ERROR],
+    'package-json/require-optionalDependencies': [OFF],
+    'package-json/require-os': [OFF],
+    'package-json/require-packageManager': [OFF],
+    'package-json/require-peerDependencies': [OFF],
+    'package-json/require-peerDependenciesMeta': [OFF],
+    'package-json/require-private': [OFF],
+    'package-json/require-publishConfig': [OFF],
+    'package-json/require-repository': [ERROR],
+    'package-json/require-scripts': [OFF],
+    'package-json/require-sideEffects': [ERROR],
+    'package-json/require-type': [ERROR],
+    'package-json/require-types': [OFF],
+    'package-json/require-version': [ERROR],
+    'package-json/restrict-dependency-ranges': [OFF, []],
+    'package-json/restrict-private-properties': [OFF, {
+      blockedProperties: [
+        'files',
+        'publishConfig',
+      ],
+    }],
+    'package-json/restrict-top-level-properties': [OFF, {
+      ban: [],
+    }],
+    'package-json/scripts-name-casing': [ERROR, {
+      ignoreNames: [],
+      ignorePatterns: [],
+    }],
+    'package-json/sort-collections': [ERROR, [
+      'config',
+      'dependencies',
+      'devDependencies',
+      'exports',
+      'optionalDependencies',
+      'overrides',
+      'peerDependencies',
+      'peerDependenciesMeta',
+      'scripts',
+    ]],
+    'package-json/specify-peers-locally': [ERROR],
+    'package-json/unique-dependencies': [ERROR],
+    'package-json/valid-author': [ERROR],
+    'package-json/valid-bin': [ERROR],
+    'package-json/valid-browser': [ERROR],
+    'package-json/valid-bugs': [ERROR],
+    'package-json/valid-bundleDependencies': [ERROR],
+    'package-json/valid-config': [ERROR],
+    'package-json/valid-contributors': [ERROR],
+    'package-json/valid-cpu': [ERROR],
+    'package-json/valid-dependencies': [ERROR],
+    'package-json/valid-description': [ERROR],
+    'package-json/valid-devDependencies': [ERROR],
+    'package-json/valid-devEngines': [ERROR],
+    'package-json/valid-directories': [ERROR],
+    'package-json/valid-engines': [ERROR],
+    'package-json/valid-exports': [ERROR],
+    'package-json/valid-files': [ERROR],
+    'package-json/valid-funding': [ERROR],
+    'package-json/valid-gypfile': [ERROR],
+    'package-json/valid-homepage': [ERROR],
+    'package-json/valid-keywords': [ERROR],
+    'package-json/valid-libc': [ERROR],
+    'package-json/valid-license': [ERROR],
+    'package-json/valid-main': [ERROR],
+    'package-json/valid-man': [ERROR],
+    'package-json/valid-module': [ERROR],
+    'package-json/valid-name': [ERROR],
+    'package-json/valid-optionalDependencies': [ERROR],
+    'package-json/valid-os': [ERROR],
+    'package-json/valid-packageManager': [ERROR],
+    'package-json/valid-peerDependencies': [ERROR],
+    'package-json/valid-peerDependenciesMeta': [ERROR],
+    'package-json/valid-peerDependenciesMeta-relationship': [ERROR],
+    'package-json/valid-private': [ERROR],
+    'package-json/valid-publishConfig': [ERROR],
+    'package-json/valid-repository': [ERROR],
+    'package-json/valid-repository-directory': [ERROR],
+    'package-json/valid-scripts': [ERROR],
+    'package-json/valid-sideEffects': [ERROR],
+    'package-json/valid-type': [ERROR],
+    'package-json/valid-version': [ERROR],
+    'package-json/valid-workspaces': [ERROR],
+  },
+} as const satisfies Linter.Config

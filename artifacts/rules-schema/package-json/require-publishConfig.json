@@ -1,0 +1,13 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "ignorePrivate": {
+        "default": true,
+        "description": "Determines if this rule should be enforced when the package's `private` property is `true`.",
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  }
+]
