@@ -17,7 +17,6 @@
 | [eslint-plugin-jest-dom][jest-dom]                                 |
 | [eslint-plugin-jest-extended][jest-extended]                       |
 | [eslint-plugin-jest-formatting][jest-formatting]                   |
-| [eslint-plugin-json-files][json-files]                             |
 | [eslint-plugin-jsonc][jsonc]                                       |
 | [eslint-plugin-jsx-a11y][jsx-a11y]                                 |
 | [eslint-plugin-listeners][listeners]                               |
@@ -106,6 +105,7 @@
 | [eslint-plugin-flowtype][flowtype]                     | We prefer using typescript over flowtype                                                                   |
 | [eslint-plugin-import][import]                         | Replaced by the more modern [eslint-plugin-import-x][import-x]                                             |
 | [eslint-plugin-json-format][json-format]               | No longer maintained, not updated since 2020/05/14, the same features are done with eslint-plugin-jsonc    |
+| [eslint-plugin-json-files][json-files]                 | Its rules need its processor, which turns JSON into JavaScript and is incompatible with eslint-plugin-jsonc |
 | [eslint-plugin-optimize-regex][optimize-regex]         | No longer maintained, not updated since 2023/09/10, the same features are done with unicorn/better-regex   |
 | [eslint-plugin-perf-standard][perf-standard]           | No longer maintained, not updated since 2016/03/30                                                         |
 | [eslint-plugin-react-redux][react-redux]               | We no longer use redux                                                                                     |
@@ -130,7 +130,6 @@
 [jest-dom]: https://github.com/testing-library/eslint-plugin-jest-dom
 [jest-extended]: https://github.com/jest-community/eslint-plugin-jest-extended
 [jest-formatting]: https://github.com/dangreenisrael/eslint-plugin-jest-formatting
-[json-files]: https://github.com/kellyselden/eslint-plugin-json-files
 [jsonc]: https://github.com/ota-meshi/eslint-plugin-jsonc
 [jsx-a11y]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
 [listeners]: https://github.com/foad/eslint-plugin-listeners
@@ -218,6 +217,7 @@
 [sort-class-members]: https://github.com/bryanrsmith/eslint-plugin-sort-class-members
 [switch-case]: https://github.com/lukeapage/eslint-plugin-switch-case
 [json-format]: https://github.com/kuceb/eslint-plugin-json-format
+[json-files]: https://github.com/kellyselden/eslint-plugin-json-files
 [optimize-regex]: https://github.com/BrainMaestro/eslint-plugin-optimize-regex
 [perf-standard]: https://github.com/Raynos/eslint-plugin-perf-standard
 [shopify]: https://github.com/Shopify/eslint-plugin-shopify
