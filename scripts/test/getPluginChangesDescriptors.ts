@@ -21,7 +21,9 @@ import type {
 
 
 export async function getPluginChangesDescriptors(pluginDescriptors: PluginDescriptor[]) {
-  const pluginChangesDescriptorPromises = Array.from(pluginDescriptors, async (pluginDescriptor) => getPluginChangesDescriptor(pluginDescriptor))
+  const pluginChangesDescriptorPromises = Array.from(pluginDescriptors, async (pluginDescriptor) => {
+    return getPluginChangesDescriptor(pluginDescriptor)
+  })
 
   return Promise.all(pluginChangesDescriptorPromises)
 }
@@ -131,7 +133,7 @@ function getAbsentConfiguredRuleNames(pluginRules: { [key: RuleName]: Rule.RuleM
   for (const ruleId of configuredRuleSet) {
     const ruleName = getRuleNameFromId(ruleId, pluginPrefix)
 
-    if (!(ruleName in pluginRules)) {
+    if (!Object.hasOwn(pluginRules, ruleName)) {
       absentConfiguredRuleNames.push(ruleName)
     }
   }

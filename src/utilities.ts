@@ -54,7 +54,7 @@ function getRuleConfig<RuleId extends string, Rules extends FixedRulesRecord>(ru
     throw new TypeError(`config${formattedConfigName} has no rules`)
   }
 
-  if (!(rule in config.rules)) {
+  if (!Object.hasOwn(config.rules, rule)) {
     throw new TypeError(`config${formattedConfigName} has no '${rule}' rule`)
   }
 
@@ -124,7 +124,7 @@ function overrideRuleOption(ruleOption: RuleOption, optionOverride?: RuleOptionO
     ]
   }
 
-  if (isPrimitive(ruleOption) && isPrimitive(optionOverride) && optionOverride !== REMOVE) {
+  if (optionOverride !== REMOVE && isPrimitive(ruleOption) && isPrimitive(optionOverride)) {
     return optionOverride
   }
 

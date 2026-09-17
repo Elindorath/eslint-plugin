@@ -32,13 +32,14 @@ function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDe
     || pluginChangesDescriptor.deprecatedRuleNames.length > 0
     || pluginChangesDescriptor.notConfiguredRuleNames.length > 0
     || hasRuleConfigChanges
-  const pluginName = pluginChangesDescriptor.prefix.length > 0
-    ? pluginChangesDescriptor.prefix
-    : 'eslint'
 
   if (!hasSomethingToDisplay) {
     return 0
   }
+
+  const pluginName = pluginChangesDescriptor.prefix.length > 0
+    ? pluginChangesDescriptor.prefix
+    : 'eslint'
 
   console.log(`===== ${pluginName} =====`)
 

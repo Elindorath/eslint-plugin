@@ -18,7 +18,7 @@ import { NoRulesFoundInPluginError } from './errors/NoRulesFoundInPluginError.ts
 import { isRuleIdFromPlugin } from './utilities/eslint.ts'
 import { objectEntries, objectKeys } from './utilities/object.ts'
 
-import type { Linter, Rule } from 'eslint'
+import type { Linter } from 'eslint'
 
 import type {
   ESLintPluginWithRule,
@@ -35,7 +35,9 @@ import type {
 const EXPECTED_PLUGIN_IN_CONFIGURATION_COUNT = 1
 
 export async function getPluginDescriptors(pluginNames: PluginName[]) {
-  const promises: Array<Promise<PluginDescriptor>> = Array.from(pluginNames, async (pluginName) => getPluginDescriptor(pluginName))
+  const promises: Array<Promise<PluginDescriptor>> = Array.from(pluginNames, async (pluginName) => {
+    return getPluginDescriptor(pluginName)
+  })
 
   return Promise.all(promises)
 }
@@ -72,8 +74,9 @@ async function getPluginConfigEntries(pluginConfigFileNames: PluginFilename[], p
 }
 
 async function getPluginConfigFile(pluginConfigFile: PluginFilename, pluginConfigDirectoryUrl: URL): Promise<PluginConfigEntry> {
+  const pluginConfigUrl = new URL(pluginConfigFile, pluginConfigDirectoryUrl)
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Dynamic imports are always typed as `any`
-  const importedPluginConfig: { [exportName: string]: Linter.Config; } = await import(new URL(pluginConfigFile, pluginConfigDirectoryUrl).href)
+  const importedPluginConfig: { [exportName: string]: Linter.Config; } = await import(pluginConfigUrl.href)
   const firstNamedConfig = Object.keys(importedPluginConfig).find((namedExport) => {
     return namedExport.endsWith('Config')
   })
@@ -98,6 +101,7 @@ function getConsistentAcrossConfigurationsPluginEntry(pluginName: PluginName, pl
     try {
       assertExpectedPluginEntry(currentPluginEntry, previousPluginEntry)
     } catch (error) {
+      // eslint-disable-next-line no-use-extend-native/no-use-extend-native -- `Error.isError` is ES2025, the rule's builtin list predates it
       if (Error.isError(error)) {
         throw new InconsistentPluginEntryError(`inconsistent plugin entry for plugin ${pluginName} in ${pluginFilename}`, { cause: error })
       }
@@ -118,12 +122,10 @@ function getValidPluginEntry(pluginName: PluginName, [pluginFilename, pluginConf
   const [pluginPrefix, pluginInstance] = firstPluginEntry
 
   try {
-    if (pluginEntries.length > EXPECTED_PLUGIN_IN_CONFIGURATION_COUNT) {
-      throw new MultiplePluginsDefinedError('')
-    }
-
+    assertSinglePluginDefined(pluginEntries)
     assertIsPluginWithRules(pluginInstance)
   } catch (error) {
+    // eslint-disable-next-line no-use-extend-native/no-use-extend-native -- `Error.isError` is ES2025, the rule's builtin list predates it
     if (Error.isError(error)) {
       throw new InvalidPluginEntryError(`invalid plugin entry for plugin ${pluginName} in ${pluginFilename}`, { cause: error })
     }
@@ -144,6 +146,12 @@ function assertExpectedPluginEntry([pluginPrefix, pluginInstance]: PluginEntry, 
   }
 }
 
+function assertSinglePluginDefined(pluginEntries: unknown[]): void {
+  if (pluginEntries.length > EXPECTED_PLUGIN_IN_CONFIGURATION_COUNT) {
+    throw new MultiplePluginsDefinedError('')
+  }
+}
+
 function assertIsPluginWithRules(potentialPluginInstance: ESLint.Plugin | undefined): asserts potentialPluginInstance is ESLintPluginWithRule {
   if (potentialPluginInstance?.rules === undefined) {
     throw new NoRulesFoundInPluginError('')
@@ -154,7 +162,9 @@ function getConfiguredPluginRuleSet(pluginConfigEntries: PluginConfigEntry[], pl
   const ruleSet = new Set<RuleId>()
 
   for (const [, pluginConfig] of pluginConfigEntries) {
-    for (const ruleId of objectKeys(pluginConfig.rules ?? {})) {
+    const rules = pluginConfig.rules ?? {}
+
+    for (const ruleId of objectKeys(rules)) {
       // Remove other plugin rule overwrites
       if (isRuleIdFromPlugin(ruleId, pluginPrefix)) {
         ruleSet.add(ruleId)
@@ -177,14 +187,8 @@ function getEslintPseudoPlugin() {
 }
 
 function getEslintCoreRules() {
-  const coreRuleDefinitions: { [key: string]: Rule.RuleModule; } = {}
-
   // eslint-disable-next-line @typescript-eslint/no-deprecated -- Currently the only way to get the core rules
-  for (const [ruleId, rule] of builtinRules) {
-    coreRuleDefinitions[ruleId] = rule
-  }
-
-  return coreRuleDefinitions
+  return Object.fromEntries(builtinRules)
 }
 
 /* eslint-enable */

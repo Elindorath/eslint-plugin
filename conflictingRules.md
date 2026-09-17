@@ -64,6 +64,9 @@ unicorn/consistent-arrow-return-style
 unicorn/prefer-number-properties          -> checkInfinity
 unicorn/prefer-global-number-constants
 
+unicorn/prefer-error-is-error
+no-use-extend-native/no-use-extend-native
+
 @stylistic/object-curly-spacing        -> emptyObjects
 unicorn/empty-brace-spaces
 
