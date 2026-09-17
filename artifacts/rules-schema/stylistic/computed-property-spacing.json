@@ -10,8 +10,7 @@
     "type": "object",
     "properties": {
       "enforceForClassMembers": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       }
     },
     "additionalProperties": false

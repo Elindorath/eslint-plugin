@@ -3,28 +3,22 @@
     "type": "object",
     "properties": {
       "beforeBlockComment": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       },
       "afterBlockComment": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "beforeLineComment": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "afterLineComment": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "allowBlockStart": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "allowBlockEnd": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "allowClassStart": {
         "type": "boolean"

@@ -106,6 +106,10 @@ export const stylisticVanillaLayoutConfig = {
     '@stylistic/curly-newline': [ERROR, 'always'],
     '@stylistic/dot-location': [ERROR, 'property'],
     '@stylistic/eol-last': [ERROR, 'always'],
+    // OFF as it is experimental and overlaps the jsx props rules already configured
+    '@stylistic/exp-jsx-props-style': [OFF],
+    // OFF as it is experimental and overlaps the bracket spacing and newline rules already configured
+    '@stylistic/exp-list-style': [OFF],
     '@stylistic/function-call-argument-newline': [ERROR, 'consistent'],
     '@stylistic/function-call-spacing': [ERROR, 'never'],
     '@stylistic/function-paren-newline': [ERROR, 'multiline-arguments'],
@@ -126,6 +130,11 @@ export const stylisticVanillaLayoutConfig = {
       },
       // Configured value
       named: {
+        after: true,
+        before: false,
+      },
+      // Configured value
+      shorthand: {
         after: true,
         before: false,
       },
@@ -239,20 +248,6 @@ export const stylisticVanillaLayoutConfig = {
     '@stylistic/jsx-self-closing-comp': [ERROR, {
       component: true,
       html: true,
-    }],
-    '@stylistic/jsx-sort-props': [ERROR, {
-      // Configured value
-      callbacksLast: true,
-      // Configured value
-      ignoreCase: true,
-      locale: 'auto',
-      multiline: 'ignore',
-      noSortAlphabetically: false,
-      // Configured value
-      reservedFirst: true,
-      // Configured value
-      shorthandFirst: true,
-      shorthandLast: false,
     }],
     '@stylistic/jsx-tag-spacing': [ERROR, {
       afterOpening: 'never',

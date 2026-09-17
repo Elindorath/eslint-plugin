@@ -18,8 +18,7 @@
     "properties": {
       "SwitchCase": {
         "type": "integer",
-        "minimum": 0,
-        "default": 0
+        "minimum": 0
       },
       "VariableDeclarator": {
         "oneOf": [
@@ -283,33 +282,48 @@
         ]
       },
       "flatTernaryExpressions": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "offsetTernaryExpressions": {
-        "type": "boolean",
-        "default": false
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "CallExpression": {
+                "type": "boolean"
+              },
+              "AwaitExpression": {
+                "type": "boolean"
+              },
+              "NewExpression": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
       },
       "offsetTernaryExpressionsOffsetCallExpressions": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       },
       "ignoredNodes": {
         "type": "array",
         "items": {
           "type": "string",
           "not": {
+            "type": "string",
             "pattern": ":exit$"
           }
         }
       },
       "ignoreComments": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "tabLength": {
-        "type": "number",
-        "default": 4
+        "type": "number"
       }
     },
     "additionalProperties": false

@@ -17,8 +17,7 @@
           "ignore",
           "first",
           "last"
-        ],
-        "default": "ignore"
+        ]
       },
       "ignoreCase": {
         "type": "boolean"
@@ -46,8 +45,7 @@
         }
       },
       "locale": {
-        "type": "string",
-        "default": "auto"
+        "type": "string"
       }
     },
     "additionalProperties": false

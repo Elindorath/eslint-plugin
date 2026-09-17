@@ -11,8 +11,7 @@
     "type": "object",
     "properties": {
       "ignoreJSX": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false

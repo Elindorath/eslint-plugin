@@ -38,12 +38,6 @@
         ]
       }
     },
-    "default": {
-      "closingSlash": "never",
-      "beforeSelfClosing": "always",
-      "afterOpening": "never",
-      "beforeClosing": "allow"
-    },
     "additionalProperties": false
   }
 ]

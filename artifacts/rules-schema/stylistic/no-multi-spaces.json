@@ -12,12 +12,10 @@
         "additionalProperties": false
       },
       "ignoreEOLComments": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "includeTabs": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       }
     },
     "additionalProperties": false

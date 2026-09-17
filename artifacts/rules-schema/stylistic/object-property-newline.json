@@ -3,8 +3,7 @@
     "type": "object",
     "properties": {
       "allowAllPropertiesOnSameLine": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false

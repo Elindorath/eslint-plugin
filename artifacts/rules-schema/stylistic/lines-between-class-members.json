@@ -61,12 +61,10 @@
     "type": "object",
     "properties": {
       "exceptAfterSingleLine": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "exceptAfterOverload": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       }
     },
     "additionalProperties": false

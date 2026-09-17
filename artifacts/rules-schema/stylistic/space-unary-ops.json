@@ -3,12 +3,10 @@
     "type": "object",
     "properties": {
       "words": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       },
       "nonwords": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "overrides": {
         "type": "object",

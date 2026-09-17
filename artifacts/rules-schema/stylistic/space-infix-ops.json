@@ -3,12 +3,10 @@
     "type": "object",
     "properties": {
       "int32Hint": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "ignoreTypes": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false

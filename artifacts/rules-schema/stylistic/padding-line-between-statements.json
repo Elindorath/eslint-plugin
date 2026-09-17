@@ -69,15 +69,45 @@
         "multiline-type"
       ]
     },
-    "statementOption": {
+    "selectorOption": {
+      "type": "object",
+      "properties": {
+        "selector": {
+          "type": "string"
+        },
+        "lineMode": {
+          "type": "string",
+          "enum": [
+            "any",
+            "singleline",
+            "multiline"
+          ]
+        }
+      },
+      "required": [
+        "selector"
+      ],
+      "additionalProperties": false
+    },
+    "statementMatcher": {
       "anyOf": [
         {
           "$ref": "#/$defs/statementType"
         },
         {
+          "$ref": "#/$defs/selectorOption"
+        }
+      ]
+    },
+    "statementOption": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/statementMatcher"
+        },
+        {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/statementType"
+            "$ref": "#/$defs/statementMatcher"
           },
           "minItems": 1,
           "uniqueItems": true,
