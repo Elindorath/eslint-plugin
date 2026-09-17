@@ -30,7 +30,9 @@ export const eslintVanillaConfig = {
     'no-cond-assign': [ERROR, 'always'],
     // Should be disabled in Typescript projects as the compiler already checks this
     'no-const-assign': [ERROR],
-    'no-constant-binary-expression': [ERROR],
+    'no-constant-binary-expression': [ERROR, {
+      checkRelationalComparisons: false,
+    }],
     'no-constant-condition': [ERROR, {
       checkLoops: true,
     }],
@@ -102,7 +104,9 @@ export const eslintVanillaConfig = {
       typeof: true,
     }],
     'no-unexpected-multiline': [ERROR],
-    'no-unmodified-loop-condition': [ERROR],
+    'no-unmodified-loop-condition': [ERROR, {
+      checkConditionalExpressions: false,
+    }],
     // Should be disabled in Typescript projects as the compiler already checks this
     'no-unreachable': [ERROR],
     'no-unreachable-loop': [ERROR, {
@@ -289,10 +293,12 @@ export const eslintVanillaConfig = {
       skipComments: true,
     }],
     'max-nested-callbacks': [ERROR, {
+      checkConstructorCallCallbacks: false,
       // Configured value
       max: 2,
     }],
     'max-params': [ERROR, {
+      countThis: 'except-void',
       max: 3,
     }],
     'max-statements': [ERROR, {
@@ -633,6 +639,7 @@ export const eslintVanillaConfig = {
     'prefer-spread': [ERROR],
     'prefer-template': [ERROR],
     'preserve-caught-error': [ERROR, {
+      errorClassNames: [],
       // Configured value
       requireCatchParameter: true,
     }],

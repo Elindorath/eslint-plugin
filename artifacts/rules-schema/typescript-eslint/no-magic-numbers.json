@@ -3,12 +3,10 @@
     "type": "object",
     "properties": {
       "detectObjects": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "enforceConst": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "ignore": {
         "type": "array",
@@ -26,35 +24,28 @@
         "uniqueItems": true
       },
       "ignoreArrayIndexes": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "ignoreDefaultValues": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "ignoreClassFieldInitialValues": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       },
       "ignoreEnums": {
         "type": "boolean",
-        "default": false,
         "description": "Whether enums used in TypeScript are considered okay."
       },
       "ignoreNumericLiteralTypes": {
         "type": "boolean",
-        "default": false,
         "description": "Whether numbers used in TypeScript numeric literal types are considered okay."
       },
       "ignoreReadonlyClassProperties": {
         "type": "boolean",
-        "default": false,
         "description": "Whether `readonly` class properties are considered okay."
       },
       "ignoreTypeIndexes": {
         "type": "boolean",
-        "default": false,
         "description": "Whether numbers used to index types are okay."
       }
     },

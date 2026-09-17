@@ -36,7 +36,6 @@
 | [eslint-plugin-react-perf][react-perf]                             |
 | [eslint-plugin-security][security]                                 |
 | [eslint-plugin-sonarjs][sonarjs]                                   |
-| [eslint-plugin-ternary][ternary]                                   |
 | [eslint-plugin-unicorn][unicorn]                                   |
 | [typescript-eslint][typescript-eslint]                             |
 
@@ -114,6 +113,7 @@
 | [eslint-plugin-simple-import-sort][simple-import-sort] | The same features are done with eslint-plugin-perfectionist                                                |
 | [eslint-plugin-sort-class-members][sort-class-members] | The same features are done with eslint-plugin-perfectionist                                                |
 | [eslint-plugin-switch-case][switch-case]               | The same features are done with @stylistic/eslint-plugin                                                   |
+| [eslint-plugin-ternary][ternary]                       | No longer maintained, not updated since 2022/05/01, its rules use APIs ESLint v10 removed                  |
 | [eslint-plugin-xss][xss]                               | Doesn't support ESLint v9 for now                                                                          |
 
 <!-- Included -->
@@ -150,7 +150,6 @@
 [security]: https://github.com/eslint-community/eslint-plugin-security
 [simple-import-sort]: https://github.com/lydell/eslint-plugin-simple-import-sort
 [sonarjs]: https://github.com/SonarSource/SonarJS/tree/master/packages/jsts/src/rules
-[ternary]: https://github.com/GrayedFox/eslint-plugin-ternary
 [unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [typescript-eslint]: https://github.com/typescript-eslint/typescript-eslint
 
@@ -216,6 +215,7 @@
 [react-redux]: https://github.com/DianaSuvorova/eslint-plugin-react-redux
 [sort-class-members]: https://github.com/bryanrsmith/eslint-plugin-sort-class-members
 [switch-case]: https://github.com/lukeapage/eslint-plugin-switch-case
+[ternary]: https://github.com/GrayedFox/eslint-plugin-ternary
 [json-format]: https://github.com/kuceb/eslint-plugin-json-format
 [json-files]: https://github.com/kellyselden/eslint-plugin-json-files
 [optimize-regex]: https://github.com/BrainMaestro/eslint-plugin-optimize-regex

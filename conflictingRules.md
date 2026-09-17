@@ -58,9 +58,6 @@ n/no-unpublished-import               -> syntax-typescript&environment-node
 security/detect-non-literal-require
 import-x/no-dynamic-require
 
-ternary/nesting
-unicorn/no-nested-ternary
-
 @stylistic/object-curly-spacing        -> emptyObjects
 unicorn/empty-brace-spaces
 
