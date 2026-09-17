@@ -17,6 +17,8 @@ type FixedRulesRecord = {
 
 type RuleOption = boolean | number | string | UnknownArray | UnknownRecord
 
+type RuleOptionOverride = typeof REMOVE | RuleOption
+
 type RuleSeverityAndOptions<Options extends RuleOption[] = RuleOption[]> = [Linter.RuleSeverity, ...Options]
 
 
@@ -25,8 +27,15 @@ export {
   getRuleConfig,
   getRuleConfigOverride,
   overrideBaseConfigRule,
+  REMOVE,
   replaceConflictingRule,
 }
+
+/**
+ * Deletes the property it is given as a value for, in an object option of `getRuleConfigOverride`.
+ * Useful when the overriding plugin doesn't support an option the overridden one carries.
+ */
+const REMOVE = Symbol('remove')
 
 function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: FixedLinterConfig) {
   return rules.reduce<Linter.Config>((agg, rule) => {
@@ -59,7 +68,7 @@ function getRuleConfig<RuleId extends string, Rules extends FixedRulesRecord>(ru
 function getRuleConfigOverride<Rules extends FixedRulesRecord>(
   rule: string,
   config: FixedLinterConfig<Rules>,
-  ...optionsOverride: Array<RuleOption | undefined>
+  ...optionsOverride: Array<RuleOptionOverride | undefined>
 ): [Linter.RuleSeverity, ...RuleOption[]] {
   const [ruleSeverity, ...ruleOptions] = getRuleConfig(rule, config)
   const finalConfigs: RuleOption[] = []
@@ -78,7 +87,18 @@ function getRuleConfigOverride<Rules extends FixedRulesRecord>(
 
 const RULE_ID_SPLITTER = '/'
 
-function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOption | undefined>) {
+function mergeObjectRuleOption(ruleOption: UnknownRecord, optionOverride: UnknownRecord) {
+  const mergedEntries = Object.entries({
+    ...ruleOption,
+    ...optionOverride,
+  }).filter(([, value]) => {
+    return value !== REMOVE
+  })
+
+  return Object.fromEntries(mergedEntries)
+}
+
+function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOptionOverride | undefined>) {
   const [, ...ruleIdRest] = ruleId.split(RULE_ID_SPLITTER)
   const ruleName = ruleIdRest.join(RULE_ID_SPLITTER)
 
@@ -88,13 +108,13 @@ function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOp
   }
 }
 
-function overrideRuleOption(ruleOption: RuleOption, optionOverride?: RuleOption) {
+function overrideRuleOption(ruleOption: RuleOption, optionOverride?: RuleOptionOverride) {
   if (optionOverride === undefined) {
     return ruleOption
   }
 
-  if (isPrimitive(ruleOption) && isPrimitive(optionOverride)) {
-    return optionOverride
+  if (isPlainObject(ruleOption) && isPlainObject(optionOverride)) {
+    return mergeObjectRuleOption(ruleOption, optionOverride)
   }
 
   if (isArray(ruleOption) && isArray(optionOverride)) {
@@ -104,14 +124,11 @@ function overrideRuleOption(ruleOption: RuleOption, optionOverride?: RuleOption)
     ]
   }
 
-  if (isPlainObject(ruleOption) && isPlainObject(optionOverride)) {
-    return {
-      ...ruleOption,
-      ...optionOverride,
-    }
+  if (isPrimitive(ruleOption) && isPrimitive(optionOverride) && optionOverride !== REMOVE) {
+    return optionOverride
   }
 
-  throw new TypeError(`config overrides don't match the original rule configs`)
+  throw new TypeError(`config overrides don't match the original rule configs, and ${REMOVE.toString()} only applies to a property of an object option`)
 }
 
 function replaceConflictingRule(ruleId: string, ruleOptions: RuleSeverityAndOptions, conflictingRuleIds: string[]) {
