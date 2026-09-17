@@ -337,6 +337,7 @@ export const typescriptConfig = {
       ignoreVoid: true,
     }],
     '@typescript-eslint/no-for-in-array': [ERROR],
+    '@typescript-eslint/no-generated-empty-object-type': [ERROR],
     '@typescript-eslint/no-import-type-side-effects': [ERROR],
     '@typescript-eslint/no-inferrable-types': [ERROR, {
       ignoreParameters: false,
@@ -645,7 +646,6 @@ export const typescriptConfig = {
       // Configured value
       capIsConstructor: false,
     }],
-    '@typescript-eslint/no-loop-func': [ERROR],
     'no-array-constructor': [OFF],
     // Disabled as Typescript compiler already checks this
     'no-dupe-class-members': [OFF],
@@ -654,7 +654,6 @@ export const typescriptConfig = {
     'no-implied-eval': [OFF],
     // Disabled as Typescript compiler already checks this with the `noImplicitThis` option
     'no-invalid-this': [OFF],
-    'no-loop-func': [OFF],
     // Might be tweaked for comfort in the future
     ...overrideBaseConfigRule('@typescript-eslint/no-magic-numbers', {
       ignoreEnums: false,
@@ -666,27 +665,6 @@ export const typescriptConfig = {
     '@typescript-eslint/no-redeclare': [OFF, {
       builtinGlobals: true,
       ignoreDeclarationMerge: true,
-    }],
-    '@typescript-eslint/no-restricted-imports': [ERROR, {
-      paths: [],
-      // Configured value
-      patterns: [
-        {
-          allowTypeImports: false,
-          group: ['underscore'],
-          message: `'underscore' have many issues. Please consider 'radash' if you really need an utility library.`,
-        },
-        {
-          allowTypeImports: false,
-          group: ['lodash'],
-          message: `'lodash' have many issues. Please consider 'radash' if you really need an utility library.`,
-        },
-        {
-          allowTypeImports: false,
-          group: ['moment'],
-          message: `'moment' is now considered legacy. Please consider 'date-fns' or 'luxon'.`,
-        },
-      ],
     }],
     '@typescript-eslint/no-restricted-types': [ERROR, {
       /**
@@ -769,7 +747,6 @@ export const typescriptConfig = {
     '@typescript-eslint/use-unknown-in-catch-callback-variable': [ERROR],
     // Disabled as Typescript compiler already checks this
     'no-redeclare': [OFF],
-    'no-restricted-imports': [OFF],
     'no-return-await': [OFF],
     'no-shadow': [OFF],
     'no-unused-expressions': [OFF],

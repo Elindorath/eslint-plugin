@@ -4,8 +4,29 @@
     "additionalProperties": false,
     "properties": {
       "checksConditionals": {
-        "type": "boolean",
-        "description": "Whether to warn when a Promise is provided to conditional statements."
+        "description": "Whether to warn when a Promise is provided to conditional statements.",
+        "oneOf": [
+          {
+            "type": "boolean",
+            "description": "Whether to check conditionals."
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Detailed settings for conditional inspection.",
+            "properties": {
+              "flagUnions": {
+                "type": "string",
+                "description": "Configures how union types containing Promise-like types are checked.",
+                "enum": [
+                  "all",
+                  "strict",
+                  "none"
+                ]
+              }
+            }
+          }
+        ]
       },
       "checksSpreads": {
         "type": "boolean",
