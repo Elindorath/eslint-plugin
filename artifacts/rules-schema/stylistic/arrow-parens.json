@@ -10,8 +10,7 @@
     "type": "object",
     "properties": {
       "requireForBlockBody": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false

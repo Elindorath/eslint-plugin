@@ -13,9 +13,6 @@
         ]
       }
     },
-    "default": {
-      "allow": "none"
-    },
     "additionalProperties": false
   }
 ]

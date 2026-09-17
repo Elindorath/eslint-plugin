@@ -29,7 +29,17 @@
             "$ref": "#/items/0/$defs/spacingConfig"
           },
           "arrow": {
-            "$ref": "#/items/0/$defs/spacingConfig"
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "ignore"
+                ]
+              },
+              {
+                "$ref": "#/items/0/$defs/spacingConfig"
+              }
+            ]
           },
           "variable": {
             "$ref": "#/items/0/$defs/spacingConfig"

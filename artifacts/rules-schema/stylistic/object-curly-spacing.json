@@ -14,6 +14,90 @@
       },
       "objectsInObjects": {
         "type": "boolean"
+      },
+      "overrides": {
+        "type": "object",
+        "properties": {
+          "ObjectPattern": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "ObjectExpression": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "ImportDeclaration": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "ImportAttributes": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "ExportNamedDeclaration": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "ExportAllDeclaration": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "TSMappedType": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "TSTypeLiteral": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "TSInterfaceBody": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "TSEnumBody": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "emptyObjects": {
+        "type": "string",
+        "enum": [
+          "ignore",
+          "always",
+          "never"
+        ]
       }
     },
     "additionalProperties": false

@@ -61,6 +61,9 @@ import-x/no-dynamic-require
 ternary/nesting
 unicorn/no-nested-ternary
 
+@stylistic/object-curly-spacing        -> emptyObjects
+unicorn/empty-brace-spaces
+
 TS noImplicitReturns
 consistent-return
 

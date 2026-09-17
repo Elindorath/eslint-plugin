@@ -1,0 +1,32 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "singleLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "maxItems": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "multiLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "minItems": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "maxItemsPerLine": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    }
+  }
+]

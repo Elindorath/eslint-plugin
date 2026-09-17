@@ -55,8 +55,7 @@
             }
           },
           "balanced": {
-            "type": "boolean",
-            "default": false
+            "type": "boolean"
           }
         },
         "additionalProperties": false

@@ -3,12 +3,10 @@
     "type": "object",
     "properties": {
       "allowParens": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       },
       "onlyOneSimpleParam": {
-        "type": "boolean",
-        "default": false
+        "type": "boolean"
       }
     },
     "additionalProperties": false

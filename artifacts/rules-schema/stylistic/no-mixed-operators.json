@@ -44,8 +44,7 @@
         "uniqueItems": true
       },
       "allowSamePrecedence": {
-        "type": "boolean",
-        "default": true
+        "type": "boolean"
       }
     },
     "additionalProperties": false

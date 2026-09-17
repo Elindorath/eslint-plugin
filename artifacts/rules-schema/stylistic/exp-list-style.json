@@ -1,0 +1,155 @@
+[
+  {
+    "$defs": {
+      "singleLineConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "spacing": {
+            "type": "string",
+            "enum": [
+              "always",
+              "never"
+            ]
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "multiLineConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "minItems": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "baseConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "singleLine": {
+            "$ref": "#/items/0/$defs/singleLineConfig"
+          },
+          "multiline": {
+            "$ref": "#/items/0/$defs/multiLineConfig"
+          }
+        }
+      },
+      "overrideConfig": {
+        "oneOf": [
+          {
+            "$ref": "#/items/0/$defs/baseConfig"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "off"
+            ]
+          }
+        ]
+      }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "singleLine": {
+        "$ref": "#/items/0/$defs/singleLineConfig"
+      },
+      "multiLine": {
+        "$ref": "#/items/0/$defs/multiLineConfig"
+      },
+      "overrides": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "()": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "[]": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "{}": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "<>": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ArrayExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ArrayPattern": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ArrowFunctionExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "CallExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ExportNamedDeclaration": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "FunctionDeclaration": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "FunctionExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "IfStatement": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ImportAttributes": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ImportDeclaration": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "JSONArrayExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "JSONObjectExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "NewExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ObjectExpression": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "ObjectPattern": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSDeclareFunction": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSEnumBody": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSFunctionType": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSInterfaceBody": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSTupleType": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSTypeLiteral": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSTypeParameterDeclaration": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          },
+          "TSTypeParameterInstantiation": {
+            "$ref": "#/items/0/$defs/overrideConfig"
+          }
+        }
+      }
+    }
+  }
+]
