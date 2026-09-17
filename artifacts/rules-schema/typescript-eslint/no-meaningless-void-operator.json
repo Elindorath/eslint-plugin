@@ -5,7 +5,7 @@
     "properties": {
       "checkNever": {
         "type": "boolean",
-        "description": "Whether to suggest removing `void` when the argument has type `never`."
+        "description": "Whether to suggest removing `void` when a call's return type is `never`."
       }
     }
   }
