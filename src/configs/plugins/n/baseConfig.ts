@@ -164,8 +164,12 @@ export const baseConfig = {
     'n/prefer-global/timers': [ERROR, 'never'],
     'n/prefer-global/url': [ERROR, 'never'],
     'n/prefer-global/url-search-params': [ERROR, 'never'],
+    'n/prefer-import/assert-strict': [ERROR],
     'n/prefer-node-protocol': [ERROR, {
       // version: '>=16.0.0',
+    }],
+    'n/prefer-process-get-builtin-module': [ERROR, {
+      // version: '>=22.3.0',
     }],
     'n/prefer-promises/dns': [ERROR],
     'n/prefer-promises/fs': [ERROR],
