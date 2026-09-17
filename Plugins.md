@@ -25,6 +25,7 @@
 | [eslint-plugin-no-secrets][no-secrets]                             |
 | [eslint-plugin-no-unsanitized][no-unsanitized]                     |
 | [eslint-plugin-no-use-extend-native][no-use-extend-native]         |
+| [eslint-plugin-package-json][package-json]                         |
 | [eslint-plugin-perfectionist][perfectionist]                       |
 | [eslint-plugin-promise][promise]                                   |
 | [eslint-plugin-react][react]                                       |
@@ -69,7 +70,6 @@
 | [cspell-eslint-plugin][cspell]                               |                                                    |
 | [eslint-plugin-json-schema-validator][json-schema-validator] |                                                    |
 | [eslint-plugin-node-dependencies][node-dependencies]         |                                                    |
-| [eslint-plugin-package-json][package-json]                   |                                                    |
 | [eslint-plugin-sql-template][sql-template]                   |                                                    |
 | [eslint-plugin-sql][sql]                                     |                                                    |
 | [eslint-plugin-jsdoc][jsdoc]                                 |                                                    |
@@ -138,6 +138,7 @@
 [no-secrets]: https://github.com/nickdeis/eslint-plugin-no-secrets
 [no-unsanitized]: https://github.com/mozilla/eslint-plugin-no-unsanitized
 [no-use-extend-native]: https://github.com/dustinspecker/eslint-plugin-no-use-extend-native
+[package-json]: https://github.com/JoshuaKGoldberg/eslint-plugin-package-json
 [perfectionist]: https://github.com/azat-io/eslint-plugin-perfectionist
 [promise]: https://github.com/eslint-community/eslint-plugin-promise
 [react]: https://github.com/jsx-eslint/eslint-plugin-react
@@ -181,7 +182,6 @@
 [cspell]: https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell-eslint-plugin
 [json-schema-validator]: https://ota-meshi.github.io/eslint-plugin-json-schema-validator
 [node-dependencies]: https://github.com/ota-meshi/eslint-plugin-node-dependencies
-[package-json]: https://github.com/JoshuaKGoldberg/eslint-plugin-package-json
 [sql-template]: https://github.com/uphold/eslint-plugin-sql-template
 [sql]: https://github.com/gajus/eslint-plugin-sql
 [jsdoc]: https://github.com/gajus/eslint-plugin-jsdoc

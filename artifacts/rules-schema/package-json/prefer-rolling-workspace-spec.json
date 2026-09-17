@@ -1,0 +1,30 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "ignoreDependencies": {
+        "items": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": [
+          "array"
+        ],
+        "description": "Specific dependencies to ignore."
+      },
+      "ignorePatterns": {
+        "items": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": [
+          "array"
+        ],
+        "description": "Regex patterns for dependency names to ignore."
+      }
+    },
+    "type": "object"
+  }
+]

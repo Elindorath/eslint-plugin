@@ -24,7 +24,8 @@ if (repositoryUrl === undefined || !repositoryUrl) {
   throw new Error('missing repository in package.json')
 }
 
-const normalizedRepositoryUrl = repositoryUrl.replace('git+', '').replace('github:', 'https://github.com/')
+// `repository.url` is stored in the canonical npm form, documentation urls need the plain repository url
+const normalizedRepositoryUrl = repositoryUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
 
 export const eslintPluginConfig = {
   plugins: {

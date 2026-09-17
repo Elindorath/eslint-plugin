@@ -1,0 +1,16 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "prefer": {
+        "description": "Specifies which exports format to enforce.",
+        "enum": [
+          "implicit",
+          "explicit"
+        ],
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+]

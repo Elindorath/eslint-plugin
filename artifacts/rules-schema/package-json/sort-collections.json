@@ -1,0 +1,35 @@
+[
+  {
+    "description": "Array of package properties to require sorting. Provide a string to sort that collection lexicographically (lifecycle-aware for `scripts`), or an object to sort it by a specified order.",
+    "items": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "key": {
+              "description": "The collection property to sort.",
+              "type": "string"
+            },
+            "order": {
+              "description": "The order to sort the collection by. Keys not listed are appended in lexicographical order.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "key",
+            "order"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "type": "array"
+  }
+]

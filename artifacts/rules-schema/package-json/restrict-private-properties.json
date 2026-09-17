@@ -1,0 +1,15 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "blockedProperties": {
+        "description": "Array of property names to disallow in private packages.",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    "type": "object"
+  }
+]

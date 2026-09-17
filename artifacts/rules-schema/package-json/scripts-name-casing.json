@@ -1,0 +1,30 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "ignoreNames": {
+        "items": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": [
+          "array"
+        ],
+        "description": "Specific script names to ignore."
+      },
+      "ignorePatterns": {
+        "items": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": [
+          "array"
+        ],
+        "description": "Regex patterns for script names to ignore."
+      }
+    },
+    "type": "object"
+  }
+]
