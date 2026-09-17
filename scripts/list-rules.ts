@@ -1,14 +1,12 @@
 #! /usr/bin/env -S yarn tsx
 
-import { Linter } from 'eslint'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import plugin from '../src/index.ts'
 
 
-const linter = new Linter()
-const builtInRules = linter.getRules()
-
-for (const key of builtInRules.keys()) {
+// eslint-disable-next-line @typescript-eslint/no-deprecated -- Currently the only way to get the core rules
+for (const key of builtinRules.keys()) {
   console.log(key)
 }
 
