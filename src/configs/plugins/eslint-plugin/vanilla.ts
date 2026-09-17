@@ -16,16 +16,16 @@ if (!normalizedResult) {
 }
 
 const { packageJson } = normalizedResult
-const { repository, version } = packageJson
+const { repository: repo, version } = packageJson
 
-const repositoryUrl = typeof repository === 'string' ? repository : repository?.url
+const repoUrl = typeof repo === 'string' ? repo : repo?.url
 
-if (repositoryUrl === undefined || !repositoryUrl) {
+if (repoUrl === undefined || !repoUrl) {
   throw new Error('missing repository in package.json')
 }
 
-// `repository.url` is stored in the canonical npm form, documentation urls need the plain repository url
-const normalizedRepositoryUrl = repositoryUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
+// `repository.url` is stored in the canonical npm form, documentation urls need the plain repository URL
+const normalizedRepoUrl = repoUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
 
 export const eslintPluginConfig = {
   plugins: {
@@ -97,7 +97,7 @@ export const eslintPluginConfig = {
     }],
     'eslint-plugin/require-meta-docs-url': [ERROR, {
       // Configured value
-      pattern: `${normalizedRepositoryUrl}/blob/v${version}/docs/rules/{{name}}.md`,
+      pattern: `${normalizedRepoUrl}/blob/v${version}/docs/rules/{{name}}.md`,
     }],
     'eslint-plugin/require-meta-fixable': [ERROR, {
       // Configured value

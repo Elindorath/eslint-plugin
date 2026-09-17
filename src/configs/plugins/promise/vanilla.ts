@@ -62,7 +62,7 @@ export const promiseVanillaConfig = {
     'promise/spec-only': [ERROR, {
       allowedMethods: [],
     }],
-    // Might be disabled in Typescript projects as it already warn about this
+    // Might be disabled in TypeScript projects as it already warn about this
     'promise/valid-params': [ERROR, {
       exclude: [],
     }],

@@ -79,7 +79,7 @@ export const nNodeConfig = {
     'n/handle-callback-err': [ERROR, '^.*(?:e|E)rr(?:or)?|e|E'],
     'n/hashbang': [ERROR, {
       additionalExecutables: [],
-      // TODO: Should be configured for at least typescript
+      // TODO: Should be configured for at least TypeScript
       executableMap: {
         '.js': 'node',
       },

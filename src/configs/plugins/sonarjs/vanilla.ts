@@ -154,7 +154,7 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-empty-test-title': [ERROR],
     'sonarjs/no-equals-in-for-termination': [ERROR],
     'sonarjs/no-exclusive-tests': [ERROR],
-    // Might be turned OFF in Typescript projects as it already enforce this
+    // Might be turned OFF in TypeScript projects as it already enforce this
     'sonarjs/no-extra-arguments': [ERROR],
     'sonarjs/no-fallthrough': [ERROR],
     // TODO: Should be put in a tests specific configuration file
@@ -278,7 +278,7 @@ export const sonarJsVanillaConfig = {
     'sonarjs/session-regeneration': [ERROR],
     // OFF as we prefer to sort properties alphabetically
     'sonarjs/shorthand-property-grouping': [OFF],
-    // TODO: Should be put in a library pg, mysql, mysql2 or sequelize specific configuration file
+    // TODO: Should be put in a library pg, MySQL, mysql2 or sequelize specific configuration file
     'sonarjs/sql-queries': [ERROR],
     // TODO: Should be put in a library chai/mocha specific configuration file
     'sonarjs/stable-tests': [ERROR],
@@ -287,9 +287,9 @@ export const sonarJsVanillaConfig = {
     'sonarjs/strict-transport-security': [ERROR],
     'sonarjs/super-linear-regex': [ERROR],
     'sonarjs/synchronous-suite-callback': [ERROR],
-    // TODO: Should be put in a syntax jsx specific configuration file
+    // TODO: Should be put in a syntax JSX specific configuration file
     'sonarjs/table-header': [ERROR],
-    // TODO: Should be put in a syntax jsx specific configuration file
+    // TODO: Should be put in a syntax JSX specific configuration file
     'sonarjs/table-header-reference': [ERROR],
     // TODO: Should be put in a library chai/mocha specific configuration file
     'sonarjs/test-check-exception': [ERROR],

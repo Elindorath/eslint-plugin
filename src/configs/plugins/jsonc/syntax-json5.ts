@@ -24,7 +24,7 @@ export const json5Config = {
   },
 
   rules: {
-    // OFF as we don't treat the json files the same as the rest of the codebase
+    // OFF as we don't treat the JSON files the same as the rest of the codebase
     'jsonc/auto': [OFF],
 
     'jsonc/key-name-casing': [ERROR, {

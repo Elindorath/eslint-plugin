@@ -281,7 +281,7 @@ export const importVanillaConfig = {
         'sibling',
         'index',
         'unknown',
-        // Typescript only
+        // TypeScript only
         'object',
         'type',
       ],

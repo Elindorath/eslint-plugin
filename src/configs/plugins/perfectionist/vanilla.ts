@@ -3,7 +3,7 @@ import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 
 // cspell:disable-next-line -- Expected in regex.
@@ -17,7 +17,7 @@ export const perfectionistVanillaConfig = {
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
      * TODO: fix this when types are fixed
      */
-    perfectionist: perfectionistPlugin as ESLint.Plugin,
+    perfectionist: perfectionistPlugin,
   },
 
   settings: {
@@ -140,19 +140,19 @@ export const perfectionistVanillaConfig = {
         /* eslint-disable @typescript-eslint/no-magic-numbers -- Irrelevant when used with `.repeat` */
         {
           groupName: 'parent1Up',
-          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(1)}[^.]`,
+          elementNamePattern: `^${PATH_UP_REGEX_PATTERN.repeat(1)}[^.]`,
         },
         {
           groupName: 'parent2Up',
-          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(2)}[^.]`,
+          elementNamePattern: `^${PATH_UP_REGEX_PATTERN.repeat(2)}[^.]`,
         },
         {
           groupName: 'parent3Up',
-          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(3)}[^.]`,
+          elementNamePattern: `^${PATH_UP_REGEX_PATTERN.repeat(3)}[^.]`,
         },
         {
           groupName: 'parent4Up',
-          elementNamePattern: String.raw`^${PATH_UP_REGEX_PATTERN.repeat(4)}[^.]`,
+          elementNamePattern: `^${PATH_UP_REGEX_PATTERN.repeat(4)}[^.]`,
         },
         /* eslint-enable */
       ],

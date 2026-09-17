@@ -13,11 +13,7 @@ export {
 }
 
 function getPluginsRulesMeta(pluginDescriptors: PluginDescriptor[]) {
-  const pluginRuleSchemaDescriptors: PluginRuleSchemaDescriptor[] = []
-
-  for (const pluginDescriptor of pluginDescriptors) {
-    pluginRuleSchemaDescriptors.push(getPluginRulesMeta(pluginDescriptor))
-  }
+  const pluginRuleSchemaDescriptors: PluginRuleSchemaDescriptor[] = Array.from(pluginDescriptors, (pluginDescriptor) => getPluginRulesMeta(pluginDescriptor))
 
   return pluginRuleSchemaDescriptors
 }

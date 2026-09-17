@@ -43,7 +43,7 @@ export const typescriptConfig = {
   },
 
   rules: {
-    // Typescript rules
+    // TypeScript rules
     '@typescript-eslint/adjacent-overload-signatures': [ERROR],
     '@typescript-eslint/array-type': [ERROR, {
       default: ARRAY_SIMPLE,
@@ -80,7 +80,7 @@ export const typescriptConfig = {
       fixStyle: 'separate-type-imports',
       prefer: 'type-imports',
     }],
-    // Disabled because Typescript can infer the return types on its own. Should be used as a way to optimize type checking
+    // Disabled because TypeScript can infer the return types on its own. Should be used as a way to optimize type checking
     '@typescript-eslint/explicit-function-return-type': [OFF, {
       allowConciseArrowFunctionExpressionsStartingWithVoid: false,
       allowDirectConstAssertionInArrowFunctions: true,
@@ -103,7 +103,7 @@ export const typescriptConfig = {
         properties: 'explicit',
       },
     }],
-    // Disabled because Typescript can infer the return types on its own. Should be used as a way to optimize type checking
+    // Disabled because TypeScript can infer the return types on its own. Should be used as a way to optimize type checking
     '@typescript-eslint/explicit-module-boundary-types': [OFF, {
       allowArgumentsExplicitlyTypedAsAny: false,
       allowDirectConstAssertionInArrowFunctions: true,
@@ -426,7 +426,6 @@ export const typescriptConfig = {
     '@typescript-eslint/no-unsafe-return': [ERROR],
     '@typescript-eslint/no-unsafe-type-assertion': [ERROR],
     '@typescript-eslint/no-unsafe-unary-minus': [ERROR],
-    'no-unused-private-class-members': [OFF],
     '@typescript-eslint/no-unused-private-class-members': [ERROR],
     '@typescript-eslint/no-useless-default-assignment': [ERROR, {
       allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
@@ -469,6 +468,7 @@ export const typescriptConfig = {
       // Configured value
       enforceForRenamedProperties: true,
     }],
+
     '@typescript-eslint/prefer-enum-initializers': [ERROR],
     '@typescript-eslint/prefer-find': [ERROR],
     '@typescript-eslint/prefer-for-of': [ERROR],
@@ -506,6 +506,7 @@ export const typescriptConfig = {
     // TODO: Should use tsconfig's noImplicitReturns instead of this rule as it has better coverage
     'consistent-return': [OFF],
     'no-throw-literal': [OFF],
+    'no-unused-private-class-members': [OFF],
     'prefer-destructuring': [OFF],
     ...overrideBaseConfigRule('@typescript-eslint/prefer-promise-reject-errors', {
       // Configured value
@@ -649,12 +650,12 @@ export const typescriptConfig = {
       capIsConstructor: false,
     }],
     'no-array-constructor': [OFF],
-    // Disabled as Typescript compiler already checks this
+    // Disabled as TypeScript compiler already checks this
     'no-dupe-class-members': [OFF],
     // Might be tweaked in the future
     'no-empty-function': [OFF],
     'no-implied-eval': [OFF],
-    // Disabled as Typescript compiler already checks this with the `noImplicitThis` option
+    // Disabled as TypeScript compiler already checks this with the `noImplicitThis` option
     'no-invalid-this': [OFF],
     // Might be tweaked for comfort in the future
     ...overrideBaseConfigRule('@typescript-eslint/no-magic-numbers', {
@@ -747,7 +748,7 @@ export const typescriptConfig = {
     '@typescript-eslint/require-await': [ERROR],
     '@typescript-eslint/return-await': [ERROR, 'in-try-catch'],
     '@typescript-eslint/use-unknown-in-catch-callback-variable': [ERROR],
-    // Disabled as Typescript compiler already checks this
+    // Disabled as TypeScript compiler already checks this
     'no-redeclare': [OFF],
     'no-return-await': [OFF],
     'no-shadow': [OFF],

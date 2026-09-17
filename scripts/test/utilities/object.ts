@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define -- TODO: fix the eslint configuration for scripts */
-
 import type { WritableDeep } from 'type-fest'
 
 type ArrayElement<ArrayType> = ArrayType extends ReadonlyArray<infer Type>
@@ -28,4 +26,3 @@ const objectFromEntries = Object.fromEntries as <Type>(entries: Type) => FromEnt
 
 const objectKeys = Object.keys as <Type extends object>(object: Type) => Array<ObjectKeys<Type>>
 
-/* eslint-enable */

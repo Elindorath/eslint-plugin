@@ -26,7 +26,8 @@ export const unicornVanillaConfig = {
       extendDefaultReplacements: true,
       replacements: {},
     }],
-    'unicorn/consistent-arrow-return-style': [ERROR],
+    // OFF as it contradicts the `requireBodyBraces` option of the sonarjs/arrow-function-convention rule
+    'unicorn/consistent-arrow-return-style': [OFF],
     'unicorn/consistent-boolean-name': [ERROR, {
       checkArguments: 'always',
       checkFields: 'never',
@@ -445,14 +446,15 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-else-if': [ERROR],
     'unicorn/prefer-error-is-error': [ERROR],
     'unicorn/prefer-event-target': [ERROR],
+    // OFF as it only targets CSS, which this plugin doesn't lint yet
+    'unicorn/prefer-explicit-viewport-units': [OFF],
     'unicorn/prefer-export-from': [ERROR, {
       checkUsedVariables: true,
     }],
-    // OFF as it only targets CSS, which this plugin doesn't lint yet
-    'unicorn/prefer-explicit-viewport-units': [OFF],
     'unicorn/prefer-flat-math-min-max': [ERROR],
     'unicorn/prefer-get-or-insert-computed': [ERROR],
-    'unicorn/prefer-global-number-constants': [ERROR],
+    // OFF as it contradicts the `checkInfinity` option of the unicorn/prefer-number-properties rule
+    'unicorn/prefer-global-number-constants': [OFF],
     'unicorn/prefer-global-this': [ERROR],
     'unicorn/prefer-group-by': [ERROR],
     'unicorn/prefer-has-check': [ERROR],

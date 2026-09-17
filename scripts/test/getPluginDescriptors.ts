@@ -1,4 +1,4 @@
-/* eslint-disable import-x/max-dependencies, require-await, no-unsanitized/method, unicorn/no-instanceof-builtins -- TODO: fix the eslint configuration for scripts */
+/* eslint-disable import-x/max-dependencies, require-await, no-unsanitized/method -- TODO: fix the eslint configuration for scripts */
 
 /* eslint-disable max-depth, max-statements, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
@@ -22,7 +22,7 @@ import type { Linter, Rule } from 'eslint'
 
 import type {
   ESLintPluginWithRule,
-  PluginConfigurationEntry,
+  PluginConfigEntry,
   PluginDescriptor,
   PluginEntry,
   PluginFilename,
@@ -35,74 +35,70 @@ import type {
 const EXPECTED_PLUGIN_IN_CONFIGURATION_COUNT = 1
 
 export async function getPluginDescriptors(pluginNames: PluginName[]) {
-  const promises: Array<Promise<PluginDescriptor>> = []
-
-  for (const pluginName of pluginNames) {
-    promises.push(getPluginDescriptor(pluginName))
-  }
+  const promises: Array<Promise<PluginDescriptor>> = Array.from(pluginNames, async (pluginName) => getPluginDescriptor(pluginName))
 
   return Promise.all(promises)
 }
 
 async function getPluginDescriptor(pluginName: PluginName): Promise<PluginDescriptor> {
-  const pluginConfigurationDirectoryUrl = new URL(`${pluginName}/`, config.pluginConfigurationsDirectoryUrl)
+  const pluginConfigDirectoryUrl = new URL(`${pluginName}/`, config.pluginConfigurationsDirectoryUrl)
 
-  const pluginConfigurationFileNames = await readdir(pluginConfigurationDirectoryUrl)
+  const pluginConfigFileNames = await readdir(pluginConfigDirectoryUrl)
 
-  const pluginConfigurationEntries = await getPluginConfigurationEntries(pluginConfigurationFileNames, pluginConfigurationDirectoryUrl)
+  const pluginConfigEntries = await getPluginConfigEntries(pluginConfigFileNames, pluginConfigDirectoryUrl)
 
-  const [prefix, instance] = getConsistentAcrossConfigurationsPluginEntry(pluginName, pluginConfigurationEntries)
-  const configuredRuleSet = getConfiguredPluginRuleSet(pluginConfigurationEntries, prefix)
+  const [prefix, instance] = getConsistentAcrossConfigurationsPluginEntry(pluginName, pluginConfigEntries)
+  const configuredRuleSet = getConfiguredPluginRuleSet(pluginConfigEntries, prefix)
 
   return {
     name: pluginName,
-    configurationEntries: pluginConfigurationEntries,
+    configEntries: pluginConfigEntries,
     configuredRuleSet,
     instance,
     prefix,
   }
 }
 
-async function getPluginConfigurationEntries(pluginConfigurationFileNames: PluginFilename[], pluginConfigurationDirectoryUrl: URL): Promise<PluginConfigurationEntry[]> {
-  const pluginConfigurationEntryPromises: Array<Promise<[string, Linter.Config]>> = []
+async function getPluginConfigEntries(pluginConfigFileNames: PluginFilename[], pluginConfigDirectoryUrl: URL): Promise<PluginConfigEntry[]> {
+  const pluginConfigEntryPromises: Array<Promise<[string, Linter.Config]>> = []
 
-  for (const pluginConfigurationFile of pluginConfigurationFileNames) {
-    if (pluginConfigurationFile !== '_compat.ts') {
-      pluginConfigurationEntryPromises.push(getPluginConfigurationFile(pluginConfigurationFile, pluginConfigurationDirectoryUrl))
+  for (const pluginConfigFile of pluginConfigFileNames) {
+    if (pluginConfigFile !== '_compat.ts') {
+      pluginConfigEntryPromises.push(getPluginConfigFile(pluginConfigFile, pluginConfigDirectoryUrl))
     }
   }
 
-  return Promise.all(pluginConfigurationEntryPromises)
+  return Promise.all(pluginConfigEntryPromises)
 }
 
-async function getPluginConfigurationFile(pluginConfigurationFile: PluginFilename, pluginConfigurationDirectoryUrl: URL): Promise<PluginConfigurationEntry> {
+async function getPluginConfigFile(pluginConfigFile: PluginFilename, pluginConfigDirectoryUrl: URL): Promise<PluginConfigEntry> {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Dynamic imports are always typed as `any`
-  const importedPluginConfiguration: { [exportName: string]: Linter.Config; } = await import(new URL(pluginConfigurationFile, pluginConfigurationDirectoryUrl).toString())
-  const firstNamedConfig = Object.keys(importedPluginConfiguration).find((namedExport) => {
+  const importedPluginConfig: { [exportName: string]: Linter.Config; } = await import(new URL(pluginConfigFile, pluginConfigDirectoryUrl).href)
+  const firstNamedConfig = Object.keys(importedPluginConfig).find((namedExport) => {
     return namedExport.endsWith('Config')
   })
 
   if (firstNamedConfig === undefined) {
-    throw new Error(`no named export of a config found in ${pluginConfigurationFile}`)
+    throw new Error(`no named export of a config found in ${pluginConfigFile}`)
   }
 
-  return [pluginConfigurationFile, importedPluginConfiguration[firstNamedConfig]]
+  return [pluginConfigFile, importedPluginConfig[firstNamedConfig]]
 }
 
-function getConsistentAcrossConfigurationsPluginEntry(pluginName: PluginName, pluginConfigurationEntries: PluginConfigurationEntry[]) {
-  const [firstPluginConfigurationEntry, ...otherPluginConfigurationEntries] = pluginConfigurationEntries
+function getConsistentAcrossConfigurationsPluginEntry(pluginName: PluginName, pluginConfigEntries: PluginConfigEntry[]) {
+  const [firstPluginConfigEntry, ...otherPluginConfigEntries] = pluginConfigEntries
 
-  const firstPluginEntry = getValidPluginEntry(pluginName, firstPluginConfigurationEntry)
+  const firstPluginEntry = getValidPluginEntry(pluginName, firstPluginConfigEntry)
 
   let previousPluginEntry = firstPluginEntry
 
-  for (const [pluginFilename, pluginConfiguration] of otherPluginConfigurationEntries) {
-    const currentPluginEntry = getValidPluginEntry(pluginName, [pluginFilename, pluginConfiguration])
+  for (const [pluginFilename, pluginConfig] of otherPluginConfigEntries) {
+    const currentPluginEntry = getValidPluginEntry(pluginName, [pluginFilename, pluginConfig])
 
     try {
       assertExpectedPluginEntry(currentPluginEntry, previousPluginEntry)
     } catch (error) {
-      if (error instanceof Error) {
+      if (Error.isError(error)) {
         throw new InconsistentPluginEntryError(`inconsistent plugin entry for plugin ${pluginName} in ${pluginFilename}`, { cause: error })
       }
 
@@ -115,9 +111,9 @@ function getConsistentAcrossConfigurationsPluginEntry(pluginName: PluginName, pl
   return firstPluginEntry
 }
 
-function getValidPluginEntry(pluginName: PluginName, [pluginFilename, pluginConfiguration]: PluginConfigurationEntry): [PluginPrefix, ESLintPluginWithRule] {
-  const pluginConfigurationPluginMap = pluginConfiguration.plugins ?? { '': pluginName === 'eslint' ? getEslintPseudoPlugin() : undefined }
-  const pluginEntries = objectEntries(pluginConfigurationPluginMap)
+function getValidPluginEntry(pluginName: PluginName, [pluginFilename, pluginConfig]: PluginConfigEntry): [PluginPrefix, ESLintPluginWithRule] {
+  const pluginConfigPluginMap = pluginConfig.plugins ?? { '': pluginName === 'eslint' ? getEslintPseudoPlugin() : undefined }
+  const pluginEntries = objectEntries(pluginConfigPluginMap)
   const [firstPluginEntry] = pluginEntries
   const [pluginPrefix, pluginInstance] = firstPluginEntry
 
@@ -128,7 +124,7 @@ function getValidPluginEntry(pluginName: PluginName, [pluginFilename, pluginConf
 
     assertIsPluginWithRules(pluginInstance)
   } catch (error) {
-    if (error instanceof Error) {
+    if (Error.isError(error)) {
       throw new InvalidPluginEntryError(`invalid plugin entry for plugin ${pluginName} in ${pluginFilename}`, { cause: error })
     }
 
@@ -154,11 +150,11 @@ function assertIsPluginWithRules(potentialPluginInstance: ESLint.Plugin | undefi
   }
 }
 
-function getConfiguredPluginRuleSet(pluginConfigurationEntries: PluginConfigurationEntry[], pluginPrefix: PluginPrefix) {
+function getConfiguredPluginRuleSet(pluginConfigEntries: PluginConfigEntry[], pluginPrefix: PluginPrefix) {
   const ruleSet = new Set<RuleId>()
 
-  for (const [, pluginConfiguration] of pluginConfigurationEntries) {
-    for (const ruleId of objectKeys(pluginConfiguration.rules ?? {})) {
+  for (const [, pluginConfig] of pluginConfigEntries) {
+    for (const ruleId of objectKeys(pluginConfig.rules ?? {})) {
       // Remove other plugin rule overwrites
       if (isRuleIdFromPlugin(ruleId, pluginPrefix)) {
         ruleSet.add(ruleId)

@@ -230,10 +230,9 @@ function mergeGlobals(globals1: Globals, globals2: Globals) {
 }
 
 function mergeParser(parser1: Parser, parser2: Parser) {
-  /* eslint-disable @typescript-eslint/no-deprecated -- Deprecated are only used as fallback */
   const parserName1 = parser1?.meta?.name ?? parser1?.name
   const parserName2 = parser2?.meta?.name ?? parser2?.name
-  /* eslint-enable @typescript-eslint/no-deprecated */
+
 
   if (parserName1 === parserName2) {
     return parser1

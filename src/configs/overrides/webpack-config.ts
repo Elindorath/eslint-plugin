@@ -27,7 +27,7 @@ const webpackRules = {
     peerDependencies: false,
     whitelist: [],
   }],
-  // OFF as it is allowed to import nodejs modules
+  // OFF as it is allowed to import Node.js modules
   'import-x/no-nodejs-modules': [OFF],
   // OFF as webpack config can be very extensive
   'max-lines-per-function': [OFF],

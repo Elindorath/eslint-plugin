@@ -58,6 +58,12 @@ n/no-unpublished-import               -> syntax-typescript&environment-node
 security/detect-non-literal-require
 import-x/no-dynamic-require
 
+sonarjs/arrow-function-convention        -> requireBodyBraces
+unicorn/consistent-arrow-return-style
+
+unicorn/prefer-number-properties          -> checkInfinity
+unicorn/prefer-global-number-constants
+
 @stylistic/object-curly-spacing        -> emptyObjects
 unicorn/empty-brace-spaces
 

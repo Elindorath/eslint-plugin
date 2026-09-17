@@ -104,7 +104,7 @@ export const jestConfig = {
     'jest/no-test-prefixes': [ERROR],
     'jest/no-test-return-statement': [ERROR],
     'jest/no-unneeded-async-expect-function': [ERROR],
-    // OFF as it requires typescript
+    // OFF as it requires TypeScript
     'jest/no-untyped-mock-factory': [OFF],
     'jest/padding-around-after-all-blocks': [ERROR],
     'jest/padding-around-after-each-blocks': [ERROR],

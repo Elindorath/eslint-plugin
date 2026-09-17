@@ -17,7 +17,7 @@ export const eslintVanillaConfig = {
       // Configured value
       checkForEach: true,
     }],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'constructor-super': [ERROR],
     'for-direction': [ERROR],
     'getter-return': [ERROR, {
@@ -28,7 +28,7 @@ export const eslintVanillaConfig = {
     'no-class-assign': [ERROR],
     'no-compare-neg-zero': [ERROR],
     'no-cond-assign': [ERROR, 'always'],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-const-assign': [ERROR],
     'no-constant-binary-expression': [ERROR, {
       // Configured value
@@ -40,12 +40,12 @@ export const eslintVanillaConfig = {
     'no-constructor-return': [ERROR],
     'no-control-regex': [ERROR],
     'no-debugger': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-dupe-args': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-dupe-class-members': [ERROR],
     'no-dupe-else-if': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-dupe-keys': [ERROR],
     'no-duplicate-case': [ERROR],
     'no-duplicate-imports': [ERROR, {
@@ -62,9 +62,9 @@ export const eslintVanillaConfig = {
       allowEmptyCase: false,
       commentPattern: String.raw`falls?\s?through`,
     }],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-func-assign': [ERROR],
-    // Enabled even in Typescript projects despite the compiler already checking it because it catch more cases
+    // Enabled even in TypeScript projects despite the compiler already checking it because it catch more cases
     'no-import-assign': [ERROR],
     'no-inner-declarations': [ERROR, 'both'],
     'no-invalid-regexp': [ERROR, {
@@ -83,7 +83,7 @@ export const eslintVanillaConfig = {
       allowEscape: false,
     }],
     'no-new-native-nonconstructor': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-obj-calls': [ERROR],
     'no-promise-executor-return': [ERROR, {
       allowVoid: false,
@@ -93,13 +93,13 @@ export const eslintVanillaConfig = {
       props: true,
     }],
     'no-self-compare': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-setter-return': [ERROR],
     'no-sparse-arrays': [ERROR],
     'no-template-curly-in-string': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-this-before-super': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-undef': [ERROR, {
       // Configured value
       typeof: true,
@@ -108,13 +108,13 @@ export const eslintVanillaConfig = {
     'no-unmodified-loop-condition': [ERROR, {
       checkConditionalExpressions: false,
     }],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-unreachable': [ERROR],
     'no-unreachable-loop': [ERROR, {
       ignore: [],
     }],
     'no-unsafe-finally': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-unsafe-negation': [ERROR, {
       // Configured value
       enforceForOrderingRelations: true,
@@ -270,7 +270,7 @@ export const eslintVanillaConfig = {
     /**
      * Might be tweaked in the future, currently testing Linus Torvalds take on this one
      * @see: https://github.com/torvalds/linux/blob/master/Documentation/process/coding-style.rst
-     * Should probably be adapted for jsx
+     * Should probably be adapted for JSX
      */
     'max-depth': [ERROR, {
       // Configured value
@@ -373,7 +373,7 @@ export const eslintVanillaConfig = {
     'no-inline-comments': [OFF, {
       ignorePattern: '',
     }],
-    // Should be disabled in Typescript projects as the compiler already checks this with the `noImplicitThis` option
+    // Should be disabled in TypeScript projects as the compiler already checks this with the `noImplicitThis` option
     'no-invalid-this': [ERROR, {
       capIsConstructor: true,
     }],
@@ -421,7 +421,7 @@ export const eslintVanillaConfig = {
       allowForLoopAfterthoughts: true,
     }],
     'no-proto': [ERROR],
-    // Should be disabled in Typescript projects as the compiler already checks this
+    // Should be disabled in TypeScript projects as the compiler already checks this
     'no-redeclare': [ERROR, {
       builtinGlobals: true,
     }],
