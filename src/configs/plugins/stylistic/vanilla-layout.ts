@@ -482,7 +482,23 @@ export const stylisticVanillaLayoutConfig = {
       // Configured value
       arraysInObjects: true,
       // Configured value
+      emptyObjects: 'never',
+      // Configured value
       objectsInObjects: true,
+      overrides: {
+        /* eslint-disable @typescript-eslint/naming-convention -- AST nodes */
+        ExportAllDeclaration: 'always',
+        ExportNamedDeclaration: 'always',
+        ImportAttributes: 'always',
+        ImportDeclaration: 'always',
+        ObjectExpression: 'always',
+        ObjectPattern: 'always',
+        TSEnumBody: 'always',
+        TSInterfaceBody: 'always',
+        TSMappedType: 'always',
+        TSTypeLiteral: 'always',
+        /* eslint-enable @typescript-eslint/naming-convention */
+      },
     }],
     '@stylistic/object-property-newline': [ERROR, {
       // Configured value
