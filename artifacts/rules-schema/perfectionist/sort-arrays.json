@@ -217,21 +217,10 @@
                         ],
                         "description": "Regular expression."
                       },
-                      "modifiers": {
-                        "items": {
-                          "enum": [
-                            "value",
-                            "type"
-                          ],
-                          "type": "string"
-                        },
-                        "description": "Modifier filters.",
-                        "type": "array"
-                      },
                       "selector": {
                         "description": "Selector filter.",
                         "enum": [
-                          "export"
+                          "literal"
                         ],
                         "type": "string"
                       }
@@ -381,21 +370,10 @@
                   ],
                   "description": "Regular expression."
                 },
-                "modifiers": {
-                  "items": {
-                    "enum": [
-                      "value",
-                      "type"
-                    ],
-                    "type": "string"
-                  },
-                  "description": "Modifier filters.",
-                  "type": "array"
-                },
                 "selector": {
                   "description": "Selector filter.",
                   "enum": [
-                    "export"
+                    "literal"
                   ],
                   "type": "string"
                 }
@@ -657,10 +635,6 @@
         "additionalProperties": false,
         "type": "object"
       },
-      "ignoreAlias": {
-        "description": "Controls whether to ignore alias names.",
-        "type": "boolean"
-      },
       "partitionByComment": {
         "oneOf": [
           {
@@ -871,9 +845,13 @@
         "type": "boolean"
       }
     },
+    "required": [
+      "useConfigurationIf"
+    ],
     "additionalProperties": false,
     "type": "object"
   },
   "uniqueItems": true,
-  "type": "array"
+  "type": "array",
+  "minItems": 1
 }

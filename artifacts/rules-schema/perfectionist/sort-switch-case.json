@@ -3,6 +3,18 @@
     "properties": {
       "fallbackSort": {
         "properties": {
+          "type": {
+            "enum": [
+              "alphabetical",
+              "natural",
+              "line-length",
+              "custom",
+              "unsorted",
+              "subgroup-order"
+            ],
+            "description": "Specifies the sorting method.",
+            "type": "string"
+          },
           "order": {
             "description": "Specifies whether to sort items in ascending or descending order.",
             "enum": [
@@ -10,23 +22,26 @@
               "desc"
             ],
             "type": "string"
-          },
-          "type": {
-            "enum": [
-              "alphabetical",
-              "natural",
-              "line-length",
-              "custom",
-              "unsorted"
-            ],
-            "description": "Specifies the sorting method.",
-            "type": "string"
           }
         },
         "description": "Fallback sort order.",
         "additionalProperties": false,
-        "minProperties": 1,
+        "required": [
+          "type"
+        ],
         "type": "object"
+      },
+      "type": {
+        "enum": [
+          "alphabetical",
+          "natural",
+          "line-length",
+          "custom",
+          "unsorted",
+          "subgroup-order"
+        ],
+        "description": "Specifies the sorting method.",
+        "type": "string"
       },
       "specialCharacters": {
         "description": "Specifies whether to trim, remove, or keep special characters before sorting.",
@@ -65,17 +80,6 @@
           "asc",
           "desc"
         ],
-        "type": "string"
-      },
-      "type": {
-        "enum": [
-          "alphabetical",
-          "natural",
-          "line-length",
-          "custom",
-          "unsorted"
-        ],
-        "description": "Specifies the sorting method.",
         "type": "string"
       }
     },
