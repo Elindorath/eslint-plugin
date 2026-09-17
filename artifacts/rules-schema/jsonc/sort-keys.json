@@ -30,22 +30,40 @@
                           "type": "string"
                         },
                         "order": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "enum": [
-                                "asc",
-                                "desc"
-                              ]
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "enum": [
+                                    "asc",
+                                    "desc"
+                                  ]
+                                },
+                                "caseSensitive": {
+                                  "type": "boolean"
+                                },
+                                "natural": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "additionalProperties": false
                             },
-                            "caseSensitive": {
-                              "type": "boolean"
-                            },
-                            "natural": {
-                              "type": "boolean"
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "enum": [
+                                    "ignore"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "type"
+                              ],
+                              "additionalProperties": false
                             }
-                          },
-                          "additionalProperties": false
+                          ]
                         }
                       },
                       "additionalProperties": false
@@ -70,6 +88,20 @@
                     "type": "boolean"
                   }
                 },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "ignore"
+                    ]
+                  }
+                },
+                "required": [
+                  "type"
+                ],
                 "additionalProperties": false
               }
             ]

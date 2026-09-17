@@ -14,6 +14,14 @@
       },
       "objectsInObjects": {
         "type": "boolean"
+      },
+      "emptyObjects": {
+        "type": "string",
+        "enum": [
+          "ignore",
+          "always",
+          "never"
+        ]
       }
     },
     "additionalProperties": false

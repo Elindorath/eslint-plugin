@@ -35,6 +35,9 @@
                         },
                         "natural": {
                           "type": "boolean"
+                        },
+                        "key": {
+                          "type": "string"
                         }
                       },
                       "additionalProperties": false
@@ -60,6 +63,9 @@
               },
               "natural": {
                 "type": "boolean"
+              },
+              "key": {
+                "type": "string"
               }
             },
             "additionalProperties": false
