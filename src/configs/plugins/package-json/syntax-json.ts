@@ -20,6 +20,7 @@ export const packageJsonConfig = {
         'files',
       ],
     }],
+    // OFF as local paths are a valid way to consume a sibling package while developing it
     'package-json/no-local-dependencies': [OFF, {
       ignorePrivate: true,
     }],
@@ -28,6 +29,7 @@ export const packageJsonConfig = {
     'package-json/order-properties': [ERROR, {
       order: 'sort-package-json',
     }],
+    // OFF as we don't use the workspace protocol
     'package-json/prefer-rolling-workspace-spec': [OFF, {
       ignoreDependencies: [],
       ignorePatterns: [],
@@ -39,57 +41,80 @@ export const packageJsonConfig = {
       ignorePrivate: true,
       preferContributorsOnly: false,
     }],
-    // ON as the package is published with a single maintainer
     'package-json/require-author': [ERROR],
+    // OFF as not every package exposes an executable
     'package-json/require-bin': [OFF],
+    // OFF as not every package ships a browser specific entry point
     'package-json/require-browser': [OFF],
-    // ON as consumers need somewhere to report issues
     'package-json/require-bugs': [ERROR],
+    // OFF as bundling dependencies is uncommon
     'package-json/require-bundleDependencies': [OFF],
+    // OFF as script configuration is optional
     'package-json/require-config': [OFF],
+    // OFF as `require-attribution` accepts `author` alone
     'package-json/require-contributors': [OFF],
+    // OFF as most packages are architecture agnostic
     'package-json/require-cpu': [OFF],
+    // OFF as a package may have no runtime dependency
     'package-json/require-dependencies': [OFF],
     'package-json/require-description': [ERROR],
+    // OFF as a package may have no development dependency
     'package-json/require-devDependencies': [OFF],
+    // OFF as `engines` already states the supported runtime
     'package-json/require-devEngines': [OFF],
+    // OFF as `files` and `exports` describe the package layout
     'package-json/require-directories': [OFF],
-    // ON as the supported node version is part of the contract
     'package-json/require-engines': [ERROR],
     'package-json/require-exports': [ERROR],
     'package-json/require-files': [ERROR],
+    // OFF as soliciting funding is a maintainer choice
     'package-json/require-funding': [OFF],
+    // OFF as most packages have no native addon
     'package-json/require-gypfile': [OFF],
-    // ON as the package is published
     'package-json/require-homepage': [ERROR],
-    // ON as the package is published and needs to be discoverable
     'package-json/require-keywords': [ERROR],
+    // OFF as most packages have no native addon
     'package-json/require-libc': [OFF],
     'package-json/require-license': [ERROR],
+    // OFF as `exports` is the entry point we require
     'package-json/require-main': [OFF],
+    // OFF as most packages ship no man page
     'package-json/require-man': [OFF],
+    // OFF as `type` already declares the module format
     'package-json/require-module': [OFF],
     'package-json/require-name': [ERROR],
+    // OFF as a package may have no optional dependency
     'package-json/require-optionalDependencies': [OFF],
+    // OFF as most packages are platform agnostic
     'package-json/require-os': [OFF],
+    // OFF as pinning the package manager is a repository choice
     'package-json/require-packageManager': [OFF],
+    // OFF as a package may have no peer dependency
     'package-json/require-peerDependencies': [OFF],
+    // OFF as it only applies to packages declaring optional peers
     'package-json/require-peerDependenciesMeta': [OFF],
+    // OFF as it only applies to packages we don't publish
     'package-json/require-private': [OFF],
+    // OFF as the default registry and access suit most packages
     'package-json/require-publishConfig': [OFF],
     'package-json/require-repository': [ERROR],
+    // OFF as a package may have no script
     'package-json/require-scripts': [OFF],
     'package-json/require-sideEffects': [ERROR],
     'package-json/require-type': [ERROR],
+    // OFF as type declarations are shipped with the sources
     'package-json/require-types': [OFF],
     'package-json/require-version': [ERROR],
+    // OFF as renovate keeps every dependency pinned to an exact version
     'package-json/restrict-dependency-ranges': [OFF, []],
+    // OFF as it only applies to packages we don't publish
     'package-json/restrict-private-properties': [OFF, {
       blockedProperties: [
         'files',
         'publishConfig',
       ],
     }],
+    // OFF as it does nothing without a project specific ban list
     'package-json/restrict-top-level-properties': [OFF, {
       ban: [],
     }],
