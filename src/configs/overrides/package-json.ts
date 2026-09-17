@@ -3,14 +3,12 @@ import { ERROR, OFF } from '../../constants.ts'
 
 import { jsonConfig } from '../plugins/jsonc/syntax-json.ts'
 import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout.ts'
-import { jsonFilesConfig } from '../plugins/json-files/vanilla.ts'
 import { stylisticJsonLayoutConfig } from '../plugins/stylistic/syntax-json-layout.ts'
 
 
 export const overridePackageJsonConfig = mergeConfigs(
   jsonConfig,
   jsonLayoutConfig,
-  jsonFilesConfig,
   stylisticJsonLayoutConfig,
   {
     files: ['**/package.json'],
@@ -25,7 +23,7 @@ export const overridePackageJsonConfig = mergeConfigs(
         // eslint-disable-next-line @typescript-eslint/naming-convention -- Defined by the rule
         'snake_case': false,
       }],
-      // OFF as the ordering is handled by the 'json-files/sort-package-json' rule
+      // OFF as package.json properties follow a conventional order rather than an alphabetical one
       'jsonc/sort-keys': [OFF],
     },
   }
