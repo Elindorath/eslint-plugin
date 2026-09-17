@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkLogicalExpressions": {
+        "type": "boolean",
+        "description": "Check logical expressions that only contain equality comparisons."
+      }
+    }
+  }
+]

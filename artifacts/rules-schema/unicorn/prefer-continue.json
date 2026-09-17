@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "maximumStatements": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum number of statements allowed in a whole-loop conditional wrapper."
+      }
+    }
+  }
+]

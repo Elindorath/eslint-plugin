@@ -79,7 +79,7 @@ export const baseConfig = {
     'n/handle-callback-err': [ERROR, '^.*(?:e|E)rr(?:or)?|e|E'],
     'n/hashbang': [ERROR, {
       additionalExecutables: [],
-      // TODO: Should be configured for at least typescript
+      // TODO: Should be configured for at least TypeScript
       executableMap: {
         '.js': 'node',
       },
@@ -156,8 +156,8 @@ export const baseConfig = {
 
     /* ----- Keep order logical ----- */
     'n/prefer-global/buffer': [ERROR, 'never'],
-    'n/prefer-global/crypto': [ERROR, 'never'],
     'n/prefer-global/console': [ERROR, 'always'],
+    'n/prefer-global/crypto': [ERROR, 'never'],
     'n/prefer-global/process': [ERROR, 'never'],
     'n/prefer-global/text-decoder': [ERROR, 'never'],
     'n/prefer-global/text-encoder': [ERROR, 'never'],

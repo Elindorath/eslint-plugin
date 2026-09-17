@@ -1,0 +1,10 @@
+[
+  {
+    "enum": [
+      "above",
+      "before",
+      "after"
+    ],
+    "description": "Decorator position relative to the export declaration."
+  }
+]

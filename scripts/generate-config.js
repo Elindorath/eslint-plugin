@@ -40,7 +40,7 @@ ${configFileNames
     console.log(error.message)
     console.log('Failed to fix lint error, try to run it again')
   }
-// eslint-disable-next-line promise/prefer-await-to-callbacks -- require as we can't use global await in CommonJs
+// eslint-disable-next-line promise/prefer-await-to-callbacks, unicorn/prefer-await -- require as we can't use global await in CommonJs
 })().catch((error) => {
   process.exitCode = 1
   // eslint-disable-next-line promise/no-callback-in-promise -- This is a false positive

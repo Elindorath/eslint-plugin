@@ -173,7 +173,7 @@ export const reactConfig = {
       allowGlobals: false,
     }],
     'react/jsx-no-useless-fragment': [ERROR, {
-      // TODO: might be turned to true in Typescript context
+      // TODO: might be turned to true in TypeScript context
       allowExpressions: false,
     }],
     'react/jsx-one-expression-per-line': [OFF, {

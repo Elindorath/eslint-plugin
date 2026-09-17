@@ -1,0 +1,27 @@
+[
+  {
+    "enum": [
+      "multiline",
+      "single-line"
+    ],
+    "description": "The style for block comments with one line of content."
+  },
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "additionalProperties": true
+        },
+        "uniqueItems": true,
+        "description": "Regular expressions to ignore."
+      }
+    }
+  }
+]

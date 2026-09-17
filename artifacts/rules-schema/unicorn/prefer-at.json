@@ -5,12 +5,15 @@
     "properties": {
       "getLastElementFunctions": {
         "type": "array",
+        "items": {
+          "type": "string"
+        },
         "uniqueItems": true,
         "description": "Additional functions that return the last element."
       },
       "checkAllIndexAccess": {
         "type": "boolean",
-        "description": "Whether to also check positive integer index access."
+        "description": "Whether to also check non-negative integer index access."
       }
     }
   }

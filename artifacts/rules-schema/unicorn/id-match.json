@@ -1,0 +1,27 @@
+[
+  {
+    "type": "string"
+  },
+  {
+    "type": "object",
+    "properties": {
+      "properties": {
+        "type": "boolean"
+      },
+      "classFields": {
+        "type": "boolean"
+      },
+      "onlyDeclarations": {
+        "type": "boolean"
+      },
+      "ignoreDestructuring": {
+        "type": "boolean"
+      },
+      "checkNamedSpecifiers": {
+        "type": "boolean",
+        "description": "Whether to check named import specifiers and external named export specifiers."
+      }
+    },
+    "additionalProperties": false
+  }
+]

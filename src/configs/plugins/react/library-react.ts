@@ -205,7 +205,7 @@ export const reactConfig = {
     'react/no-unused-state': [ERROR],
     'react/no-will-update-set-state': [ERROR, DISALLOW_IN_FUNC],
     'react/prefer-es6-class': [ERROR, 'always'],
-    // TODO: Might not work properly with Typescript, need testing
+    // TODO: Might not work properly with TypeScript, need testing
     'react/prefer-exact-props': [ERROR],
     'react/prefer-read-only-props': [ERROR],
     'react/prefer-stateless-function': [ERROR, {

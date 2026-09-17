@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "minimumComparisons": {
+        "type": "integer",
+        "minimum": 2,
+        "description": "The minimum number of equality comparisons before reporting."
+      }
+    }
+  }
+]

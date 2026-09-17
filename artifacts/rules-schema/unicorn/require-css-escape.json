@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkAllSelectors": {
+        "type": "boolean",
+        "description": "Check all selector interpolations instead of only attribute selector interpolations."
+      }
+    }
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "type": "array",
+  "oneOf": [
+    {
+      "items": [
+        {
+          "const": "always"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "enforceForIfStatements": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
+      "minItems": 0,
+      "maxItems": 2
+    },
+    {
+      "items": [
+        {
+          "const": "never"
+        }
+      ],
+      "minItems": 1,
+      "maxItems": 1
+    }
+  ]
+}

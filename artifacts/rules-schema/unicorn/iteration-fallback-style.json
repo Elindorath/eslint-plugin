@@ -1,0 +1,9 @@
+[
+  {
+    "enum": [
+      "guard",
+      "fallback"
+    ],
+    "description": "The preferred style for optional loop sources."
+  }
+]

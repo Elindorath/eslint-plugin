@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "fields": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": "Top-level YAML frontmatter fields that are required."
+      }
+    }
+  }
+]

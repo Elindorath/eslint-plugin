@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkDateNow": {
+        "type": "boolean",
+        "description": "Whether to also flag `Date.now()`."
+      },
+      "checkReferences": {
+        "type": "boolean",
+        "description": "Whether to also flag bare references to `Date`, such as `x instanceof Date`."
+      },
+      "checkMethods": {
+        "type": "boolean",
+        "description": "Whether to also flag methods called on `Date` instances, such as `date.getFullYear()`. Requires TypeScript type information."
+      }
+    }
+  }
+]

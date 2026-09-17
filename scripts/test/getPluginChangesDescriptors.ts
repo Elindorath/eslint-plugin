@@ -21,11 +21,9 @@ import type {
 
 
 export async function getPluginChangesDescriptors(pluginDescriptors: PluginDescriptor[]) {
-  const pluginChangesDescriptorPromises = []
-
-  for (const pluginDescriptor of pluginDescriptors) {
-    pluginChangesDescriptorPromises.push(getPluginChangesDescriptor(pluginDescriptor))
-  }
+  const pluginChangesDescriptorPromises = Array.from(pluginDescriptors, async (pluginDescriptor) => {
+    return getPluginChangesDescriptor(pluginDescriptor)
+  })
 
   return Promise.all(pluginChangesDescriptorPromises)
 }
@@ -48,14 +46,14 @@ async function getPluginChangesDescriptor(pluginDescriptor: PluginDescriptor): P
 
   const notConfiguredRuleNames = getNotConfiguredRuleNames(noDeprecatedRuleNames, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
   const absentConfiguredRuleNames = getAbsentConfiguredRuleNames(pluginDescriptor.instance.rules, pluginDescriptor.configuredRuleSet, pluginDescriptor.prefix)
-  const ruleConfigurationChanges = await getRuleConfigurationChanges(pluginDescriptor)
+  const ruleConfigChanges = await getRuleConfigChanges(pluginDescriptor)
 
   return {
     absentConfiguredRuleNames,
     deprecatedRuleNames: deprecatedConfiguredRuleNames,
     notConfiguredRuleNames,
     prefix: pluginDescriptor.prefix,
-    ruleConfigurationChanges,
+    ruleConfigChanges,
   }
 }
 
@@ -106,7 +104,7 @@ function getReplacedBy(rule: Rule.RuleModule, pluginPrefix: PluginPrefix): strin
 }
 
 /**
- * As of Typescript v5.8.3, `Array.isArray` can't narrow down `readonly Array<any>`.
+ * As of TypeScript v5.8.3, `Array.isArray` can't narrow down `readonly Array<any>`.
  * We use `Writable` to remove the `readonly` modifier
  * @see: https://github.com/microsoft/TypeScript/issues/17002
  */
@@ -132,10 +130,10 @@ function getNotConfiguredRuleNames(pluginRuleNames: string[], configuredRuleSet:
 function getAbsentConfiguredRuleNames(pluginRules: { [key: RuleName]: Rule.RuleModule; }, configuredRuleSet: Set<RuleId>, pluginPrefix: string): RuleName[] {
   const absentConfiguredRuleNames = []
 
-  for (const ruleId of configuredRuleSet.keys()) {
+  for (const ruleId of configuredRuleSet) {
     const ruleName = getRuleNameFromId(ruleId, pluginPrefix)
 
-    if (!(ruleName in pluginRules)) {
+    if (!Object.hasOwn(pluginRules, ruleName)) {
       absentConfiguredRuleNames.push(ruleName)
     }
   }
@@ -143,7 +141,7 @@ function getAbsentConfiguredRuleNames(pluginRules: { [key: RuleName]: Rule.RuleM
   return absentConfiguredRuleNames
 }
 
-async function getRuleConfigurationChanges(pluginDescriptor: PluginDescriptor) {
+async function getRuleConfigChanges(pluginDescriptor: PluginDescriptor) {
   const storedPluginRuleSchemaDescriptor = await readPluginRuleSchemas(pluginDescriptor.name)
   const pluginRuleSchemaDescriptor = getPluginRulesMeta(pluginDescriptor)
   const pluginRuleSchemaMap = new Map(pluginRuleSchemaDescriptor.ruleSchemaEntries)

@@ -20,7 +20,7 @@ export const jsoncConfig = {
 
   languageOptions: {
     allowTrailingCommas: true,
-  } as Linter.LanguageOptions,
+  },
 
   rules: {
     'json/no-duplicate-keys': [ERROR],

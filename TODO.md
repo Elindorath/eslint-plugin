@@ -61,12 +61,12 @@
   ```javascript
   /* eslint arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }] */
 
-  module.exports = (() => {
+  module.exports = (() => 
     /**
     * @type {Array<import('eslint').Linter.Config>}
     */
-    return elindorathPlugin.configs['project-eslint-plugin']
-  })()
+     elindorathPlugin.configs['project-eslint-plugin']
+  )()
   ```
 
 ## Deps warnings to resolve

@@ -1,7 +1,5 @@
 #! /usr/bin/env -S yarn tsx
 
-/* eslint-disable sonarjs/prefer-immediate-return -- Better for debugging */
-
 import process from 'node:process'
 
 import { displayPluginChangesDescriptors } from './test/displayPluginChangesDescriptors.ts'
@@ -27,15 +25,15 @@ import { getPluginDescriptors } from './test/getPluginDescriptors.ts'
  *       Detect new optional configuration options (Left TODO:)
  */
 
-try {
-  const pluginChangesDisplayedCount = await main()
+let pluginChangesDisplayedCount = 0
 
-  if (pluginChangesDisplayedCount > 0) {
-    process.exitCode = 1
-  }
+try {
+  pluginChangesDisplayedCount = await main()
 } catch (error) {
   console.log(error)
+}
 
+if (pluginChangesDisplayedCount > 0) {
   process.exitCode = 1
 }
 
@@ -46,9 +44,5 @@ async function main() {
 
   const pluginChangesDescriptors = await getPluginChangesDescriptors(pluginDescriptors)
 
-  const pluginChangesDisplayedCount = displayPluginChangesDescriptors(pluginChangesDescriptors)
-
-  return pluginChangesDisplayedCount
+  return displayPluginChangesDescriptors(pluginChangesDescriptors)
 }
-
-/* eslint-enable */

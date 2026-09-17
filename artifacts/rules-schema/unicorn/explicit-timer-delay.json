@@ -1,0 +1,9 @@
+[
+  {
+    "enum": [
+      "always",
+      "never"
+    ],
+    "description": "Whether to always require an explicit `delay` argument, or disallow an explicit `0` delay."
+  }
+]

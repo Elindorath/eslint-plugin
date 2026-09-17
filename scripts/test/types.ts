@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define -- TODO: fix the eslint configuration for scripts */
-
 import type { URL } from 'node:url'
 
 import type { ESLint, Linter } from 'eslint'
@@ -20,12 +18,12 @@ type PluginChangesDescriptor = {
   deprecatedRuleNames: RuleName[];
   notConfiguredRuleNames: RuleName[];
   prefix: PluginPrefix;
-  ruleConfigurationChanges: { [key: RuleName]: IChange[]; };
+  ruleConfigChanges: { [key: RuleName]: IChange[]; };
 }
 
-type PluginConfigurationEntry = [PluginFilename, Linter.Config]
+type PluginConfigEntry = [PluginFilename, Linter.Config]
 type PluginDescriptor = {
-  configurationEntries: PluginConfigurationEntry[];
+  configEntries: PluginConfigEntry[];
   configuredRuleSet: Set<RuleId>;
   instance: ESLintPluginWithRule;
   name: PluginName;
@@ -37,9 +35,7 @@ type PluginFilename = string
 type PluginName = string
 type PluginPrefix = string
 
-// type PluginName = Tagged<string, 'PluginName'>
-// type PluginFilename = Tagged<string, 'PluginFilename'>
-// type PluginPrefix = Tagged<string, 'PluginPrefix'>
+// type PluginName = Tagged<string, 'PluginName'> type PluginFilename = Tagged<string, 'PluginFilename'> type PluginPrefix = Tagged<string, 'PluginPrefix'>
 
 type PluginRuleSchemaDescriptor = {
   pluginName: PluginName;
@@ -57,7 +53,7 @@ export type {
   Config,
   ESLintPluginWithRule,
   PluginChangesDescriptor,
-  PluginConfigurationEntry,
+  PluginConfigEntry,
   PluginDescriptor,
   PluginEntry,
   PluginFilename,
@@ -69,4 +65,3 @@ export type {
   RuleSchemaEntry,
 }
 
-/* eslint-enable */

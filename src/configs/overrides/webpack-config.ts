@@ -27,13 +27,13 @@ const webpackRules = {
     peerDependencies: false,
     whitelist: [],
   }],
-  // OFF as it is allowed to import nodejs modules
+  // OFF as it is allowed to import Node.js modules
   'import-x/no-nodejs-modules': [OFF],
   // OFF as webpack config can be very extensive
   'max-lines-per-function': [OFF],
   // OFF as webpack require a default export
   'no-restricted-exports': [OFF],
-  'unicorn/prevent-abbreviations': [ERROR, {
+  'unicorn/name-replacements': [ERROR, {
     // Configured value
     allowList: {
       envName: true,

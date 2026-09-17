@@ -1,0 +1,9 @@
+[
+  {
+    "description": "The conditional object spread style to enforce.",
+    "enum": [
+      "logical",
+      "ternary"
+    ]
+  }
+]

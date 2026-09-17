@@ -106,7 +106,7 @@ export const stylisticVanillaLayoutConfig = {
     '@stylistic/curly-newline': [ERROR, 'always'],
     '@stylistic/dot-location': [ERROR, 'property'],
     '@stylistic/eol-last': [ERROR, 'always'],
-    // OFF as it is experimental and overlaps the jsx props rules already configured
+    // OFF as it is experimental and overlaps the JSX props rules already configured
     '@stylistic/exp-jsx-props-style': [OFF],
     // OFF as it is experimental and overlaps the bracket spacing and newline rules already configured
     '@stylistic/exp-list-style': [OFF],
@@ -700,7 +700,6 @@ function definePluginConfig<
   PluginPrefix extends string,
   PluginInstance extends SetRequired<ESLint.Plugin, 'rules'>
 >(config: PluginConfig<PluginPrefix, PluginInstance>) {
-
 }
 
 definePluginConfig({
@@ -713,15 +712,17 @@ definePluginConfig({
   },
 } as const)
 
+type InferPluginRuleNames<Plugin extends SetRequired<ESLint.Plugin, 'rules'>> = Plugin['rules'] extends Record<infer Keys, any> ? Keys : never
 type ObjectKeys<T extends object> = `${Exclude<keyof T, symbol>}`
-type InferPluginRuleNames<Plugin extends SetRequired<ESLint.Plugin, 'rules'>> = Plugin['rules'] extends Record<infer Keys, any> ? Keys : never;
 type TT = keyof Required<ESLint.Plugin>['rules']
 
 const objectKeys = Object.keys as <T extends object>(object: T) => Array<ObjectKeys<T>>
 
-// function extractRuleNames(plugin: SetRequired<ESLint.Plugin, 'rules'>) {
-//   return objectKeys(plugin.rules) as InferPluginRuleNames<typeof plugin>
-// }
+/*
+ * Function extractRuleNames(plugin: SetRequired<ESLint.Plugin, 'rules'>) {
+ *   return objectKeys(plugin.rules) as InferPluginRuleNames<typeof plugin>
+ * }
+ */
 
 // const t = extractRuleNames(stylisticPlugin)
 

@@ -2,8 +2,9 @@
   {
     "enum": [
       "always",
-      "avoid"
+      "avoid",
+      "single-statement"
     ],
-    "description": "Whether to always require braces or avoid them for empty cases."
+    "description": "Whether to always require braces, avoid them when possible, or require one statement per case."
   }
 ]

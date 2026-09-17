@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "preferThis": {
+        "type": "boolean",
+        "description": "Prefer `this` over the current class name in static methods."
+      },
+      "preferSuper": {
+        "type": "boolean",
+        "description": "Prefer `super` over the superclass name in static methods."
+      }
+    },
+    "additionalProperties": false
+  }
+]

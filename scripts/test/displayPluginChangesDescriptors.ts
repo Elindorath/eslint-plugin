@@ -27,18 +27,19 @@ export function displayPluginChangesDescriptors(pluginChangesDescriptors: Plugin
 }
 
 function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDescriptor) {
-  const hasRuleConfigurationChanges = objectKeys(pluginChangesDescriptor.ruleConfigurationChanges).length > 0
+  const hasRuleConfigChanges = objectKeys(pluginChangesDescriptor.ruleConfigChanges).length > 0
   const hasSomethingToDisplay = pluginChangesDescriptor.absentConfiguredRuleNames.length > 0
     || pluginChangesDescriptor.deprecatedRuleNames.length > 0
     || pluginChangesDescriptor.notConfiguredRuleNames.length > 0
-    || hasRuleConfigurationChanges
-  const pluginName = pluginChangesDescriptor.prefix.length > 0
-    ? pluginChangesDescriptor.prefix
-    : 'eslint'
+    || hasRuleConfigChanges
 
   if (!hasSomethingToDisplay) {
     return 0
   }
+
+  const pluginName = pluginChangesDescriptor.prefix.length > 0
+    ? pluginChangesDescriptor.prefix
+    : 'eslint'
 
   console.log(`===== ${pluginName} =====`)
 
@@ -66,10 +67,10 @@ function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDe
     }
   }
 
-  if (hasRuleConfigurationChanges) {
+  if (hasRuleConfigChanges) {
     console.log('  Rule configuration changes:')
 
-    for (const [ruleName, changes] of objectEntries(pluginChangesDescriptor.ruleConfigurationChanges)) {
+    for (const [ruleName, changes] of objectEntries(pluginChangesDescriptor.ruleConfigChanges)) {
       console.log(`    ${ruleName}:`)
 
       displayRuleChanges(changes)

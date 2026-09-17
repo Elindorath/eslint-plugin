@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkVaryingBase": {
+        "type": "boolean",
+        "description": "Also report ternaries that differ only by the base of a call or member access, whose minimization moves the ternary into the base (`(test ? a : b).foo`)."
+      },
+      "checkComputedMemberAccess": {
+        "type": "boolean",
+        "description": "Also report method-call ternaries that differ only by the method name, whose minimization requires computed member access."
+      }
+    }
+  }
+]
