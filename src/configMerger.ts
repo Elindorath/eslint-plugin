@@ -258,20 +258,21 @@ function mergeParserOptions(parserOptions1: ParserOptions, parserOptions2: Parse
 }
 
 function mergeProcessor(processor1: Processor, processor2: Processor) {
-  /* eslint-disable @typescript-eslint/no-deprecated -- Deprecated are only used as fallback */
-  const processorName1 = typeof processor1 === 'string' ? processor1 : (processor1?.meta?.name ?? processor1?.name)
-  const processorName2 = typeof processor2 === 'string' ? processor2 : (processor2?.meta?.name ?? processor2?.name)
-  /* eslint-enable @typescript-eslint/no-deprecated */
-
-  if (processorName1 === processorName2) {
+  if (processor1 === processor2) {
     return processor1
   }
 
-  if (processor1 === undefined) {
-    return processor2
+  if (processor1 === undefined || processor2 === undefined) {
+    return processor1 ?? processor2
   }
 
-  if (processor2 === undefined) {
+  /* eslint-disable @typescript-eslint/no-deprecated -- Deprecated are only used as fallback */
+  const processorName1 = typeof processor1 === 'string' ? processor1 : (processor1.meta?.name ?? processor1.name)
+  const processorName2 = typeof processor2 === 'string' ? processor2 : (processor2.meta?.name ?? processor2.name)
+  /* eslint-enable @typescript-eslint/no-deprecated */
+
+  // Two unnamed processors are only the same one when they are the same object
+  if (processorName1 !== undefined && processorName1 === processorName2) {
     return processor1
   }
 
