@@ -15,7 +15,6 @@ import { perfectionistVanillaConfig } from './plugins/perfectionist/vanilla.ts'
 import { promiseVanillaConfig } from './plugins/promise/vanilla.ts'
 import { securityVanillaConfig } from './plugins/security/vanilla.ts'
 import { sonarJsVanillaConfig } from './plugins/sonarjs/vanilla.ts'
-import { ternaryVanillaConfig } from './plugins/ternary/vanilla.ts'
 import { unicornVanillaConfig } from './plugins/unicorn/vanilla.ts'
 
 export const vanillaConfig = mergeConfigs(
@@ -40,6 +39,5 @@ export const vanillaConfig = mergeConfigs(
   promiseVanillaConfig,
   securityVanillaConfig,
   sonarJsVanillaConfig,
-  ternaryVanillaConfig,
   unicornVanillaConfig,
 )

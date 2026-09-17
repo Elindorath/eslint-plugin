@@ -36,13 +36,16 @@
     "type-check": "tsc",
     "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js"
   },
+  "resolutions": {
+    "@typescript-eslint/utils": "8.70.0"
+  },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@eslint/compat": "2.1.1",
     "@eslint/json": "2.1.0",
     "@eslint/markdown": "8.0.3",
     "@stylistic/eslint-plugin": "5.10.0",
-    "eslint": "9.39.5",
+    "eslint": "10.10.0",
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-array-func": "5.1.1",
     "eslint-plugin-canonical": "5.1.3",
@@ -72,7 +75,6 @@
     "eslint-plugin-react-perf": "3.3.3",
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
-    "eslint-plugin-ternary": "2.0.0",
     "eslint-plugin-unicorn": "64.0.0",
     "fs-extra": "11.4.0",
     "globals": "17.12.0",

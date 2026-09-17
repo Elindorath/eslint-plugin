@@ -6,7 +6,7 @@ import process from 'node:process'
 import typescriptEslint from 'typescript-eslint'
 
 import { ERROR, OFF } from '../../../constants.ts'
-import { getRuleConfig, overrideBaseConfigRule } from '../../../utilities.ts'
+import { getRuleConfig, overrideBaseConfigRule, REMOVE } from '../../../utilities.ts'
 
 import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
@@ -633,6 +633,8 @@ export const typescriptConfig = {
     'dot-notation': [OFF],
     'init-declarations': [OFF],
     ...overrideBaseConfigRule('@typescript-eslint/max-params', {
+      // `@typescript-eslint` has no counterpart for this option, `countVoidThis` says the same thing
+      countThis: REMOVE,
       countVoidThis: false,
     }),
     '@typescript-eslint/no-array-constructor': [ERROR],
