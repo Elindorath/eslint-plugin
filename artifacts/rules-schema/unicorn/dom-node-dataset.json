@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "preferAttributes": {
+        "type": "boolean",
+        "description": "Prefer attribute methods over named `.dataset` access."
+      }
+    }
+  }
+]

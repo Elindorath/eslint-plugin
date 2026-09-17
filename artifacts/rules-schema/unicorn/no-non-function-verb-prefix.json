@@ -1,0 +1,30 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "verbs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 0,
+        "uniqueItems": true,
+        "description": "Function-style verb prefixes to check."
+      },
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "additionalProperties": true
+        },
+        "uniqueItems": true,
+        "description": "Patterns to ignore."
+      }
+    }
+  }
+]

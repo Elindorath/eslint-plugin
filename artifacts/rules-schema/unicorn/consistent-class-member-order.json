@@ -1,0 +1,27 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "order": {
+        "type": "array",
+        "description": "The class member group order.",
+        "items": {
+          "enum": [
+            "static-field",
+            "static-block",
+            "static-method",
+            "private-field",
+            "public-field",
+            "constructor",
+            "private-method",
+            "public-method"
+          ]
+        },
+        "minItems": 8,
+        "maxItems": 8,
+        "uniqueItems": true
+      }
+    }
+  }
+]

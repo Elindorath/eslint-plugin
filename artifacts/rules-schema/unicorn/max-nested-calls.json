@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "max": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The maximum allowed nested call depth."
+      }
+    }
+  }
+]

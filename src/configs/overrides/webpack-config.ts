@@ -33,7 +33,7 @@ const webpackRules = {
   'max-lines-per-function': [OFF],
   // OFF as webpack require a default export
   'no-restricted-exports': [OFF],
-  'unicorn/prevent-abbreviations': [ERROR, {
+  'unicorn/name-replacements': [ERROR, {
     // Configured value
     allowList: {
       envName: true,

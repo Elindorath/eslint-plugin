@@ -1,0 +1,9 @@
+[
+  {
+    "description": "Mode to use when reporting methods.",
+    "enum": [
+      "always",
+      "consistent-as-needed"
+    ]
+  }
+]

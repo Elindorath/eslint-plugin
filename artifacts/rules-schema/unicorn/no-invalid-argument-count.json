@@ -1,0 +1,41 @@
+[
+  {
+    "type": "object",
+    "description": "Additional call and constructor patterns to check.",
+    "propertyNames": {
+      "pattern": "^(?:new )?(?:\\*|[A-Za-z_$][\\w$]*)(?:\\.(?:\\*|[A-Za-z_$][\\w$]*))*$"
+    },
+    "additionalProperties": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    }
+  }
+]

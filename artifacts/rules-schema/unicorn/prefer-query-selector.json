@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "allowWithVariables": {
+        "type": "boolean",
+        "description": "Allow using the old APIs when called with non-literal arguments (variables, expressions, etc.)."
+      }
+    }
+  }
+]

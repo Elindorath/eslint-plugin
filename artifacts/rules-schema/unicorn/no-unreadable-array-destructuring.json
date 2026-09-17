@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "maximumIgnoredElements": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Maximum number of consecutive ignored elements allowed."
+      }
+    }
+  }
+]

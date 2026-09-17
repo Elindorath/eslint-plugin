@@ -1,0 +1,9 @@
+[
+  {
+    "enum": [
+      "string",
+      "buffer"
+    ],
+    "description": "Whether to prefer reading JSON files as strings or buffers before passing them to `JSON.parse()`."
+  }
+]

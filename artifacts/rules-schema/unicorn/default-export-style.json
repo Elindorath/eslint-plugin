@@ -1,0 +1,22 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "functions": {
+        "enum": [
+          "inline",
+          "separate",
+          "ignore"
+        ]
+      },
+      "classes": {
+        "enum": [
+          "inline",
+          "separate",
+          "ignore"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+]

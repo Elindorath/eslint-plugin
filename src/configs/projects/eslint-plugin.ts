@@ -56,13 +56,7 @@ export const projectEslintPluginConfig = [
             kebabCase: true,
           },
         }],
-        'unicorn/no-keyword-prefix': [ERROR, {
-          // Configured value
-          checkProperties: false,
-          disallowedPrefixes: ['new', 'class'],
-          onlyCamelCase: true,
-        }],
-        'unicorn/prevent-abbreviations': [ERROR, {
+        'unicorn/name-replacements': [ERROR, {
           // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
           allowList: {},
           // Configured value
@@ -79,6 +73,12 @@ export const projectEslintPluginConfig = [
           ignore: [],
           // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L3
           replacements: {},
+        }],
+        'unicorn/no-keyword-prefix': [ERROR, {
+          // Configured value
+          checkProperties: false,
+          disallowedPrefixes: ['new', 'class'],
+          onlyCamelCase: true,
         }],
       },
     },

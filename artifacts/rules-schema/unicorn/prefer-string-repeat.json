@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "minimumRepetitions": {
+        "type": "integer",
+        "minimum": 2,
+        "description": "The minimum number of repeated whitespace characters before `String#repeat()` is enforced."
+      }
+    }
+  }
+]

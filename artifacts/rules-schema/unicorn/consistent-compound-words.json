@@ -1,0 +1,94 @@
+{
+  "type": "array",
+  "additionalItems": false,
+  "items": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkProperties": {
+          "type": "boolean",
+          "description": "Whether to check property names."
+        },
+        "checkVariables": {
+          "type": "boolean",
+          "description": "Whether to check variable names."
+        },
+        "checkDefaultAndNamespaceImports": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "enum": [
+                "internal"
+              ]
+            }
+          ],
+          "description": "Whether to check default and namespace import names."
+        },
+        "checkShorthandImports": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "enum": [
+                "internal"
+              ]
+            }
+          ],
+          "description": "Whether to check shorthand import names."
+        },
+        "checkShorthandProperties": {
+          "type": "boolean",
+          "description": "Whether to check shorthand property names."
+        },
+        "extendDefaultReplacements": {
+          "type": "boolean",
+          "description": "Whether to extend the default replacements."
+        },
+        "replacements": {
+          "$ref": "#/definitions/replacements",
+          "description": "Custom compound word replacements."
+        },
+        "allowList": {
+          "$ref": "#/definitions/trueObject",
+          "description": "Custom allow list of names."
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "replacements": {
+      "type": "object",
+      "propertyNames": {
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "enum": [
+              false
+            ]
+          },
+          {
+            "type": "string",
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "trueObject": {
+      "type": "object",
+      "propertyNames": {
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "enum": [
+          true
+        ]
+      }
+    }
+  }
+}

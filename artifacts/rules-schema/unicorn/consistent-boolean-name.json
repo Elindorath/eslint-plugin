@@ -1,0 +1,78 @@
+[
+  {
+    "type": "object",
+    "description": "Rule options.",
+    "additionalProperties": false,
+    "patternProperties": {
+      "^checkProperties$": {}
+    },
+    "properties": {
+      "checkVariables": {
+        "enum": [
+          "always",
+          "prohibit",
+          "never"
+        ],
+        "description": "How to check variable names."
+      },
+      "checkArguments": {
+        "enum": [
+          "always",
+          "prohibit",
+          "never"
+        ],
+        "description": "How to check parameter names."
+      },
+      "checkFunctions": {
+        "enum": [
+          "always",
+          "prohibit",
+          "never"
+        ],
+        "description": "How to check function names."
+      },
+      "checkMethods": {
+        "enum": [
+          "always",
+          "prohibit",
+          "never"
+        ],
+        "description": "How to check object and class methods, getters, and TypeScript method signatures. Setter names are ignored because setters do not return values."
+      },
+      "checkFields": {
+        "enum": [
+          "always",
+          "prohibit",
+          "never"
+        ],
+        "description": "How to check object properties, class fields, TypeScript property signatures, and constructor parameter properties."
+      },
+      "prefixes": {
+        "type": "object",
+        "description": "Boolean name prefixes to allow or disallow.",
+        "additionalProperties": {
+          "type": "boolean",
+          "description": "Whether the prefix is allowed."
+        },
+        "propertyNames": {
+          "description": "Prefix name.",
+          "pattern": "^[a-z][a-zA-Z0-9]*$"
+        }
+      },
+      "wrappers": {
+        "type": "object",
+        "description": "Wrapper type names and their boolean-like value members.",
+        "additionalProperties": {
+          "type": "string",
+          "description": "The property or method that provides the wrapped value.",
+          "minLength": 1
+        }
+      },
+      "ignore": {
+        "type": "array",
+        "uniqueItems": true,
+        "description": "Patterns to ignore."
+      }
+    }
+  }
+]

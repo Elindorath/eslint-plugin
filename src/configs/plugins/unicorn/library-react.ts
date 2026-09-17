@@ -11,7 +11,7 @@ export const unicornReactConfig = {
   },
 
   rules: {
-    'unicorn/prevent-abbreviations': [ERROR, {
+    'unicorn/name-replacements': [ERROR, {
       // Default here: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/28e7498ad06679bb92343db53bb40a7b5ba2990a/rules/shared/abbreviations.js#L230
       allowList: {},
       // Configured value
