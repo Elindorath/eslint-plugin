@@ -36,6 +36,9 @@
     "type-check": "tsc",
     "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js"
   },
+  "resolutions": {
+    "@typescript-eslint/utils": "8.70.0"
+  },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@eslint/compat": "2.1.1",
@@ -100,8 +103,5 @@
   "packageManager": "yarn@4.18.0",
   "engines": {
     "node": "24.21.0"
-  },
-  "resolutions": {
-    "@typescript-eslint/utils": "8.70.0"
   }
 }
