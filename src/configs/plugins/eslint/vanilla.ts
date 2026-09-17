@@ -31,7 +31,8 @@ export const eslintVanillaConfig = {
     // Should be disabled in Typescript projects as the compiler already checks this
     'no-const-assign': [ERROR],
     'no-constant-binary-expression': [ERROR, {
-      checkRelationalComparisons: false,
+      // Configured value
+      checkRelationalComparisons: true,
     }],
     'no-constant-condition': [ERROR, {
       checkLoops: true,
