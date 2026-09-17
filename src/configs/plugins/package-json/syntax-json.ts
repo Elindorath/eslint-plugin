@@ -20,8 +20,7 @@ export const packageJsonConfig = {
         'files',
       ],
     }],
-    // OFF as local paths are a valid way to consume a sibling package while developing it
-    'package-json/no-local-dependencies': [OFF, {
+    'package-json/no-local-dependencies': [ERROR, {
       ignorePrivate: true,
     }],
     'package-json/no-redundant-files': [ERROR],
@@ -29,8 +28,7 @@ export const packageJsonConfig = {
     'package-json/order-properties': [ERROR, {
       order: 'sort-package-json',
     }],
-    // OFF as we don't use the workspace protocol
-    'package-json/prefer-rolling-workspace-spec': [OFF, {
+    'package-json/prefer-rolling-workspace-spec': [ERROR, {
       ignoreDependencies: [],
       ignorePatterns: [],
     }],
@@ -41,7 +39,8 @@ export const packageJsonConfig = {
       ignorePrivate: true,
       preferContributorsOnly: false,
     }],
-    'package-json/require-author': [ERROR],
+    // OFF as we rely on the `package-json/require-attribution` rule
+    'package-json/require-author': [OFF],
     // OFF as not every package exposes an executable
     'package-json/require-bin': [OFF],
     // OFF as not every package ships a browser specific entry point
@@ -105,18 +104,71 @@ export const packageJsonConfig = {
     // OFF as type declarations are shipped with the sources
     'package-json/require-types': [OFF],
     'package-json/require-version': [ERROR],
-    // OFF as renovate keeps every dependency pinned to an exact version
-    'package-json/restrict-dependency-ranges': [OFF, []],
-    // OFF as it only applies to packages we don't publish
-    'package-json/restrict-private-properties': [OFF, {
+    // This is configured to promote the use of tools like renovate
+    'package-json/restrict-dependency-ranges': [ERROR, [
+      {
+        forDependencyTypes: ['dependencies', 'devDependencies'],
+        rangeType: 'pin',
+      },
+    ]],
+    'package-json/restrict-private-properties': [ERROR, {
       blockedProperties: [
         'files',
         'publishConfig',
       ],
     }],
-    // OFF as it does nothing without a project specific ban list
-    'package-json/restrict-top-level-properties': [OFF, {
-      ban: [],
+    // List taken from https://eslint-plugin-package-json.dev/rules/restrict-top-level-properties/#common-tool-specific-properties
+    'package-json/restrict-top-level-properties': [ERROR, {
+      ban: [
+        {
+          message: 'Configure Babel in a dedicated config file.',
+          property: 'babel',
+        },
+        {
+          message: 'Configure Browserslist in a dedicated config file.',
+          property: 'browserslist',
+        },
+        {
+          message: 'Configure commitlint in a dedicated config file.',
+          property: 'commitlint',
+        },
+        {
+          message: 'Configure ESLint in a dedicated config file.',
+          property: 'eslintConfig',
+        },
+        {
+          message: 'Configure Jest in a dedicated config file.',
+          property: 'jest',
+        },
+        {
+          message: 'Configure lint-staged in a dedicated config file.',
+          property: 'lint-staged',
+        },
+        {
+          message: 'Configure pnpm in a dedicated config file.',
+          property: 'pnpm',
+        },
+        {
+          message: 'Configure Prettier in a dedicated config file.',
+          property: 'prettier',
+        },
+        {
+          message: 'Configure release-it in a dedicated config file.',
+          property: 'release-it',
+        },
+        {
+          message: 'Configure Renovate in a dedicated config file.',
+          property: 'renovate',
+        },
+        {
+          message: 'Configure Stylelint in a dedicated config file.',
+          property: 'stylelint',
+        },
+        {
+          message: 'Configure TypeDoc in a dedicated config file.',
+          property: 'typedoc',
+        },
+      ],
     }],
     'package-json/scripts-name-casing': [ERROR, {
       ignoreNames: [],

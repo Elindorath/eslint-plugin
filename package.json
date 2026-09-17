@@ -15,7 +15,10 @@
     "url": "git+https://github.com/elindorath/eslint-plugin.git"
   },
   "license": "MIT",
-  "author": "Elindorath",
+  "author": {
+    "name": "Elindorath",
+    "email": "Elindorath@users.noreply.github.com"
+  },
   "sideEffects": false,
   "type": "module",
   "exports": {
