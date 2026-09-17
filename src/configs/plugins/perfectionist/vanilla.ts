@@ -1,3 +1,4 @@
+/* eslint-disable max-lines -- TODO: Could be splitted in subparts */
 import perfectionistPlugin from 'eslint-plugin-perfectionist'
 import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
 
@@ -24,7 +25,6 @@ export const perfectionistVanillaConfig = {
     perfectionist: {
       fallbackSort: 'unsorted',
       ignoreCase: true,
-      ignorePattern: [],
       locales: LOCALES,
       order: 'asc',
       partitionByComment: [
@@ -42,11 +42,15 @@ export const perfectionistVanillaConfig = {
      * type
      * order
      * ignoreCase
-     * ignorePattern
      * specialCharacters
      * locales
+     * alphabet
+     * fallbackSort
+     * newlinesBetween
+     * newlinesInside
      * partitionByComment
      * partitionByNewLine
+     * tsconfig
      */
   },
 
@@ -63,12 +67,14 @@ export const perfectionistVanillaConfig = {
       customGroups: [],
       // Configured value
       groups: [
-        'spread',
         'literal',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
       useConfigurationIf: {},
     }],
+    // OFF as the order of an array literal usually carries meaning, `sort-array-includes` and `sort-sets` already cover the cases where it doesn't
+    'perfectionist/sort-arrays': [OFF],
     'perfectionist/sort-classes': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],
@@ -90,13 +96,19 @@ export const perfectionistVanillaConfig = {
       ignoreCallbackDependenciesPatterns: [],
       // Configured value
       newlinesBetween: 1,
+      newlinesBetweenOverloadSignatures: 0,
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
+      useExperimentalDependencyDetection: true,
     }],
     'perfectionist/sort-decorators': [ERROR, {
       // TODO: needs to be defined
-      customGroups: {},
+      customGroups: [],
       groups: [
         'unknown',
       ],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
       sortOnAccessors: true,
       sortOnClasses: true,
       sortOnMethods: true,
@@ -106,12 +118,23 @@ export const perfectionistVanillaConfig = {
     'perfectionist/sort-enums': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],
-      forceNumericSort: false,
       groups: [
         'unknown',
       ],
       newlinesBetween: 'ignore',
-      sortByValue: false,
+      newlinesInside: 'newlinesBetween',
+      // Configured value
+      sortByValue: 'never',
+      useConfigurationIf: {},
+      useExperimentalDependencyDetection: true,
+    }],
+    'perfectionist/sort-export-attributes': [ERROR, {
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     'perfectionist/sort-exports': [ERROR, {
       // TODO: needs to be defined
@@ -123,13 +146,25 @@ export const perfectionistVanillaConfig = {
       ],
       // Configured value
       newlinesBetween: 1,
+      newlinesInside: 'newlinesBetween',
     }],
     'perfectionist/sort-heritage-clauses': [ERROR, {
       // TODO: needs to be defined
-      customGroups: {},
+      customGroups: [],
       groups: [
         'unknown',
       ],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
+    }],
+    'perfectionist/sort-import-attributes': [ERROR, {
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     // TODO: Need to choose between this rule, the core sort-imports rule, the import/order and prettier-plugin-sort-imports
     'sort-imports': [OFF],
@@ -154,7 +189,7 @@ export const perfectionistVanillaConfig = {
           groupName: 'parent4Up',
           elementNamePattern: `^${PATH_UP_REGEX_PATTERN.repeat(4)}[^.]`,
         },
-        /* eslint-enable */
+        /* eslint-enable @typescript-eslint/no-magic-numbers */
       ],
       environment: 'node',
       // Configured value
@@ -180,10 +215,13 @@ export const perfectionistVanillaConfig = {
       internalPattern: ['^~/.*'],
       maxLineLength: undefined,
       newlinesBetween: 1,
+      newlinesInside: 0,
+      sortBy: 'path',
       sortSideEffects: false,
       tsconfig: {
         rootDir: '.',
       },
+      useExperimentalDependencyDetection: true,
 
       /* ----- Customized alphabet ----- */
       alphabet: Alphabet
@@ -208,16 +246,23 @@ export const perfectionistVanillaConfig = {
       customGroups: [],
       // Configured value
       groups: [
-        'required',
-        'optional',
+        'required-member',
+        'optional-member',
         'unknown',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      sortBy: 'name',
+      useConfigurationIf: {},
     }],
     'perfectionist/sort-intersection-types': [ERROR, {
       // TODO: needs to be defined
+      customGroups: [],
       groups: [],
+      ignoreCallableTypes: true,
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
 
     /**
@@ -237,6 +282,8 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
 
     /**
@@ -254,8 +301,11 @@ export const perfectionistVanillaConfig = {
       ],
       groups: [],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     'perfectionist/sort-modules': [ERROR, {
+      additionalModuleBlockTypes: [],
       // TODO: needs to be defined
       customGroups: [],
       // Configured value
@@ -274,6 +324,12 @@ export const perfectionistVanillaConfig = {
         'function',
       ],
       newlinesBetween: 'ignore',
+      newlinesBetweenOverloadSignatures: 0,
+      newlinesInside: 'newlinesBetween',
+      tsconfig: {
+        rootDir: '.',
+      },
+      useExperimentalDependencyDetection: true,
     }],
     'perfectionist/sort-named-exports': [ERROR, {
       // TODO: needs to be defined
@@ -284,6 +340,9 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       ignoreAlias: false,
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     // TODO: Might clash with the sort-imports core rule
     'perfectionist/sort-named-imports': [ERROR, {
@@ -295,6 +354,9 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       ignoreAlias: true,
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
 
     /**
@@ -315,7 +377,9 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
       sortBy: 'name',
+      useConfigurationIf: {},
     }],
     'sort-keys': [OFF],
 
@@ -335,27 +399,32 @@ export const perfectionistVanillaConfig = {
           elementNamePattern: PROBABLE_IDENTIFIERS_PATTERN,
         },
       ],
-      destructuredObjects: true,
       // Configured value
       groups: [
         'probableIdentifiers',
-        ['unknown', 'multiline'],
+        ['unknown', 'multiline-member'],
         'method',
       ],
+      ignoreCallbackDependenciesPatterns: [],
       newlinesBetween: 'ignore',
-      objectDeclarations: true,
+      newlinesInside: 'newlinesBetween',
+      partitionByComputedKey: false,
+      sortBy: 'name',
       styledComponents: true,
+      useConfigurationIf: {},
+      useExperimentalDependencyDetection: true,
     }],
     'perfectionist/sort-sets': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],
       // Configured value
       groups: [
-        'spread',
         'literal',
         'unknown',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     'perfectionist/sort-switch-case': [ERROR],
     'perfectionist/sort-union-types': [ERROR, {
@@ -378,6 +447,8 @@ export const perfectionistVanillaConfig = {
         'unknown',
       ],
       newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
     }],
     // TODO: Might be OFF
     'perfectionist/sort-variable-declarations': [ERROR, {
@@ -387,7 +458,13 @@ export const perfectionistVanillaConfig = {
         'initialized',
         'uninitialized',
       ],
+      ignoreCallbackDependenciesPatterns: [],
       newlinesBetween: 1,
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
+      useExperimentalDependencyDetection: true,
     }],
   },
 } as const satisfies Linter.Config
+
+/* eslint-enable */

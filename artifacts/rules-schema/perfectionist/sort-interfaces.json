@@ -3,23 +3,24 @@
     "properties": {
       "fallbackSort": {
         "properties": {
-          "order": {
-            "description": "Specifies whether to sort items in ascending or descending order.",
-            "enum": [
-              "asc",
-              "desc"
-            ],
-            "type": "string"
-          },
           "type": {
             "enum": [
               "alphabetical",
               "natural",
               "line-length",
               "custom",
-              "unsorted"
+              "unsorted",
+              "subgroup-order"
             ],
             "description": "Specifies the sorting method.",
+            "type": "string"
+          },
+          "order": {
+            "description": "Specifies whether to sort items in ascending or descending order.",
+            "enum": [
+              "asc",
+              "desc"
+            ],
             "type": "string"
           },
           "sortBy": {
@@ -32,8 +33,22 @@
         },
         "description": "Fallback sort order.",
         "additionalProperties": false,
-        "minProperties": 1,
+        "required": [
+          "type"
+        ],
         "type": "object"
+      },
+      "type": {
+        "enum": [
+          "alphabetical",
+          "natural",
+          "line-length",
+          "custom",
+          "unsorted",
+          "subgroup-order"
+        ],
+        "description": "Specifies the sorting method.",
+        "type": "string"
       },
       "specialCharacters": {
         "description": "Specifies whether to trim, remove, or keep special characters before sorting.",
@@ -74,93 +89,30 @@
         ],
         "type": "string"
       },
-      "type": {
+      "sortBy": {
         "enum": [
-          "alphabetical",
-          "natural",
-          "line-length",
-          "custom",
-          "unsorted"
+          "name",
+          "value"
         ],
-        "description": "Specifies the sorting method.",
         "type": "string"
       },
       "customGroups": {
-        "oneOf": [
-          {
-            "additionalProperties": {
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              ]
-            },
-            "description": "Specifies custom groups.",
-            "type": "object"
-          },
-          {
-            "items": {
-              "oneOf": [
-                {
+        "items": {
+          "oneOf": [
+            {
+              "properties": {
+                "fallbackSort": {
                   "properties": {
-                    "newlinesInside": {
-                      "oneOf": [
-                        {
-                          "description": "Specifies how to handle newlines between members of the custom group.",
-                          "enum": [
-                            "always",
-                            "never"
-                          ],
-                          "type": "string"
-                        },
-                        {
-                          "type": "number",
-                          "minimum": 0
-                        }
-                      ]
-                    },
-                    "fallbackSort": {
-                      "properties": {
-                        "order": {
-                          "description": "Specifies whether to sort items in ascending or descending order.",
-                          "enum": [
-                            "asc",
-                            "desc"
-                          ],
-                          "type": "string"
-                        },
-                        "type": {
-                          "enum": [
-                            "alphabetical",
-                            "natural",
-                            "line-length",
-                            "custom",
-                            "unsorted"
-                          ],
-                          "description": "Specifies the sorting method.",
-                          "type": "string"
-                        },
-                        "sortBy": {
-                          "enum": [
-                            "name",
-                            "value"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "description": "Fallback sort order.",
-                      "additionalProperties": false,
-                      "minProperties": 1,
-                      "type": "object"
-                    },
-                    "groupName": {
-                      "description": "Custom group name.",
+                    "type": {
+                      "enum": [
+                        "alphabetical",
+                        "natural",
+                        "line-length",
+                        "custom",
+                        "unsorted",
+                        "subgroup-order"
+                      ],
+                      "description": "Specifies the sorting method.",
                       "type": "string"
                     },
                     "order": {
@@ -170,395 +122,6 @@
                         "desc"
                       ],
                       "type": "string"
-                    },
-                    "type": {
-                      "enum": [
-                        "alphabetical",
-                        "natural",
-                        "line-length",
-                        "custom",
-                        "unsorted"
-                      ],
-                      "description": "Specifies the sorting method.",
-                      "type": "string"
-                    },
-                    "anyOf": {
-                      "items": {
-                        "properties": {
-                          "modifiers": {
-                            "items": {
-                              "enum": [
-                                "optional",
-                                "required",
-                                "multiline"
-                              ],
-                              "type": "string"
-                            },
-                            "description": "Modifier filters.",
-                            "type": "array"
-                          },
-                          "selector": {
-                            "description": "Selector filter.",
-                            "enum": [
-                              "index-signature",
-                              "member",
-                              "method",
-                              "multiline",
-                              "property"
-                            ],
-                            "type": "string"
-                          },
-                          "elementValuePattern": {
-                            "oneOf": [
-                              {
-                                "items": {
-                                  "oneOf": [
-                                    {
-                                      "properties": {
-                                        "pattern": {
-                                          "description": "Regular expression pattern.",
-                                          "type": "string"
-                                        },
-                                        "flags": {
-                                          "description": "Regular expression flags.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      "additionalProperties": false,
-                                      "required": [
-                                        "pattern"
-                                      ],
-                                      "type": "object"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ],
-                                  "description": "Regular expression."
-                                },
-                                "type": "array"
-                              },
-                              {
-                                "oneOf": [
-                                  {
-                                    "properties": {
-                                      "pattern": {
-                                        "description": "Regular expression pattern.",
-                                        "type": "string"
-                                      },
-                                      "flags": {
-                                        "description": "Regular expression flags.",
-                                        "type": "string"
-                                      }
-                                    },
-                                    "additionalProperties": false,
-                                    "required": [
-                                      "pattern"
-                                    ],
-                                    "type": "object"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "description": "Regular expression."
-                              }
-                            ],
-                            "description": "Regular expression."
-                          },
-                          "elementNamePattern": {
-                            "oneOf": [
-                              {
-                                "items": {
-                                  "oneOf": [
-                                    {
-                                      "properties": {
-                                        "pattern": {
-                                          "description": "Regular expression pattern.",
-                                          "type": "string"
-                                        },
-                                        "flags": {
-                                          "description": "Regular expression flags.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      "additionalProperties": false,
-                                      "required": [
-                                        "pattern"
-                                      ],
-                                      "type": "object"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ],
-                                  "description": "Regular expression."
-                                },
-                                "type": "array"
-                              },
-                              {
-                                "oneOf": [
-                                  {
-                                    "properties": {
-                                      "pattern": {
-                                        "description": "Regular expression pattern.",
-                                        "type": "string"
-                                      },
-                                      "flags": {
-                                        "description": "Regular expression flags.",
-                                        "type": "string"
-                                      }
-                                    },
-                                    "additionalProperties": false,
-                                    "required": [
-                                      "pattern"
-                                    ],
-                                    "type": "object"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "description": "Regular expression."
-                              }
-                            ],
-                            "description": "Regular expression."
-                          },
-                          "sortBy": {
-                            "enum": [
-                              "name",
-                              "value"
-                            ],
-                            "type": "string"
-                          }
-                        },
-                        "description": "Custom group.",
-                        "additionalProperties": false,
-                        "type": "object"
-                      },
-                      "type": "array"
-                    }
-                  },
-                  "description": "Custom group block.",
-                  "additionalProperties": false,
-                  "required": [
-                    "groupName"
-                  ],
-                  "type": "object"
-                },
-                {
-                  "properties": {
-                    "newlinesInside": {
-                      "oneOf": [
-                        {
-                          "description": "Specifies how to handle newlines between members of the custom group.",
-                          "enum": [
-                            "always",
-                            "never"
-                          ],
-                          "type": "string"
-                        },
-                        {
-                          "type": "number",
-                          "minimum": 0
-                        }
-                      ]
-                    },
-                    "fallbackSort": {
-                      "properties": {
-                        "order": {
-                          "description": "Specifies whether to sort items in ascending or descending order.",
-                          "enum": [
-                            "asc",
-                            "desc"
-                          ],
-                          "type": "string"
-                        },
-                        "type": {
-                          "enum": [
-                            "alphabetical",
-                            "natural",
-                            "line-length",
-                            "custom",
-                            "unsorted"
-                          ],
-                          "description": "Specifies the sorting method.",
-                          "type": "string"
-                        },
-                        "sortBy": {
-                          "enum": [
-                            "name",
-                            "value"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "description": "Fallback sort order.",
-                      "additionalProperties": false,
-                      "minProperties": 1,
-                      "type": "object"
-                    },
-                    "groupName": {
-                      "description": "Custom group name.",
-                      "type": "string"
-                    },
-                    "order": {
-                      "description": "Specifies whether to sort items in ascending or descending order.",
-                      "enum": [
-                        "asc",
-                        "desc"
-                      ],
-                      "type": "string"
-                    },
-                    "type": {
-                      "enum": [
-                        "alphabetical",
-                        "natural",
-                        "line-length",
-                        "custom",
-                        "unsorted"
-                      ],
-                      "description": "Specifies the sorting method.",
-                      "type": "string"
-                    },
-                    "modifiers": {
-                      "items": {
-                        "enum": [
-                          "optional",
-                          "required",
-                          "multiline"
-                        ],
-                        "type": "string"
-                      },
-                      "description": "Modifier filters.",
-                      "type": "array"
-                    },
-                    "selector": {
-                      "description": "Selector filter.",
-                      "enum": [
-                        "index-signature",
-                        "member",
-                        "method",
-                        "multiline",
-                        "property"
-                      ],
-                      "type": "string"
-                    },
-                    "elementValuePattern": {
-                      "oneOf": [
-                        {
-                          "items": {
-                            "oneOf": [
-                              {
-                                "properties": {
-                                  "pattern": {
-                                    "description": "Regular expression pattern.",
-                                    "type": "string"
-                                  },
-                                  "flags": {
-                                    "description": "Regular expression flags.",
-                                    "type": "string"
-                                  }
-                                },
-                                "additionalProperties": false,
-                                "required": [
-                                  "pattern"
-                                ],
-                                "type": "object"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ],
-                            "description": "Regular expression."
-                          },
-                          "type": "array"
-                        },
-                        {
-                          "oneOf": [
-                            {
-                              "properties": {
-                                "pattern": {
-                                  "description": "Regular expression pattern.",
-                                  "type": "string"
-                                },
-                                "flags": {
-                                  "description": "Regular expression flags.",
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": false,
-                              "required": [
-                                "pattern"
-                              ],
-                              "type": "object"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "description": "Regular expression."
-                        }
-                      ],
-                      "description": "Regular expression."
-                    },
-                    "elementNamePattern": {
-                      "oneOf": [
-                        {
-                          "items": {
-                            "oneOf": [
-                              {
-                                "properties": {
-                                  "pattern": {
-                                    "description": "Regular expression pattern.",
-                                    "type": "string"
-                                  },
-                                  "flags": {
-                                    "description": "Regular expression flags.",
-                                    "type": "string"
-                                  }
-                                },
-                                "additionalProperties": false,
-                                "required": [
-                                  "pattern"
-                                ],
-                                "type": "object"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ],
-                            "description": "Regular expression."
-                          },
-                          "type": "array"
-                        },
-                        {
-                          "oneOf": [
-                            {
-                              "properties": {
-                                "pattern": {
-                                  "description": "Regular expression pattern.",
-                                  "type": "string"
-                                },
-                                "flags": {
-                                  "description": "Regular expression flags.",
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": false,
-                              "required": [
-                                "pattern"
-                              ],
-                              "type": "object"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "description": "Regular expression."
-                        }
-                      ],
-                      "description": "Regular expression."
                     },
                     "sortBy": {
                       "enum": [
@@ -568,28 +131,642 @@
                       "type": "string"
                     }
                   },
-                  "description": "Custom group.",
+                  "description": "Fallback sort order.",
                   "additionalProperties": false,
                   "required": [
-                    "groupName"
+                    "type"
                   ],
                   "type": "object"
+                },
+                "type": {
+                  "enum": [
+                    "alphabetical",
+                    "natural",
+                    "line-length",
+                    "custom",
+                    "unsorted",
+                    "subgroup-order"
+                  ],
+                  "description": "Specifies the sorting method.",
+                  "type": "string"
+                },
+                "groupName": {
+                  "description": "Custom group name.",
+                  "type": "string"
+                },
+                "newlinesInside": {
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups elements",
+                      "enum": [
+                        "ignore"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
+                },
+                "order": {
+                  "description": "Specifies whether to sort items in ascending or descending order.",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "type": "string"
+                },
+                "sortBy": {
+                  "enum": [
+                    "name",
+                    "value"
+                  ],
+                  "type": "string"
+                },
+                "anyOf": {
+                  "items": {
+                    "properties": {
+                      "elementNamePattern": {
+                        "oneOf": [
+                          {
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "properties": {
+                                    "pattern": {
+                                      "description": "Regular expression pattern.",
+                                      "type": "string"
+                                    },
+                                    "flags": {
+                                      "description": "Regular expression flags.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "pattern"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Regular expression."
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "oneOf": [
+                              {
+                                "properties": {
+                                  "pattern": {
+                                    "description": "Regular expression pattern.",
+                                    "type": "string"
+                                  },
+                                  "flags": {
+                                    "description": "Regular expression flags.",
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false,
+                                "required": [
+                                  "pattern"
+                                ],
+                                "type": "object"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "description": "Regular expression."
+                          }
+                        ],
+                        "description": "Regular expression."
+                      },
+                      "modifiers": {
+                        "items": {
+                          "enum": [
+                            "optional",
+                            "required",
+                            "multiline"
+                          ],
+                          "type": "string"
+                        },
+                        "description": "Modifier filters.",
+                        "type": "array"
+                      },
+                      "selector": {
+                        "description": "Selector filter.",
+                        "enum": [
+                          "index-signature",
+                          "member",
+                          "method",
+                          "property"
+                        ],
+                        "type": "string"
+                      },
+                      "elementValuePattern": {
+                        "oneOf": [
+                          {
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "properties": {
+                                    "pattern": {
+                                      "description": "Regular expression pattern.",
+                                      "type": "string"
+                                    },
+                                    "flags": {
+                                      "description": "Regular expression flags.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "pattern"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Regular expression."
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "oneOf": [
+                              {
+                                "properties": {
+                                  "pattern": {
+                                    "description": "Regular expression pattern.",
+                                    "type": "string"
+                                  },
+                                  "flags": {
+                                    "description": "Regular expression flags.",
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false,
+                                "required": [
+                                  "pattern"
+                                ],
+                                "type": "object"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "description": "Regular expression."
+                          }
+                        ],
+                        "description": "Regular expression."
+                      }
+                    },
+                    "description": "Custom group.",
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "minItems": 1
                 }
-              ]
+              },
+              "description": "Custom group block.",
+              "required": [
+                "groupName",
+                "anyOf"
+              ],
+              "additionalProperties": false,
+              "type": "object"
             },
-            "description": "Defines custom groups to match specific members.",
-            "type": "array"
+            {
+              "properties": {
+                "fallbackSort": {
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "alphabetical",
+                        "natural",
+                        "line-length",
+                        "custom",
+                        "unsorted",
+                        "subgroup-order"
+                      ],
+                      "description": "Specifies the sorting method.",
+                      "type": "string"
+                    },
+                    "order": {
+                      "description": "Specifies whether to sort items in ascending or descending order.",
+                      "enum": [
+                        "asc",
+                        "desc"
+                      ],
+                      "type": "string"
+                    },
+                    "sortBy": {
+                      "enum": [
+                        "name",
+                        "value"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "description": "Fallback sort order.",
+                  "additionalProperties": false,
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
+                },
+                "type": {
+                  "enum": [
+                    "alphabetical",
+                    "natural",
+                    "line-length",
+                    "custom",
+                    "unsorted",
+                    "subgroup-order"
+                  ],
+                  "description": "Specifies the sorting method.",
+                  "type": "string"
+                },
+                "groupName": {
+                  "description": "Custom group name.",
+                  "type": "string"
+                },
+                "newlinesInside": {
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups elements",
+                      "enum": [
+                        "ignore"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
+                },
+                "order": {
+                  "description": "Specifies whether to sort items in ascending or descending order.",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "type": "string"
+                },
+                "sortBy": {
+                  "enum": [
+                    "name",
+                    "value"
+                  ],
+                  "type": "string"
+                },
+                "elementNamePattern": {
+                  "oneOf": [
+                    {
+                      "items": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "pattern": {
+                                "description": "Regular expression pattern.",
+                                "type": "string"
+                              },
+                              "flags": {
+                                "description": "Regular expression flags.",
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                              "pattern"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Regular expression."
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "pattern": {
+                              "description": "Regular expression pattern.",
+                              "type": "string"
+                            },
+                            "flags": {
+                              "description": "Regular expression flags.",
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "required": [
+                            "pattern"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "description": "Regular expression."
+                    }
+                  ],
+                  "description": "Regular expression."
+                },
+                "modifiers": {
+                  "items": {
+                    "enum": [
+                      "optional",
+                      "required",
+                      "multiline"
+                    ],
+                    "type": "string"
+                  },
+                  "description": "Modifier filters.",
+                  "type": "array"
+                },
+                "selector": {
+                  "description": "Selector filter.",
+                  "enum": [
+                    "index-signature",
+                    "member",
+                    "method",
+                    "property"
+                  ],
+                  "type": "string"
+                },
+                "elementValuePattern": {
+                  "oneOf": [
+                    {
+                      "items": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "pattern": {
+                                "description": "Regular expression pattern.",
+                                "type": "string"
+                              },
+                              "flags": {
+                                "description": "Regular expression flags.",
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "required": [
+                              "pattern"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Regular expression."
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "pattern": {
+                              "description": "Regular expression pattern.",
+                              "type": "string"
+                            },
+                            "flags": {
+                              "description": "Regular expression flags.",
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false,
+                          "required": [
+                            "pattern"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "description": "Regular expression."
+                    }
+                  ],
+                  "description": "Regular expression."
+                }
+              },
+              "description": "Custom group.",
+              "additionalProperties": false,
+              "required": [
+                "groupName"
+              ],
+              "minProperties": 2,
+              "type": "object"
+            }
+          ]
+        },
+        "description": "Defines custom groups to match specific members.",
+        "type": "array"
+      },
+      "newlinesInside": {
+        "oneOf": [
+          {
+            "oneOf": [
+              {
+                "description": "Specifies how to handle newlines between groups elements",
+                "enum": [
+                  "ignore"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "number",
+                "minimum": 0
+              }
+            ]
+          },
+          {
+            "enum": [
+              "newlinesBetween"
+            ],
+            "type": "string"
           }
         ]
       },
-      "groupKind": {
-        "description": "[DEPRECATED] Specifies top-level groups.",
-        "enum": [
-          "mixed",
-          "required-first",
-          "optional-first"
-        ],
-        "type": "string"
+      "groups": {
+        "items": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "minItems": 1
+            },
+            {
+              "properties": {
+                "newlinesBetween": {
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups.",
+                      "enum": [
+                        "ignore"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "newlinesBetween"
+              ],
+              "additionalProperties": false,
+              "type": "object"
+            },
+            {
+              "properties": {
+                "group": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "minItems": 1
+                    }
+                  ]
+                },
+                "fallbackSort": {
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "alphabetical",
+                        "natural",
+                        "line-length",
+                        "custom",
+                        "unsorted",
+                        "subgroup-order"
+                      ],
+                      "description": "Specifies the sorting method.",
+                      "type": "string"
+                    },
+                    "order": {
+                      "description": "Specifies whether to sort items in ascending or descending order.",
+                      "enum": [
+                        "asc",
+                        "desc"
+                      ],
+                      "type": "string"
+                    },
+                    "sortBy": {
+                      "enum": [
+                        "name",
+                        "value"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "description": "Fallback sort order.",
+                  "additionalProperties": false,
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
+                },
+                "commentAbove": {
+                  "description": "Specifies a comment to enforce above the group.",
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "alphabetical",
+                    "natural",
+                    "line-length",
+                    "custom",
+                    "unsorted",
+                    "subgroup-order"
+                  ],
+                  "description": "Specifies the sorting method.",
+                  "type": "string"
+                },
+                "newlinesInside": {
+                  "oneOf": [
+                    {
+                      "description": "Specifies how to handle newlines between groups elements",
+                      "enum": [
+                        "ignore"
+                      ],
+                      "type": "string"
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  ]
+                },
+                "order": {
+                  "description": "Specifies whether to sort items in ascending or descending order.",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "type": "string"
+                },
+                "sortBy": {
+                  "enum": [
+                    "name",
+                    "value"
+                  ],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "group"
+              ],
+              "minProperties": 2,
+              "type": "object"
+            }
+          ]
+        },
+        "description": "Specifies a list of groups for sorting.",
+        "type": "array"
+      },
+      "newlinesBetween": {
+        "oneOf": [
+          {
+            "description": "Specifies how to handle newlines between groups.",
+            "enum": [
+              "ignore"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "minimum": 0
+          }
+        ]
       },
       "useConfigurationIf": {
         "description": "Specifies filters to match a particular options configuration for a given element to sort.",
@@ -652,13 +829,24 @@
             ],
             "description": "Regular expression."
           },
-          "declarationMatchesPattern": {
+          "hasNumericKeysOnly": {
+            "description": "Specifies whether to only match types that have exclusively numeric keys.",
+            "type": "boolean"
+          },
+          "declarationCommentMatchesPattern": {
             "oneOf": [
               {
                 "items": {
                   "oneOf": [
                     {
                       "properties": {
+                        "scope": {
+                          "enum": [
+                            "shallow",
+                            "deep"
+                          ],
+                          "type": "string"
+                        },
                         "pattern": {
                           "description": "Regular expression pattern.",
                           "type": "string"
@@ -686,6 +874,89 @@
                 "oneOf": [
                   {
                     "properties": {
+                      "scope": {
+                        "enum": [
+                          "shallow",
+                          "deep"
+                        ],
+                        "type": "string"
+                      },
+                      "pattern": {
+                        "description": "Regular expression pattern.",
+                        "type": "string"
+                      },
+                      "flags": {
+                        "description": "Regular expression flags.",
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "pattern"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "description": "Regular expression."
+              }
+            ],
+            "description": "Regular expression."
+          },
+          "matchesAstSelector": {
+            "description": "Specifies an AST selector to match elements for conditional configuration.",
+            "type": "string"
+          },
+          "declarationMatchesPattern": {
+            "oneOf": [
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "scope": {
+                          "enum": [
+                            "shallow",
+                            "deep"
+                          ],
+                          "type": "string"
+                        },
+                        "pattern": {
+                          "description": "Regular expression pattern.",
+                          "type": "string"
+                        },
+                        "flags": {
+                          "description": "Regular expression flags.",
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "pattern"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "Regular expression."
+                },
+                "type": "array"
+              },
+              {
+                "oneOf": [
+                  {
+                    "properties": {
+                      "scope": {
+                        "enum": [
+                          "shallow",
+                          "deep"
+                        ],
+                        "type": "string"
+                      },
                       "pattern": {
                         "description": "Regular expression pattern.",
                         "type": "string"
@@ -922,133 +1193,6 @@
       "partitionByNewLine": {
         "description": "Enables the use of newlines to separate the nodes into logical groups.",
         "type": "boolean"
-      },
-      "newlinesBetween": {
-        "oneOf": [
-          {
-            "description": "Specifies how to handle newlines between groups.",
-            "enum": [
-              "ignore",
-              "always",
-              "never"
-            ],
-            "type": "string"
-          },
-          {
-            "type": "number",
-            "minimum": 0
-          }
-        ]
-      },
-      "ignorePattern": {
-        "oneOf": [
-          {
-            "items": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "pattern": {
-                      "description": "Regular expression pattern.",
-                      "type": "string"
-                    },
-                    "flags": {
-                      "description": "Regular expression flags.",
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false,
-                  "required": [
-                    "pattern"
-                  ],
-                  "type": "object"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "description": "Regular expression."
-            },
-            "type": "array"
-          },
-          {
-            "oneOf": [
-              {
-                "properties": {
-                  "pattern": {
-                    "description": "Regular expression pattern.",
-                    "type": "string"
-                  },
-                  "flags": {
-                    "description": "Regular expression flags.",
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false,
-                "required": [
-                  "pattern"
-                ],
-                "type": "object"
-              },
-              {
-                "type": "string"
-              }
-            ],
-            "description": "Regular expression."
-          }
-        ],
-        "description": "Regular expression."
-      },
-      "sortBy": {
-        "enum": [
-          "name",
-          "value"
-        ],
-        "type": "string"
-      },
-      "groups": {
-        "items": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "properties": {
-                "newlinesBetween": {
-                  "oneOf": [
-                    {
-                      "description": "Specifies how to handle newlines between groups.",
-                      "enum": [
-                        "ignore",
-                        "always",
-                        "never"
-                      ],
-                      "type": "string"
-                    },
-                    {
-                      "type": "number",
-                      "minimum": 0
-                    }
-                  ]
-                },
-                "commentAbove": {
-                  "description": "Specifies a comment to enforce above the group.",
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1,
-              "type": "object"
-            }
-          ]
-        },
-        "description": "Specifies a list of groups for sorting.",
-        "type": "array"
       }
     },
     "additionalProperties": false,
