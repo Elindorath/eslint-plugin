@@ -2,7 +2,7 @@ import jsoncPlugin from 'eslint-plugin-jsonc'
 import * as jsoncParser from 'jsonc-eslint-parser'
 
 import { ERROR } from '../../../constants.ts'
-import { getRuleConfig } from '../../../utilities.ts'
+import { getRuleConfig, getRuleConfigOverride } from '../../../utilities.ts'
 
 import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
 
@@ -97,7 +97,10 @@ export const jsonLayoutConfig = {
       ObjectPattern: { consistent: true },
       /* eslint-enable @typescript-eslint/naming-convention */
     }],
-    'jsonc/object-curly-spacing': getRuleConfig('@stylistic/object-curly-spacing', stylisticVanillaLayoutConfig),
+    'jsonc/object-curly-spacing': getRuleConfigOverride('@stylistic/object-curly-spacing', stylisticVanillaLayoutConfig, undefined, {
+      // Configured value
+      emptyObjects: 'never',
+    }),
     'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticVanillaLayoutConfig),
     'jsonc/quote-props': [ERROR, 'always'],
     'jsonc/quotes': [ERROR, 'double', {
