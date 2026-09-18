@@ -4,22 +4,12 @@ import { eslintVanillaConfig } from './configs/plugins/eslint/vanilla.ts'
 import { OFF } from './constants.ts'
 
 import type { Linter } from 'eslint'
-import type { UnknownArray, UnknownRecord } from 'type-fest'
+import type { UnknownRecord } from 'type-fest'
 
+import type { FixedLinterConfig, FixedRulesRecord, RuleOption, RuleSeverityAndOptions } from './types.ts'
 
-type FixedLinterConfig<Rules extends FixedRulesRecord = FixedRulesRecord> = Omit<Linter.Config, 'rules'> & {
-  rules?: Rules;
-}
-
-type FixedRulesRecord = {
-  [rule: string]: RuleSeverityAndOptions;
-}
-
-type RuleOption = boolean | number | string | UnknownArray | UnknownRecord
 
 type RuleOptionOverride = typeof REMOVE | RuleOption
-
-type RuleSeverityAndOptions<Options extends RuleOption[] = RuleOption[]> = [Linter.RuleSeverity, ...Options]
 
 
 export {

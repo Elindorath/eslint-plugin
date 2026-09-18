@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/filename-case -- TODO: fix the eslint configuration for scripts */
-
 /* eslint-disable max-statements, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
 import { config } from './config.ts'
@@ -10,6 +8,9 @@ import type { IChange } from 'json-diff-ts'
 import type {
   PluginChangesDescriptor,
 } from './types.ts'
+
+
+const DISPLAYED_PLUGIN_COUNT = 1
 
 
 export function displayPluginChangesDescriptors(pluginChangesDescriptors: PluginChangesDescriptor[]) {
@@ -79,7 +80,7 @@ function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDe
 
   console.log('')
 
-  return 1
+  return DISPLAYED_PLUGIN_COUNT
 }
 
 function displayRuleChanges(changes: IChange[]) {

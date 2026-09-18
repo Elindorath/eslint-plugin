@@ -1,4 +1,4 @@
-/* eslint-disable import-x/max-dependencies, require-await, no-unsanitized/method -- TODO: fix the eslint configuration for scripts */
+/* eslint-disable import-x/max-dependencies, no-unsanitized/method -- TODO: fix the eslint configuration for scripts */
 
 /* eslint-disable max-depth, max-statements, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 

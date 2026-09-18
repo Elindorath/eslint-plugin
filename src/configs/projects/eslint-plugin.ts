@@ -4,9 +4,9 @@ import { getRuleConfig } from '../../utilities.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
-import { overrideMarkdownConfig } from '../overrides/markdown.ts'
+import { overrideMarkdownCodeBlockConfig, overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overridePackageJsonConfig } from '../overrides/package-json.ts'
-import { overrideScriptsConfig } from '../overrides/scripts.ts'
+import { overrideScriptsConfig, overrideScriptsTypescriptConfig } from '../overrides/scripts.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
 import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node.ts'
 import { vanillaConfig } from '../vanilla.ts'
@@ -86,5 +86,20 @@ export const projectEslintPluginConfig = [
   overrideEslintConfig,
   overridePackageJsonConfig,
   overrideScriptsConfig,
+  overrideScriptsTypescriptConfig,
   overrideMarkdownConfig,
+  overrideMarkdownCodeBlockConfig,
+  {
+    files: ['**/eslint.config.ts'],
+    rules: {
+      // OFF as ESLint mandates this filename
+      'sonarjs/file-name-differ-from-class': [OFF],
+    },
+  },
+  {
+    rules: {
+      // OFF as this repository hands whole module objects to ESLint, be it parsers or the utility namespace it exposes
+      'sonarjs/no-wildcard-import': [OFF],
+    },
+  },
 ] as const satisfies Linter.Config[]

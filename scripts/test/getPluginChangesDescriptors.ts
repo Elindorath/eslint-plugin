@@ -1,4 +1,4 @@
-/* eslint-disable perfectionist/sort-modules, require-await -- Temporary disabled to avoid unnecessary noise */
+/* eslint-disable perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
 import { diff } from 'json-diff-ts'
 
@@ -17,6 +17,7 @@ import type {
   PluginPrefix,
   RuleId,
   RuleName,
+  RuleSchema,
 } from './types.ts'
 
 
@@ -148,15 +149,7 @@ async function getRuleConfigChanges(pluginDescriptor: PluginDescriptor) {
   const pluginRuleSchemaChanges: { [key: RuleName]: IChange[]; } = {}
 
   for (const [storedRuleName, storedRuleSchema] of storedPluginRuleSchemaDescriptor.ruleSchemaEntries) {
-    const ruleSchema = pluginRuleSchemaMap.get(storedRuleName)
-
-    if (ruleSchema === undefined) {
-      console.log(`Rule ${storedRuleName} is not in the plugin rule schema`)
-      continue
-    }
-
-    // eslint-disable-next-line unicorn/prefer-structured-clone -- We don't want to deep clone but get ride of undefined values
-    const changes = diff(storedRuleSchema, JSON.parse(JSON.stringify(ruleSchema)))
+    const changes = getRuleSchemaChanges(storedRuleName, storedRuleSchema, pluginRuleSchemaMap)
 
     if (changes.length > 0) {
       pluginRuleSchemaChanges[storedRuleName] = changes
@@ -164,6 +157,20 @@ async function getRuleConfigChanges(pluginDescriptor: PluginDescriptor) {
   }
 
   return pluginRuleSchemaChanges
+}
+
+// An absent rule yields no change: it is reported as a removal by the caller of this module
+function getRuleSchemaChanges(storedRuleName: RuleName, storedRuleSchema: RuleSchema, pluginRuleSchemaMap: Map<RuleName, RuleSchema>) {
+  const ruleSchema = pluginRuleSchemaMap.get(storedRuleName)
+
+  if (ruleSchema === undefined) {
+    console.log(`Rule ${storedRuleName} is not in the plugin rule schema`)
+
+    return []
+  }
+
+  // eslint-disable-next-line unicorn/prefer-structured-clone -- We don't want to deep clone but get ride of undefined values
+  return diff(storedRuleSchema, JSON.parse(JSON.stringify(ruleSchema)))
 }
 
 function asWritableArray<T>(readonlyArray?: readonly T[]): Writable<T[]> | undefined {

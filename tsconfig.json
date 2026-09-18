@@ -3,7 +3,12 @@
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
+    /*
+     * Kept off while nothing is emitted: the `@eslint/core` type layout makes TypeScript unable to name
+     * the inferred type of most exported configurations, which declaration emit checking reports as TS2883.
+     * Turning it back on is part of the packaging work.
+     */
+    "declaration": false,
     "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

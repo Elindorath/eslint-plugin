@@ -5,26 +5,29 @@ import { ERROR } from './constants.ts'
 import type { Linter } from 'eslint'
 import type { WritableDeep } from 'type-fest'
 
+import type { FixedLinterConfig } from './types.ts'
 
-type LanguageOptions = Linter.Config['languageOptions']
-type EcmaVersion = Required<Linter.Config>['languageOptions']['ecmaVersion']
-type SourceType = Required<Linter.Config>['languageOptions']['sourceType']
-type Globals = Required<Linter.Config>['languageOptions']['globals']
-type Parser = Required<Linter.Config>['languageOptions']['parser']
-type ParserOptions = Required<Linter.Config>['languageOptions']['parserOptions']
+
+type LanguageOptions = Linter.LanguageOptions | undefined
+// `Linter.Config['languageOptions']` is language-agnostic, only `Linter.LanguageOptions` carries the JavaScript keys
+type EcmaVersion = Linter.LanguageOptions['ecmaVersion']
+type SourceType = Linter.LanguageOptions['sourceType']
+type Globals = Linter.LanguageOptions['globals']
+type Parser = Linter.LanguageOptions['parser']
+type ParserOptions = Linter.LanguageOptions['parserOptions']
 
 type Processor = Linter.Config['processor']
 
 type Plugins = Linter.Config['plugins']
 
-type Rules = Linter.Config['rules']
+type Rules = FixedLinterConfig['rules']
 // type Rule = Required<Linter.Config>['rules'][string]
 
 type Settings = Linter.Config['settings']
 
 
-export function mergeConfigs(...configs: Linter.Config[]) {
-  return configs.reduce<Linter.Config>((mergedConfig, config) => {
+export function mergeConfigs(...configs: FixedLinterConfig[]): FixedLinterConfig {
+  return configs.reduce<FixedLinterConfig>((mergedConfig, config) => {
     return mergeTwoConfig(mergedConfig, config)
   }, {})
 }
@@ -61,7 +64,7 @@ const CONFIG_MERGER = {
   settings: mergeSettings,
 } as const
 
-function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
+function mergeTwoConfig(config1: FixedLinterConfig, config2: FixedLinterConfig) {
   return {
     linterOptions: {
       noInlineConfig: false,
@@ -70,6 +73,7 @@ function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
     },
     ...objectFromEntries(
       objectEntries(CONFIG_MERGER)
+        // eslint-disable-next-line max-statements -- Exhaustive dispatch, splitting it would defeat the `satisfies never` check
         .map(([property, merger]) => {
           switch (property) {
             case 'files': {
@@ -230,8 +234,10 @@ function mergeGlobals(globals1: Globals, globals2: Globals) {
 }
 
 function mergeParser(parser1: Parser, parser2: Parser) {
+  /* eslint-disable @typescript-eslint/no-deprecated -- Deprecated are only used as fallback */
   const parserName1 = parser1?.meta?.name ?? parser1?.name
   const parserName2 = parser2?.meta?.name ?? parser2?.name
+  /* eslint-enable @typescript-eslint/no-deprecated */
 
 
   if (parserName1 === parserName2) {

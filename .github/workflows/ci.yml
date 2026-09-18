@@ -1,9 +1,17 @@
-name: Test ESLint plugin update
-run-name: Test ESLint plugin update
+name: CI
+run-name: CI
 on: [pull_request]
 jobs:
-  test_update:
+  check:
+    name: ${{ matrix.check }}
     runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        check:
+          - lint
+          - type-check
+          - test-update
     steps:
       - name: Checkout repository
         id: checkout
@@ -26,7 +34,7 @@ jobs:
           yarn install \
             --immutable
 
-      - name: Run test
-        id: test
+      - name: Run check
+        id: check
         run: |
-          yarn run test-update
+          yarn run ${{ matrix.check }}

@@ -12,6 +12,12 @@ const PROBABLE_IDENTIFIERS_PATTERN = '(^id|Id|ID|^identifier|Identifier|^name|Na
 const PATH_UP_REGEX_PATTERN = String.raw`\.\./`
 const LOCALES = 'en-US'
 
+// Group names shared by the rules that sort the same kind of member
+const OPTIONAL_MEMBER_GROUP = 'optional-member'
+const REQUIRED_MEMBER_GROUP = 'required-member'
+const TYPE_EXPORT_GROUP = 'type-export'
+const VALUE_EXPORT_GROUP = 'value-export'
+
 export const perfectionistVanillaConfig = {
   plugins: {
     /**
@@ -140,8 +146,8 @@ export const perfectionistVanillaConfig = {
       // TODO: needs to be defined
       customGroups: [],
       groups: [
-        'value-export',
-        'type-export',
+        VALUE_EXPORT_GROUP,
+        TYPE_EXPORT_GROUP,
         'unknown',
       ],
       // Configured value
@@ -246,8 +252,8 @@ export const perfectionistVanillaConfig = {
       customGroups: [],
       // Configured value
       groups: [
-        'required-member',
-        'optional-member',
+        REQUIRED_MEMBER_GROUP,
+        OPTIONAL_MEMBER_GROUP,
         'unknown',
       ],
       newlinesBetween: 'ignore',
@@ -335,8 +341,8 @@ export const perfectionistVanillaConfig = {
       // TODO: needs to be defined
       customGroups: [],
       groups: [
-        'value-export',
-        'type-export',
+        VALUE_EXPORT_GROUP,
+        TYPE_EXPORT_GROUP,
         'unknown',
       ],
       ignoreAlias: false,
@@ -372,8 +378,8 @@ export const perfectionistVanillaConfig = {
       customGroups: [],
       // Configured value
       groups: [
-        'required-member',
-        'optional-member',
+        REQUIRED_MEMBER_GROUP,
+        OPTIONAL_MEMBER_GROUP,
         'unknown',
       ],
       newlinesBetween: 'ignore',

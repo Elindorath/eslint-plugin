@@ -40,6 +40,13 @@ const overrideScriptsConfig = mergeConfigs(
       'no-console': [OFF, {
         allow: [''],
       }],
+      'unicorn/filename-case': [ERROR, {
+        cases: {
+          camelCase: true,
+          kebabCase: true,
+          pascalCase: true,
+        },
+      }],
     },
   }
 )
@@ -76,6 +83,13 @@ const overrideScriptsTypescriptConfig = mergeConfigs(
       // OFF as we use it often in dev script tools
       'no-console': [OFF, {
         allow: [''],
+      }],
+      'unicorn/filename-case': [ERROR, {
+        cases: {
+          camelCase: true,
+          kebabCase: true,
+          pascalCase: true,
+        },
       }],
     },
   }
