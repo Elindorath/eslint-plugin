@@ -28,7 +28,7 @@ module.exports = [
 ];
 ```
 
-For ease of use, this plugin also exposes special configurations that aggregate multiple typed configurations tailored to commonly used file organisations in projects. Those configurations are array of typed configurations with a file constraint:
+For ease of use, this plugin also exposes special configurations that aggregate multiple typed configurations tailored to commonly used file organizations in projects. Those configurations are array of typed configurations with a file constraint:
 
 - The `eslint.config.js` is treated as an eslint config file.
 - All files in the root `scripts` directory are treated as Node.js scripts that are used only in development environment.
