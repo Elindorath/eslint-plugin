@@ -1,0 +1,14 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "safeDefaultProps": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+]

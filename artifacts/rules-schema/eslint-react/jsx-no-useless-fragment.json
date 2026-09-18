@@ -1,0 +1,16 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "allowEmptyFragment": {
+        "type": "boolean",
+        "description": "Allow empty fragments"
+      },
+      "allowExpressions": {
+        "type": "boolean",
+        "description": "Allow fragments with a single expression child"
+      }
+    }
+  }
+]

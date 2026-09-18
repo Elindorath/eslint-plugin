@@ -49,7 +49,8 @@ export const reactConfig = {
 
   /* ----- Rules ----- */
   rules: {
-    'react/jsx-boolean-value': [OFF, 'never'],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-boolean-value': [OFF],
     'react/jsx-child-element-spacing': [OFF],
     'react/jsx-closing-bracket-location': [OFF, {
       // Configured value
@@ -85,14 +86,11 @@ export const reactConfig = {
       when: 'never',
     }],
     'react/jsx-equals-spacing': [OFF, 'never'],
-    'react/jsx-filename-extension': [OFF, {
-      // Configured value
-      allow: 'as-needed',
-      // Configured value
-      extensions: ['.jsx', '.tsx'],
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-filename-extension': [OFF],
     'react/jsx-first-prop-new-line': [OFF, 'multiline'],
-    'react/jsx-fragments': [OFF, 'syntax'],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-fragments': [OFF],
     'react/jsx-handler-names': [OFF, {
       // Configured value
       checkInlineFunction: true,
@@ -112,14 +110,8 @@ export const reactConfig = {
       // Configured value
       indentMode: 'first',
     }],
-    'react/jsx-key': [ERROR, {
-      // Configured value
-      checkFragmentShorthand: true,
-      // Configured value
-      checkKeyMustBeforeSpread: true,
-      // Configured value
-      warnOnDuplicates: true,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-key': [OFF],
     'react/jsx-max-depth': [OFF, {
       // Configured value
       max: 4,
@@ -142,15 +134,16 @@ export const reactConfig = {
       ignoreDOMComponents: false,
       ignoreRefs: false,
     }],
-    'react/jsx-no-comment-textnodes': [ERROR],
-    'react/jsx-no-constructed-context-values': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-comment-textnodes': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-constructed-context-values': [OFF],
     'react/jsx-no-duplicate-props': [ERROR, {
       // Configured value
       ignoreCase: true,
     }],
-    'react/jsx-no-leaked-render': [ERROR, {
-      validStrategies: ['ternary', 'coerce'],
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-leaked-render': [OFF],
     'react/jsx-no-literals': [OFF, {
       allowedStrings: [],
       ignoreProps: false,
@@ -159,33 +152,20 @@ export const reactConfig = {
       // Configured value
       noStrings: true,
     }],
-    'react/jsx-no-script-url': [ERROR],
-    'react/jsx-no-target-blank': [ERROR, {
-      allowReferrer: false,
-      enforceDynamicLinks: 'always',
-      // Configured value
-      forms: true,
-      links: true,
-      // Configured value
-      warnOnSpreadAttributes: true,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-script-url': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-target-blank': [OFF],
     'react/jsx-no-undef': [ERROR, {
       allowGlobals: false,
     }],
-    'react/jsx-no-useless-fragment': [ERROR, {
-      // TODO: might be turned to true in TypeScript context
-      allowExpressions: false,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-no-useless-fragment': [OFF],
     'react/jsx-one-expression-per-line': [OFF, {
       allow: 'none',
     }],
-    'react/jsx-pascal-case': [OFF, {
-      allowAllCaps: false,
-      allowLeadingUnderscore: false,
-      // Configured value
-      allowNamespace: true,
-      ignore: [],
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/jsx-pascal-case': [OFF],
     'react/jsx-props-no-multi-spaces': [OFF],
     'react/jsx-props-no-spread-multi': [ERROR],
     // OFF as it doesn't allow HOC

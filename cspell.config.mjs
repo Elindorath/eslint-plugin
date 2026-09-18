@@ -19,6 +19,7 @@ const cspellConfig = defineConfig({
     'flowtype',
     'gypfile',
     'httponly',
+    'innerhtml',
     'invertable',
     'isnan',
     'kramed',

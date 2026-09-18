@@ -1,0 +1,20 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enforceAssignment": {
+        "type": "boolean",
+        "default": true
+      },
+      "enforceLazyInitialization": {
+        "type": "boolean",
+        "default": true
+      },
+      "enforceSetterName": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  }
+]
