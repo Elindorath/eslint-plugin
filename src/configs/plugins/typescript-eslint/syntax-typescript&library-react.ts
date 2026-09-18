@@ -17,7 +17,6 @@ export const typescriptReactConfig = {
     parser: typescriptEslint.parser as unknown as Linter.Parser,
     // Might be exported to environment
     parserOptions: {
-      sourceType: 'module',
       warnOnUnsupportedTypeScriptVersion: true,
     },
   },

@@ -34,8 +34,7 @@
     "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
     "spellcheck": "cspell lint --no-progress \"**\"",
     "test-update": "./scripts/test-update.ts",
-    "type-check": "tsc",
-    "update": "node scripts/generate-foreign && node scripts/generate-index && node scripts/generate-config.js"
+    "type-check": "tsc"
   },
   "resolutions": {
     "@typescript-eslint/utils": "8.70.0"

@@ -4,7 +4,6 @@ import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
-import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
 import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node.ts'
 import { vanillaConfig } from '../vanilla.ts'
@@ -16,7 +15,7 @@ const overrideScriptsConfig = mergeConfigs(
     files: ['**/scripts/**'],
   },
   vanillaConfig,
-  environmentNodeSourceTypeCommonJsConfig,
+  environmentNodeConfig,
   {
     rules: {
       'import-x/no-extraneous-dependencies': [ERROR, {
@@ -60,7 +59,6 @@ const overrideScriptsTypescriptConfig = mergeConfigs(
   syntaxTypescriptConfig,
   environmentNodeConfig,
   syntaxTypescriptEnvironmentNodeConfig,
-  environmentNodeSourceTypeCommonJsConfig,
   {
     rules: {
       'import-x/no-extraneous-dependencies': [ERROR, {
