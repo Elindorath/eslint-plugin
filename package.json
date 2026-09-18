@@ -30,8 +30,8 @@
   ],
   "scripts": {
     "extract-meta": "node scripts/extract-meta.ts",
-    "lint": "NODE_OPTIONS='--experimental-require-module' eslint --concurrency auto .",
-    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --concurrency auto --fix .",
+    "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
+    "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
     "spellcheck": "cspell lint --no-progress \"**\"",
     "test-update": "./scripts/test-update.ts",
     "type-check": "tsc",
