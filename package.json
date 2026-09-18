@@ -40,6 +40,7 @@
     "@typescript-eslint/utils": "8.70.0"
   },
   "dependencies": {
+    "@cspell/eslint-plugin": "10.3.3",
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@eslint/compat": "2.1.1",
     "@eslint/json": "2.1.0",
@@ -85,6 +86,7 @@
     "typescript-eslint": "8.70.0"
   },
   "devDependencies": {
+    "@cspell/cspell-types": "10.3.3",
     "@sidvind/better-ajv-errors": "3.0.1",
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/eslint-plugin-security": "3.0.1",

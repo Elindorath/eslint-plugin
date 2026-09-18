@@ -550,7 +550,7 @@ export const typescriptConfig = {
       treatMethodsAsReadonly: false,
     }],
     '@typescript-eslint/prefer-reduce-type-parameter': [ERROR],
-    // Disabled because it enforces a inconsistant way to use regex depending on flags usage
+    // Disabled because it enforces an inconsistent way to use regex depending on flags usage
     '@typescript-eslint/prefer-regexp-exec': [OFF],
     '@typescript-eslint/prefer-return-this-type': [ERROR],
     '@typescript-eslint/prefer-string-starts-ends-with': [ERROR, {

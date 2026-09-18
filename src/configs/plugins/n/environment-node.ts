@@ -18,12 +18,12 @@ export const nNodeConfig = {
       // version: '>= 16.0.0',
 
       // Should be configured on a per platform basis
-      allowModuless: [],
+      allowModules: [],
 
       /**
        * This should only be used in specific scenario.
        */
-      resolvePathss: [],
+      resolvePaths: [],
 
       /**
        * This should only be used in specific scenario.

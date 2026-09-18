@@ -4,6 +4,7 @@
 
 | Name                                                               |
 | ------------------------------------------------------------------ |
+| [@cspell/eslint-plugin][cspell]                                    |
 | [@eslint-community/eslint-plugin-eslint-comments][eslint-comments] |
 | [@eslint/markdown][markdown]                                       |
 | [@stylistic/eslint-plugin][@stylistic]                             |
@@ -66,7 +67,6 @@
 | [eslint-plugin-sdl][sdl]                                     |                                                    |
 | [@rushstack/eslint-plugin-security][@rushstack/security]     |                                                    |
 | [eslint-plugin-security-node][security-node]                 | Seems outdated                                     |
-| [cspell-eslint-plugin][cspell]                               |                                                    |
 | [eslint-plugin-json-schema-validator][json-schema-validator] |                                                    |
 | [eslint-plugin-node-dependencies][node-dependencies]         |                                                    |
 | [eslint-plugin-sql-template][sql-template]                   |                                                    |

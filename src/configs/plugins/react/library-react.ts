@@ -145,7 +145,7 @@ export const reactConfig = {
 
     /**
      * TODO: Might be disabled to allow namespaced components.
-     * Or we juste might want to keep them splitted and form the namespace in an index file.
+     * Or we just might want to keep them splitted and form the namespace in an index file.
      * In this case, we would need a way to ensure we can't import a single component outside of its namespace.
      */
     'react/no-multi-comp': [ERROR, {
