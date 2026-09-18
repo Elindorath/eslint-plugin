@@ -5,6 +5,8 @@ import { ERROR } from './constants.ts'
 import type { Linter } from 'eslint'
 import type { WritableDeep } from 'type-fest'
 
+import type { FixedLinterConfig } from './types.ts'
+
 
 type LanguageOptions = Linter.LanguageOptions | undefined
 // `Linter.Config['languageOptions']` is language-agnostic, only `Linter.LanguageOptions` carries the JavaScript keys
@@ -18,14 +20,14 @@ type Processor = Linter.Config['processor']
 
 type Plugins = Linter.Config['plugins']
 
-type Rules = Linter.Config['rules']
+type Rules = FixedLinterConfig['rules']
 // type Rule = Required<Linter.Config>['rules'][string]
 
 type Settings = Linter.Config['settings']
 
 
-export function mergeConfigs(...configs: Linter.Config[]) {
-  return configs.reduce<Linter.Config>((mergedConfig, config) => {
+export function mergeConfigs(...configs: FixedLinterConfig[]): FixedLinterConfig {
+  return configs.reduce<FixedLinterConfig>((mergedConfig, config) => {
     return mergeTwoConfig(mergedConfig, config)
   }, {})
 }
@@ -62,7 +64,7 @@ const CONFIG_MERGER = {
   settings: mergeSettings,
 } as const
 
-function mergeTwoConfig(config1: Linter.Config, config2: Linter.Config) {
+function mergeTwoConfig(config1: FixedLinterConfig, config2: FixedLinterConfig) {
   return {
     linterOptions: {
       noInlineConfig: false,
