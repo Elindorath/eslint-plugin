@@ -208,22 +208,9 @@ function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion): EcmaVer
   return mathMax(version1, version2)
 }
 
-/* eslint-disable perfectionist/sort-objects -- Keep order in place */
-const SOURCE_TYPE_ORDER = {
-  undefined: -1,
-  script: 0,
-  commonjs: 1,
-  module: 2,
-} as const
-/* eslint-enable perfectionist/sort-objects */
-
+// The later configuration wins, so composition order carries the precedence, as it does for rules
 function mergeSourceType(sourceType1: SourceType, sourceType2: SourceType) {
-  const order1 = SOURCE_TYPE_ORDER[sourceType1 ?? 'undefined']
-  const order2 = SOURCE_TYPE_ORDER[sourceType2 ?? 'undefined']
-
-  return order1 > order2
-    ? sourceType1
-    : sourceType2
+  return sourceType2 ?? sourceType1
 }
 
 function mergeGlobals(globals1: Globals, globals2: Globals) {

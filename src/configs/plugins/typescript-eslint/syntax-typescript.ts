@@ -28,7 +28,6 @@ export const typescriptConfig = {
     // Might be exported to environment
     parserOptions: {
       project: path.resolve(process.cwd(), 'tsconfig.json'),
-      sourceType: 'module',
       warnOnUnsupportedTypeScriptVersion: true,
     },
   },
