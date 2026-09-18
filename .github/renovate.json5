@@ -45,6 +45,11 @@
       matchPackageNames: ['ajv', '@sidvind/better-ajv-errors'],
       enabled: false,
     },
+    // Group
+    {
+      matchPackageNames: ['cspell', '@cspell/**'],
+      groupName: 'cspell',
+    },
     // Keep the latest major only, where the intermediate ones are never the target
     {
       matchPackageNames: ['@types/node', 'eslint-plugin-unicorn'],
