@@ -152,37 +152,55 @@ const LANGUAGE_OPTIONS_MERGER = {
   sourceType: mergeSourceType,
 } as const
 
+const JAVASCRIPT_LANGUAGE_OPTIONS = new Set<string>(Object.keys(LANGUAGE_OPTIONS_MERGER))
+
+/*
+ * `languageOptions` is language-agnostic: every key outside the JavaScript ones belongs to whichever
+ * language the configuration declares, and is carried over with the later configuration winning
+ */
+function pickLanguageSpecificOptions(languageOptions: LanguageOptions) {
+  return Object.fromEntries(
+    Object.entries(languageOptions ?? {}).filter(([property]) => {
+      return !JAVASCRIPT_LANGUAGE_OPTIONS.has(property)
+    })
+  )
+}
+
 function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions2: LanguageOptions) {
-  return objectFromEntries(
-    objectEntries(LANGUAGE_OPTIONS_MERGER)
-      .map(([property, merger]) => {
-        switch (property) {
-          case 'ecmaVersion': {
-            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+  return {
+    ...pickLanguageSpecificOptions(languageOptions1),
+    ...pickLanguageSpecificOptions(languageOptions2),
+    ...objectFromEntries(
+      objectEntries(LANGUAGE_OPTIONS_MERGER)
+        .map(([property, merger]) => {
+          switch (property) {
+            case 'ecmaVersion': {
+              return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+            }
+            case 'globals': {
+              return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+            }
+            case 'parser': {
+              return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+            }
+            case 'parserOptions': {
+              return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+            }
+            case 'sourceType': {
+              return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
+            }
+            default: {
+              property satisfies never
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- This should never happen
+              throw new TypeError(`no language option merger found for property ${property}`)
+            }
           }
-          case 'globals': {
-            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
-          }
-          case 'parser': {
-            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
-          }
-          case 'parserOptions': {
-            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
-          }
-          case 'sourceType': {
-            return [property, merger(languageOptions1?.[property], languageOptions2?.[property])] as const
-          }
-          default: {
-            property satisfies never
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- This should never happen
-            throw new TypeError(`no language option merger found for property ${property}`)
-          }
-        }
-      })
-      .filter(([, merged]) => {
-        return merged !== undefined
-      })
-  ) satisfies LanguageOptions
+        })
+        .filter(([, merged]) => {
+          return merged !== undefined
+        })
+    ),
+  } satisfies LanguageOptions
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- This is used to preserve given literals

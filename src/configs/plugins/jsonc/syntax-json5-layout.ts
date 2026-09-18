@@ -1,5 +1,4 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
-import * as jsoncParser from 'jsonc-eslint-parser'
 
 import { ERROR } from '../../../constants.ts'
 import { getRuleConfig, getRuleConfigOverride, REMOVE } from '../../../utilities.ts'
@@ -10,10 +9,6 @@ import type { ESLint, Linter } from 'eslint'
 
 
 export const json5LayoutConfig = {
-  languageOptions: {
-    parser: jsoncParser,
-  },
-
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
@@ -30,7 +25,17 @@ export const json5LayoutConfig = {
     'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', stylisticVanillaLayoutConfig),
     'jsonc/comma-dangle': getRuleConfig('@stylistic/comma-dangle', stylisticVanillaLayoutConfig),
     'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticVanillaLayoutConfig),
-    'jsonc/indent': getRuleConfig('@stylistic/indent', stylisticVanillaLayoutConfig),
+    'jsonc/indent': getRuleConfigOverride('@stylistic/indent', stylisticVanillaLayoutConfig, undefined, {
+      // `jsonc` has no counterpart for this option
+      assignmentOperator: REMOVE,
+      /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
+      // JSON5 has none of these constructs, and `jsonc` rejects the shape each option carries here
+      FunctionDeclaration: REMOVE,
+      FunctionExpression: REMOVE,
+      offsetTernaryExpressions: REMOVE,
+      VariableDeclarator: REMOVE,
+      /* eslint-enable @typescript-eslint/naming-convention */
+    }),
     'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticVanillaLayoutConfig),
     // Same configuration as the @stylistic/object-curly-newline rule but it diverged slightly
     'jsonc/object-curly-newline': [ERROR, {
@@ -51,7 +56,12 @@ export const json5LayoutConfig = {
     }),
     'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticVanillaLayoutConfig),
     'jsonc/quote-props': getRuleConfig('@stylistic/quote-props', stylisticVanillaLayoutConfig),
-    'jsonc/quotes': getRuleConfig('@stylistic/quotes', stylisticVanillaLayoutConfig),
+    'jsonc/quotes': getRuleConfigOverride('@stylistic/quotes', stylisticVanillaLayoutConfig, undefined, {
+      // JSON5 has no template literal, and `jsonc` only accepts a boolean here
+      allowTemplateLiterals: REMOVE,
+      // `jsonc` has no counterpart for this option
+      ignoreStringLiterals: REMOVE,
+    }),
     'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticVanillaLayoutConfig),
   },
 } as const satisfies Linter.Config

@@ -1,10 +1,10 @@
 import { mergeConfigs } from '../../configMerger.ts'
 
-import { json5Config } from '../plugins/jsonc/syntax-json5.ts'
+import { languageJsoncConfig } from '../language-jsonc.ts'
 
 
 export const overrideJsoncConfig = mergeConfigs(
-  json5Config,
+  languageJsoncConfig,
   {
     files: ['**/*.jsonc', '.vscode/*.json', 'tsconfig.json'],
   }
