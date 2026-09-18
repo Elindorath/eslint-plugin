@@ -3,6 +3,7 @@ import globals from 'globals'
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
+import { libraryReactEnvironmentBrowserConfig } from '../library-react&environment-browser.ts'
 import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
@@ -21,6 +22,7 @@ export const projectReactConfig = [
   mergeConfigs(
     vanillaConfig,
     libraryReactSyntaxJsxConfig,
+    libraryReactEnvironmentBrowserConfig,
     syntaxTypescriptConfig,
     typescriptReactConfig,
     importBrowserConfig,

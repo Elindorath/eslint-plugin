@@ -3,6 +3,7 @@ import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-n
 import { libraryJestConfig } from './configs/library-jest.ts'
 import { libraryJestSyntaxTypescriptConfig } from './configs/library-jest&syntax-typescript.ts'
 import { libraryReactConfig } from './configs/library-react.ts'
+import { libraryReactEnvironmentBrowserConfig } from './configs/library-react&environment-browser.ts'
 import { libraryReactSyntaxJsxConfig } from './configs/library-react&syntax-jsx.ts'
 import { libraryReactNativeSyntaxJsxConfig } from './configs/library-react-native&syntax-jsx.ts'
 import { projectEslintPluginConfig } from './configs/projects/eslint-plugin.ts'
@@ -19,6 +20,7 @@ export const configs = {
   'library-jest': libraryJestConfig,
   'library-jest&syntax-typescript': libraryJestSyntaxTypescriptConfig,
   'library-react': libraryReactConfig,
+  'library-react&environment-browser': libraryReactEnvironmentBrowserConfig,
   'library-react&syntax-jsx': libraryReactSyntaxJsxConfig,
   'library-react-native&syntax-jsx': libraryReactNativeSyntaxJsxConfig,
   'project-eslint-plugin': projectEslintPluginConfig,
