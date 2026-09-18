@@ -144,8 +144,14 @@ export const stylisticVanillaLayoutConfig = {
       flatTernaryExpressions: false,
       ignoreComments: false,
       ignoredNodes: [],
-      offsetTernaryExpressions: true,
-      offsetTernaryExpressionsOffsetCallExpressions: true,
+      /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
+      // Configured value
+      offsetTernaryExpressions: {
+        AwaitExpression: true,
+        CallExpression: true,
+        NewExpression: true,
+      },
+      /* eslint-enable @typescript-eslint/naming-convention */
       outerIIFEBody: 1,
 
       /* ----- AST Node specifics ----- */
@@ -381,26 +387,23 @@ export const stylisticVanillaLayoutConfig = {
     }],
     '@stylistic/no-extra-parens': [ERROR, 'all', {
       // Configured value
-      allowNodesInSpreadElement: {
-        /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
-        AwaitExpression: true,
-        ConditionalExpression: true,
-        LogicalExpression: true,
-        /* eslint-enable @typescript-eslint/naming-convention */
-      },
-      // Configured value
       allowParensAfterCommentPattern: '@type',
       // Configured value
       conditionalAssign: true,
       // Configured value
-      enforceForArrowConditionals: true,
-      // Configured value
       enforceForFunctionPrototypeMethods: true,
       // Configured value
-      enforceForNewInMemberExpressions: true,
-      // Configured value
       enforceForSequenceExpressions: true,
-      ignoredNodes: [],
+
+      /*
+       * Parentheses around a spread argument read as grouping, not as redundancy
+       * Configured value
+       */
+      ignoredNodes: [
+        'SpreadElement:has(> AwaitExpression)',
+        'SpreadElement:has(> ConditionalExpression)',
+        'SpreadElement:has(> LogicalExpression)',
+      ],
       // Configured value
       ignoreJSX: 'multi-line',
       // Configured value
@@ -662,12 +665,13 @@ export const stylisticVanillaLayoutConfig = {
     '@stylistic/type-annotation-spacing': [ERROR, {
       after: true,
       before: false,
-      // Configured value
+
+      /*
+       * Arrow spacing in function types is enforced by '@stylistic/arrow-spacing'
+       * Configured value
+       */
       overrides: {
-        arrow: {
-          after: true,
-          before: true,
-        },
+        arrow: 'ignore',
       },
     }],
     '@stylistic/type-generic-spacing': [ERROR],
