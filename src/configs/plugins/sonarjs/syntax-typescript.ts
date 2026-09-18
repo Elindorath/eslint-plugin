@@ -82,6 +82,8 @@ export const sonarjsTypescriptConfig = {
     'sonarjs/single-character-alternation': [ERROR],
     'sonarjs/slow-regex': [ERROR],
     'sonarjs/strings-comparison': [ERROR],
+    // TODO: Should be put in a tests specific configuration file
+    'sonarjs/synchronous-exception-assertions': [ERROR],
     'sonarjs/unicode-aware-regex': [ERROR],
     'sonarjs/unused-import': [ERROR],
     'sonarjs/unused-named-groups': [ERROR],

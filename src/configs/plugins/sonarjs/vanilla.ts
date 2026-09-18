@@ -27,6 +27,8 @@ export const sonarJsVanillaConfig = {
     'sonarjs/assertions-in-tests': [ERROR],
     // TODO: Should be put in a tests specific configuration file
     'sonarjs/async-test-assertions': [ERROR],
+    // TODO: Should be put in a library lodash or underscore.js specific configuration file
+    'sonarjs/avoid-mutating-nested-properties-of-shallow-clones': [ERROR],
     'sonarjs/bitwise-operators': [ERROR],
     'sonarjs/block-scoped-var': [ERROR],
     'sonarjs/bool-param-default': [ERROR],
@@ -45,6 +47,8 @@ export const sonarJsVanillaConfig = {
       message: 'Avoid letting todo comments',
       regularExpression: 'TODO:',
     }],
+    // TODO: Should be put in a tests specific configuration file
+    'sonarjs/composite-assertions': [ERROR],
     'sonarjs/constructor-for-side-effects': [ERROR],
     // TODO: Should be put in a library formidable, multer or body-parser specific configuration file
     'sonarjs/content-length': [ERROR, {
@@ -133,11 +137,15 @@ export const sonarJsVanillaConfig = {
     // TODO: might be OFF as it could be too distracting when developing
     'sonarjs/no-commented-code': [ERROR],
     'sonarjs/no-dead-store': [ERROR],
+    // TODO: Should be put in a library lodash or underscore.js and library react specific configuration file
+    'sonarjs/no-debounce-throttle-in-render': [ERROR],
     // TODO: Should be put in a library Playwright/Cypress specific configuration file
     'sonarjs/no-debug-commands-in-ui-tests': [ERROR],
     // TODO: Should be put in a library lodash specific configuration file
     'sonarjs/no-default-utility-imports': [ERROR],
     'sonarjs/no-delete-var': [ERROR],
+    // TODO: Should be put in a tests specific configuration file
+    'sonarjs/no-duplicate-parameterized-test-case': [ERROR],
     'sonarjs/no-duplicate-string': [ERROR, {
       ignoreStrings: 'application/json',
       // Configured value
@@ -148,6 +156,8 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-duplicated-branches': [ERROR],
     'sonarjs/no-element-overwrite': [ERROR],
     'sonarjs/no-empty-collection': [ERROR],
+    // TODO: Should be put in a tests specific configuration file
+    'sonarjs/no-empty-parameterized-test-dataset': [ERROR],
     // TODO: Should be put in a tests specific configuration file
     'sonarjs/no-empty-test-file': [ERROR],
     // TODO: Should be put in a tests specific configuration file
@@ -197,6 +207,8 @@ export const sonarJsVanillaConfig = {
     // TODO: Should be put in a library express specific configuration file
     'sonarjs/no-mime-sniff': [ERROR],
     'sonarjs/no-mixed-completion-style': [ERROR],
+    // TODO: Should be put in a library Vue.js specific configuration file
+    'sonarjs/no-mutate-reactive-state-in-updated-hook': [ERROR],
     'sonarjs/no-nested-assignment': [ERROR],
     'sonarjs/no-nested-conditional': [ERROR],
     'sonarjs/no-nested-functions': [ERROR, {
@@ -205,6 +217,8 @@ export const sonarJsVanillaConfig = {
     'sonarjs/no-nested-incdec': [ERROR],
     'sonarjs/no-nested-switch': [ERROR],
     'sonarjs/no-nested-template-literals': [ERROR],
+    // TODO: Should be put in a library playwright specific configuration file
+    'sonarjs/no-networkidle-wait': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/no-os-command-from-path': [ERROR],
     'sonarjs/no-parameter-reassignment': [ERROR],
@@ -246,6 +260,10 @@ export const sonarJsVanillaConfig = {
     // TODO: Should be put in a library react specific configuration file
     'sonarjs/no-useless-react-setstate': [ERROR],
     'sonarjs/no-variable-usage-before-declaration': [ERROR],
+    // TODO: Should be put in a library Vue.js specific configuration file
+    'sonarjs/no-vue-class-component': [ERROR],
+    // TODO: Should be put in a library Vue.js specific configuration file
+    'sonarjs/no-vue-mixins': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/no-weak-cipher': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
@@ -255,8 +273,14 @@ export const sonarJsVanillaConfig = {
     // TODO: Should be put in a environment browser specific configuration file
     'sonarjs/object-alt-content': [ERROR],
     'sonarjs/parameterized-tests': [ERROR],
+    // TODO: Should be put in a library cypress specific configuration file
+    'sonarjs/prefer-cypress-should': [ERROR],
     'sonarjs/prefer-default-last': [ERROR],
     'sonarjs/prefer-immediate-return': [ERROR],
+    // TODO: Should be put in a library axios specific configuration file
+    'sonarjs/prefer-native-axios-alternative': [ERROR],
+    // TODO: Should be put in a library jQuery specific configuration file
+    'sonarjs/prefer-native-jquery-alternative': [ERROR],
     // TODO: Should be put in a library lodash specific configuration file
     'sonarjs/prefer-native-lodash-alternative': [ERROR],
     'sonarjs/prefer-object-literal': [ERROR],
@@ -293,6 +317,10 @@ export const sonarJsVanillaConfig = {
     'sonarjs/table-header-reference': [ERROR],
     // TODO: Should be put in a library chai/mocha specific configuration file
     'sonarjs/test-check-exception': [ERROR],
+    // TODO: Should be put in a library testing-library specific configuration file
+    'sonarjs/testing-library-prefer-query-by-disappearance': [ERROR],
+    // TODO: Should be put in a library testing-library specific configuration file
+    'sonarjs/testing-library-query-assertion': [ERROR],
 
     /**
      * TODO: Find a way to keep track and manage those comments
@@ -309,6 +337,8 @@ export const sonarJsVanillaConfig = {
     'sonarjs/variable-name': [ERROR, {
       format: '^[_$A-Za-z][$A-Za-z0-9]*$|^[_$A-Z][_$A-Z0-9]+$',
     }],
+    // TODO: Should be put in a library vitest specific configuration file
+    'sonarjs/vitest-mock-at-module-scope': [ERROR],
     // TODO: Should be put in a environment node specific configuration file
     'sonarjs/weak-ssl': [ERROR],
     // TODO: Should be put in a library express specific configuration file
