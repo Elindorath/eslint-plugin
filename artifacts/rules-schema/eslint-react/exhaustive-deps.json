@@ -1,0 +1,24 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "enableDangerousAutofixThisMayCauseInfiniteLoops": false,
+    "properties": {
+      "additionalHooks": {
+        "type": "string"
+      },
+      "enableDangerousAutofixThisMayCauseInfiniteLoops": {
+        "type": "boolean"
+      },
+      "experimental_autoDependenciesHooks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "requireExplicitEffectDeps": {
+        "type": "boolean"
+      }
+    }
+  }
+]

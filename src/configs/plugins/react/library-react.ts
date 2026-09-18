@@ -6,7 +6,6 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { Linter } from 'eslint'
 
 
-const DISALLOW_IN_FUNC = 'disallow-in-func'
 const STATIC_PUBLIC_FIELD = 'static public field'
 /* eslint-disable unicorn/no-unused-properties -- Keep this enum */
 const FUNCTION_TYPE = {
@@ -55,11 +54,8 @@ export const reactConfig = {
       rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
       validateNested: false,
     }],
-    'react/button-has-type': [ERROR, {
-      button: true,
-      reset: true,
-      submit: true,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/button-has-type': [OFF],
     'react/checked-requires-onchange-or-readonly': [ERROR, {
       ignoreExclusiveCheckedAttribute: false,
       ignoreMissingProperties: false,
@@ -67,16 +63,10 @@ export const reactConfig = {
     'react/default-props-match-prop-types': [ERROR, {
       allowRequiredDefaults: false,
     }],
-    'react/destructuring-assignment': [ERROR, 'always', {
-      // Configured value
-      destructureInSignature: 'always',
-      ignoreClassFields: false,
-    }],
-    'react/display-name': [ERROR, {
-      ignoreTranspilerName: false,
-      // Configured value
-      checkContextObjects: true,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/destructuring-assignment': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/display-name': [OFF],
     'react/forbid-component-props': [ERROR, {
       /* Default props with extended messages */
       // Configured value
@@ -106,40 +96,42 @@ export const reactConfig = {
     'react/forbid-foreign-prop-types': [ERROR, {
       allowInPropTypes: false,
     }],
-    'react/forbid-prop-types': [ERROR, {
-      // Configured value
-      checkChildContextTypes: true,
-      // Configured value
-      checkContextTypes: true,
-      forbid: ['any', 'array', 'object'],
-    }],
-    'react/forward-ref-uses-ref': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/forbid-prop-types': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/forward-ref-uses-ref': [OFF],
     'react/function-component-definition': [ERROR, {
       // Configured value
       namedComponents: FUNCTION_TYPE.ARROW,
       // Configured value
       unnamedComponents: FUNCTION_TYPE.ARROW,
     }],
-    'react/hook-use-state': [ERROR, {
-      allowDestructuredState: false,
-    }],
-    'react/iframe-missing-sandbox': [ERROR],
-    'react/no-access-state-in-setstate': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/hook-use-state': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/iframe-missing-sandbox': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-access-state-in-setstate': [OFF],
     'react/no-adjacent-inline-elements': [ERROR],
-    'react/no-array-index-key': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-array-index-key': [OFF],
     'react/no-arrow-function-lifecycle': [ERROR],
-    'react/no-children-prop': [ERROR, {
-      allowFunctions: false,
-    }],
-    'react/no-danger': [ERROR, {
-      customComponentNames: [],
-    }],
-    'react/no-danger-with-children': [ERROR],
-    'react/no-deprecated': [ERROR],
-    'react/no-did-mount-set-state': [ERROR, DISALLOW_IN_FUNC],
-    'react/no-did-update-set-state': [ERROR, DISALLOW_IN_FUNC],
-    'react/no-direct-mutation-state': [ERROR],
-    'react/no-find-dom-node': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-children-prop': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-danger': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-danger-with-children': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-deprecated': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-did-mount-set-state': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-did-update-set-state': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-direct-mutation-state': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-find-dom-node': [OFF],
     'react/no-invalid-html-attribute': [ERROR, ['rel']],
     'react/no-is-mounted': [ERROR],
 
@@ -151,16 +143,17 @@ export const reactConfig = {
     'react/no-multi-comp': [ERROR, {
       ignoreStateless: false,
     }],
-    'react/no-namespace': [ERROR],
-    'react/no-object-type-as-default-prop': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-namespace': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-object-type-as-default-prop': [OFF],
     'react/no-redundant-should-component-update': [ERROR],
-    'react/no-render-return-value': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-render-return-value': [OFF],
     // OFF as we use (even enforce) local component state
     'react/no-set-state': [OFF],
-    'react/no-string-refs': [ERROR, {
-      // Configured value
-      noTemplateLiterals: true,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-string-refs': [OFF],
     'react/no-this-in-sfc': [ERROR],
     'react/no-typos': [ERROR],
     'react/no-unescaped-entities': [ERROR, {
@@ -185,25 +178,23 @@ export const reactConfig = {
         },
       ],
     }],
-    'react/no-unknown-property': [ERROR, {
-      ignore: [],
-    }],
-    'react/no-unsafe': [ERROR, {
-      // Configured value
-      checkAliases: true,
-    }],
-    'react/no-unstable-nested-components': [ERROR, {
-      allowAsProps: false,
-      customValidators: [],
-    }],
-    'react/no-unused-class-component-methods': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-unknown-property': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-unsafe': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-unstable-nested-components': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent, which the upstream `disable-conflict` misses under its former name
+    'react/no-unused-class-component-methods': [OFF],
     'react/no-unused-prop-types': [ERROR, {
       customValidators: [],
       ignore: [],
       skipShapeProps: true,
     }],
-    'react/no-unused-state': [ERROR],
-    'react/no-will-update-set-state': [ERROR, DISALLOW_IN_FUNC],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-unused-state': [OFF],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/no-will-update-set-state': [OFF],
     'react/prefer-es6-class': [ERROR, 'always'],
     // TODO: Might not work properly with TypeScript, need testing
     'react/prefer-exact-props': [ERROR],
@@ -211,11 +202,8 @@ export const reactConfig = {
     'react/prefer-stateless-function': [ERROR, {
       ignorePureComponents: false,
     }],
-    'react/prop-types': [ERROR, {
-      customValidators: [],
-      ignore: [],
-      skipUndeclared: false,
-    }],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/prop-types': [OFF],
     // OFF as we use the JSX transform from React 17
     'react/react-in-jsx-scope': [OFF],
     'react/require-default-props': [ERROR, {
@@ -292,6 +280,7 @@ export const reactConfig = {
     'react/style-prop-object': [ERROR, {
       allow: [],
     }],
-    'react/void-dom-elements-no-children': [ERROR],
+    // OFF as it is superseded by the '@eslint-react' equivalent
+    'react/void-dom-elements-no-children': [OFF],
   },
 } as const satisfies Linter.Config
