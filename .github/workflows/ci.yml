@@ -12,6 +12,7 @@ jobs:
           - lint
           - type-check
           - test-update
+          - spellcheck
     steps:
       - name: Checkout repository
         id: checkout

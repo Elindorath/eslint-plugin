@@ -27,7 +27,7 @@
   - [x] Detect new rules or changes in rules in new dependencies version (running weekly)
   - [x] Automatically merge new dependencies version that doesn't change the config
   - [ ] Expose an easy way to describe a project structure in order to apply the right rules to the right files
-  - [ ] Run CSpell check in CI <https://cspell.org/docs/installation/>
+  - [ ] Run the CSpell CLI in CI to cover what the ESLint plugin can't reach: Markdown prose and file names. The plugin only bootstraps from a `Program` node, which the Markdown AST doesn't have (following [#3464](https://github.com/streetsidesoftware/cspell/issues/3464)) <https://cspell.org/docs/installation/>
   - [ ] Write an eslint rule to enforce css properties ordering
   - [ ] Resolve the issue of keys sorting: prioritize code understanding or ease of review?
   - [ ] Let the rule '@stylistic/quote-props' to allow grouping keys when the option 'consistent-as-needed' is chosen
