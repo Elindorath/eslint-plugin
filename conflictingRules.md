@@ -70,6 +70,15 @@ no-use-extend-native/no-use-extend-native
 @stylistic/object-curly-spacing        -> emptyObjects
 unicorn/empty-brace-spaces
 
+react-hooks/rules-of-hooks
+react-hooks/hooks
+
+react-hooks/exhaustive-deps
+react-hooks/exhaustive-effect-dependencies
+
+react-hooks/exhaustive-deps
+react-hooks/memo-dependencies
+
 TS noImplicitReturns
 consistent-return
 
