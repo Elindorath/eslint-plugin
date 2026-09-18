@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/filename-case -- Temporary disabled to avoid unnecessary noise */
-
 import path from 'node:path'
 import { URL } from 'node:url'
 
@@ -46,4 +44,3 @@ function unescapeRuleName(ruleName: string) {
   return ruleName.replaceAll('_', '/')
 }
 
-/* eslint-enable */

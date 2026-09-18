@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/filename-case, require-await -- Temporary disabled to avoid unnecessary noise */
-
 import { URL } from 'node:url'
 
 import fs from 'fs-extra'
@@ -28,4 +26,3 @@ function escapeRuleName(ruleName: string) {
   return ruleName.replaceAll('/', '_')
 }
 
-/* eslint-enable */

@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/filename-case, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
+/* eslint-disable perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
 import { objectEntries } from './utilities/object.ts'
 

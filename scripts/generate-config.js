@@ -23,9 +23,15 @@ const packageDirectory = require('package-directory')
 
 module.exports = {
 ${configFileNames
-    .map((fileName) => path.basename(fileName, '.js'))
-    .filter((id) => !id.startsWith('_') && id !== 'plugins')
-    .map((id) => `  '${id}': require('./configs/${id}'),`)
+    .map((fileName) => {
+      return path.basename(fileName, '.js')
+    })
+    .filter((id) => {
+      return !id.startsWith('_') && id !== 'plugins'
+    })
+    .map((id) => {
+      return `  '${id}': require('./configs/${id}'),`
+    })
     .join('\n')}
 };
 `

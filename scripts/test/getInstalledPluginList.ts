@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/filename-case, sonarjs/prefer-immediate-return -- Temporary disabled to avoid unnecessary noise */
+/* eslint-disable sonarjs/prefer-immediate-return -- Temporary disabled to avoid unnecessary noise */
 
 import { readdir } from 'node:fs/promises'
 

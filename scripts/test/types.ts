@@ -2,6 +2,7 @@ import type { URL } from 'node:url'
 
 import type { ESLint, Linter } from 'eslint'
 import type { IChange } from 'json-diff-ts'
+// eslint-disable-next-line n/no-missing-import -- `json-schema` only exists as the `@types/json-schema` package
 import type { JSONSchema4 } from 'json-schema'
 import type { SetRequired/* , Tagged */ } from 'type-fest'
 
@@ -41,7 +42,6 @@ type PluginRuleSchemaDescriptor = {
   pluginName: PluginName;
   ruleSchemaEntries: RuleSchemaEntry[];
 }
-type PluginRulesMeta = { [key: RuleName]: RuleSchema; }
 type RuleId = `${PluginPrefix}/${RuleName}`
 
 type RuleName = string
@@ -62,6 +62,7 @@ export type {
   PluginRuleSchemaDescriptor,
   RuleId,
   RuleName,
+  RuleSchema,
   RuleSchemaEntry,
 }
 

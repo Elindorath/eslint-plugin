@@ -161,6 +161,8 @@ import-x/consistent-type-specifier-style
 Extending base rule
 Conflict with another rule
 
+<!-- eslint-skip -->
+
 ```typescript
 const config = {
   rules: {

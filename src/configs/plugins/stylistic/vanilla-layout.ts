@@ -3,8 +3,7 @@ import stylisticPlugin from '@stylistic/eslint-plugin'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
-import type { ESLint, Linter } from 'eslint'
-import type { SetRequired } from 'type-fest'
+import type { Linter } from 'eslint'
 
 
 const CODE_MAX_LEN = 180
@@ -686,48 +685,3 @@ export const stylisticVanillaLayoutConfig = {
 } as const satisfies Linter.Config
 
 /* eslint-enable */
-
-
-type PluginConfig<
-  PluginPrefix extends string,
-  PluginInstance extends SetRequired<ESLint.Plugin, 'rules'>
-> = {
-  plugins: { [key in PluginPrefix]: PluginInstance; };
-  rules: { [key in `${PluginPrefix}/${ObjectKeys<PluginInstance['rules']>}`]: [Linter.StringSeverity, ...unknown[]] };
-}
-
-function definePluginConfig<
-  PluginPrefix extends string,
-  PluginInstance extends SetRequired<ESLint.Plugin, 'rules'>
->(config: PluginConfig<PluginPrefix, PluginInstance>) {
-}
-
-definePluginConfig({
-  plugins: { coucou: stylisticPlugin },
-  rules: {
-    'coucou/toi': [ERROR],
-    'coucou/yield-star-spacing': [ERROR, {
-      afte: true,
-    }],
-  },
-} as const)
-
-type InferPluginRuleNames<Plugin extends SetRequired<ESLint.Plugin, 'rules'>> = Plugin['rules'] extends Record<infer Keys, any> ? Keys : never
-type ObjectKeys<T extends object> = `${Exclude<keyof T, symbol>}`
-type TT = keyof Required<ESLint.Plugin>['rules']
-
-const objectKeys = Object.keys as <T extends object>(object: T) => Array<ObjectKeys<T>>
-
-/*
- * Function extractRuleNames(plugin: SetRequired<ESLint.Plugin, 'rules'>) {
- *   return objectKeys(plugin.rules) as InferPluginRuleNames<typeof plugin>
- * }
- */
-
-// const t = extractRuleNames(stylisticPlugin)
-
-function extractRuleNames<Rules extends SetRequired<ESLint.Plugin, 'rules'>['rules']>(rules: Rules) {
-  return objectKeys(rules)
-}
-
-const t = extractRuleNames(stylisticPlugin.rules)
