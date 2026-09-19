@@ -3,6 +3,7 @@
     "description": "The rule options.",
     "anyOf": [
       {
+        "type": "object",
         "properties": {
           "case": {
             "enum": [
@@ -33,13 +34,27 @@
           "checkDirectories": {
             "type": "boolean",
             "description": "Whether to check directory names."
+          },
+          "directoryRoots": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "additionalProperties": true
+            },
+            "uniqueItems": true,
+            "description": "Directory root paths or patterns, relative to the current working directory."
           }
         },
         "additionalProperties": false
       },
       {
+        "type": "object",
         "properties": {
           "cases": {
+            "type": "object",
             "properties": {
               "camelCase": {
                 "type": "boolean",
@@ -84,6 +99,18 @@
           "checkDirectories": {
             "type": "boolean",
             "description": "Whether to check directory names."
+          },
+          "directoryRoots": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "additionalProperties": true
+            },
+            "uniqueItems": true,
+            "description": "Directory root paths or patterns, relative to the current working directory."
           }
         },
         "additionalProperties": false

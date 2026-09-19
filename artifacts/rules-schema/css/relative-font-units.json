@@ -1,0 +1,29 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowUnits": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "%",
+            "cap",
+            "ch",
+            "em",
+            "ex",
+            "ic",
+            "lh",
+            "rcap",
+            "rch",
+            "rem",
+            "rex",
+            "ric",
+            "rlh"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

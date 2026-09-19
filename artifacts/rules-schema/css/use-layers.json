@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowUnnamedLayers": {
+        "type": "boolean"
+      },
+      "requireImportLayers": {
+        "type": "boolean"
+      },
+      "layerNamePattern": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+]

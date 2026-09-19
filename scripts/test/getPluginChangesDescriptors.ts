@@ -79,29 +79,21 @@ function getReplacedBy(rule: Rule.RuleModule, pluginPrefix: PluginPrefix): strin
     return getOldReplacedBy(rule)
   }
 
-  if (deprecatedData !== undefined) {
-    return deprecatedData.replacedBy?.map(({ plugin: replacedByPlugin, rule: replacedByRule }) => {
-      if (replacedByPlugin?.url !== undefined) {
-        return replacedByPlugin.url
-      }
+  return deprecatedData === undefined
+    ? deprecatedData
+    : deprecatedData.replacedBy?.map(({ plugin: replacedByPlugin, rule: replacedByRule }) => {
+        if (replacedByPlugin?.url !== undefined) {
+          return replacedByPlugin.url
+        }
 
-      if (replacedByRule?.url !== undefined) {
-        return replacedByRule.url
-      }
+        if (replacedByRule?.url !== undefined) {
+          return replacedByRule.url
+        }
 
-      if (replacedByRule?.name !== undefined) {
-        return `${replacedByPlugin?.name ?? pluginPrefix}/${replacedByRule.name}`
-      }
-
-      if (replacedByPlugin?.name !== undefined) {
-        return replacedByPlugin.name
-      }
-
-      return 'unknown'
-    })
-  }
-
-  return deprecatedData
+        return replacedByRule?.name === undefined
+          ? (replacedByPlugin?.name ?? 'unknown')
+          : `${replacedByPlugin?.name ?? pluginPrefix}/${replacedByRule.name}`
+      })
 }
 
 /**
@@ -174,12 +166,8 @@ function getRuleSchemaChanges(storedRuleName: RuleName, storedRuleSchema: RuleSc
 }
 
 function asWritableArray<T>(readonlyArray?: readonly T[]): Writable<T[]> | undefined {
-  if (readonlyArray === undefined) {
-    return undefined
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- We specifically want to narrow down this type
-  return readonlyArray as Writable<T[]>
+  return readonlyArray === undefined ? undefined : readonlyArray as Writable<T[]>
 }
 
 /* eslint-enable */

@@ -1,6 +1,7 @@
 import { environmentBrowserConfig } from './configs/environment-browser.ts'
 import { environmentNodeConfig } from './configs/environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-node-source-type-commonjs.ts'
+import { languageCssConfig } from './configs/language-css.ts'
 import { languageJson5Config } from './configs/language-json5.ts'
 import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
 import { languageJsonConfig } from './configs/language-json.ts'
@@ -30,6 +31,7 @@ export const configs = {
   'environment-browser': environmentBrowserConfig,
   'environment-node': environmentNodeConfig,
   'environment-node-source-type-commonjs': environmentNodeSourceTypeCommonJsConfig,
+  'language-css': languageCssConfig,
   'language-json': languageJsonConfig,
   'language-json5': languageJson5Config,
   'language-json5-layout': languageJson5LayoutConfig,

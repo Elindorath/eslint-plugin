@@ -6,6 +6,7 @@
 | ------------------------------------------------------------------ |
 | [@cspell/eslint-plugin][cspell]                                    |
 | [@eslint-community/eslint-plugin-eslint-comments][eslint-comments] |
+| [@eslint/css][css]                                                 |
 | [@eslint/markdown][markdown]                                       |
 | [@stylistic/eslint-plugin][@stylistic]                             |
 | [eslint][eslint]                                                   |
@@ -118,6 +119,7 @@
 
 <!-- Included -->
 [eslint-comments]: https://github.com/eslint-community/eslint-plugin-eslint-comments
+[css]: https://github.com/eslint/css
 [markdown]: https://github.com/eslint/markdown
 [@stylistic]: https://github.com/eslint-stylistic/eslint-stylistic
 [eslint]: https://github.com/eslint/eslint
