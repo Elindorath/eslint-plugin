@@ -12,6 +12,8 @@ jobs:
           - lint
           - type-check
           - test-update
+          - test-reachability
+          - test-schema
           - spellcheck
     steps:
       - name: Checkout repository
