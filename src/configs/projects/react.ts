@@ -1,67 +1,58 @@
-import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
+import { defineProject } from '../../defineProject.ts'
 
-import { environmentBrowserConfig } from '../environment-browser.ts'
-import { libraryReactEnvironmentBrowserConfig } from '../library-react&environment-browser.ts'
-import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
 import { overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overrideWebpackConfig } from '../overrides/webpack-config.ts'
-import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
-import { syntaxTypescriptLibraryReactConfig } from '../syntax-typescript&library-react.ts'
-import { vanillaConfig } from '../vanilla.ts'
 
 
 const cssFilesGlob = '**/*.css.ts'
 
 export const projectReactConfig = [
-  mergeConfigs(
-    vanillaConfig,
-    libraryReactSyntaxJsxConfig,
-    libraryReactEnvironmentBrowserConfig,
-    syntaxTypescriptConfig,
-    syntaxTypescriptLibraryReactConfig,
-    environmentBrowserConfig,
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      rules: {
-        // OFF as it is unpractical in react projects
-        'import-x/no-relative-parent-imports': [OFF],
+  ...defineProject({
+    environment: ['browser'],
+    files: ['**/*.ts', '**/*.tsx'],
+    library: ['react'],
+    overrides: [
+      {
+        files: ['**/*.tsx', cssFilesGlob],
+        rules: {
+          'unicorn/filename-case': [ERROR, {
+            case: 'pascalCase',
+            ignore: [
+              /\.md$/ui,
+            ],
+          }],
+        },
       },
-    },
-  ),
-  {
-    files: ['**/*.tsx', cssFilesGlob],
+      {
+        files: ['**/main.tsx'],
+        rules: {
+          'unicorn/filename-case': [ERROR, {
+            case: 'kebabCase',
+            ignore: [
+              /\.md$/ui,
+            ],
+          }],
+        },
+      },
+      {
+        files: [cssFilesGlob],
+        rules: {
+          // OFF as we want to enforce exporting a unique 'styles' object
+          'filenames-simple/named-export': [OFF],
+          // OFF as this rule would force us to capitalized the '.css' part
+          'unicorn/filename-case': [OFF],
+        },
+      },
+    ],
     rules: {
-      'unicorn/filename-case': [ERROR, {
-        case: 'pascalCase',
-        ignore: [
-          /\.md$/ui,
-        ],
-      }],
+      // OFF as it is unpractical in react projects
+      'import-x/no-relative-parent-imports': [OFF],
     },
-  },
-  {
-    files: ['**/main.tsx'],
-    rules: {
-      'unicorn/filename-case': [ERROR, {
-        case: 'kebabCase',
-        ignore: [
-          /\.md$/ui,
-        ],
-      }],
-    },
-  },
-  {
-    files: [cssFilesGlob],
-    rules: {
-      // OFF as we want to enforce exporting a unique 'styles' object
-      'filenames-simple/named-export': [OFF],
-      // OFF as this rule would force us to capitalized the '.css' part
-      'unicorn/filename-case': [OFF],
-    },
-  },
+    syntax: ['typescript', 'jsx'],
+  }),
   overrideEslintConfig,
   overrideJestTestsConfig,
   overrideMarkdownConfig,

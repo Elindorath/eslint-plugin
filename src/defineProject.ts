@@ -33,20 +33,50 @@ export function defineProject(declaration: ProjectDeclaration): FixedLinterConfi
   const rootAxes = resolveAxes(DEFAULT_AXES, rootGroup)
 
   return [
-    buildGroupConfig(rootGroup, rootAxes),
+    buildGroupConfig(rootGroup, rootAxes, rootGroup.layout ?? false),
     ...overrides.map((override) => {
-      return buildGroupConfig(override, resolveAxes(rootAxes, override))
+      const overrideAxes = resolveAxes(rootAxes, override)
+      const hasRootLayout = rootGroup.layout ?? false
+      const hasSameLayout = (override.layout ?? hasRootLayout) === hasRootLayout
+
+      /*
+       * A group that moves no axis is already covered by the one it belongs to, so it carries what
+       * it adds and nothing else
+       */
+      if (hasSameLayout && isSameAxes(rootAxes, overrideAxes)) {
+        return buildOwnConfig(override)
+      }
+
+      return buildGroupConfig(override, overrideAxes, override.layout ?? hasRootLayout)
     }),
   ]
 }
 
-function buildGroupConfig(group: ProjectGroup, axes: Axes): FixedLinterConfig {
-  const ownConfig: FixedLinterConfig = {
+function buildGroupConfig(group: ProjectGroup, axes: Axes, hasLayout: boolean): FixedLinterConfig {
+  return mergeConfigs(...selectConfigs(axes, hasLayout), buildOwnConfig(group))
+}
+
+function buildOwnConfig(group: ProjectGroup): FixedLinterConfig {
+  return {
     ...group.files !== undefined && { files: group.files },
     ...group.rules !== undefined && { rules: group.rules },
   }
+}
 
-  return mergeConfigs(...selectConfigs(axes, group.layout ?? false), ownConfig)
+function isSameAxes(left: Axes, right: Axes) {
+  if (left.language !== right.language || left.sourceType !== right.sourceType) {
+    return false
+  }
+
+  return isSameValues(left.syntax, right.syntax)
+    && isSameValues(left.environment, right.environment)
+    && isSameValues(left.library, right.library)
+}
+
+function isSameValues<Value>(left: Value[], right: Value[]) {
+  return left.length === right.length && left.every((value) => {
+    return right.includes(value)
+  })
 }
 
 // An axis the group leaves out keeps the value it inherits, and an empty array clears it
