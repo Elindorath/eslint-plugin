@@ -41,6 +41,8 @@ export const projectEslintPluginConfig = [
             modifiers: ['requiresQuotes'],
           },
         ],
+        // OFF as this plugin exposes its configurations by gathering them in a single object
+        'canonical/no-re-export': [OFF],
         // OFF as we rely on filenames to organize configurations
         'filenames-simple/named-export': [OFF],
         // OFF as we need to import all plugin configurations in final configuration files
@@ -94,6 +96,8 @@ export const projectEslintPluginConfig = [
   {
     files: ['**/eslint.config.ts'],
     rules: {
+      // OFF as ESLint mandates this filename
+      'canonical/filename-match-exported': [OFF],
       // OFF as ESLint mandates this filename
       'sonarjs/file-name-differ-from-class': [OFF],
     },

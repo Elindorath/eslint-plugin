@@ -1,4 +1,4 @@
-/* eslint-disable filenames-simple/no-index -- This is the entrypoint */
+/* eslint-disable filenames-simple/no-index, canonical/filename-match-exported -- This is the entrypoint */
 
 import { name, version } from '../package.json' with { type: 'json' }
 
