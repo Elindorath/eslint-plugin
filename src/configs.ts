@@ -1,6 +1,11 @@
 import { environmentBrowserConfig } from './configs/environment-browser.ts'
 import { environmentNodeConfig } from './configs/environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-node-source-type-commonjs.ts'
+import { languageJson5Config } from './configs/language-json5.ts'
+import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
+import { languageJsonConfig } from './configs/language-json.ts'
+import { languageJsoncConfig } from './configs/language-jsonc.ts'
+import { languageJsonLayoutConfig } from './configs/language-json-layout.ts'
 import { libraryAwsConfig } from './configs/library-aws.ts'
 import { libraryEslintPluginConfig } from './configs/library-eslint-plugin.ts'
 import { libraryI18nextConfig } from './configs/library-i18next.ts'
@@ -25,6 +30,11 @@ export const configs = {
   'environment-browser': environmentBrowserConfig,
   'environment-node': environmentNodeConfig,
   'environment-node-source-type-commonjs': environmentNodeSourceTypeCommonJsConfig,
+  'language-json': languageJsonConfig,
+  'language-json5': languageJson5Config,
+  'language-json5-layout': languageJson5LayoutConfig,
+  'language-json-layout': languageJsonLayoutConfig,
+  'language-jsonc': languageJsoncConfig,
   'library-aws': libraryAwsConfig,
   'library-eslint-plugin': libraryEslintPluginConfig,
   'library-i18next': libraryI18nextConfig,

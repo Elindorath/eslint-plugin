@@ -1,4 +1,8 @@
-import packageJsonPlugin from 'eslint-plugin-package-json'
+/**
+ * The default entry point declares `jsonc-eslint-parser`, under which these rules stop reporting
+ * silently once a `language` takes over parsing
+ */
+import packageJsonPlugin from 'eslint-plugin-package-json/experimental'
 
 import { ERROR, OFF } from '../../../constants.ts'
 

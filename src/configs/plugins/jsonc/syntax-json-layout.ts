@@ -1,5 +1,4 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
-import * as jsoncParser from 'jsonc-eslint-parser'
 
 import { ERROR } from '../../../constants.ts'
 import { getRuleConfig, getRuleConfigOverride, REMOVE } from '../../../utilities.ts'
@@ -12,10 +11,6 @@ import type { ESLint, Linter } from 'eslint'
 const INDENT_SPACE_COUNT = 2
 
 export const jsonLayoutConfig = {
-  languageOptions: {
-    parser: jsoncParser,
-  },
-
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.

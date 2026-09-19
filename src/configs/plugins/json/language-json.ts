@@ -5,7 +5,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { ESLint, Linter } from 'eslint'
 
 
-export const jsonConfig = {
+export const jsonLanguageConfig = {
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
@@ -19,7 +19,8 @@ export const jsonConfig = {
   language: 'json/json',
 
   rules: {
-    'json/no-duplicate-keys': [ERROR],
+    // OFF as the 'jsonc/no-dupe-keys' rule reports the same duplicates
+    'json/no-duplicate-keys': [OFF],
     'json/no-empty-keys': [ERROR],
     'json/no-unnormalized-keys': [ERROR, {
       form: 'NFC',

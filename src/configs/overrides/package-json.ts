@@ -1,17 +1,15 @@
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
-import { jsonConfig } from '../plugins/jsonc/syntax-json.ts'
-import { jsonLayoutConfig } from '../plugins/jsonc/syntax-json-layout.ts'
+import { languageJsonConfig } from '../language-json.ts'
+import { languageJsonLayoutConfig } from '../language-json-layout.ts'
 import { packageJsonConfig } from '../plugins/package-json/syntax-json.ts'
-import { stylisticJsonLayoutConfig } from '../plugins/stylistic/syntax-json-layout.ts'
 
 
 export const overridePackageJsonConfig = mergeConfigs(
-  jsonConfig,
-  jsonLayoutConfig,
+  languageJsonConfig,
+  languageJsonLayoutConfig,
   packageJsonConfig,
-  stylisticJsonLayoutConfig,
   {
     files: ['**/package.json'],
     rules: {
