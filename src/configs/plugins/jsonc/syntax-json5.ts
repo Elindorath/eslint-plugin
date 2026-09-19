@@ -41,7 +41,8 @@ export const json5Config = {
     'jsonc/no-bigint-literals': [ERROR],
     'jsonc/no-binary-expression': [ERROR],
     'jsonc/no-binary-numeric-literals': [ERROR],
-    'jsonc/no-comments': [ERROR],
+    // OFF as this configuration also serves JSONC, and both dialects exist to carry comments
+    'jsonc/no-comments': [OFF],
     'jsonc/no-escape-sequence-in-identifier': [ERROR],
     'jsonc/no-floating-decimal': [ERROR],
     'jsonc/no-hexadecimal-numeric-literals': [ERROR],
