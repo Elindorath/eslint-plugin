@@ -1,5 +1,4 @@
 import jestPlugin from 'eslint-plugin-jest'
-import globals from 'globals'
 
 import { ERROR, OFF } from '../../../constants.ts'
 import { getRuleConfig } from '../../../utilities.ts'
@@ -15,12 +14,6 @@ export const jestTypescriptConfig = {
   },
 
   /* ----- Language options ----- */
-  languageOptions: {
-    globals: {
-      ...globals.jest,
-    },
-  },
-
   rules: {
     'jest/no-error-equal': [ERROR],
     'jest/no-unnecessary-assertion': [ERROR],
