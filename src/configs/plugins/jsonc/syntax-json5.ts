@@ -41,12 +41,16 @@ export const json5Config = {
     'jsonc/no-bigint-literals': [ERROR],
     'jsonc/no-binary-expression': [ERROR],
     'jsonc/no-binary-numeric-literals': [ERROR],
-    'jsonc/no-comments': [ERROR],
+    // OFF as JSON5 exists to carry comments
+    'jsonc/no-comments': [OFF],
     'jsonc/no-escape-sequence-in-identifier': [ERROR],
     'jsonc/no-floating-decimal': [ERROR],
-    'jsonc/no-hexadecimal-numeric-literals': [ERROR],
-    'jsonc/no-infinity': [ERROR],
-    'jsonc/no-nan': [ERROR],
+    // OFF as JSON5 allows them, and JavaScript only asks for their case through 'unicorn/number-literal-case'
+    'jsonc/no-hexadecimal-numeric-literals': [OFF],
+    // OFF as JSON5 allows it
+    'jsonc/no-infinity': [OFF],
+    // OFF as JSON5 allows it
+    'jsonc/no-nan': [OFF],
     'jsonc/no-number-props': [ERROR],
     'jsonc/no-numeric-separators': [ERROR],
     'jsonc/no-octal-numeric-literals': [ERROR],
@@ -73,7 +77,12 @@ export const json5Config = {
       pathPattern: '.*',
       // hasProperties: [''],
     }],
-    'jsonc/valid-json-number': [ERROR],
+
+    /*
+     * OFF as it rejects every number JSON rejects, `Infinity`, `NaN` and hexadecimal included.
+     * What stays forbidden here is forbidden by its own rule
+     */
+    'jsonc/valid-json-number': [OFF],
     'jsonc/vue-custom-block/no-parsing-error': [ERROR],
 
     /* ----- Extended rules ----- */
