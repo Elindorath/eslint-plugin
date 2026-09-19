@@ -15,15 +15,6 @@ export const reactNativeConfig = {
     'react-native': reactNativePlugin,
   },
 
-  /* ----- Language options ----- */
-  languageOptions: {
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
-  },
-
   settings: {
     'react-native/style-sheet-object-names': ['StyleSheet'],
   },

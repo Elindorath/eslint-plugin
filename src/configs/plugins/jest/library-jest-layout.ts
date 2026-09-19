@@ -1,5 +1,4 @@
 import jestPlugin from 'eslint-plugin-jest'
-import globals from 'globals'
 
 import { ERROR } from '../../../constants.ts'
 
@@ -12,12 +11,6 @@ export const jestLayoutConfig = {
   },
 
   /* ----- Language options ----- */
-  languageOptions: {
-    globals: {
-      ...globals.jest,
-    },
-  },
-
   rules: {
     'jest/prefer-todo': [ERROR],
   },

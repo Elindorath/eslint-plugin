@@ -8,19 +8,6 @@ import type { ESLint, Linter } from 'eslint'
 export const typescriptReactConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
-  languageOptions: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected Linter.Parser type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    parser: typescriptEslint.parser as unknown as Linter.Parser,
-    // Might be exported to environment
-    parserOptions: {
-      warnOnUnsupportedTypeScriptVersion: true,
-    },
-  },
-
   plugins: {
     /**
      * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
