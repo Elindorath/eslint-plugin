@@ -80,7 +80,16 @@ export const perfectionistVanillaConfig = {
       useConfigurationIf: {},
     }],
     // OFF as the order of an array literal usually carries meaning, `sort-array-includes` and `sort-sets` already cover the cases where it doesn't
-    'perfectionist/sort-arrays': [OFF],
+    'perfectionist/sort-arrays': [OFF, {
+      // TODO: needs to be defined
+      customGroups: [],
+      groups: [
+        'literal',
+      ],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
+    }],
     'perfectionist/sort-classes': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],

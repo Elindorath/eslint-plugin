@@ -565,9 +565,12 @@ export const eslintVanillaConfig = {
     'no-void': [ERROR, {
       allowAsStatement: false,
     }],
-    // Disabled as it should be used on a one-time basis to list actions left to do
+
+    /*
+     * Disabled as it should be used on a one-time basis to list actions left to do
+     * `decoration` is left out: the rule defaults to none, and its schema rejects the empty array
+     */
     'no-warning-comments': [OFF, {
-      decoration: [],
       location: 'start',
       terms: ['todo', 'fixme', 'xxx'],
     }],

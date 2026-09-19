@@ -33,6 +33,8 @@
     "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
     "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
     "spellcheck": "cspell lint --no-progress \"**\"",
+    "test-reachability": "./scripts/test-reachability.ts",
+    "test-schema": "./scripts/test-schema.ts",
     "test-update": "./scripts/test-update.ts",
     "type-check": "tsc"
   },
