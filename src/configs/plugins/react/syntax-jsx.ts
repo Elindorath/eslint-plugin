@@ -1,5 +1,4 @@
 import reactPlugin from 'eslint-plugin-react'
-import globals from 'globals'
 
 import { ERROR, OFF } from '../../../constants.ts'
 
@@ -19,9 +18,6 @@ export const reactConfig = {
 
   /* ----- Language options ----- */
   languageOptions: {
-    globals: {
-      ...globals.browser,
-    },
     parserOptions: {
       ecmaFeatures: {
         jsx: true,

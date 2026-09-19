@@ -3,7 +3,6 @@
  */
 // @ts-expect-error: TS7016 because this plugin doesn't expose typings
 import reactNativePlugin from 'eslint-plugin-react-native'
-import globals from 'globals'
 
 import { ERROR } from '../../../constants.ts'
 
@@ -17,11 +16,7 @@ export const reactNativeConfig = {
   },
 
   /* ----- Language options ----- */
-  // TODO: Decide if we should keep that as it is very unlikely to use this config without the one from the react plugin.
   languageOptions: {
-    globals: {
-      ...globals.browser,
-    },
     parserOptions: {
       ecmaFeatures: {
         jsx: true,

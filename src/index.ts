@@ -3,6 +3,7 @@
 import { name, version } from '../package.json' with { type: 'json' }
 
 import { configs } from './configs.ts'
+import { defineProject } from './defineProject.ts'
 import { environments } from './environments.ts'
 import { languages } from './languages.ts'
 import { processors } from './processors.ts'
@@ -18,6 +19,7 @@ const plugin = {
 
   /* ----- Keeping meta on top ----- */
   configs,
+  defineProject,
   environments,
   languages,
   processors,
