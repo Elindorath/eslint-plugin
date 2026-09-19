@@ -3,6 +3,7 @@ import { ERROR, OFF } from '../../constants.ts'
 import { getRuleConfig } from '../../utilities.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
+import { libraryEslintPluginConfig } from '../library-eslint-plugin.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideMarkdownCodeBlockConfig, overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overridePackageJsonConfig } from '../overrides/package-json.ts'
@@ -25,6 +26,7 @@ export const projectEslintPluginConfig = [
     syntaxTypescriptConfig,
     environmentNodeConfig,
     syntaxTypescriptEnvironmentNodeConfig,
+    libraryEslintPluginConfig,
     {
       files: ['**/*.ts'],
       rules: {

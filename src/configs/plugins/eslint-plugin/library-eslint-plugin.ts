@@ -111,8 +111,10 @@ export const eslintPluginConfig = {
     }],
     'eslint-plugin/require-meta-schema-description': [ERROR],
     'eslint-plugin/require-meta-type': [ERROR],
-    // Configured value
-    'eslint-plugin/require-test-case-name': [ERROR, 'always'],
+    'eslint-plugin/require-test-case-name': [ERROR, {
+      // Configured value
+      require: 'always',
+    }],
     'eslint-plugin/require-test-error-positions': [ERROR],
     'eslint-plugin/test-case-property-ordering': [ERROR, [
       'code',

@@ -5,7 +5,7 @@ import { ERROR } from '../../../constants.ts'
 import type { Linter } from 'eslint'
 
 
-export const sonarJsVanillaConfig = {
+export const sonarJsAwsConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },

@@ -1,18 +1,15 @@
-import globals from 'globals'
-
 import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
+import { environmentBrowserConfig } from '../environment-browser.ts'
 import { libraryReactEnvironmentBrowserConfig } from '../library-react&environment-browser.ts'
 import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
 import { overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overrideWebpackConfig } from '../overrides/webpack-config.ts'
-import { importBrowserConfig } from '../plugins/import-x/environment-browser.ts'
-import { typescriptReactConfig } from '../plugins/typescript-eslint/syntax-typescript&library-react.ts'
-import { unicornBrowserConfig } from '../plugins/unicorn/environment-browser.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
+import { syntaxTypescriptLibraryReactConfig } from '../syntax-typescript&library-react.ts'
 import { vanillaConfig } from '../vanilla.ts'
 
 
@@ -24,16 +21,10 @@ export const projectReactConfig = [
     libraryReactSyntaxJsxConfig,
     libraryReactEnvironmentBrowserConfig,
     syntaxTypescriptConfig,
-    typescriptReactConfig,
-    importBrowserConfig,
-    unicornBrowserConfig,
+    syntaxTypescriptLibraryReactConfig,
+    environmentBrowserConfig,
     {
       files: ['**/*.ts', '**/*.tsx'],
-      languageOptions: {
-        globals: {
-          ...globals.browser,
-        },
-      },
       rules: {
         // OFF as it is unpractical in react projects
         'import-x/no-relative-parent-imports': [OFF],
