@@ -43,11 +43,9 @@ export function defineProject(declaration: ProjectDeclaration): FixedLinterConfi
        * A group that moves no axis is already covered by the one it belongs to, so it carries what
        * it adds and nothing else
        */
-      if (hasSameLayout && isSameAxes(rootAxes, overrideAxes)) {
-        return buildOwnConfig(override)
-      }
-
-      return buildGroupConfig(override, overrideAxes, override.layout ?? hasRootLayout)
+      return (hasSameLayout && isSameAxes(rootAxes, overrideAxes))
+        ? buildOwnConfig(override)
+        : buildGroupConfig(override, overrideAxes, override.layout ?? hasRootLayout)
     }),
   ]
 }

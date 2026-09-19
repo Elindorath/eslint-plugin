@@ -9,7 +9,7 @@
       },
       "checkComputedMemberAccess": {
         "type": "boolean",
-        "description": "Also report method-call ternaries that differ only by the method name, whose minimization requires computed member access."
+        "description": "Also report property reads and method calls sharing a simple receiver when only the static property or method name differs, requiring computed member access."
       }
     }
   }

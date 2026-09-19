@@ -100,6 +100,7 @@ export const unicornVanillaConfig = {
     'unicorn/filename-case': [ERROR, {
       // Configured value
       case: 'kebabCase',
+      directoryRoots: [],
       // Configured value
       ignore: [
         /\.md$/ui,
@@ -185,6 +186,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-array-splice': [ERROR],
     // OFF as it would reformat every documentation comment, to be revisited on its own
     'unicorn/no-asterisk-prefix-in-documentation-comments': [OFF],
+    'unicorn/no-async-iterator-callback': [ERROR],
     'unicorn/no-async-promise-finally': [ERROR],
     'unicorn/no-await-expression-member': [ERROR],
     'unicorn/no-await-in-promise-methods': [ERROR],
@@ -332,7 +334,8 @@ export const unicornVanillaConfig = {
     'unicorn/no-unsafe-property-key': [ERROR],
     'unicorn/no-unsafe-sqlite-interpolation': [ERROR],
     'unicorn/no-unsafe-string-replacement': [ERROR],
-    'unicorn/no-unused-array-method-return': [ERROR],
+    'unicorn/no-unused-builtin-method-return': [ERROR],
+    'unicorn/no-unused-iterator-helper': [ERROR],
     'unicorn/no-unused-properties': [ERROR],
     'unicorn/no-useless-boolean-cast': [ERROR],
     'unicorn/no-useless-coercion': [ERROR],
@@ -351,6 +354,7 @@ export const unicornVanillaConfig = {
     'unicorn/no-useless-promise-resolve-reject': [ERROR],
     'unicorn/no-useless-re-export': [ERROR],
     'unicorn/no-useless-recursion': [ERROR],
+    'unicorn/no-useless-set-construction': [ERROR],
     'unicorn/no-useless-spread': [ERROR],
     'unicorn/no-useless-switch-case': [ERROR],
     'unicorn/no-useless-template-literals': [ERROR],
@@ -358,6 +362,7 @@ export const unicornVanillaConfig = {
       // Configured value
       checkArguments: false,
     }],
+    'unicorn/no-using-resource-escape': [ERROR],
     'unicorn/no-xor-as-exponentiation': [ERROR],
     'unicorn/no-zero-fractions': [ERROR],
     'unicorn/number-literal-case': [ERROR, {
@@ -428,7 +433,9 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-boolean-return': [ERROR],
     'unicorn/prefer-class-fields': [ERROR],
     'unicorn/prefer-code-point': [ERROR],
+    'unicorn/prefer-combined-guards': [ERROR],
     'unicorn/prefer-continue': [ERROR, {
+      checkShortBodies: false,
       maximumStatements: 1,
     }],
     'unicorn/prefer-date-now': [ERROR],
@@ -441,6 +448,7 @@ export const unicornVanillaConfig = {
     }],
     'unicorn/prefer-dom-node-replace-children': [ERROR],
     'unicorn/prefer-early-return': [ERROR, {
+      checkShortBodies: false,
       maximumStatements: 1,
     }],
     'unicorn/prefer-else-if': [ERROR],
@@ -473,6 +481,8 @@ export const unicornVanillaConfig = {
     'unicorn/prefer-iterator-helpers': [ERROR],
     'unicorn/prefer-iterator-to-array': [ERROR],
     'unicorn/prefer-iterator-to-array-at-end': [ERROR],
+    'unicorn/prefer-iterator-zip': [ERROR],
+    'unicorn/prefer-json-import': [ERROR],
     'unicorn/prefer-location-assign': [ERROR],
     'unicorn/prefer-logical-operator-over-ternary': [ERROR],
     'unicorn/prefer-map-from-entries': [ERROR],
@@ -558,13 +568,21 @@ export const unicornVanillaConfig = {
       checkMethods: false,
       checkReferences: false,
     }],
-    'unicorn/prefer-ternary': [ERROR, 'always'],
+    'unicorn/prefer-temporal-conversion': [ERROR],
+
+    /*
+     * `always` also asks for a ternary in place of a guard clause, whose branches are too long to
+     * read as one and which `sonarjs/expression-complexity` then rejects
+     */
+    // Configured value
+    'unicorn/prefer-ternary': [ERROR, 'only-single-line'],
     'unicorn/prefer-then-catch': [ERROR],
     'unicorn/prefer-toggle-attribute': [ERROR],
     'unicorn/prefer-top-level-await': [ERROR],
     'unicorn/prefer-type-error': [ERROR],
     'unicorn/prefer-type-literal-last': [ERROR],
     'unicorn/prefer-uint8array-base64': [ERROR],
+    'unicorn/prefer-uint8array-hex': [ERROR],
     'unicorn/prefer-unary-minus': [ERROR],
     'unicorn/prefer-unicode-code-point-escapes': [ERROR],
     'unicorn/prefer-url-can-parse': [ERROR],
