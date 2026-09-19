@@ -1,31 +1,28 @@
 import globals from 'globals'
 
-import { mergeConfigs } from '../../configMerger.ts'
+import { defineProject } from '../../defineProject.ts'
 
-import { libraryReactSyntaxJsxConfig } from '../library-react&syntax-jsx.ts'
-import { libraryReactNativeSyntaxJsxConfig } from '../library-react-native&syntax-jsx.ts'
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideJestTestsConfig } from '../overrides/jest-tests.ts'
 import { overrideMarkdownConfig } from '../overrides/markdown.ts'
-import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
-import { vanillaConfig } from '../vanilla.ts'
 
 
 export const projectReactNativeConfig = [
-  mergeConfigs(
-    vanillaConfig,
-    libraryReactSyntaxJsxConfig,
-    libraryReactNativeSyntaxJsxConfig,
-    syntaxTypescriptConfig,
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      languageOptions: {
-        globals: {
-          ...globals.browser,
-        },
+  ...defineProject({
+    files: ['**/*.ts', '**/*.tsx'],
+
+    /*
+     * The browser globals without the browser environment: React Native exposes the same web APIs
+     * while having neither a DOM nor the rules that go with one
+     */
+    languageOptions: {
+      globals: {
+        ...globals.browser,
       },
     },
-  ),
+    library: ['react', 'react-native'],
+    syntax: ['typescript', 'jsx'],
+  }),
   overrideEslintConfig,
   overrideJestTestsConfig,
   overrideMarkdownConfig,
