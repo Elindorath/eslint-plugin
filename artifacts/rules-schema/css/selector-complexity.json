@@ -1,0 +1,75 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "maxIds": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxClasses": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxTypes": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxAttributes": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxPseudoClasses": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxUniversals": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxCompounds": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "maxCombinators": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "disallowCombinators": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "disallowPseudoClasses": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "disallowPseudoElements": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "disallowAttributes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "disallowAttributeMatchers": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

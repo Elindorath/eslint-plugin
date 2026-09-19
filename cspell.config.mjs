@@ -13,6 +13,7 @@ const cspellConfig = defineConfig({
     'activedescendant',
     'apos',
     'chunkname',
+    'combinators',
     'definitelytyped',
     'elindorath',
     'esmodule',

@@ -1,0 +1,86 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowProperties": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "bottom",
+            "border-bottom",
+            "border-bottom-color",
+            "border-bottom-left-radius",
+            "border-bottom-right-radius",
+            "border-bottom-style",
+            "border-bottom-width",
+            "border-left",
+            "border-left-color",
+            "border-left-style",
+            "border-left-width",
+            "border-right",
+            "border-right-color",
+            "border-right-style",
+            "border-right-width",
+            "border-top",
+            "border-top-color",
+            "border-top-left-radius",
+            "border-top-right-radius",
+            "border-top-style",
+            "border-top-width",
+            "contain-intrinsic-height",
+            "contain-intrinsic-width",
+            "height",
+            "left",
+            "margin-bottom",
+            "margin-left",
+            "margin-right",
+            "margin-top",
+            "max-height",
+            "max-width",
+            "min-height",
+            "min-width",
+            "overflow-x",
+            "overflow-y",
+            "overscroll-behavior-x",
+            "overscroll-behavior-y",
+            "padding-bottom",
+            "padding-left",
+            "padding-right",
+            "padding-top",
+            "right",
+            "scroll-margin-bottom",
+            "scroll-margin-left",
+            "scroll-margin-right",
+            "scroll-margin-top",
+            "scroll-padding-bottom",
+            "scroll-padding-left",
+            "scroll-padding-right",
+            "scroll-padding-top",
+            "top",
+            "width"
+          ]
+        },
+        "uniqueItems": true
+      },
+      "allowUnits": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "cqh",
+            "cqw",
+            "dvh",
+            "dvw",
+            "lvh",
+            "lvw",
+            "svh",
+            "svw",
+            "vh",
+            "vw"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "additionalProperties": false
+  }
+]

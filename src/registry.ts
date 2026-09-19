@@ -1,6 +1,7 @@
 import { environmentBrowserConfig } from './configs/environment-browser.ts'
 import { environmentNodeConfig } from './configs/environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-node-source-type-commonjs.ts'
+import { languageCssConfig } from './configs/language-css.ts'
 import { languageJson5Config } from './configs/language-json5.ts'
 import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
 import { languageJsonConfig } from './configs/language-json.ts'
@@ -36,7 +37,7 @@ type Axes = {
 
 type Environment = 'browser' | 'native' | 'node'
 
-type Language = 'javascript' | 'json5' | 'json' | 'jsonc'
+type Language = 'css' | 'javascript' | 'json5' | 'json' | 'jsonc'
 
 type Library = 'aws' | 'eslint-plugin' | 'i18next' | 'jest' | 'react' | 'react-native'
 
@@ -72,6 +73,7 @@ const REACT_NATIVE = 'react-native'
 const REGISTRY: RegistryEntry[] = [
   { config: vanillaConfig, layout: false, terms: { language: ['javascript'] } },
   { config: vanillaLayoutConfig, layout: true, terms: { language: ['javascript'] } },
+  { config: languageCssConfig, layout: false, terms: { language: ['css'] } },
   { config: languageJsonConfig, layout: false, terms: { language: ['json'] } },
   { config: languageJsonLayoutConfig, layout: true, terms: { language: ['json'] } },
   { config: languageJsoncConfig, layout: false, terms: { language: ['jsonc'] } },
