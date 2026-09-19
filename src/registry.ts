@@ -13,6 +13,7 @@ import { libraryJestConfig } from './configs/library-jest.ts'
 import { libraryJestSyntaxTypescriptConfig } from './configs/library-jest&syntax-typescript.ts'
 import { libraryReactConfig } from './configs/library-react.ts'
 import { libraryReactEnvironmentBrowserConfig } from './configs/library-react&environment-browser.ts'
+import { libraryReactNativeEnvironmentNativeConfig } from './configs/library-react-native&environment-native.ts'
 import { libraryReactNativeSyntaxJsxConfig } from './configs/library-react-native&syntax-jsx.ts'
 import { sourceTypeCommonJsConfig } from './configs/source-type-commonjs.ts'
 import { syntaxJsxConfig } from './configs/syntax-jsx.ts'
@@ -33,7 +34,7 @@ type Axes = {
   syntax: Syntax[];
 }
 
-type Environment = 'browser' | 'node'
+type Environment = 'browser' | 'native' | 'node'
 
 type Language = 'javascript' | 'json5' | 'json' | 'jsonc'
 
@@ -61,6 +62,8 @@ type RegistryTerms = {
 type SourceType = 'commonjs' | 'module'
 
 type Syntax = 'jsx' | 'typescript'
+
+const REACT_NATIVE = 'react-native'
 
 /*
  * Ordered from the least to the most specific, so that a configuration written for several axes
@@ -112,7 +115,12 @@ const REGISTRY: RegistryEntry[] = [
   {
     config: libraryReactNativeSyntaxJsxConfig,
     layout: false,
-    terms: { library: ['react-native'], syntax: ['jsx'] },
+    terms: { library: [REACT_NATIVE], syntax: ['jsx'] },
+  },
+  {
+    config: libraryReactNativeEnvironmentNativeConfig,
+    layout: false,
+    terms: { environment: ['native'], library: [REACT_NATIVE] },
   },
 ]
 

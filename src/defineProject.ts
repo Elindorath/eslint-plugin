@@ -15,8 +15,6 @@ type ProjectDeclaration = ProjectGroup & {
 
 type ProjectGroup = Partial<Axes> & {
   files?: string[];
-  // For what the axes cannot say, such as globals a group needs without the rules that come with them
-  languageOptions?: FixedLinterConfig['languageOptions'];
   layout?: boolean;
   rules?: FixedRulesRecord;
 }
@@ -61,7 +59,6 @@ function buildGroupConfig(group: ProjectGroup, axes: Axes, hasLayout: boolean): 
 function buildOwnConfig(group: ProjectGroup): FixedLinterConfig {
   return {
     ...group.files !== undefined && { files: group.files },
-    ...group.languageOptions !== undefined && { languageOptions: group.languageOptions },
     ...group.rules !== undefined && { rules: group.rules },
   }
 }
