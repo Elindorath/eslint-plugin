@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "incremental": false,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    /*
+     * `rootDir` keeps `node_modules/@types` out of the program, so the ambient packages the sources
+     * rely on are listed here. Packages imported by name resolve through `@types` on their own.
+     */
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}

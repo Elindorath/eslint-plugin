@@ -22,17 +22,24 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./src/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "src/**"
+    "dist/**"
   ],
   "scripts": {
+    "build": "./scripts/generate-meta.ts && tsc --project tsconfig.build.json",
     "extract-meta": "node scripts/extract-meta.ts",
     "lint": "NODE_OPTIONS='--experimental-require-module' eslint .",
     "lint:fix": "NODE_OPTIONS='--experimental-require-module' eslint --fix .",
+    "prepack": "yarn run build",
     "spellcheck": "cspell lint --no-progress \"**\"",
+    "test-build": "yarn run build && git diff --exit-code src/meta.ts",
     "test-reachability": "./scripts/test-reachability.ts",
     "test-schema": "./scripts/test-schema.ts",
     "test-update": "./scripts/test-update.ts",

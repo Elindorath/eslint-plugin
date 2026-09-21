@@ -11,6 +11,7 @@ jobs:
         check:
           - lint
           - type-check
+          - test-build
           - test-update
           - test-reachability
           - test-schema
