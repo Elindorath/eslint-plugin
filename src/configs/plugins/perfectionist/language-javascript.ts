@@ -17,7 +17,7 @@ const REQUIRED_MEMBER_GROUP = 'required-member'
 const TYPE_EXPORT_GROUP = 'type-export'
 const VALUE_EXPORT_GROUP = 'value-export'
 
-export const perfectionistVanillaConfig: FixedLinterConfig = {
+export const perfectionistJavascriptConfig: FixedLinterConfig = {
   plugins: {
     perfectionist: perfectionistPlugin,
   },

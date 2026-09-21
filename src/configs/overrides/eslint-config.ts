@@ -4,11 +4,11 @@ import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
 import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs.ts'
-import { vanillaConfig } from '../vanilla.ts'
+import { languageJavascriptConfig } from '../language-javascript.ts'
 
 
 export const overrideEslintConfig = mergeConfigs(
-  vanillaConfig,
+  languageJavascriptConfig,
   environmentNodeSourceTypeCommonJsConfig,
   {
     // TODO: Handle 'eslint.config.ts' as well

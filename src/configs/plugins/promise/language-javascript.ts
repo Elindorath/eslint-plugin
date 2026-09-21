@@ -9,7 +9,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const promiseVanillaConfig: FixedLinterConfig = {
+export const promiseJavascriptConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     promise: promisePlugin,

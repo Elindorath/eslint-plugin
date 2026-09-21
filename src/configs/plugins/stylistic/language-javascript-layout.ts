@@ -12,7 +12,7 @@ const ALWAYS_MULTILINE = 'always-multiline'
 const LINE_ALIGNED = 'line-aligned'
 const PARENS_NEW_LINE = 'parens-new-line'
 
-export const stylisticVanillaLayoutConfig: FixedLinterConfig = {
+export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
   plugins: {
     '@stylistic': stylisticPlugin,
   },

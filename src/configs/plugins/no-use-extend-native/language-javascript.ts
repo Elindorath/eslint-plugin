@@ -2,20 +2,20 @@
  * TODO: fix it when this plugin expose typings
  */
 // @ts-expect-error: TS7016 because this plugin doesn't expose typings
-import noConstructorBindPlugin from 'eslint-plugin-no-constructor-bind'
+import noUseExtendNativePlugin from 'eslint-plugin-no-use-extend-native'
 
 import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const noConstructorBindVanillaConfig: FixedLinterConfig = {
+export const noUseExtendNativeJavascriptConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
-    'no-constructor-bind': noConstructorBindPlugin,
+    'no-use-extend-native': noUseExtendNativePlugin,
   },
 
   rules: {
-    'no-constructor-bind/no-constructor-bind': [ERROR],
-    'no-constructor-bind/no-constructor-state': [ERROR],
+    // TODO: Make a PR to the plugin to allow extending specific native objects
+    'no-use-extend-native/no-use-extend-native': [ERROR],
   },
 }

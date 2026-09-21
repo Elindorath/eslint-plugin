@@ -4,7 +4,7 @@ import { OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const canonicalVanillaLayoutConfig: FixedLinterConfig = {
+export const canonicalJavascriptLayoutConfig: FixedLinterConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },

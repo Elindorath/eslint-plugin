@@ -6,7 +6,7 @@ import type { FixedLinterConfig } from '../../../types.ts'
 const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
 const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
 
-export const eslintVanillaConfig: FixedLinterConfig = {
+export const eslintJavascriptConfig: FixedLinterConfig = {
   rules: {
     /* ----- Possible problems ----- */
     'array-callback-return': [ERROR, {

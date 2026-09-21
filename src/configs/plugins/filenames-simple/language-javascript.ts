@@ -5,7 +5,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const filenamesVanillaConfig: FixedLinterConfig = {
+export const filenamesJavascriptConfig: FixedLinterConfig = {
   plugins: {
     /**
      * TODO: remove the compatibility wrapper when plugin add support for ESLint v9

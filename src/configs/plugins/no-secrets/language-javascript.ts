@@ -5,7 +5,7 @@ import type { FixedLinterConfig } from '../../../types.ts'
 
 
 // eslint-disable-next-line no-secrets/no-pattern-match -- This is the name of the plugin.
-export const noSecretsVanillaConfig: FixedLinterConfig = {
+export const noSecretsJavascriptConfig: FixedLinterConfig = {
   plugins: {
     'no-secrets': noSecretsPlugin,
   },

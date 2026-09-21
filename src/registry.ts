@@ -2,6 +2,8 @@ import { environmentBrowserConfig } from './configs/environment-browser.ts'
 import { environmentNodeConfig } from './configs/environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-node-source-type-commonjs.ts'
 import { languageCssConfig } from './configs/language-css.ts'
+import { languageJavascriptConfig } from './configs/language-javascript.ts'
+import { languageJavascriptLayoutConfig } from './configs/language-javascript-layout.ts'
 import { languageJson5Config } from './configs/language-json5.ts'
 import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
 import { languageJsonConfig } from './configs/language-json.ts'
@@ -21,8 +23,6 @@ import { syntaxJsxConfig } from './configs/syntax-jsx.ts'
 import { syntaxTypescriptConfig } from './configs/syntax-typescript.ts'
 import { syntaxTypescriptEnvironmentNodeConfig } from './configs/syntax-typescript&environment-node.ts'
 import { syntaxTypescriptLibraryReactConfig } from './configs/syntax-typescript&library-react.ts'
-import { vanillaConfig } from './configs/vanilla.ts'
-import { vanillaLayoutConfig } from './configs/vanilla-layout.ts'
 
 import type { FixedLinterConfig } from './types.ts'
 
@@ -43,7 +43,7 @@ type Library = 'aws' | 'eslint-plugin' | 'i18next' | 'jest' | 'react' | 'react-n
 
 /**
  * An entry applies when every value it names is active. `terms` holds the axis values a
- * configuration is written for: none for `vanilla`, one for a main effect, several for a
+ * configuration is written for: one for a main effect, several for a
  * configuration that only makes sense where its axes meet.
  */
 type RegistryEntry = {
@@ -71,8 +71,8 @@ const REACT_NATIVE = 'react-native'
  * has the last word over the ones written for each of them
  */
 const REGISTRY: RegistryEntry[] = [
-  { config: vanillaConfig, layout: false, terms: { language: ['javascript'] } },
-  { config: vanillaLayoutConfig, layout: true, terms: { language: ['javascript'] } },
+  { config: languageJavascriptConfig, layout: false, terms: { language: ['javascript'] } },
+  { config: languageJavascriptLayoutConfig, layout: true, terms: { language: ['javascript'] } },
   { config: languageCssConfig, layout: false, terms: { language: ['css'] } },
   { config: languageJsonConfig, layout: false, terms: { language: ['json'] } },
   { config: languageJsonLayoutConfig, layout: true, terms: { language: ['json'] } },

@@ -4,7 +4,7 @@ import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig, getRuleConfigOverride, REMOVE } from '../../../utilities.ts'
 
-import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
+import { stylisticJavascriptLayoutConfig } from '../stylistic/language-javascript-layout.ts'
 
 
 export const json5LayoutConfig: FixedLinterConfig = {
@@ -14,12 +14,12 @@ export const json5LayoutConfig: FixedLinterConfig = {
 
   rules: {
     /* ----- Extended rules ----- */
-    'jsonc/array-bracket-newline': getRuleConfig('@stylistic/array-bracket-newline', stylisticVanillaLayoutConfig),
-    'jsonc/array-bracket-spacing': getRuleConfig('@stylistic/array-bracket-spacing', stylisticVanillaLayoutConfig),
-    'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', stylisticVanillaLayoutConfig),
-    'jsonc/comma-dangle': getRuleConfig('@stylistic/comma-dangle', stylisticVanillaLayoutConfig),
-    'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticVanillaLayoutConfig),
-    'jsonc/indent': getRuleConfigOverride('@stylistic/indent', stylisticVanillaLayoutConfig, undefined, {
+    'jsonc/array-bracket-newline': getRuleConfig('@stylistic/array-bracket-newline', stylisticJavascriptLayoutConfig),
+    'jsonc/array-bracket-spacing': getRuleConfig('@stylistic/array-bracket-spacing', stylisticJavascriptLayoutConfig),
+    'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', stylisticJavascriptLayoutConfig),
+    'jsonc/comma-dangle': getRuleConfig('@stylistic/comma-dangle', stylisticJavascriptLayoutConfig),
+    'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticJavascriptLayoutConfig),
+    'jsonc/indent': getRuleConfigOverride('@stylistic/indent', stylisticJavascriptLayoutConfig, undefined, {
       // `jsonc` has no counterpart for this option
       assignmentOperator: REMOVE,
       /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
@@ -30,7 +30,7 @@ export const json5LayoutConfig: FixedLinterConfig = {
       VariableDeclarator: REMOVE,
       /* eslint-enable @typescript-eslint/naming-convention */
     }),
-    'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticVanillaLayoutConfig),
+    'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticJavascriptLayoutConfig),
     // Same configuration as the @stylistic/object-curly-newline rule but it diverged slightly
     'jsonc/object-curly-newline': [ERROR, {
       /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
@@ -44,18 +44,18 @@ export const json5LayoutConfig: FixedLinterConfig = {
       ObjectPattern: { consistent: true },
       /* eslint-enable @typescript-eslint/naming-convention */
     }],
-    'jsonc/object-curly-spacing': getRuleConfigOverride('@stylistic/object-curly-spacing', stylisticVanillaLayoutConfig, undefined, {
+    'jsonc/object-curly-spacing': getRuleConfigOverride('@stylistic/object-curly-spacing', stylisticJavascriptLayoutConfig, undefined, {
       // `jsonc` has no counterpart for this option
       overrides: REMOVE,
     }),
-    'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticVanillaLayoutConfig),
-    'jsonc/quote-props': getRuleConfig('@stylistic/quote-props', stylisticVanillaLayoutConfig),
-    'jsonc/quotes': getRuleConfigOverride('@stylistic/quotes', stylisticVanillaLayoutConfig, undefined, {
+    'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticJavascriptLayoutConfig),
+    'jsonc/quote-props': getRuleConfig('@stylistic/quote-props', stylisticJavascriptLayoutConfig),
+    'jsonc/quotes': getRuleConfigOverride('@stylistic/quotes', stylisticJavascriptLayoutConfig, undefined, {
       // JSON5 has no template literal, and `jsonc` only accepts a boolean here
       allowTemplateLiterals: REMOVE,
       // `jsonc` has no counterpart for this option
       ignoreStringLiterals: REMOVE,
     }),
-    'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticVanillaLayoutConfig),
+    'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticJavascriptLayoutConfig),
   },
 }

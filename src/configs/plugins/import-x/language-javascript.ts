@@ -8,7 +8,7 @@ import type { FixedLinterConfig } from '../../../types.ts'
 
 const { createNodeResolver } = importPlugin
 
-export const importVanillaConfig: FixedLinterConfig = {
+export const importJavascriptConfig: FixedLinterConfig = {
   plugins: {
     'import-x': importPlugin,
   },

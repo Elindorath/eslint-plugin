@@ -4,17 +4,17 @@ import { mergeConfigs } from '../../configMerger.ts'
 import { ERROR, OFF } from '../../constants.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
+import { languageJavascriptConfig } from '../language-javascript.ts'
+import { languageJavascriptLayoutConfig } from '../language-javascript-layout.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
 import { syntaxTypescriptEnvironmentNodeConfig } from '../syntax-typescript&environment-node.ts'
-import { vanillaConfig } from '../vanilla.ts'
-import { vanillaLayoutConfig } from '../vanilla-layout.ts'
 
 
 const overrideScriptsConfig = mergeConfigs(
   {
     files: ['**/scripts/**'],
   },
-  vanillaConfig,
+  languageJavascriptConfig,
   environmentNodeConfig,
   {
     rules: {
@@ -54,8 +54,8 @@ const overrideScriptsTypescriptConfig = mergeConfigs(
   {
     files: ['**/scripts/**/*.ts'],
   },
-  vanillaConfig,
-  vanillaLayoutConfig,
+  languageJavascriptConfig,
+  languageJavascriptLayoutConfig,
   syntaxTypescriptConfig,
   environmentNodeConfig,
   syntaxTypescriptEnvironmentNodeConfig,

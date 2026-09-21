@@ -9,7 +9,7 @@ const DIRECTIVES = {
   ENABLE: 'eslint-enable',
 }
 
-export const eslintCommentsVanillaConfig: FixedLinterConfig = {
+export const eslintCommentsJavascriptConfig: FixedLinterConfig = {
   plugins: {
     '@eslint-community/eslint-comments': eslintCommentsPlugin,
   },

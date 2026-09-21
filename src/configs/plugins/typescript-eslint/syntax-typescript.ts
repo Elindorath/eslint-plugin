@@ -9,7 +9,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig, overrideBaseConfigRule, REMOVE } from '../../../utilities.ts'
 
-import { eslintVanillaConfig } from '../eslint/vanilla.ts'
+import { eslintJavascriptConfig } from '../eslint/language-javascript.ts'
 
 import type { Linter } from 'eslint'
 
@@ -60,7 +60,7 @@ export const typescriptConfig: FixedLinterConfig = {
     '@typescript-eslint/consistent-generic-constructors': [ERROR, 'constructor'],
     // Might be debatable, see: https://stackoverflow.com/questions/54100025/difference-between-index-signature-and-record-for-empty-object
     '@typescript-eslint/consistent-indexed-object-style': [ERROR, 'index-signature'],
-    '@typescript-eslint/consistent-return': getRuleConfig('consistent-return', eslintVanillaConfig),
+    '@typescript-eslint/consistent-return': getRuleConfig('consistent-return', eslintJavascriptConfig),
     '@typescript-eslint/consistent-type-assertions': [ERROR, {
       arrayLiteralTypeAssertions: 'allow',
       assertionStyle: 'as',
