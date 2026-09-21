@@ -54,11 +54,11 @@
   "eslint.execArgv": [
     "--trace-require-module=all"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib",
   "debug.javascript.defaultRuntimeExecutable": {
     "pwa-node": "${workspaceFolder}/.vscode/mise-tools/node"
   },
   "python.defaultInterpreterPath": "${workspaceFolder}/.vscode/mise-tools/python",
   "mise.configureExtensionsUseSymLinks": true,
-  "mise.configureExtensionsUseShims": false
+  "mise.configureExtensionsUseShims": false,
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
