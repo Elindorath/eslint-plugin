@@ -6,7 +6,9 @@
 | ------------------------------------------------------------------ |
 | [@cspell/eslint-plugin][cspell]                                    |
 | [@eslint-community/eslint-plugin-eslint-comments][eslint-comments] |
+| [@eslint-react/eslint-plugin][@eslint-react]                       |
 | [@eslint/css][css]                                                 |
+| [@eslint/json][json]                                               |
 | [@eslint/markdown][markdown]                                       |
 | [@stylistic/eslint-plugin][@stylistic]                             |
 | [eslint][eslint]                                                   |
@@ -77,7 +79,6 @@
 | [eslint-plugin-toml][toml]                                   |                                                    |
 | [@html-eslint/eslint-plugin][@html-eslint]                   |                                                    |
 | [eslint-plugin-zod][zod]                                     |                                                    |
-| [@eslint-react/eslint-plugin][@eslint-react]                 | As a replacement of eslint-plugin-react            |
 | [eslint-plugin-jsx-a11y-x][jsx-a11y-x]                       | As a replacement of eslint-plugin-jsx-a11y         |
 | [@next/eslint-plugin-next][@next/next]                       |                                                    |
 | [@tanstack/eslint-plugin-query][@tanstack/query]             |                                                    |
@@ -118,8 +119,11 @@
 | [eslint-plugin-xss][xss]                               | Doesn't support ESLint v9 for now                                                                          |
 
 <!-- Included -->
+[cspell]: https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell-eslint-plugin
 [eslint-comments]: https://github.com/eslint-community/eslint-plugin-eslint-comments
+[@eslint-react]: https://github.com/Rel1cx/eslint-react
 [css]: https://github.com/eslint/css
+[json]: https://github.com/eslint/json
 [markdown]: https://github.com/eslint/markdown
 [@stylistic]: https://github.com/eslint-stylistic/eslint-stylistic
 [eslint]: https://github.com/eslint/eslint
@@ -127,7 +131,7 @@
 [canonical]: https://github.com/gajus/eslint-plugin-canonical
 [eslint-plugin]: https://github.com/eslint-community/eslint-plugin-eslint-plugin
 [filenames-simple]: https://github.com/epaew/eslint-plugin-filenames-simple
-[import]: https://github.com/import-js/eslint-plugin-import
+[import-x]: https://github.com/un-ts/eslint-plugin-import-x
 [jest]: https://github.com/jest-community/eslint-plugin-jest
 [jest-dom]: https://github.com/testing-library/eslint-plugin-jest-dom
 [jest-extended]: https://github.com/jest-community/eslint-plugin-jest-extended
@@ -150,7 +154,6 @@
 [react-native-a11y]: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y
 [react-perf]: https://github.com/cvazac/eslint-plugin-react-perf
 [security]: https://github.com/eslint-community/eslint-plugin-security
-[simple-import-sort]: https://github.com/lydell/eslint-plugin-simple-import-sort
 [sonarjs]: https://github.com/SonarSource/SonarJS/tree/master/packages/jsts/src/rules
 [unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [typescript-eslint]: https://github.com/typescript-eslint/typescript-eslint
@@ -162,7 +165,6 @@
 [@shopify]: https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin
 [toplevel]: https://github.com/HKalbasi/eslint-plugin-toplevel
 [atomic-design]: https://github.com/RyoNkmr/eslint-plugin-atomic-design
-[import-x]: https://github.com/un-ts/eslint-plugin-import-x
 [depend]: https://github.com/es-tooling/eslint-plugin-depend
 [compat]: https://github.com/amilajack/eslint-plugin-compat
 [write-good-comments]: https://github.com/kantord/eslint-plugin-write-good-comments
@@ -180,7 +182,6 @@
 [sdl]: https://github.com/microsoft/eslint-plugin-sdl
 [@rushstack/security]: https://github.com/microsoft/rushstack/tree/main/eslint/eslint-plugin-security
 [security-node]: https://github.com/gkouziik/eslint-plugin-security-node
-[cspell]: https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell-eslint-plugin
 [json-schema-validator]: https://ota-meshi.github.io/eslint-plugin-json-schema-validator
 [node-dependencies]: https://github.com/ota-meshi/eslint-plugin-node-dependencies
 [sql-template]: https://github.com/uphold/eslint-plugin-sql-template
@@ -190,7 +191,6 @@
 [toml]: https://github.com/ota-meshi/eslint-plugin-toml
 [@html-eslint]: https://github.com/yeonjuan/html-eslint
 [zod]: https://github.com/gajus/eslint-plugin-zod
-[@eslint-react]: https://github.com/Rel1cx/eslint-react
 [jsx-a11y-x]: https://github.com/es-tooling/eslint-plugin-jsx-a11y-x
 [@next/next]: https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin
 [@tanstack/query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
@@ -209,18 +209,20 @@
 [drizzle]: https://github.com/drizzle-team/drizzle-orm/tree/main/eslint-plugin-drizzle
 
 <!-- Removed -->
+[@mysticatea]: https://github.com/mysticatea/eslint-plugin
 [babel]: https://github.com/babel/eslint-plugin-babel
 [filenames]: https://github.com/selaux/eslint-plugin-filenames
 [flowtype]: https://github.com/gajus/eslint-plugin-flowtype
-[@mysticatea]: https://github.com/mysticatea/eslint-plugin
-[scanjs-rules]: https://github.com/mozfreddyb/eslint-plugin-scanjs-rules
-[react-redux]: https://github.com/DianaSuvorova/eslint-plugin-react-redux
-[sort-class-members]: https://github.com/bryanrsmith/eslint-plugin-sort-class-members
-[switch-case]: https://github.com/lukeapage/eslint-plugin-switch-case
-[ternary]: https://github.com/GrayedFox/eslint-plugin-ternary
+[import]: https://github.com/import-js/eslint-plugin-import
 [json-format]: https://github.com/kuceb/eslint-plugin-json-format
 [json-files]: https://github.com/kellyselden/eslint-plugin-json-files
 [optimize-regex]: https://github.com/BrainMaestro/eslint-plugin-optimize-regex
 [perf-standard]: https://github.com/Raynos/eslint-plugin-perf-standard
+[react-redux]: https://github.com/DianaSuvorova/eslint-plugin-react-redux
+[scanjs-rules]: https://github.com/mozfreddyb/eslint-plugin-scanjs-rules
 [shopify]: https://github.com/Shopify/eslint-plugin-shopify
+[simple-import-sort]: https://github.com/lydell/eslint-plugin-simple-import-sort
+[sort-class-members]: https://github.com/bryanrsmith/eslint-plugin-sort-class-members
+[switch-case]: https://github.com/lukeapage/eslint-plugin-switch-case
+[ternary]: https://github.com/GrayedFox/eslint-plugin-ternary
 [xss]: https://github.com/Rantanen/eslint-plugin-xss
