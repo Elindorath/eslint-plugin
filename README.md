@@ -6,7 +6,7 @@ This plugin is built around the power of exhaustiveness. It aggregate a lots of 
 
 We define 5 axes of rules:
 
-- Language: css, javascript, json, json5, jsonc. Those are rules that only apply to code written in a given language. File names containing those rules are formatted as `language-${languageIdentifier}`.
+- Language: css, javascript, json, json5, jsonc, markdown. Those are rules that only apply to code written in a given language. File names containing those rules are formatted as `language-${languageIdentifier}`.
 - Source type: commonjs, module. Those are rules that only apply to code written for a given module system. File names containing those rules are formatted as `source-type-${sourceTypeIdentifier}`.
 - Syntax: jsx, typescript. Those are rules that only apply for code written in a specific syntax. File names containing those rules are formatted as `syntax-${syntaxIdentifier}`.
 - Environment: browser, native, node. Those are rules that only apply for code executed in specific environment. File names containing those rules are formatted as `environment-${environmentIdentifier}`.

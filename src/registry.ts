@@ -9,6 +9,7 @@ import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
 import { languageJsonConfig } from './configs/language-json.ts'
 import { languageJsoncConfig } from './configs/language-jsonc.ts'
 import { languageJsonLayoutConfig } from './configs/language-json-layout.ts'
+import { languageMarkdownConfig } from './configs/language-markdown.ts'
 import { libraryAwsConfig } from './configs/library-aws.ts'
 import { libraryEslintPluginConfig } from './configs/library-eslint-plugin.ts'
 import { libraryI18nextConfig } from './configs/library-i18next.ts'
@@ -37,7 +38,7 @@ type Axes = {
 
 type Environment = 'browser' | 'native' | 'node'
 
-type Language = 'css' | 'javascript' | 'json5' | 'json' | 'jsonc'
+type Language = 'css' | 'javascript' | 'json5' | 'json' | 'jsonc' | 'markdown'
 
 type Library = 'aws' | 'eslint-plugin' | 'i18next' | 'jest' | 'react' | 'react-native'
 
@@ -79,6 +80,7 @@ const REGISTRY: RegistryEntry[] = [
   { config: languageJsoncConfig, layout: false, terms: { language: ['jsonc'] } },
   { config: languageJson5Config, layout: false, terms: { language: ['json5'] } },
   { config: languageJson5LayoutConfig, layout: true, terms: { language: ['json5'] } },
+  { config: languageMarkdownConfig, layout: false, terms: { language: ['markdown'] } },
   { config: sourceTypeCommonJsConfig, layout: false, terms: { sourceType: ['commonjs'] } },
   { config: syntaxTypescriptConfig, layout: false, terms: { syntax: ['typescript'] } },
   { config: syntaxJsxConfig, layout: false, terms: { syntax: ['jsx'] } },

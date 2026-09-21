@@ -4,7 +4,7 @@ import { mergeConfigs } from '../../configMerger.ts'
 import { OFF } from '../../constants.ts'
 import type { FixedRulesRecord, RuleSeverityAndOptions } from '../../types.ts'
 
-import { markdownVanillaConfig } from '../plugins/markdown/vanilla.ts'
+import { languageMarkdownConfig } from '../language-markdown.ts'
 
 
 /**
@@ -18,7 +18,7 @@ const disableTypeCheckedRules = Object.fromEntries(
 ) satisfies FixedRulesRecord
 
 const overrideMarkdownConfig = mergeConfigs(
-  markdownVanillaConfig,
+  languageMarkdownConfig,
   {
     files: ['**/*.md'],
   }

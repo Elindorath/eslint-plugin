@@ -8,7 +8,7 @@ import type { FixedLinterConfig } from '../../../types.ts'
  * This plugin can lint code inside code blocks OR lint the markdown itself, not both
  * @see: https://github.com/eslint/markdown/blob/main/docs/processors/markdown.md
  */
-export const markdownVanillaConfig: FixedLinterConfig = {
+export const markdownLanguageConfig: FixedLinterConfig = {
   plugins: {
     '@eslint/markdown': markdownPlugin,
   },
