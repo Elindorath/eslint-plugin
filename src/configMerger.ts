@@ -219,11 +219,7 @@ function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion): EcmaVer
     return version1
   }
 
-  if (version2 === 'latest') {
-    return version2
-  }
-
-  return mathMax(version1, version2)
+  return version2 === 'latest' ? version2 : mathMax(version1, version2)
 }
 
 // The later configuration wins, so composition order carries the precedence, as it does for rules
