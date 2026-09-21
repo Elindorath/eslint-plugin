@@ -10,7 +10,7 @@ We define 5 axes of rules:
 - Source type: commonjs, module. Those are rules that only apply to code written for a given module system. File names containing those rules are formatted as `source-type-${sourceTypeIdentifier}`.
 - Syntax: jsx, typescript. Those are rules that only apply for code written in a specific syntax. File names containing those rules are formatted as `syntax-${syntaxIdentifier}`.
 - Environment: browser, native, node. Those are rules that only apply for code executed in specific environment. File names containing those rules are formatted as `environment-${environmentIdentifier}`.
-- Library: aws, eslint-plugin, i18next, jest, react, react-native. Those are rules that only apply for code using specific library. File names containing those rules are formatted as `library-${libraryIdentifier}`.
+- Library: aws, eslint-plugin, i18next, jest, react, react-native, tanstack-query. Those are rules that only apply for code using specific library. File names containing those rules are formatted as `library-${libraryIdentifier}`.
 
 Additionally, as [Eslint deprecated rules for layout issues](https://eslint.org/blog/2023/10/deprecating-formatting-rules/), we isolate those rules in their own file by adding the suffix `-layout`. We may use a formatter like [Prettier](https://prettier.io/) or [dprint](https://dprint.dev/) in the future and doing so should help the transition.
 

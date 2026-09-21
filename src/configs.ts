@@ -17,8 +17,11 @@ import { libraryJestConfig } from './configs/library-jest.ts'
 import { libraryJestSyntaxTypescriptConfig } from './configs/library-jest&syntax-typescript.ts'
 import { libraryReactConfig } from './configs/library-react.ts'
 import { libraryReactEnvironmentBrowserConfig } from './configs/library-react&environment-browser.ts'
+import { libraryReactLibraryTanstackQueryConfig } from './configs/library-react&library-tanstack-query.ts'
 import { libraryReactSyntaxJsxConfig } from './configs/library-react&syntax-jsx.ts'
 import { libraryReactNativeSyntaxJsxConfig } from './configs/library-react-native&syntax-jsx.ts'
+import { libraryTanstackQueryConfig } from './configs/library-tanstack-query.ts'
+import { libraryTanstackQuerySyntaxTypescriptConfig } from './configs/library-tanstack-query&syntax-typescript.ts'
 import { projectEslintPluginConfig } from './configs/projects/eslint-plugin.ts'
 import { projectReactConfig } from './configs/projects/react.ts'
 import { projectReactNativeConfig } from './configs/projects/react-native.ts'
@@ -48,8 +51,11 @@ export const configs = {
   'library-jest&syntax-typescript': libraryJestSyntaxTypescriptConfig,
   'library-react': libraryReactConfig,
   'library-react&environment-browser': libraryReactEnvironmentBrowserConfig,
+  'library-react&library-tanstack-query': libraryReactLibraryTanstackQueryConfig,
   'library-react&syntax-jsx': libraryReactSyntaxJsxConfig,
   'library-react-native&syntax-jsx': libraryReactNativeSyntaxJsxConfig,
+  'library-tanstack-query': libraryTanstackQueryConfig,
+  'library-tanstack-query&syntax-typescript': libraryTanstackQuerySyntaxTypescriptConfig,
   'project-eslint-plugin': projectEslintPluginConfig,
   'project-react': projectReactConfig,
   'project-react-native': projectReactNativeConfig,
