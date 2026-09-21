@@ -42,8 +42,15 @@ type FromEntries<T> = T extends Array<[infer Key, unknown]>
   ? { [K in Cast<Key, string>]: Extract<ArrayElement<T>, [K, unknown]>[1] }
   : { [key in string]: unknown }
 
+/*
+ * Both signatures are deliberately narrower than the standard library's, which reports the values
+ * of a literal-keyed object as `unknown` and collapses entries into a single value type. Here the
+ * keys are known exhaustively, so each property keeps the type its merger returns.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
 const objectFromEntries = Object.fromEntries as <T>(entries: T) => FromEntries<WritableDeep<T>>
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion -- See comment above
 const objectEntries = Object.entries as <T extends object>(object: T) => Array<{
   [K in keyof T]: [K, T[K]];
 }[keyof T]>

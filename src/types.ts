@@ -1,8 +1,8 @@
 import type { Linter } from 'eslint'
-import type { UnknownArray, UnknownRecord } from 'type-fest'
+import type { Except, UnknownArray, UnknownRecord } from 'type-fest'
 
 
-type FixedLinterConfig<Rules extends FixedRulesRecord = FixedRulesRecord> = Omit<Linter.Config, 'rules'> & {
+type FixedLinterConfig<Rules extends FixedRulesRecord = FixedRulesRecord> = Except<Linter.Config, 'rules'> & {
   rules?: Rules;
 }
 

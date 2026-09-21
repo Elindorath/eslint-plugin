@@ -126,6 +126,11 @@ function getAbsentConfiguredRuleNames(pluginRules: { [key: RuleName]: Rule.RuleM
   for (const ruleId of configuredRuleSet) {
     const ruleName = getRuleNameFromId(ruleId, pluginPrefix)
 
+    /*
+     * The index signature makes the guard look redundant to the type system, but a rule the
+     * configuration names may genuinely be absent from the plugin
+     */
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- See comment above
     if (!Object.hasOwn(pluginRules, ruleName)) {
       absentConfiguredRuleNames.push(ruleName)
     }
@@ -161,8 +166,15 @@ function getRuleSchemaChanges(storedRuleName: RuleName, storedRuleSchema: RuleSc
     return []
   }
 
-  // eslint-disable-next-line unicorn/prefer-structured-clone -- We don't want to deep clone but get ride of undefined values
-  return diff(storedRuleSchema, JSON.parse(JSON.stringify(ruleSchema)))
+  // A round trip through JSON drops the undefined values, which a deep clone would keep
+  const serializedRuleSchema = JSON.stringify(ruleSchema)
+
+  // A schema holding only values `JSON.stringify` drops leaves nothing to compare
+  if (serializedRuleSchema === undefined) {
+    throw new TypeError(`Rule ${storedRuleName} has a schema that cannot be serialized`)
+  }
+
+  return diff(storedRuleSchema, JSON.parse(serializedRuleSchema))
 }
 
 function asWritableArray<T>(readonlyArray?: readonly T[]): Writable<T[]> | undefined {
