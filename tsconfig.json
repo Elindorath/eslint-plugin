@@ -28,6 +28,8 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
+    /* Kept out of `dist`, which holds only what the package publishes */
+    "tsBuildInfoFile": "node_modules/.cache/tsconfig.tsbuildinfo",
     "verbatimModuleSyntax": true
   },
   "exclude": [

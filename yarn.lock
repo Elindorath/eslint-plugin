@@ -889,13 +889,14 @@ __metadata:
     is-what: "npm:5.5.0"
     jiti: "npm:2.7.0"
     json-diff-ts: "npm:4.10.4"
-    jsonc-eslint-parser: "npm:3.3.0"
     package-directory: "npm:8.2.0"
     read-package-up: "npm:12.0.0"
     tsx: "npm:4.23.13"
     type-fest: "npm:5.10.0"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.70.0"
+  peerDependencies:
+    eslint: ^10.0.0
   languageName: unknown
   linkType: soft
 
@@ -5956,7 +5957,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-eslint-parser@npm:3.3.0, jsonc-eslint-parser@npm:^3.1.0":
+"jsonc-eslint-parser@npm:^3.1.0":
   version: 3.3.0
   resolution: "jsonc-eslint-parser@npm:3.3.0"
   dependencies:
