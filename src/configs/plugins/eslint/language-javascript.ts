@@ -7,6 +7,9 @@ const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
 const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
 
 export const eslintJavascriptConfig: FixedLinterConfig = {
+  /* ----- Language ----- */
+  language: '@/js',
+
   rules: {
     /* ----- Possible problems ----- */
     'array-callback-return': [ERROR, {
