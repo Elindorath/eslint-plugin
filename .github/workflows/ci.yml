@@ -15,6 +15,7 @@ jobs:
           - test-update
           - test-reachability
           - test-schema
+          - test-scripts
           - spellcheck
     steps:
       - name: Checkout repository

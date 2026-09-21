@@ -42,6 +42,7 @@
     "test-build": "yarn run build && git diff --exit-code src/meta.ts",
     "test-reachability": "./scripts/test-reachability.ts",
     "test-schema": "./scripts/test-schema.ts",
+    "test-scripts": "./scripts/generate-index.ts && ./scripts/extract-meta.ts && ./scripts/list-rules.ts > /dev/null && git diff --exit-code src artifacts",
     "test-update": "./scripts/test-update.ts",
     "type-check": "tsc"
   },
