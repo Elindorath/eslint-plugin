@@ -1,6 +1,6 @@
 import { isArray, isPlainObject, isPrimitive } from 'is-what'
 
-import { eslintVanillaConfig } from './configs/plugins/eslint/vanilla.ts'
+import { eslintJavascriptConfig } from './configs/plugins/eslint/language-javascript.ts'
 import { OFF } from './constants.ts'
 
 import type { Linter } from 'eslint'
@@ -93,7 +93,7 @@ function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOp
   const ruleName = ruleIdRest.join(RULE_ID_SPLITTER)
 
   return {
-    [ruleId]: getRuleConfigOverride(ruleName, eslintVanillaConfig, ...optionsOverride),
+    [ruleId]: getRuleConfigOverride(ruleName, eslintJavascriptConfig, ...optionsOverride),
     [ruleName]: [OFF],
   }
 }

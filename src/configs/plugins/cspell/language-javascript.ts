@@ -4,7 +4,7 @@ import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const cspellVanillaConfig: FixedLinterConfig = {
+export const cspellJavascriptConfig: FixedLinterConfig = {
   plugins: {
     '@cspell': cspellPlugin,
   },

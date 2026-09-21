@@ -4,7 +4,7 @@ import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig, getRuleConfigOverride, REMOVE } from '../../../utilities.ts'
 
-import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
+import { stylisticJavascriptLayoutConfig } from '../stylistic/language-javascript-layout.ts'
 
 
 const INDENT_SPACE_COUNT = 2
@@ -16,9 +16,9 @@ export const jsonLayoutConfig: FixedLinterConfig = {
 
   rules: {
     /* ----- Extended rules ----- */
-    'jsonc/array-bracket-newline': getRuleConfig('@stylistic/array-bracket-newline', stylisticVanillaLayoutConfig),
-    'jsonc/array-bracket-spacing': getRuleConfig('@stylistic/array-bracket-spacing', stylisticVanillaLayoutConfig),
-    'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', stylisticVanillaLayoutConfig),
+    'jsonc/array-bracket-newline': getRuleConfig('@stylistic/array-bracket-newline', stylisticJavascriptLayoutConfig),
+    'jsonc/array-bracket-spacing': getRuleConfig('@stylistic/array-bracket-spacing', stylisticJavascriptLayoutConfig),
+    'jsonc/array-element-newline': getRuleConfig('@stylistic/array-element-newline', stylisticJavascriptLayoutConfig),
     'jsonc/comma-dangle': [ERROR, {
       // Configured value
       arrays: 'never',
@@ -31,7 +31,7 @@ export const jsonLayoutConfig: FixedLinterConfig = {
       // Configured value
       objects: 'never',
     }],
-    'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticVanillaLayoutConfig),
+    'jsonc/comma-style': getRuleConfig('@stylistic/comma-style', stylisticJavascriptLayoutConfig),
     // Same configuration as the @stylistic/indent rule but it diverged slightly
     'jsonc/indent': [ERROR, INDENT_SPACE_COUNT, {
       flatTernaryExpressions: false,
@@ -72,7 +72,7 @@ export const jsonLayoutConfig: FixedLinterConfig = {
       },
       /* eslint-enable @typescript-eslint/naming-convention */
     }],
-    'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticVanillaLayoutConfig),
+    'jsonc/key-spacing': getRuleConfig('@stylistic/key-spacing', stylisticJavascriptLayoutConfig),
     // Same configuration as the @stylistic/object-curly-newline rule but it diverged slightly
     'jsonc/object-curly-newline': [ERROR, {
       /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
@@ -86,11 +86,11 @@ export const jsonLayoutConfig: FixedLinterConfig = {
       ObjectPattern: { consistent: true },
       /* eslint-enable @typescript-eslint/naming-convention */
     }],
-    'jsonc/object-curly-spacing': getRuleConfigOverride('@stylistic/object-curly-spacing', stylisticVanillaLayoutConfig, undefined, {
+    'jsonc/object-curly-spacing': getRuleConfigOverride('@stylistic/object-curly-spacing', stylisticJavascriptLayoutConfig, undefined, {
       // `jsonc` has no counterpart for this option
       overrides: REMOVE,
     }),
-    'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticVanillaLayoutConfig),
+    'jsonc/object-property-newline': getRuleConfig('@stylistic/object-property-newline', stylisticJavascriptLayoutConfig),
     'jsonc/quote-props': [ERROR, 'always'],
     'jsonc/quotes': [ERROR, 'double', {
       // Configured value
@@ -98,6 +98,6 @@ export const jsonLayoutConfig: FixedLinterConfig = {
       // Configured value
       avoidEscape: false,
     }],
-    'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticVanillaLayoutConfig),
+    'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticJavascriptLayoutConfig),
   },
 }

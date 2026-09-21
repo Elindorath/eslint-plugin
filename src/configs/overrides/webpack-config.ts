@@ -5,8 +5,8 @@ import { ERROR, OFF } from '../../constants.ts'
 
 import { environmentNodeConfig } from '../environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from '../environment-node-source-type-commonjs.ts'
+import { languageJavascriptConfig } from '../language-javascript.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
-import { vanillaConfig } from '../vanilla.ts'
 
 import type { Linter } from 'eslint'
 
@@ -59,7 +59,7 @@ const webpackRules = {
 
 export const overrideWebpackConfig = [
   mergeConfigs(
-    vanillaConfig,
+    languageJavascriptConfig,
     environmentNodeSourceTypeCommonJsConfig,
     {
       files: ['**/webpack.config.js'],
@@ -67,7 +67,7 @@ export const overrideWebpackConfig = [
     }
   ),
   mergeConfigs(
-    vanillaConfig,
+    languageJavascriptConfig,
     environmentNodeConfig,
     syntaxTypescriptConfig,
     {

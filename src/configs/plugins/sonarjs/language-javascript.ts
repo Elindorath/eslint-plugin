@@ -8,7 +8,7 @@ const MAX_COGNITIVE_COMPLEXITY = 15
 const MAX_SWITCH_CASES = 30
 const MIN_FUNCTION_BODY_LINE_COUNT = 3
 
-export const sonarJsVanillaConfig: FixedLinterConfig = {
+export const sonarJsJavascriptConfig: FixedLinterConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },

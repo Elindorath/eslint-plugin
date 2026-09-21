@@ -9,7 +9,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const arrayFunctionVanillaConfig: FixedLinterConfig = {
+export const arrayFunctionJavascriptConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'array-func': arrayFunctionPlugin,

@@ -12,7 +12,7 @@ const SECOND_PROPERTY_INDEX = 1
 const TAGGED_TEMPLATES = ['Sanitizer.escapeHTML', 'escapeHTML']
 const METHODS = ['Sanitizer.unwrapSafeHTML', 'unwrapSafeHTML']
 
-export const noUnsanitizedVanillaConfig: FixedLinterConfig = {
+export const noUnsanitizedJavascriptConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'no-unsanitized': noUnsanitizedPlugin,

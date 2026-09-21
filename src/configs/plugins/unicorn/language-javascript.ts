@@ -5,7 +5,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const unicornVanillaConfig: FixedLinterConfig = {
+export const unicornJavascriptConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },

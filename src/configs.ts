@@ -2,6 +2,8 @@ import { environmentBrowserConfig } from './configs/environment-browser.ts'
 import { environmentNodeConfig } from './configs/environment-node.ts'
 import { environmentNodeSourceTypeCommonJsConfig } from './configs/environment-node-source-type-commonjs.ts'
 import { languageCssConfig } from './configs/language-css.ts'
+import { languageJavascriptConfig } from './configs/language-javascript.ts'
+import { languageJavascriptLayoutConfig } from './configs/language-javascript-layout.ts'
 import { languageJson5Config } from './configs/language-json5.ts'
 import { languageJson5LayoutConfig } from './configs/language-json5-layout.ts'
 import { languageJsonConfig } from './configs/language-json.ts'
@@ -24,14 +26,14 @@ import { syntaxJsxConfig } from './configs/syntax-jsx.ts'
 import { syntaxTypescriptConfig } from './configs/syntax-typescript.ts'
 import { syntaxTypescriptEnvironmentNodeConfig } from './configs/syntax-typescript&environment-node.ts'
 import { syntaxTypescriptLibraryReactConfig } from './configs/syntax-typescript&library-react.ts'
-import { vanillaConfig } from './configs/vanilla.ts'
-import { vanillaLayoutConfig } from './configs/vanilla-layout.ts'
 
 export const configs = {
   'environment-browser': environmentBrowserConfig,
   'environment-node': environmentNodeConfig,
   'environment-node-source-type-commonjs': environmentNodeSourceTypeCommonJsConfig,
   'language-css': languageCssConfig,
+  'language-javascript': languageJavascriptConfig,
+  'language-javascript-layout': languageJavascriptLayoutConfig,
   'language-json': languageJsonConfig,
   'language-json5': languageJson5Config,
   'language-json5-layout': languageJson5LayoutConfig,
@@ -54,6 +56,4 @@ export const configs = {
   'syntax-typescript': syntaxTypescriptConfig,
   'syntax-typescript&environment-node': syntaxTypescriptEnvironmentNodeConfig,
   'syntax-typescript&library-react': syntaxTypescriptLibraryReactConfig,
-  'vanilla': vanillaConfig,
-  'vanilla-layout': vanillaLayoutConfig,
 }

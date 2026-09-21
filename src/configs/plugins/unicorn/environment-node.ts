@@ -4,7 +4,7 @@ import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfigOverride } from '../../../utilities.ts'
 
-import { unicornVanillaConfig } from './vanilla.ts'
+import { unicornJavascriptConfig } from './language-javascript.ts'
 
 
 export const unicornNodeConfig: FixedLinterConfig = {
@@ -14,7 +14,7 @@ export const unicornNodeConfig: FixedLinterConfig = {
 
   rules: {
     'unicorn/consistent-assert': [ERROR],
-    'unicorn/no-instanceof-builtins': getRuleConfigOverride('unicorn/no-instanceof-builtins', unicornVanillaConfig, {
+    'unicorn/no-instanceof-builtins': getRuleConfigOverride('unicorn/no-instanceof-builtins', unicornJavascriptConfig, {
       // `Error.isError` is not available in Node.js
       useErrorIsError: false,
     }),

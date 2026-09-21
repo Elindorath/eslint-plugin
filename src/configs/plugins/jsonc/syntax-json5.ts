@@ -4,7 +4,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig } from '../../../utilities.ts'
 
-import { eslintVanillaConfig } from '../eslint/vanilla.ts'
+import { eslintJavascriptConfig } from '../eslint/language-javascript.ts'
 
 
 export const json5Config: FixedLinterConfig = {
@@ -80,12 +80,12 @@ export const json5Config: FixedLinterConfig = {
     'jsonc/vue-custom-block/no-parsing-error': [ERROR],
 
     /* ----- Extended rules ----- */
-    'jsonc/no-dupe-keys': getRuleConfig('no-dupe-keys', eslintVanillaConfig),
-    'jsonc/no-irregular-whitespace': getRuleConfig('no-irregular-whitespace', eslintVanillaConfig),
-    'jsonc/no-multi-str': getRuleConfig('no-multi-str', eslintVanillaConfig),
-    'jsonc/no-octal': getRuleConfig('no-octal', eslintVanillaConfig),
-    'jsonc/no-octal-escape': getRuleConfig('no-octal-escape', eslintVanillaConfig),
-    'jsonc/no-sparse-arrays': getRuleConfig('no-sparse-arrays', eslintVanillaConfig),
-    'jsonc/no-useless-escape': getRuleConfig('no-useless-escape', eslintVanillaConfig),
+    'jsonc/no-dupe-keys': getRuleConfig('no-dupe-keys', eslintJavascriptConfig),
+    'jsonc/no-irregular-whitespace': getRuleConfig('no-irregular-whitespace', eslintJavascriptConfig),
+    'jsonc/no-multi-str': getRuleConfig('no-multi-str', eslintJavascriptConfig),
+    'jsonc/no-octal': getRuleConfig('no-octal', eslintJavascriptConfig),
+    'jsonc/no-octal-escape': getRuleConfig('no-octal-escape', eslintJavascriptConfig),
+    'jsonc/no-sparse-arrays': getRuleConfig('no-sparse-arrays', eslintJavascriptConfig),
+    'jsonc/no-useless-escape': getRuleConfig('no-useless-escape', eslintJavascriptConfig),
   },
 }

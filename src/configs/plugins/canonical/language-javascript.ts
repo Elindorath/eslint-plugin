@@ -5,7 +5,7 @@ import type { FixedLinterConfig } from '../../../types.ts'
 import { overrideBaseConfigRule } from '../../../utilities.ts'
 
 
-export const canonicalVanillaConfig: FixedLinterConfig = {
+export const canonicalJavascriptConfig: FixedLinterConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },

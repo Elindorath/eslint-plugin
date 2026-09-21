@@ -4,7 +4,7 @@ import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-export const securityVanillaConfig: FixedLinterConfig = {
+export const securityJavascriptConfig: FixedLinterConfig = {
   plugins: {
     security: securityPlugin,
   },
