@@ -17,8 +17,11 @@ import { libraryJestConfig } from './configs/library-jest.ts'
 import { libraryJestSyntaxTypescriptConfig } from './configs/library-jest&syntax-typescript.ts'
 import { libraryReactConfig } from './configs/library-react.ts'
 import { libraryReactEnvironmentBrowserConfig } from './configs/library-react&environment-browser.ts'
+import { libraryReactLibraryTanstackQueryConfig } from './configs/library-react&library-tanstack-query.ts'
 import { libraryReactNativeEnvironmentNativeConfig } from './configs/library-react-native&environment-native.ts'
 import { libraryReactNativeSyntaxJsxConfig } from './configs/library-react-native&syntax-jsx.ts'
+import { libraryTanstackQueryConfig } from './configs/library-tanstack-query.ts'
+import { libraryTanstackQuerySyntaxTypescriptConfig } from './configs/library-tanstack-query&syntax-typescript.ts'
 import { sourceTypeCommonJsConfig } from './configs/source-type-commonjs.ts'
 import { syntaxJsxConfig } from './configs/syntax-jsx.ts'
 import { syntaxTypescriptConfig } from './configs/syntax-typescript.ts'
@@ -40,7 +43,7 @@ type Environment = 'browser' | 'native' | 'node'
 
 type Language = 'css' | 'javascript' | 'json5' | 'json' | 'jsonc' | 'markdown'
 
-type Library = 'aws' | 'eslint-plugin' | 'i18next' | 'jest' | 'react' | 'react-native'
+type Library = 'aws' | 'eslint-plugin' | 'i18next' | 'jest' | 'react' | 'react-native' | 'tanstack-query'
 
 /**
  * An entry applies when every value it names is active. `terms` holds the axis values a
@@ -66,6 +69,7 @@ type SourceType = 'commonjs' | 'module'
 type Syntax = 'jsx' | 'typescript'
 
 const REACT_NATIVE = 'react-native'
+const TANSTACK_QUERY = 'tanstack-query'
 
 /*
  * Ordered from the least to the most specific, so that a configuration written for several axes
@@ -91,6 +95,7 @@ const REGISTRY: RegistryEntry[] = [
   { config: libraryI18nextConfig, layout: false, terms: { library: ['i18next'] } },
   { config: libraryJestConfig, layout: false, terms: { library: ['jest'] } },
   { config: libraryReactConfig, layout: false, terms: { library: ['react'] } },
+  { config: libraryTanstackQueryConfig, layout: false, terms: { library: [TANSTACK_QUERY] } },
   {
     config: environmentNodeSourceTypeCommonJsConfig,
     layout: false,
@@ -125,6 +130,16 @@ const REGISTRY: RegistryEntry[] = [
     config: libraryReactNativeEnvironmentNativeConfig,
     layout: false,
     terms: { environment: ['native'], library: [REACT_NATIVE] },
+  },
+  {
+    config: libraryReactLibraryTanstackQueryConfig,
+    layout: false,
+    terms: { library: ['react', TANSTACK_QUERY] },
+  },
+  {
+    config: libraryTanstackQuerySyntaxTypescriptConfig,
+    layout: false,
+    terms: { library: [TANSTACK_QUERY], syntax: ['typescript'] },
   },
 ]
 

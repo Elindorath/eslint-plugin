@@ -11,6 +11,7 @@
 | [@eslint/json][json]                                               |
 | [@eslint/markdown][markdown]                                       |
 | [@stylistic/eslint-plugin][@stylistic]                             |
+| [@tanstack/eslint-plugin-query][@tanstack/query]                   |
 | [eslint][eslint]                                                   |
 | [eslint-plugin-array-func][array-func]                             |
 | [eslint-plugin-canonical][canonical]                               |
@@ -81,7 +82,6 @@
 | [eslint-plugin-zod][zod]                                     |                                                    |
 | [eslint-plugin-jsx-a11y-x][jsx-a11y-x]                       | As a replacement of eslint-plugin-jsx-a11y         |
 | [@next/eslint-plugin-next][@next/next]                       |                                                    |
-| [@tanstack/eslint-plugin-query][@tanstack/query]             |                                                    |
 | [eslint-plugin-expo][expo]                                   |                                                    |
 | [eslint-plugin-i18next][i18next]                             |                                                    |
 | [eslint-plugin-lingui][lingui]                               |                                                    |
@@ -126,6 +126,7 @@
 [json]: https://github.com/eslint/json
 [markdown]: https://github.com/eslint/markdown
 [@stylistic]: https://github.com/eslint-stylistic/eslint-stylistic
+[@tanstack/query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
 [eslint]: https://github.com/eslint/eslint
 [array-func]: https://github.com/freaktechnik/eslint-plugin-array-func
 [canonical]: https://github.com/gajus/eslint-plugin-canonical
@@ -193,7 +194,6 @@
 [zod]: https://github.com/gajus/eslint-plugin-zod
 [jsx-a11y-x]: https://github.com/es-tooling/eslint-plugin-jsx-a11y-x
 [@next/next]: https://nextjs.org/docs/pages/building-your-application/configuring/eslint#eslint-plugin
-[@tanstack/query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
 [expo]: https://github.com/expo/expo/tree/main/packages/eslint-plugin-expo
 [i18next]: https://github.com/edvardchen/eslint-plugin-i18next
 [lingui]: https://github.com/lingui/eslint-plugin
