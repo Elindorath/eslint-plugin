@@ -2,7 +2,7 @@ import typescriptEslint from 'typescript-eslint'
 
 import { mergeConfigs } from '../../configMerger.ts'
 import { OFF } from '../../constants.ts'
-import type { FixedRulesRecord } from '../../types.ts'
+import type { FixedRulesRecord, RuleSeverityAndOptions } from '../../types.ts'
 
 import { markdownVanillaConfig } from '../plugins/markdown/vanilla.ts'
 
@@ -12,7 +12,7 @@ import { markdownVanillaConfig } from '../plugins/markdown/vanilla.ts'
  * Every rule of this configuration is turned off, so no option is lost by rewriting them.
  */
 const disableTypeCheckedRules = Object.fromEntries(
-  Object.keys(typescriptEslint.configs.disableTypeChecked.rules ?? {}).map((ruleId) => {
+  Object.keys(typescriptEslint.configs.disableTypeChecked.rules ?? {}).map((ruleId): [string, RuleSeverityAndOptions] => {
     return [ruleId, [OFF]]
   })
 ) satisfies FixedRulesRecord

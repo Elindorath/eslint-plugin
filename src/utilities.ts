@@ -37,7 +37,7 @@ function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: F
   }, {})
 }
 
-function getRuleConfig<RuleId extends string, Rules extends FixedRulesRecord>(rule: RuleId, config: FixedLinterConfig<Rules>) {
+function getRuleConfig<Rules extends FixedRulesRecord>(rule: string, config: FixedLinterConfig<Rules>): RuleSeverityAndOptions {
   const formattedConfigName = (config.name === undefined || !config.name) ? '' : ` ${config.name}`
 
   if (!config.rules) {
