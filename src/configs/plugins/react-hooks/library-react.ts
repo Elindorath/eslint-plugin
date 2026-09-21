@@ -1,18 +1,22 @@
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
+/*
+ * `configs.flat` nests a second level of configurations under a plugin's `configs`, which the shape
+ * ESLint declares for a plugin doesn't allow
+ */
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars -- Dropping the key is the point
+const { flat, ...reactHooksConfigs } = reactHooksPlugin.configs
 
-export const reactHooksConfig = {
+export const reactHooksConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    'react-hooks': reactHooksPlugin as unknown as ESLint.Plugin,
+    'react-hooks': {
+      ...reactHooksPlugin,
+      configs: reactHooksConfigs,
+    },
   },
 
   settings: {
@@ -72,4 +76,4 @@ export const reactHooksConfig = {
     'react-hooks/use-memo': [OFF],
     'react-hooks/void-use-memo': [ERROR],
   },
-} as const satisfies Linter.Config
+}
