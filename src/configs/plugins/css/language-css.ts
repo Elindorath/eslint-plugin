@@ -38,17 +38,22 @@ export const cssLanguageConfig = {
     'css/relative-font-units': [ERROR, {
       allowUnits: ['rem'],
     }],
-
-    /*
-     * The `max…` limits are left out: the rule defaults them to `Infinity`, while its own
-     * `meta.defaultOptions` say `null`, which its schema rejects
-     */
     'css/selector-complexity': [ERROR, {
       disallowAttributeMatchers: [],
       disallowAttributes: [],
       disallowCombinators: [],
       disallowPseudoClasses: [],
       disallowPseudoElements: [],
+      maxAttributes: Number.POSITIVE_INFINITY,
+      maxClasses: Number.POSITIVE_INFINITY,
+      maxCombinators: Number.POSITIVE_INFINITY,
+      maxCompounds: Number.POSITIVE_INFINITY,
+      // Configured value
+      maxIds: 1,
+      maxPseudoClasses: Number.POSITIVE_INFINITY,
+      maxTypes: Number.POSITIVE_INFINITY,
+      // Configured value
+      maxUniversals: 1,
     }],
     'css/use-baseline': [ERROR, {
       allowAtRules: [],
