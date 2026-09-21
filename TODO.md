@@ -59,6 +59,7 @@
 - [ ] Make `toCompatRule` of [eslint-json-compat-utils](https://github.com/ota-meshi/eslint-json-compat-utils) clone the `meta` object instead of sharing it with the converted rule: writing into the copy, as `eslint-plugin-package-json/experimental` does with `languages`, also mutates the source plugin
 - [ ] Drop the `minItems: 1` of the 'perfectionist/sort-arrays' schema, the only one of the 23 sort rules of [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist) to reject an empty option list
 - [ ] Fix the 'css/selector-complexity' `meta.defaultOptions` of [@eslint/css](https://github.com/eslint/css): every `max*` option defaults to `null` where its own schema demands an integer
+- [ ] Flatten the `configs` of [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks): `configs.flat` groups `recommended` and `recommended-latest` under a second level, where the shape ESLint declares for a plugin expects a configuration or an array of them, which makes the whole plugin object unassignable
 - [ ] Don't warn in this case:
 
   ```javascript
