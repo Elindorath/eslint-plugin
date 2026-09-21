@@ -1,8 +1,7 @@
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const labelAttributes: string[] = [] as const
@@ -25,7 +24,7 @@ const interactiveHandlers = [
 ] as const
 
 
-export const jsxA11yConfig = {
+export const jsxA11yConfig: FixedLinterConfig = {
   plugins: {
     'jsx-a11y': jsxA11yPlugin,
   },
@@ -188,4 +187,4 @@ export const jsxA11yConfig = {
     'jsx-a11y/scope': [ERROR, {}],
     'jsx-a11y/tabindex-no-positive': [ERROR, {}],
   },
-} as const satisfies Linter.Config
+}

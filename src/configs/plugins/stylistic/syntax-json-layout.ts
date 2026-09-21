@@ -1,13 +1,12 @@
 import stylisticPlugin from '@stylistic/eslint-plugin'
 
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig } from '../../../utilities.ts'
 
 import { stylisticVanillaLayoutConfig } from './vanilla-layout.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const stylisticJsonLayoutConfig = {
+export const stylisticJsonLayoutConfig: FixedLinterConfig = {
   plugins: {
     '@stylistic': stylisticPlugin,
   },
@@ -16,4 +15,4 @@ export const stylisticJsonLayoutConfig = {
     // `jsonc` exposes no counterpart, and this rule only looks at the raw text.
     '@stylistic/eol-last': getRuleConfig('@stylistic/eol-last', stylisticVanillaLayoutConfig),
   },
-} as const satisfies Linter.Config
+}

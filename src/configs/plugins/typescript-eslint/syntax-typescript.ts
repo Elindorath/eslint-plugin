@@ -6,16 +6,17 @@ import process from 'node:process'
 import typescriptEslint from 'typescript-eslint'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig, overrideBaseConfigRule, REMOVE } from '../../../utilities.ts'
 
 import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 
 const ARRAY_SIMPLE = 'array-simple'
 
-export const typescriptConfig = {
+export const typescriptConfig: FixedLinterConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
   languageOptions: {
@@ -33,12 +34,7 @@ export const typescriptConfig = {
   },
 
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    '@typescript-eslint': typescriptEslint.plugin as unknown as ESLint.Plugin,
+    '@typescript-eslint': typescriptEslint.plugin,
   },
 
   rules: {
@@ -756,6 +752,6 @@ export const typescriptConfig = {
     'no-useless-constructor': [OFF],
     'require-await': [OFF],
   },
-} as const satisfies Linter.Config
+}
 
 /* eslint-enable */

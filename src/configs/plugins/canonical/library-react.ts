@@ -1,11 +1,10 @@
 import canonicalPlugin from 'eslint-plugin-canonical'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const canonicalReactConfig = {
+export const canonicalReactConfig: FixedLinterConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },
@@ -17,4 +16,4 @@ export const canonicalReactConfig = {
       order: 'asc',
     }],
   },
-} as const satisfies Linter.Config
+}

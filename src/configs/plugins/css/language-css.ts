@@ -1,18 +1,12 @@
 import css from '@eslint/css'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
-
-export const cssLanguageConfig = {
+export const cssLanguageConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    css: css as unknown as ESLint.Plugin,
+    css,
   },
 
   /* ----- Language ----- */
@@ -71,4 +65,4 @@ export const cssLanguageConfig = {
       requireImportLayers: true,
     }],
   },
-} as const satisfies Linter.Config
+}

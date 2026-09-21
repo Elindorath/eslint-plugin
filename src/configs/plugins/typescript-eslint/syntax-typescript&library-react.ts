@@ -1,20 +1,14 @@
 import typescriptEslint from 'typescript-eslint'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
-
-export const typescriptReactConfig = {
+export const typescriptReactConfig: FixedLinterConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    '@typescript-eslint': typescriptEslint.plugin as unknown as ESLint.Plugin,
+    '@typescript-eslint': typescriptEslint.plugin,
   },
 
   rules: {
@@ -47,4 +41,4 @@ export const typescriptReactConfig = {
       },
     ],
   },
-} as const satisfies Linter.Config
+}

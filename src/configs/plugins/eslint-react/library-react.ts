@@ -1,11 +1,10 @@
 import eslintReactPlugin from '@eslint-react/eslint-plugin'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const eslintReactConfig = {
+export const eslintReactConfig: FixedLinterConfig = {
   plugins: {
     '@eslint-react': eslintReactPlugin,
   },
@@ -192,4 +191,4 @@ export const eslintReactConfig = {
     // OFF as it is an alias of '@eslint-react/use-state'
     '@eslint-react/x-use-state': [OFF],
   },
-} as const satisfies Linter.Config
+}

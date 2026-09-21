@@ -1,18 +1,12 @@
 import json from '@eslint/json'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
-
-export const jsoncLanguageConfig = {
+export const jsoncLanguageConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    json: json as unknown as ESLint.Plugin,
+    json,
   },
 
   /* ----- Language ----- */
@@ -34,4 +28,4 @@ export const jsoncLanguageConfig = {
     'json/sort-keys': [OFF],
     'json/top-level-interop': [ERROR],
   },
-} as const satisfies Linter.Config
+}

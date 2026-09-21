@@ -6,11 +6,10 @@
 import promisePlugin from 'eslint-plugin-promise'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const promiseVanillaConfig = {
+export const promiseVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     promise: promisePlugin,
@@ -67,4 +66,4 @@ export const promiseVanillaConfig = {
       exclude: [],
     }],
   },
-} as const satisfies Linter.Config
+}

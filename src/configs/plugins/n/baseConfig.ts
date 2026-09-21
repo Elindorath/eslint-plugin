@@ -1,57 +1,58 @@
 import nPlugin from 'eslint-plugin-n'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
+const nSettings = {
+  /**
+   * Default is read from the package.json's engine field.
+   */
+  // version: '>= 16.0.0',
 
-export const baseConfig = {
+  // Should be configured on a per platform basis
+  allowModules: [],
+
+  /**
+   * This should only be used in specific scenario.
+   */
+  resolvePaths: [],
+
+  /**
+   * This should only be used in specific scenario.
+   */
+  resolverConfig: {},
+
+  // Used to convert paths when using transpiler.
+  // convertPath: [
+  //   {
+  //     include: ['src/bin/**/*.js'],
+  //     exclude: ['**/*.spec.js'],
+  //     replace: ['^src/bin/(.+)$', 'bin/$1']
+  //   }
+  // ],
+
+  tryExtensions: ['.js', '.json', '.node'],
+
+  /**
+   * Default is searched up the file tree relative to the currently linted file.
+   */
+  // tsconfigPath: './tsconfig.json',
+
+  /**
+   * Default is dependant of the 'tsconfig.json'.
+   * The following is the default fallback.
+   */
+  // typescriptExtensionMap: 'preserve',
+}
+
+const baseConfig: FixedLinterConfig = {
   plugins: {
     n: nPlugin,
   },
 
   settings: {
-    n: {
-      /**
-       * Default is read from the package.json's engine field.
-       */
-      // version: '>= 16.0.0',
-
-      // Should be configured on a per platform basis
-      allowModules: [],
-
-      /**
-       * This should only be used in specific scenario.
-       */
-      resolvePaths: [],
-
-      /**
-       * This should only be used in specific scenario.
-       */
-      resolverConfig: {},
-
-      // Used to convert paths when using transpiler.
-      // convertPath: [
-      //   {
-      //     include: ['src/bin/**/*.js'],
-      //     exclude: ['**/*.spec.js'],
-      //     replace: ['^src/bin/(.+)$', 'bin/$1']
-      //   }
-      // ],
-
-      tryExtensions: ['.js', '.json', '.node'],
-
-      /**
-       * Default is searched up the file tree relative to the currently linted file.
-       */
-      // tsconfigPath: './tsconfig.json',
-
-      /**
-       * Default is dependant of the 'tsconfig.json'.
-       * The following is the default fallback.
-       */
-      // typescriptExtensionMap: 'preserve',
-    },
+    n: nSettings,
   },
 
   /* ----- Rules ----- */
@@ -175,4 +176,9 @@ export const baseConfig = {
     'n/prefer-promises/fs': [ERROR],
     'n/process-exit-as-throw': [ERROR],
   },
-} as const satisfies Linter.Config
+}
+
+export {
+  baseConfig,
+  nSettings,
+}

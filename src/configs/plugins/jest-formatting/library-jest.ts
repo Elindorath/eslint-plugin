@@ -5,11 +5,10 @@
 import jestFormattingPlugin from 'eslint-plugin-jest-formatting'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const jestFormattingConfig = {
+export const jestFormattingConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'jest-formatting': jestFormattingPlugin,
@@ -25,4 +24,4 @@ export const jestFormattingConfig = {
     'jest-formatting/padding-around-expect-groups': [ERROR],
     'jest-formatting/padding-around-test-blocks': [ERROR],
   },
-} as const satisfies Linter.Config
+}

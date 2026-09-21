@@ -1,14 +1,13 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfigOverride } from '../../../utilities.ts'
 
 import { unicornVanillaConfig } from './vanilla.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const unicornNodeConfig = {
+export const unicornNodeConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -21,4 +20,4 @@ export const unicornNodeConfig = {
     }),
     'unicorn/prefer-node-protocol': [ERROR],
   },
-} as const satisfies Linter.Config
+}

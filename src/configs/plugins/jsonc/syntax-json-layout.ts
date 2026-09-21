@@ -1,23 +1,17 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig, getRuleConfigOverride, REMOVE } from '../../../utilities.ts'
 
 import { stylisticVanillaLayoutConfig } from '../stylistic/vanilla-layout.ts'
 
-import type { ESLint, Linter } from 'eslint'
-
 
 const INDENT_SPACE_COUNT = 2
 
-export const jsonLayoutConfig = {
+export const jsonLayoutConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    jsonc: jsoncPlugin as unknown as ESLint.Plugin,
+    jsonc: jsoncPlugin,
   },
 
   rules: {
@@ -106,4 +100,4 @@ export const jsonLayoutConfig = {
     }],
     'jsonc/space-unary-ops': getRuleConfig('@stylistic/space-unary-ops', stylisticVanillaLayoutConfig),
   },
-} as const satisfies Linter.Config
+}

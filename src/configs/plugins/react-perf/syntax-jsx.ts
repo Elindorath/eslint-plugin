@@ -5,11 +5,10 @@
 import reactPerformancePlugin from 'eslint-plugin-react-perf'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const reactPerformanceConfig = {
+export const reactPerformanceConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'react-perf': reactPerformancePlugin,
@@ -29,4 +28,4 @@ export const reactPerformanceConfig = {
       nativeAllowList: [],
     }],
   },
-} as const satisfies Linter.Config
+}

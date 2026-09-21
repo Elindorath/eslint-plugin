@@ -1,8 +1,7 @@
 import reactPlugin from 'eslint-plugin-react'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const STATIC_PUBLIC_FIELD = 'static public field'
@@ -14,7 +13,7 @@ const FUNCTION_TYPE = {
 }
 /* eslint-enable */
 
-export const reactConfig = {
+export const reactConfig: FixedLinterConfig = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
@@ -275,4 +274,4 @@ export const reactConfig = {
     // OFF as it is superseded by the '@eslint-react' equivalent
     'react/void-dom-elements-no-children': [OFF],
   },
-} as const satisfies Linter.Config
+}

@@ -1,18 +1,17 @@
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfigOverride } from '../../../utilities.ts'
 
-import { baseConfig } from './baseConfig.ts'
-
-import type { Linter } from 'eslint'
+import { baseConfig, nSettings } from './baseConfig.ts'
 
 
-export const nNodeConfig = {
+export const nNodeConfig: FixedLinterConfig = {
   ...baseConfig,
 
   settings: {
     ...baseConfig.settings,
     n: {
-      ...baseConfig.settings.n,
+      ...nSettings,
       tryExtensions: ['.js', '.ts', '.json'],
       typescriptExtensionMap: [
         ['.ts', '.ts'],
@@ -43,4 +42,4 @@ export const nNodeConfig = {
       ignoreTypeImport: true,
     }),
   },
-} satisfies Linter.Config
+}

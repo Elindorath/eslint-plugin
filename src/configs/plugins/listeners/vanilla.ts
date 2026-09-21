@@ -5,11 +5,10 @@
 import listenersPlugin from 'eslint-plugin-listeners'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const listenersVanillaConfig = {
+export const listenersVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     listeners: listenersPlugin,
@@ -20,4 +19,4 @@ export const listenersVanillaConfig = {
     'listeners/no-inline-function-event-listener': [ERROR],
     'listeners/no-missing-remove-event-listener': [ERROR],
   },
-} as const satisfies Linter.Config
+}

@@ -27,8 +27,8 @@ export {
  */
 const REMOVE = Symbol('remove')
 
-function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: FixedLinterConfig) {
-  return rules.reduce<Linter.Config>((agg, rule) => {
+function buildPrefixedRulesFromConfig(prefix: string, rules: string[], config: FixedLinterConfig): FixedRulesRecord {
+  return rules.reduce<FixedRulesRecord>((agg, rule) => {
     return {
       ...agg,
       [`${prefix}/${rule}`]: getRuleConfig(rule, config),
@@ -88,7 +88,7 @@ function mergeObjectRuleOption(ruleOption: UnknownRecord, optionOverride: Unknow
   return Object.fromEntries(mergedEntries)
 }
 
-function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOptionOverride | undefined>) {
+function overrideBaseConfigRule(ruleId: string, ...optionsOverride: Array<RuleOptionOverride | undefined>): FixedRulesRecord {
   const [, ...ruleIdRest] = ruleId.split(RULE_ID_SPLITTER)
   const ruleName = ruleIdRest.join(RULE_ID_SPLITTER)
 

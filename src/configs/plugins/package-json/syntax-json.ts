@@ -5,11 +5,10 @@
 import packageJsonPlugin from 'eslint-plugin-package-json/experimental'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const packageJsonConfig = {
+export const packageJsonConfig: FixedLinterConfig = {
   plugins: {
     'package-json': packageJsonPlugin,
   },
@@ -233,4 +232,4 @@ export const packageJsonConfig = {
     'package-json/valid-version': [ERROR],
     'package-json/valid-workspaces': [ERROR],
   },
-} as const satisfies Linter.Config
+}

@@ -5,11 +5,10 @@
 import reactNativePlugin from 'eslint-plugin-react-native'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const reactNativeConfig = {
+export const reactNativeConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'react-native': reactNativePlugin,
@@ -39,4 +38,4 @@ export const reactNativeConfig = {
       iosPathRegex: String.raw`\.ios.(js|jsx|ts|tsx)$`,
     }],
   },
-} as const satisfies Linter.Config
+}

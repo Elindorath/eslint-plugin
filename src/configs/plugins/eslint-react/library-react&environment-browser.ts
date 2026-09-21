@@ -1,11 +1,10 @@
 import eslintReactPlugin from '@eslint-react/eslint-plugin'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const eslintReactBrowserConfig = {
+export const eslintReactBrowserConfig: FixedLinterConfig = {
   plugins: {
     '@eslint-react': eslintReactPlugin,
   },
@@ -38,4 +37,4 @@ export const eslintReactBrowserConfig = {
     '@eslint-react/web-api-no-leaked-resize-observer': [ERROR],
     '@eslint-react/web-api-no-leaked-timeout': [ERROR],
   },
-} as const satisfies Linter.Config
+}

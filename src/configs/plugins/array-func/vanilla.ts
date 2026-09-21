@@ -6,11 +6,10 @@
 import arrayFunctionPlugin from 'eslint-plugin-array-func'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const arrayFunctionVanillaConfig = {
+export const arrayFunctionVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'array-func': arrayFunctionPlugin,
@@ -27,4 +26,4 @@ export const arrayFunctionVanillaConfig = {
     // OFF as the rule 'unicorn/prefer-array-flat-map' check the same thing
     'array-func/prefer-flat-map': [OFF],
   },
-} as const satisfies Linter.Config
+}

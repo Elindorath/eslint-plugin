@@ -1,11 +1,10 @@
 import jestPlugin from 'eslint-plugin-jest'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const jestLayoutConfig = {
+export const jestLayoutConfig: FixedLinterConfig = {
   plugins: {
     jest: jestPlugin,
   },
@@ -14,4 +13,4 @@ export const jestLayoutConfig = {
   rules: {
     'jest/prefer-todo': [ERROR],
   },
-} as const satisfies Linter.Config
+}

@@ -1,15 +1,14 @@
 import sonarJsPlugin from 'eslint-plugin-sonarjs'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const MAX_COGNITIVE_COMPLEXITY = 15
 const MAX_SWITCH_CASES = 30
 const MIN_FUNCTION_BODY_LINE_COUNT = 3
 
-export const sonarJsVanillaConfig = {
+export const sonarJsVanillaConfig: FixedLinterConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },
@@ -346,4 +345,4 @@ export const sonarJsVanillaConfig = {
     // TODO: Should be put in a library libxmljs specific configuration file
     'sonarjs/xml-parser-xxe': [ERROR],
   },
-} as const satisfies Linter.Config
+}

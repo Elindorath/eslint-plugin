@@ -1,12 +1,11 @@
 import noSecretsPlugin from 'eslint-plugin-no-secrets'
 
 import { ERROR } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 // eslint-disable-next-line no-secrets/no-pattern-match -- This is the name of the plugin.
-export const noSecretsVanillaConfig = {
+export const noSecretsVanillaConfig: FixedLinterConfig = {
   plugins: {
     'no-secrets': noSecretsPlugin,
   },
@@ -32,4 +31,4 @@ export const noSecretsVanillaConfig = {
       tolerance: 4,
     }],
   },
-} as const satisfies Linter.Config
+}
