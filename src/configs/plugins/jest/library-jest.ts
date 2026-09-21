@@ -2,8 +2,7 @@ import jestPlugin from 'eslint-plugin-jest'
 import globals from 'globals'
 
 import { ERROR, OFF, WARN } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const additionalTestBlockFunctions = [
@@ -39,7 +38,7 @@ const additionalTestBlockFunctions = [
   'it.skip.each',
 ]
 
-export const jestConfig = {
+export const jestConfig: FixedLinterConfig = {
   plugins: {
     jest: jestPlugin,
   },
@@ -195,4 +194,4 @@ export const jestConfig = {
       mustNotMatch: {},
     }],
   },
-} as const satisfies Linter.Config
+}

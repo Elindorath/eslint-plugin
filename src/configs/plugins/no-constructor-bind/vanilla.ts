@@ -5,11 +5,10 @@
 import noConstructorBindPlugin from 'eslint-plugin-no-constructor-bind'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const noConstructorBindVanillaConfig = {
+export const noConstructorBindVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'no-constructor-bind': noConstructorBindPlugin,
@@ -19,4 +18,4 @@ export const noConstructorBindVanillaConfig = {
     'no-constructor-bind/no-constructor-bind': [ERROR],
     'no-constructor-bind/no-constructor-state': [ERROR],
   },
-} as const satisfies Linter.Config
+}

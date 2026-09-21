@@ -1,15 +1,14 @@
 import markdownPlugin from '@eslint/markdown'
 
 import { ERROR } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 /**
  * BEWARE: We have a decision to make
  * This plugin can lint code inside code blocks OR lint the markdown itself, not both
  * @see: https://github.com/eslint/markdown/blob/main/docs/processors/markdown.md
  */
-export const markdownVanillaConfig = {
+export const markdownVanillaConfig: FixedLinterConfig = {
   plugins: {
     '@eslint/markdown': markdownPlugin,
   },
@@ -85,4 +84,4 @@ export const markdownVanillaConfig = {
       checkMissingCells: true,
     }],
   },
-} as const satisfies Linter.Config
+}

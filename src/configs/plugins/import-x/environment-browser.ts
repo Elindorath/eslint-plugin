@@ -1,18 +1,12 @@
 import importPlugin from 'eslint-plugin-import-x'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
-
-export const importBrowserConfig = {
+export const importBrowserConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    'import-x': importPlugin as unknown as ESLint.Plugin,
+    'import-x': importPlugin,
   },
 
   rules: {
@@ -21,4 +15,4 @@ export const importBrowserConfig = {
       allow: ['**/*.?(s)css'],
     }],
   },
-} as const satisfies Linter.Config
+}

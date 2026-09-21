@@ -2,11 +2,10 @@ import { fixupPluginRules } from '@eslint/compat'
 import filenamesSimplePlugin from 'eslint-plugin-filenames-simple'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const filenamesVanillaConfig = {
+export const filenamesVanillaConfig: FixedLinterConfig = {
   plugins: {
     /**
      * TODO: remove the compatibility wrapper when plugin add support for ESLint v9
@@ -34,4 +33,4 @@ export const filenamesVanillaConfig = {
     }],
     'filenames-simple/typescript-module-declaration': [ERROR],
   },
-} as const satisfies Linter.Config
+}

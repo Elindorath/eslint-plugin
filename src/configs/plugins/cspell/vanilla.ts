@@ -1,11 +1,10 @@
 import cspellPlugin from '@cspell/eslint-plugin'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const cspellVanillaConfig = {
+export const cspellVanillaConfig: FixedLinterConfig = {
   plugins: {
     '@cspell': cspellPlugin,
   },
@@ -41,4 +40,4 @@ export const cspellVanillaConfig = {
       report: 'all',
     }],
   },
-} as const satisfies Linter.Config
+}

@@ -4,8 +4,7 @@ import eslintPluginPlugin from 'eslint-plugin-eslint-plugin'
 import { readPackageUpSync } from 'read-package-up'
 
 import { ERROR } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 // eslint-disable-next-line n/no-sync -- TODO: Find a better way to handle this
@@ -27,7 +26,7 @@ if (repoUrl === undefined || !repoUrl) {
 // `repository.url` is stored in the canonical npm form, documentation urls need the plain repository URL
 const normalizedRepoUrl = repoUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
 
-export const eslintPluginConfig = {
+export const eslintPluginConfig: FixedLinterConfig = {
   plugins: {
     'eslint-plugin': eslintPluginPlugin,
   },
@@ -126,4 +125,4 @@ export const eslintPluginConfig = {
     'eslint-plugin/test-case-shorthand-strings': [ERROR, 'as-needed'],
     'eslint-plugin/unique-test-case-names': [ERROR],
   },
-} as const satisfies Linter.Config
+}

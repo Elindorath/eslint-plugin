@@ -1,11 +1,10 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const unicornReactConfig = {
+export const unicornReactConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -35,4 +34,4 @@ export const unicornReactConfig = {
       },
     }],
   },
-} as const satisfies Linter.Config
+}

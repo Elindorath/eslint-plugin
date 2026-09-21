@@ -3,20 +3,14 @@ import process from 'node:process'
 import importPlugin from 'eslint-plugin-import-x'
 
 import { OFF } from '../../../constants.ts'
-
-import type { ESLint, Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const { createNodeResolver } = importPlugin
 
-export const nodeConfig = {
+export const nodeConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    'import-x': importPlugin as unknown as ESLint.Plugin,
+    'import-x': importPlugin,
   },
 
   settings: {
@@ -53,4 +47,4 @@ export const nodeConfig = {
       allow: [],
     }],
   },
-} as const satisfies Linter.Config
+}

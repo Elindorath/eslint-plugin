@@ -5,11 +5,10 @@
 import reactNativeA11yPlugin from 'eslint-plugin-react-native-a11y'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const reactNativeA11yConfig = {
+export const reactNativeA11yConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'react-native-a11y': reactNativeA11yPlugin,
@@ -42,4 +41,4 @@ export const reactNativeA11yConfig = {
     'react-native-a11y/has-valid-accessibility-live-region': [ERROR, {}],
     'react-native-a11y/has-valid-important-for-accessibility': [ERROR, {}],
   },
-} as const satisfies Linter.Config
+}

@@ -1,14 +1,13 @@
 import jestPlugin from 'eslint-plugin-jest'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig } from '../../../utilities.ts'
 
 import { typescriptConfig } from '../typescript-eslint/syntax-typescript.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const jestTypescriptConfig = {
+export const jestTypescriptConfig: FixedLinterConfig = {
   plugins: {
     jest: jestPlugin,
   },
@@ -26,4 +25,4 @@ export const jestTypescriptConfig = {
       checkThenables: false,
     }],
   },
-} as const satisfies Linter.Config
+}

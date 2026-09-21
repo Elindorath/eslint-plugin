@@ -5,13 +5,12 @@
 import reactI18nPlugin from 'eslint-plugin-react-i18n'
 
 import { ERROR } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const functionNames = ['t']
 
-export const reactI18nextConfig = {
+export const reactI18nextConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'react-i18n': reactI18nPlugin,
@@ -27,4 +26,4 @@ export const reactI18nextConfig = {
       suffix: '}}',
     }],
   },
-} as const satisfies Linter.Config
+}

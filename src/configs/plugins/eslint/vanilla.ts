@@ -1,13 +1,12 @@
 /* eslint-disable max-lines -- TODO: Could be splitted in subparts */
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 const NOT_A_FUNCTION_MESSAGE = 'This is not a function.'
 const UNEXPECTED_THIS_MESSAGE = 'Unexpected this.'
 
-export const eslintVanillaConfig = {
+export const eslintVanillaConfig: FixedLinterConfig = {
   rules: {
     /* ----- Possible problems ----- */
     'array-callback-return': [ERROR, {
@@ -682,6 +681,6 @@ export const eslintVanillaConfig = {
     /* ----- Layout & Formatting ----- */
     'unicode-bom': [ERROR, 'never'],
   },
-} as const satisfies Linter.Config
+}
 
 /* eslint-enable */

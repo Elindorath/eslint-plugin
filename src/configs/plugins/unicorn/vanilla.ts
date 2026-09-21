@@ -2,11 +2,10 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const unicornVanillaConfig = {
+export const unicornVanillaConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -651,6 +650,6 @@ export const unicornVanillaConfig = {
       max: 1,
     }],
   },
-} as const satisfies Linter.Config
+}
 
 /* eslint-enable */

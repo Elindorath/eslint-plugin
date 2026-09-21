@@ -1,11 +1,10 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const unicornCssConfig = {
+export const unicornCssConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -28,4 +27,4 @@ export const unicornCssConfig = {
     }],
     'unicorn/prefer-media-feature-range-syntax': [ERROR],
   },
-} as const satisfies Linter.Config
+}

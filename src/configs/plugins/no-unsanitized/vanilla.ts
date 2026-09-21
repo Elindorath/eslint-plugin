@@ -5,15 +5,14 @@
 import noUnsanitizedPlugin from 'eslint-plugin-no-unsanitized'
 
 import { ERROR } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const SECOND_PROPERTY_INDEX = 1
 const TAGGED_TEMPLATES = ['Sanitizer.escapeHTML', 'escapeHTML']
 const METHODS = ['Sanitizer.unwrapSafeHTML', 'unwrapSafeHTML']
 
-export const noUnsanitizedVanillaConfig = {
+export const noUnsanitizedVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'no-unsanitized': noUnsanitizedPlugin,
@@ -63,4 +62,4 @@ export const noUnsanitizedVanillaConfig = {
       outerHTML: {},
     }],
   },
-} as const satisfies Linter.Config
+}

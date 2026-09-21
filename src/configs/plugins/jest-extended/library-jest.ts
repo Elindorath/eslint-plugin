@@ -5,11 +5,10 @@
 import jestExtendedPlugin from 'eslint-plugin-jest-extended'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const jestExtendedConfig = {
+export const jestExtendedConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'jest-extended': jestExtendedPlugin,
@@ -22,4 +21,4 @@ export const jestExtendedConfig = {
     'jest-extended/prefer-to-be-true': [ERROR],
     'jest-extended/prefer-to-have-been-called-once': [ERROR],
   },
-} as const satisfies Linter.Config
+}

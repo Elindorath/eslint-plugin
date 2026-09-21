@@ -1,11 +1,10 @@
 import sonarJsPlugin from 'eslint-plugin-sonarjs'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const sonarjsTypescriptConfig = {
+export const sonarjsTypescriptConfig: FixedLinterConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },
@@ -91,4 +90,4 @@ export const sonarjsTypescriptConfig = {
     'sonarjs/values-not-convertible-to-numbers': [ERROR],
     'sonarjs/void-use': [ERROR],
   },
-} as const satisfies Linter.Config
+}

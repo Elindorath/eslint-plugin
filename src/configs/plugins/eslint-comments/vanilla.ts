@@ -1,8 +1,7 @@
 import eslintCommentsPlugin from '@eslint-community/eslint-plugin-eslint-comments'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 const DIRECTIVES = {
   DISABLE: 'eslint-disable',
@@ -10,7 +9,7 @@ const DIRECTIVES = {
   ENABLE: 'eslint-enable',
 }
 
-export const eslintCommentsVanillaConfig = {
+export const eslintCommentsVanillaConfig: FixedLinterConfig = {
   plugins: {
     '@eslint-community/eslint-comments': eslintCommentsPlugin,
   },
@@ -41,4 +40,4 @@ export const eslintCommentsVanillaConfig = {
       ignore: [DIRECTIVES.ENABLE],
     }],
   },
-} as const satisfies Linter.Config
+}

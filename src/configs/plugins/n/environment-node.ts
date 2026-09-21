@@ -1,11 +1,10 @@
 import nPlugin from 'eslint-plugin-n'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const nNodeConfig = {
+export const nNodeConfig: FixedLinterConfig = {
   plugins: {
     n: nPlugin,
   },
@@ -170,4 +169,4 @@ export const nNodeConfig = {
     'n/prefer-promises/fs': [ERROR],
     'n/process-exit-as-throw': [ERROR],
   },
-} as const satisfies Linter.Config
+}

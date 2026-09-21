@@ -1,12 +1,11 @@
 import canonicalPlugin from 'eslint-plugin-canonical'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { overrideBaseConfigRule } from '../../../utilities.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const canonicalVanillaConfig = {
+export const canonicalVanillaConfig: FixedLinterConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },
@@ -68,4 +67,4 @@ export const canonicalVanillaConfig = {
       ignorePackages: false,
     }],
   },
-} as const satisfies Linter.Config
+}

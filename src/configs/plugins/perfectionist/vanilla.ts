@@ -3,8 +3,7 @@ import perfectionistPlugin from 'eslint-plugin-perfectionist'
 import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 // cspell:disable-next-line -- Expected in regex.
@@ -18,12 +17,8 @@ const REQUIRED_MEMBER_GROUP = 'required-member'
 const TYPE_EXPORT_GROUP = 'type-export'
 const VALUE_EXPORT_GROUP = 'value-export'
 
-export const perfectionistVanillaConfig = {
+export const perfectionistVanillaConfig: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
     perfectionist: perfectionistPlugin,
   },
 
@@ -480,6 +475,6 @@ export const perfectionistVanillaConfig = {
       useExperimentalDependencyDetection: true,
     }],
   },
-} as const satisfies Linter.Config
+}
 
 /* eslint-enable */

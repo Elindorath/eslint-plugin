@@ -1,11 +1,10 @@
 import securityPlugin from 'eslint-plugin-security'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const securityVanillaConfig = {
+export const securityVanillaConfig: FixedLinterConfig = {
   plugins: {
     security: securityPlugin,
   },
@@ -29,4 +28,4 @@ export const securityVanillaConfig = {
     'security/detect-pseudoRandomBytes': [ERROR],
     'security/detect-unsafe-regex': [ERROR],
   },
-} as const satisfies Linter.Config
+}

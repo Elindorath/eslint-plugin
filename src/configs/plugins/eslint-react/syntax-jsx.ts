@@ -1,11 +1,10 @@
 import eslintReactPlugin from '@eslint-react/eslint-plugin'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const eslintReactJsxConfig = {
+export const eslintReactJsxConfig: FixedLinterConfig = {
   plugins: {
     '@eslint-react': eslintReactPlugin,
   },
@@ -24,4 +23,4 @@ export const eslintReactJsxConfig = {
       allowExpressions: false,
     }],
   },
-} as const satisfies Linter.Config
+}

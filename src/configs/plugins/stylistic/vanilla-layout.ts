@@ -2,8 +2,7 @@
 import stylisticPlugin from '@stylistic/eslint-plugin'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const CODE_MAX_LEN = 180
@@ -13,7 +12,7 @@ const ALWAYS_MULTILINE = 'always-multiline'
 const LINE_ALIGNED = 'line-aligned'
 const PARENS_NEW_LINE = 'parens-new-line'
 
-export const stylisticVanillaLayoutConfig = {
+export const stylisticVanillaLayoutConfig: FixedLinterConfig = {
   plugins: {
     '@stylistic': stylisticPlugin,
   },
@@ -686,6 +685,6 @@ export const stylisticVanillaLayoutConfig = {
       before: false,
     }],
   },
-} as const satisfies Linter.Config
+}
 
 /* eslint-enable */

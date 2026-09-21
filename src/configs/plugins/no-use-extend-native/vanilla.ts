@@ -5,11 +5,10 @@
 import noUseExtendNativePlugin from 'eslint-plugin-no-use-extend-native'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const noUseExtendNativeVanillaConfig = {
+export const noUseExtendNativeVanillaConfig: FixedLinterConfig = {
   plugins: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
     'no-use-extend-native': noUseExtendNativePlugin,
@@ -19,4 +18,4 @@ export const noUseExtendNativeVanillaConfig = {
     // TODO: Make a PR to the plugin to allow extending specific native objects
     'no-use-extend-native/no-use-extend-native': [ERROR],
   },
-} as const satisfies Linter.Config
+}

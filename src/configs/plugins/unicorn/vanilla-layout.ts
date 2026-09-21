@@ -1,11 +1,10 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const unicornVanillaLayoutConfig = {
+export const unicornVanillaLayoutConfig: FixedLinterConfig = {
   plugins: {
     unicorn: unicornPlugin,
   },
@@ -14,4 +13,4 @@ export const unicornVanillaLayoutConfig = {
     'unicorn/empty-brace-spaces': [ERROR],
     'unicorn/switch-case-braces': [ERROR, 'always'],
   },
-} as const satisfies Linter.Config
+}

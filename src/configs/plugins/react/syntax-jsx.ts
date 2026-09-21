@@ -1,15 +1,14 @@
 import reactPlugin from 'eslint-plugin-react'
 
 import { ERROR, OFF } from '../../../constants.ts'
-
-import type { Linter } from 'eslint'
+import type { FixedLinterConfig } from '../../../types.ts'
 
 
 const INDENT_SPACE_COUNT = 2
 const PARENS_NEW_LINE = 'parens-new-line'
 const LINE_ALIGNED = 'line-aligned'
 
-export const reactConfig = {
+export const reactConfig: FixedLinterConfig = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
@@ -211,4 +210,4 @@ export const reactConfig = {
       return: PARENS_NEW_LINE,
     }],
   },
-} as const satisfies Linter.Config
+}

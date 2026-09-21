@@ -1,11 +1,10 @@
 import sonarJsPlugin from 'eslint-plugin-sonarjs'
 
 import { ERROR } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const sonarJsAwsConfig = {
+export const sonarJsAwsConfig: FixedLinterConfig = {
   plugins: {
     sonarjs: sonarJsPlugin,
   },
@@ -30,4 +29,4 @@ export const sonarJsAwsConfig = {
     'sonarjs/aws-sns-unencrypted-topics': [ERROR],
     'sonarjs/aws-sqs-unencrypted-queue': [ERROR],
   },
-} as const satisfies Linter.Config
+}

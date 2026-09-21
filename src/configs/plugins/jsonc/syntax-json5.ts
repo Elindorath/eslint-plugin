@@ -1,21 +1,15 @@
 import jsoncPlugin from 'eslint-plugin-jsonc'
 
 import { ERROR, OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 import { getRuleConfig } from '../../../utilities.ts'
 
 import { eslintVanillaConfig } from '../eslint/vanilla.ts'
 
-import type { ESLint, Linter } from 'eslint'
 
-
-export const json5Config = {
+export const json5Config: FixedLinterConfig = {
   plugins: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected ESLint.Plugin type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    jsonc: jsoncPlugin as unknown as ESLint.Plugin,
+    jsonc: jsoncPlugin,
   },
 
   rules: {
@@ -94,4 +88,4 @@ export const json5Config = {
     'jsonc/no-sparse-arrays': getRuleConfig('no-sparse-arrays', eslintVanillaConfig),
     'jsonc/no-useless-escape': getRuleConfig('no-useless-escape', eslintVanillaConfig),
   },
-} as const satisfies Linter.Config
+}

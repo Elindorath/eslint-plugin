@@ -1,11 +1,10 @@
 import canonicalPlugin from 'eslint-plugin-canonical'
 
 import { OFF } from '../../../constants.ts'
+import type { FixedLinterConfig } from '../../../types.ts'
 
-import type { Linter } from 'eslint'
 
-
-export const canonicalVanillaLayoutConfig = {
+export const canonicalVanillaLayoutConfig: FixedLinterConfig = {
   plugins: {
     canonical: canonicalPlugin,
   },
@@ -24,4 +23,4 @@ export const canonicalVanillaLayoutConfig = {
     // OFF as the '@stylistic/object-curly-newline' rule only asks import specifiers to be consistent
     'canonical/import-specifier-newline': [OFF],
   },
-} as const satisfies Linter.Config
+}
