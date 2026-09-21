@@ -8,8 +8,9 @@ import fs from 'fs-extra'
 import { packageDirectory } from 'package-directory'
 
 import type { ESLint } from 'eslint'
+import type { Except } from 'type-fest'
 
-type IndexFileType = keyof Omit<ESLint.Plugin, keyof ESLint.ObjectMetaProperties>
+type IndexFileType = keyof Except<ESLint.Plugin, keyof ESLint.ObjectMetaProperties>
 
 try {
   const packageDirectoryPath = await getPackageDirectory()

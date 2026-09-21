@@ -13,7 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
-    "libReplacement": false,
+    "libReplacement": true,
     "module": "Preserve",
     "moduleResolution": "Bundler",
     "noEmit": true,
