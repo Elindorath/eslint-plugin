@@ -40,6 +40,7 @@
     "prepack": "yarn run build",
     "spellcheck": "cspell lint --no-progress \"**\"",
     "test-build": "yarn run build && git diff --exit-code src/meta.ts",
+    "test-codebase": "./scripts/test-codebase.ts",
     "test-reachability": "./scripts/test-reachability.ts",
     "test-schema": "./scripts/test-schema.ts",
     "test-update": "./scripts/test-update.ts",
