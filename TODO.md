@@ -56,6 +56,9 @@
 - [ ] Indicate in the documentation of sonarjs/no-identical-functions that minimum can't be less than 3
 - [ ] Fix and normalize meta of plugins rules
 - [ ] Report a meaningful message when the error 'An error occurred while traversing' is thrown
+- [ ] Make `toCompatRule` of [eslint-json-compat-utils](https://github.com/ota-meshi/eslint-json-compat-utils) clone the `meta` object instead of sharing it with the converted rule: writing into the copy, as `eslint-plugin-package-json/experimental` does with `languages`, also mutates the source plugin
+- [ ] Drop the `minItems: 1` of the 'perfectionist/sort-arrays' schema, the only one of the 23 sort rules of [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist) to reject an empty option list
+- [ ] Fix the 'css/selector-complexity' `meta.defaultOptions` of [@eslint/css](https://github.com/eslint/css): every `max*` option defaults to `null` where its own schema demands an integer
 - [ ] Don't warn in this case:
 
   ```javascript
