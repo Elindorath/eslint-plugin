@@ -7,25 +7,6 @@ import { ERROR } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
 
-// eslint-disable-next-line n/no-sync -- TODO: Find a better way to handle this
-const normalizedResult = readPackageUpSync({ cwd: process.cwd(), normalize: true })
-
-if (!normalizedResult) {
-  throw new Error('package.json not found')
-}
-
-const { packageJson } = normalizedResult
-const { repository: repo, version } = packageJson
-
-const repoUrl = typeof repo === 'string' ? repo : repo?.url
-
-if (repoUrl === undefined || !repoUrl) {
-  throw new Error('missing repository in package.json')
-}
-
-// `repository.url` is stored in the canonical npm form, documentation urls need the plain repository URL
-const normalizedRepoUrl = repoUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
-
 export const eslintPluginConfig: FixedLinterConfig = {
   plugins: {
     'eslint-plugin': eslintPluginPlugin,
@@ -95,8 +76,14 @@ export const eslintPluginConfig: FixedLinterConfig = {
       allowNonBoolean: false,
     }],
     'eslint-plugin/require-meta-docs-url': [ERROR, {
+      /*
+       * Read when ESLint resolves this configuration, so that importing the plugin doesn't require
+       * the consuming project to declare a repository
+       */
       // Configured value
-      pattern: `${normalizedRepoUrl}/blob/v${version}/docs/rules/{{name}}.md`,
+      get pattern() {
+        return buildDocumentationUrlPattern()
+      },
     }],
     'eslint-plugin/require-meta-fixable': [ERROR, {
       // Configured value
@@ -125,4 +112,25 @@ export const eslintPluginConfig: FixedLinterConfig = {
     'eslint-plugin/test-case-shorthand-strings': [ERROR, 'as-needed'],
     'eslint-plugin/unique-test-case-names': [ERROR],
   },
+}
+
+function buildDocumentationUrlPattern() {
+  // eslint-disable-next-line n/no-sync -- TODO: Find a better way to handle this
+  const normalizedResult = readPackageUpSync({ cwd: process.cwd(), normalize: true })
+
+  if (!normalizedResult) {
+    throw new Error('package.json not found')
+  }
+
+  const { repository: repo, version } = normalizedResult.packageJson
+  const repoUrl = typeof repo === 'string' ? repo : repo?.url
+
+  if (repoUrl === undefined || !repoUrl) {
+    throw new Error('missing repository in package.json')
+  }
+
+  // `repository.url` is stored in the canonical npm form, documentation urls need the plain repository URL
+  const normalizedRepoUrl = repoUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
+
+  return `${normalizedRepoUrl}/blob/v${version}/docs/rules/{{name}}.md`
 }
