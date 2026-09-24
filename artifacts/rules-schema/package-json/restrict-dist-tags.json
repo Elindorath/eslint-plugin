@@ -1,0 +1,27 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowed": {
+        "description": "Dist-tags allowed in dependency specifications.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "allowedFor": {
+        "description": "Dependency sections where the allowed dist-tags may be used.",
+        "type": "array",
+        "items": {
+          "enum": [
+            "dependencies",
+            "devDependencies",
+            "optionalDependencies",
+            "peerDependencies"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

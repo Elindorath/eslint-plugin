@@ -114,6 +114,11 @@ export const packageJsonConfig: FixedLinterConfig = {
         rangeType: 'pin',
       },
     ]],
+    'package-json/restrict-dist-tags': [ERROR, {
+      // Configured value
+      allowed: [],
+      allowedFor: ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'],
+    }],
     'package-json/restrict-private-properties': [ERROR, {
       blockedProperties: [
         'files',
