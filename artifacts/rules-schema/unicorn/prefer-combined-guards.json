@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkCompoundConditions": {
+        "type": "boolean",
+        "description": "Check guards with compound conditions."
+      }
+    },
+    "additionalProperties": false
+  }
+]

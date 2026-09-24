@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "checkContinue": {
+        "type": "boolean",
+        "description": "Whether to also check unlabeled `continue` statements in nested loops and switches inside loops."
+      }
+    }
+  }
+]

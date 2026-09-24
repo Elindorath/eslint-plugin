@@ -192,7 +192,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-barrel-files': [ERROR],
     'unicorn/no-blob-to-file': [ERROR],
     'unicorn/no-boolean-sort-comparator': [ERROR],
-    'unicorn/no-break-in-nested-loop': [ERROR],
+    'unicorn/no-break-in-nested-loop': [ERROR, {
+      checkContinue: false,
+    }],
     'unicorn/no-canvas-to-image': [ERROR],
     'unicorn/no-chained-comparison': [ERROR],
     'unicorn/no-collection-bracket-access': [ERROR],
@@ -213,7 +215,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-for-each': [ERROR],
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-global-object-property-assignment': [ERROR],
-    'unicorn/no-immediate-mutation': [ERROR],
+    'unicorn/no-immediate-mutation': [ERROR, {
+      checkConditionals: false,
+    }],
     'unicorn/no-impossible-length-comparison': [ERROR],
     'unicorn/no-incorrect-query-selector': [ERROR],
     'unicorn/no-incorrect-template-string-interpolation': [ERROR],
@@ -432,7 +436,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/prefer-boolean-return': [ERROR],
     'unicorn/prefer-class-fields': [ERROR],
     'unicorn/prefer-code-point': [ERROR],
-    'unicorn/prefer-combined-guards': [ERROR],
+    'unicorn/prefer-combined-guards': [ERROR, {
+      checkCompoundConditions: true,
+    }],
     'unicorn/prefer-continue': [ERROR, {
       checkShortBodies: false,
       maximumStatements: 1,
