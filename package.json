@@ -46,7 +46,7 @@
     "type-check": "tsc"
   },
   "resolutions": {
-    "@typescript-eslint/utils": "8.70.0"
+    "@typescript-eslint/utils": "8.70.1"
   },
   "dependencies": {
     "@cspell/eslint-plugin": "10.3.3",
