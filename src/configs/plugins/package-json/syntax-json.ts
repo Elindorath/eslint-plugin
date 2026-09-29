@@ -89,6 +89,7 @@ export const packageJsonConfig: FixedLinterConfig = {
     'package-json/require-optionalDependencies': [OFF],
     // OFF as most packages are platform agnostic
     'package-json/require-os': [OFF],
+    'package-json/require-package-json-export': [ERROR],
     // OFF as pinning the package manager is a repository choice
     'package-json/require-packageManager': [OFF],
     // OFF as a package may have no peer dependency
