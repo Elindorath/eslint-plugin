@@ -887,7 +887,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:76.0.0"
     fs-extra: "npm:11.4.1"
     globals: "npm:17.12.0"
-    is-what: "npm:5.5.0"
+    is-what: "npm:5.5.2"
     jiti: "npm:2.7.0"
     json-diff-ts: "npm:4.10.4"
     package-directory: "npm:8.2.0"
@@ -5903,10 +5903,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-what@npm:5.5.0":
-  version: 5.5.0
-  resolution: "is-what@npm:5.5.0"
-  checksum: 10c0/065c8a4ac651988a495cc0211c2754c198788383c9fe1bbfdf6d237c423114a0c5f2fc3e26ad7ea43a63cd4169f4503f584305acbac91706d5308cc14dedd1bd
+"is-what@npm:5.5.2":
+  version: 5.5.2
+  resolution: "is-what@npm:5.5.2"
+  checksum: 10c0/5b3c6476ab356abee7d3675968925c446dcbae9e08ebcb97571351370ed7ea8c3e1efd42267079cabc1a2e2f49c1fa50b41b81a3d6d6a7f3816d202c08a55000
   languageName: node
   linkType: hard
 
