@@ -413,6 +413,7 @@ export const typescriptConfig: FixedLinterConfig = {
     '@typescript-eslint/no-unsafe-assignment': [ERROR],
     '@typescript-eslint/no-unsafe-call': [ERROR],
     '@typescript-eslint/no-unsafe-declaration-merging': [ERROR],
+    '@typescript-eslint/no-unsafe-enum-assignment': [ERROR],
     '@typescript-eslint/no-unsafe-enum-comparison': [ERROR],
     '@typescript-eslint/no-unsafe-function-type': [ERROR],
     '@typescript-eslint/no-unsafe-member-access': [ERROR, {
