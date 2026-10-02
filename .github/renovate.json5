@@ -55,10 +55,10 @@
       matchPackageNames: ['@types/node', 'eslint-plugin-unicorn'],
       separateMultipleMajor: false,
     },
-    // Adjust changelog
+    // Read the release notes where the rules change: the meta-package's own changelog is always a stub
     {
       matchPackageNames: ['typescript-eslint'],
-      changelogUrl: 'https://github.com/typescript-eslint/typescript-eslint/blob/{{{prettyNewVersion}}}/CHANGELOG.md',
+      sourceDirectory: 'packages/eslint-plugin',
     },
     // Prevent holding broken npm packages
     {
