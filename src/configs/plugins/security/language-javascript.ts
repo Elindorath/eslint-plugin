@@ -15,6 +15,7 @@ export const securityJavascriptConfig: FixedLinterConfig = {
     'security/detect-child-process': [ERROR],
     'security/detect-disable-mustache-escape': [ERROR],
     'security/detect-eval-with-expression': [ERROR],
+    'security/detect-invisible-characters': [ERROR],
     'security/detect-new-buffer': [ERROR],
     'security/detect-no-csrf-before-method-override': [ERROR],
     // TODO: Should ideally be ERROR but it is very restrictive due to lack of intelligence
