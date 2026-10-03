@@ -852,7 +852,7 @@ __metadata:
     "@types/node": "npm:24.19.0"
     ajv: "npm:6.12.6"
     better-typescript-lib: "npm:2.12.0"
-    case-anything: "npm:3.1.6"
+    case-anything: "npm:3.1.7"
     cspell: "npm:10.3.6"
     eslint: "npm:10.11.0"
     eslint-import-resolver-typescript: "npm:4.4.5"
@@ -3087,10 +3087,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"case-anything@npm:3.1.6":
-  version: 3.1.6
-  resolution: "case-anything@npm:3.1.6"
-  checksum: 10c0/8282e46805be0c6f774d50dca0c1029eb5a9d607b5bbcb8397bccc4328004e9fd3dab51bea501e0996cb8e006c10c5231ba197c68fe6653bee2a973bc8dc15c4
+"case-anything@npm:3.1.7":
+  version: 3.1.7
+  resolution: "case-anything@npm:3.1.7"
+  checksum: 10c0/338ff304ae4c5c91a381b97589d725b2ef43c3ad49eaffb24671527998aa8c23313909bac892af65fd49f4193802c468c3209c9cacfea98c47a986e2aa470424
   languageName: node
   linkType: hard
 
