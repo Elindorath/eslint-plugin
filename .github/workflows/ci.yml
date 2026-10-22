@@ -12,6 +12,7 @@ jobs:
           - lint
           - type-check
           - test-build
+          - test-codebase
           - test-update
           - test-reachability
           - test-schema

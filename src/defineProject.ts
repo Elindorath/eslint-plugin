@@ -1,6 +1,8 @@
 import { mergeConfigs } from './configMerger.ts'
+import { applyProjectCodebase } from './projectCodebase.ts'
 import { selectConfigs } from './registry.ts'
 
+import type { ProjectCodebase } from './projectCodebase.ts'
 import type { Axes } from './registry.ts'
 import type { FixedLinterConfig, FixedRulesRecord } from './types.ts'
 
@@ -10,6 +12,9 @@ import type { FixedLinterConfig, FixedRulesRecord } from './types.ts'
  * rest from the declaration it belongs to, so `library: []` is how a group opts out of every library.
  */
 type ProjectDeclaration = ProjectGroup & {
+
+  /** The names this codebase gives its own components, hooks and functions. */
+  codebase?: ProjectCodebase;
   overrides?: ProjectGroup[];
 }
 
@@ -29,7 +34,7 @@ const DEFAULT_AXES: Axes = {
 
 /** Turns a file architecture into the configurations the declared axes call for. */
 export function defineProject(declaration: ProjectDeclaration): FixedLinterConfig[] {
-  const { overrides = [], ...rootGroup } = declaration
+  const { codebase = {}, overrides = [], ...rootGroup } = declaration
   const rootAxes = resolveAxes(DEFAULT_AXES, rootGroup)
 
   return [
@@ -47,7 +52,9 @@ export function defineProject(declaration: ProjectDeclaration): FixedLinterConfi
         ? buildOwnConfig(override)
         : buildGroupConfig(override, overrideAxes, override.layout ?? hasRootLayout)
     }),
-  ]
+  ].map((config) => {
+    return applyProjectCodebase(config, codebase)
+  })
 }
 
 function buildGroupConfig(group: ProjectGroup, axes: Axes, hasLayout: boolean): FixedLinterConfig {
