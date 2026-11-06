@@ -873,7 +873,7 @@ __metadata:
     eslint-plugin-no-secrets: "npm:2.3.3"
     eslint-plugin-no-unsanitized: "npm:4.1.5"
     eslint-plugin-no-use-extend-native: "npm:0.7.3"
-    eslint-plugin-package-json: "npm:1.10.1"
+    eslint-plugin-package-json: "npm:1.14.0"
     eslint-plugin-perfectionist: "npm:5.11.1"
     eslint-plugin-promise: "npm:7.3.0"
     eslint-plugin-react: "npm:7.37.5"
@@ -4456,9 +4456,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-package-json@npm:1.10.1":
-  version: 1.10.1
-  resolution: "eslint-plugin-package-json@npm:1.10.1"
+"eslint-plugin-package-json@npm:1.14.0":
+  version: 1.14.0
+  resolution: "eslint-plugin-package-json@npm:1.14.0"
   dependencies:
     "@altano/repository-tools": "npm:^2.0.1"
     "@types/estree": "npm:^1.0.0"
@@ -4478,7 +4478,7 @@ __metadata:
   peerDependenciesMeta:
     "@eslint/json":
       optional: true
-  checksum: 10c0/983f6894de70252fdf686f231381346c08b9f2a8029813e810afefb23ba1111f746af26f04895cda8801f54e08f0a80d5bbd46e64b203fce8836c52b66e9c14b
+  checksum: 10c0/405d784816241faaa885cc897145c5ae338e866957d111b59177f59383d6b34d6c0c467cac047eb937568469265a98e5bec30542837b1e5a11293831d7228721
   languageName: node
   linkType: hard
 
