@@ -66,10 +66,7 @@ function getRule(ruleId: string, plugins: NonNullable<Linter.Config['plugins']>)
 
   const pluginName = ruleId.slice(0, separatorIndex)
 
-  /*
-   * The index signature makes the guard look redundant to the type system, but a rule id may name
-   * a plugin the configuration doesn't carry
-   */
+  // The index signature makes the guard look redundant to the type system, but a rule id may name a plugin the configuration doesn't carry
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- See comment above
   const pluginRules = Object.hasOwn(plugins, pluginName) ? plugins[pluginName].rules : undefined
   const rule = pluginRules?.[ruleId.slice(separatorIndex + RULE_ID_SEPARATOR_LENGTH)]
@@ -85,12 +82,12 @@ function getRuleOptionsFailure(
   const rule = getRule(ruleId, plugins)
   const schema = rule === undefined ? undefined : getRuleOptionsSchema(rule)
 
-  if (schema === undefined || !Array.isArray(ruleConfig)) {
-    return undefined
-  }
-
   // `useDefaults` makes `ajv` write into what it validates, and `structuredClone` preserves `Infinity`
-  if (ajv.validate(schema, structuredClone(ruleConfig.slice(RULE_SEVERITY_LENGTH)))) {
+  if (
+    schema === undefined
+    || !Array.isArray(ruleConfig)
+    || ajv.validate(schema, structuredClone(ruleConfig.slice(RULE_SEVERITY_LENGTH)))
+  ) {
     return undefined
   }
 

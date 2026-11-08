@@ -1,17 +1,1 @@
-[
-  {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "allow": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "pattern": "^:{1,2}(?:\\\\.|[^\\\\:()])+$"
-        },
-        "description": "Additional pseudo-selectors to allow."
-      }
-    }
-  }
-]
+{}

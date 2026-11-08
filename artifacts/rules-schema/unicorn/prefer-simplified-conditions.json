@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "negatedConditions": {
+        "enum": [
+          "simplify",
+          "expand"
+        ],
+        "description": "Whether to expand negated logical conditions only when it reduces negations or regardless of negation count."
+      }
+    }
+  }
+]

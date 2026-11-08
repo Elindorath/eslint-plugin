@@ -40,18 +40,18 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
 
     /**
      * All settings:
-     * type
-     * order
-     * ignoreCase
-     * specialCharacters
-     * locales
-     * alphabet
-     * fallbackSort
-     * newlinesBetween
-     * newlinesInside
-     * partitionByComment
-     * partitionByNewLine
-     * tsconfig
+     * - type
+     * - order
+     * - ignoreCase
+     * - specialCharacters
+     * - locales
+     * - alphabet
+     * - fallbackSort
+     * - newlinesBetween
+     * - newlinesInside
+     * - partitionByComment
+     * - partitionByNewLine
+     * - tsconfig
      */
   },
 

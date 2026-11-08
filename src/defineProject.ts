@@ -39,10 +39,7 @@ export function defineProject(declaration: ProjectDeclaration): FixedLinterConfi
       const hasRootLayout = rootGroup.layout ?? false
       const hasSameLayout = (override.layout ?? hasRootLayout) === hasRootLayout
 
-      /*
-       * A group that moves no axis is already covered by the one it belongs to, so it carries what
-       * it adds and nothing else
-       */
+      // A group that moves no axis is already covered by the one it belongs to, so it carries what it adds and nothing else
       return (hasSameLayout && isSameAxes(rootAxes, overrideAxes))
         ? buildOwnConfig(override)
         : buildGroupConfig(override, overrideAxes, override.layout ?? hasRootLayout)

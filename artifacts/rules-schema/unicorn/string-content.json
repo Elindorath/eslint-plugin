@@ -39,7 +39,9 @@
         "type": "array",
         "uniqueItems": true,
         "items": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
         },
         "description": "AST selectors for string nodes to check."
       }

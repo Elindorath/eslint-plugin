@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkUnknownCalls": {
+        "type": "boolean",
+        "description": "Check invocations whose side effects are unknown."
+      },
+      "allow": {
+        "type": "object",
+        "description": "Additional pure export names or member paths by import source.",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

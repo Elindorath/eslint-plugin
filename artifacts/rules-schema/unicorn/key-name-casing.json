@@ -1,0 +1,36 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "camelCase": {
+        "type": "boolean",
+        "description": "Whether to allow camelCase keys."
+      },
+      "PascalCase": {
+        "type": "boolean",
+        "description": "Whether to allow PascalCase keys."
+      },
+      "SCREAMING_SNAKE_CASE": {
+        "type": "boolean",
+        "description": "Whether to allow SCREAMING_SNAKE_CASE keys."
+      },
+      "kebab-case": {
+        "type": "boolean",
+        "description": "Whether to allow kebab-case keys."
+      },
+      "snake_case": {
+        "type": "boolean",
+        "description": "Whether to allow snake_case keys."
+      },
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "description": "Regular expression patterns for keys to ignore."
+      }
+    }
+  }
+]

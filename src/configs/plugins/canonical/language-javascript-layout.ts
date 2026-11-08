@@ -9,10 +9,7 @@ export const canonicalJavascriptLayoutConfig: FixedLinterConfig = {
     canonical: canonicalPlugin,
   },
 
-  /*
-   * Every rule here forces one element per line, where the '@stylistic' rules covering the same
-   * constructs are configured to accept a single line as long as it stays consistent
-   */
+  // Every rule here forces one element per line, where the '@stylistic' rules covering the same constructs are configured to accept a single line as long as it stays consistent
   rules: {
     // OFF as the '@stylistic/object-property-newline' rule allows all properties on the same line
     'canonical/destructuring-property-newline': [OFF, {

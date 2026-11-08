@@ -153,8 +153,7 @@ export const importJavascriptConfig: FixedLinterConfig = {
     }],
 
     /**
-     * OFF as this rule is project specific
-     * It can be configured with an object like this:
+     * OFF as this rule is project specific, but it can be configured with an object like this:
      * {
      *   basePath: process.cwd(),
      *   zones: [

@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "minimumCallCount": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Minimum number of external call sites required to check a function."
+      }
+    },
+    "additionalProperties": false
+  }
+]

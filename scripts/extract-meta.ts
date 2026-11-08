@@ -11,12 +11,12 @@ import { getPluginsRulesMeta } from './test/getPluginsRulesMeta.ts'
 import { storePluginsRuleSchema } from './test/storePluginsRuleSchema.ts'
 
 /**
- * Get the list of configured plugins from the directory plugins
- * For each configured plugin:
- *   Get the rules from the plugin
- *   For each rule:
- *     Get the rule meta
- *     Store the rule meta in a file
+ * - Get the list of configured plugins from the directory plugins
+ * - For each configured plugin:
+ *   - Get the rules from the plugin
+ *   - For each rule:
+ *     - Get the rule meta
+ *     - Store the rule meta in a file
  */
 
 try {

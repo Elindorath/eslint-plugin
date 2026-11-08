@@ -3,6 +3,7 @@ import { OFF } from '../constants.ts'
 
 import { jsoncLanguageConfig } from './plugins/json/language-jsonc.ts'
 import { jsonConfig } from './plugins/jsonc/syntax-json.ts'
+import { unicornJsonConfig } from './plugins/unicorn/language-json.ts'
 
 
 /*
@@ -12,6 +13,7 @@ import { jsonConfig } from './plugins/jsonc/syntax-json.ts'
 export const languageJsoncConfig = mergeConfigs(
   jsoncLanguageConfig,
   jsonConfig,
+  unicornJsonConfig,
   {
     rules: {
       // OFF as the dialect exists to carry comments

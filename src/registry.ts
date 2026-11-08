@@ -71,10 +71,7 @@ type Syntax = 'jsx' | 'typescript'
 const REACT_NATIVE = 'react-native'
 const TANSTACK_QUERY = 'tanstack-query'
 
-/*
- * Ordered from the least to the most specific, so that a configuration written for several axes
- * has the last word over the ones written for each of them
- */
+// Ordered from the least to the most specific, so that a configuration written for several axes has the last word over the ones written for each of them
 const REGISTRY: RegistryEntry[] = [
   { config: languageJavascriptConfig, layout: false, terms: { language: ['javascript'] } },
   { config: languageJavascriptLayoutConfig, layout: true, terms: { language: ['javascript'] } },

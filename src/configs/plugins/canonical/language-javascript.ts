@@ -36,10 +36,7 @@ export const canonicalJavascriptConfig: FixedLinterConfig = {
       ignoreNamedImports: false,
     }),
 
-    /**
-     * OFF as it resolves every import through a resolver this configuration doesn't declare,
-     * so it only ever reports resolution failures
-     */
+    // OFF as it resolves every import through a resolver this configuration doesn't declare, so it only ever reports resolution failures
     'canonical/no-barrel-import': [OFF],
     'canonical/no-export-all': [ERROR],
     'canonical/no-import-namespace-destructure': [ERROR],

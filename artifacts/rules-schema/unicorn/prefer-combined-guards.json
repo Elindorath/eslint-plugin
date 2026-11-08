@@ -5,6 +5,10 @@
       "checkCompoundConditions": {
         "type": "boolean",
         "description": "Check guards with compound conditions."
+      },
+      "checkMultiStatementBodies": {
+        "type": "boolean",
+        "description": "Check guards whose bodies run the same statements before the exit."
       }
     },
     "additionalProperties": false
