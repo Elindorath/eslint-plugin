@@ -57,7 +57,6 @@
             "attr",
             "calc",
             "calc-size",
-            "shape",
             "rect",
             "color",
             "color-mix",
@@ -119,6 +118,7 @@
             "mod",
             "rem",
             "env",
+            "shape",
             "circle",
             "ellipse",
             "inset",
@@ -126,6 +126,7 @@
             "sibling-count",
             "sibling-index",
             "steps",
+            "symbols",
             "matrix",
             "rotate",
             "scale",
@@ -436,6 +437,7 @@
             "grid-template-rows",
             "justify-self",
             "row-gap",
+            "flow-tolerance",
             "hanging-punctuation",
             "hyphenate-character",
             "hyphenate-limit-chars",
@@ -456,6 +458,7 @@
             "line-break",
             "line-clamp",
             "line-height",
+            "link-parameters",
             "list-style",
             "list-style-image",
             "list-style-position",
@@ -609,6 +612,7 @@
             "ruby-align",
             "ruby-overhang",
             "ruby-position",
+            "scroll-axis-lock",
             "scroll-behavior",
             "animation-range",
             "animation-range-end",
@@ -711,6 +715,7 @@
             "text-decoration-style",
             "text-decoration-thickness",
             "text-decoration-skip-ink",
+            "text-decoration-skip-spaces",
             "text-emphasis",
             "text-emphasis-color",
             "text-emphasis-position",
@@ -1350,6 +1355,7 @@
                 "space",
                 "transparent",
                 "background-clip",
+                "text",
                 "background-origin",
                 "background-size",
                 "currentColor"
@@ -1478,7 +1484,10 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "center",
+                "left",
+                "right"
               ]
             },
             "uniqueItems": true
@@ -1491,7 +1500,10 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "bottom",
+                "center",
+                "top"
               ]
             },
             "uniqueItems": true
@@ -1634,7 +1646,8 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "none"
               ]
             },
             "uniqueItems": true
@@ -2247,6 +2260,7 @@
                 "initial",
                 "revert",
                 "unset",
+                "none",
                 "path",
                 "fill-box",
                 "stroke-box",
@@ -2819,6 +2833,8 @@
                 "inline-flex",
                 "grid",
                 "inline-grid",
+                "grid-lanes",
+                "inline-grid-lanes",
                 "math"
               ]
             },
@@ -2907,7 +2923,14 @@
                 "initial",
                 "revert",
                 "unset",
-                "normal"
+                "baseline",
+                "end",
+                "normal",
+                "safe",
+                "space-evenly",
+                "start",
+                "stretch",
+                "unsafe"
               ]
             },
             "uniqueItems": true
@@ -2921,7 +2944,13 @@
                 "initial",
                 "revert",
                 "unset",
-                "anchor-center"
+                "anchor-center",
+                "baseline",
+                "center",
+                "end",
+                "safe",
+                "start",
+                "unsafe"
               ]
             },
             "uniqueItems": true
@@ -2937,8 +2966,13 @@
                 "unset",
                 "anchor-center",
                 "auto",
+                "baseline",
+                "end",
                 "normal",
-                "stretch"
+                "safe",
+                "start",
+                "stretch",
+                "unsafe"
               ]
             },
             "uniqueItems": true
@@ -3299,6 +3333,15 @@
                 "initial",
                 "revert",
                 "unset",
+                "large",
+                "larger",
+                "medium",
+                "small",
+                "smaller",
+                "x-large",
+                "x-small",
+                "xx-large",
+                "xx-small",
                 "xxx-large",
                 "math"
               ]
@@ -4562,6 +4605,21 @@
             },
             "uniqueItems": true
           },
+          "flow-tolerance": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "revert-layer",
+                "inherit",
+                "initial",
+                "revert",
+                "unset",
+                "infinite",
+                "normal"
+              ]
+            },
+            "uniqueItems": true
+          },
           "hanging-punctuation": {
             "type": "array",
             "items": {
@@ -4860,6 +4918,20 @@
             },
             "uniqueItems": true
           },
+          "link-parameters": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "revert-layer",
+                "inherit",
+                "initial",
+                "revert",
+                "unset",
+                "none"
+              ]
+            },
+            "uniqueItems": true
+          },
           "list-style": {
             "type": "array",
             "items": {
@@ -4962,7 +5034,6 @@
                 "simp-chinese-informal",
                 "square",
                 "string",
-                "symbols",
                 "tamil",
                 "telugu",
                 "thai",
@@ -4972,7 +5043,8 @@
                 "upper-alpha",
                 "upper-armenian",
                 "upper-latin",
-                "upper-roman"
+                "upper-roman",
+                "symbols"
               ]
             },
             "uniqueItems": true
@@ -6613,7 +6685,8 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "auto"
               ]
             },
             "uniqueItems": true
@@ -6712,6 +6785,7 @@
                 "initial",
                 "revert",
                 "unset",
+                "auto",
                 "currentColor",
                 "dashed",
                 "dotted",
@@ -7272,7 +7346,14 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "all",
+                "auto",
+                "fill",
+                "none",
+                "painted",
+                "stroke",
+                "visible"
               ]
             },
             "uniqueItems": true
@@ -7418,6 +7499,21 @@
                 "inter-character",
                 "over",
                 "under"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "scroll-axis-lock": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "revert-layer",
+                "inherit",
+                "initial",
+                "revert",
+                "unset",
+                "auto",
+                "none"
               ]
             },
             "uniqueItems": true
@@ -8147,6 +8243,7 @@
                 "unset",
                 "auto",
                 "linearGradient",
+                "linearRGB",
                 "sRGB"
               ]
             },
@@ -8737,9 +8834,7 @@
                 "ideograph-numeric",
                 "insert",
                 "no-autospace",
-                "normal",
-                "punctuation",
-                "replace"
+                "normal"
               ]
             },
             "uniqueItems": true
@@ -8904,6 +8999,23 @@
             },
             "uniqueItems": true
           },
+          "text-decoration-skip-spaces": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "revert-layer",
+                "inherit",
+                "initial",
+                "revert",
+                "unset",
+                "all",
+                "end",
+                "none",
+                "start"
+              ]
+            },
+            "uniqueItems": true
+          },
           "text-emphasis": {
             "type": "array",
             "items": {
@@ -9060,7 +9172,8 @@
                 "inherit",
                 "initial",
                 "revert",
-                "unset"
+                "unset",
+                "none"
               ]
             },
             "uniqueItems": true
