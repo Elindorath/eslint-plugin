@@ -1,0 +1,45 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "prefer": {
+        "additionalProperties": false,
+        "description": "Specifies the spelling to enforce for each aliased property. Properties left unspecified keep their default, which is the canonical spelling.",
+        "properties": {
+          "bundleDependencies": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "enum": [
+                  "bundleDependencies",
+                  "bundledDependencies"
+                ],
+                "type": "string"
+              }
+            ],
+            "description": "The spelling to enforce (`bundleDependencies` or `bundledDependencies`), `true` for the canonical one, or `false` to only report using both spellings at once."
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "enum": [
+                  "license",
+                  "licence"
+                ],
+                "type": "string"
+              }
+            ],
+            "description": "The spelling to enforce (`license` or `licence`), `true` for the canonical one, or `false` to only report using both spellings at once."
+          }
+        },
+        "type": "object"
+      }
+    },
+    "type": "object"
+  }
+]

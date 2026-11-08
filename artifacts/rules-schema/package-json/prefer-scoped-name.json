@@ -1,0 +1,21 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "allowed": {
+        "description": "Additional permitted scopes, each starting with @.",
+        "items": {
+          "pattern": "^@[^/]+$",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "preferred": {
+        "description": "The scope to suggest or fix for private packages.",
+        "pattern": "^@[^/]+$",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+]
