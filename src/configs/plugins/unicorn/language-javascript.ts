@@ -11,7 +11,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
   },
 
   rules: {
-    'unicorn/better-dom-traversing': [ERROR],
     'unicorn/catch-error-name': [ERROR, {
       name: 'error',
       ignore: [],
@@ -196,7 +195,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-break-in-nested-loop': [ERROR, {
       checkContinue: false,
     }],
-    'unicorn/no-canvas-to-image': [ERROR],
     'unicorn/no-chained-comparison': [ERROR],
     'unicorn/no-collection-bracket-access': [ERROR],
     'unicorn/no-computed-property-existence-check': [ERROR],
@@ -221,7 +219,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     }],
     'unicorn/no-impossible-length-comparison': [ERROR],
     'unicorn/no-incomplete-accessor-override': [ERROR],
-    'unicorn/no-incorrect-query-selector': [ERROR],
     'unicorn/no-incorrect-template-string-interpolation': [ERROR],
     'unicorn/no-instanceof-builtins': [ERROR, {
       exclude: [],
@@ -234,7 +231,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-invalid-argument-count': [ERROR, {}],
     'unicorn/no-invalid-character-comparison': [ERROR],
     'unicorn/no-invalid-fetch-options': [ERROR],
-    'unicorn/no-invalid-file-input-accept': [ERROR],
     'unicorn/no-invalid-intl-options': [ERROR],
     'unicorn/no-invalid-property-descriptor': [ERROR],
     'unicorn/no-invalid-response-options': [ERROR],
@@ -248,8 +244,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
       disallowedPrefixes: ['new', 'class'],
       onlyCamelCase: true,
     }],
-    'unicorn/no-late-current-target-access': [ERROR],
-    'unicorn/no-late-event-control': [ERROR],
     'unicorn/no-lonely-if': [ERROR],
     'unicorn/no-loop-iterable-mutation': [ERROR],
     'unicorn/no-magic-array-flat-depth': [ERROR],
@@ -297,7 +291,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-redundant-comparison': [ERROR],
     'unicorn/no-repeated-call-wrappers': [ERROR],
     'unicorn/no-return-array-push': [ERROR],
-    'unicorn/no-selector-as-dom-name': [ERROR],
     'unicorn/no-shorthand-property-overrides': [ERROR],
 
     'unicorn/no-single-promise-in-promise-methods': [ERROR],
@@ -347,7 +340,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-unreadable-new-expression': [ERROR],
     'unicorn/no-unreadable-object-destructuring': [ERROR],
     'unicorn/no-unsafe-buffer-conversion': [ERROR],
-    'unicorn/no-unsafe-dom-html': [ERROR],
     'unicorn/no-unsafe-json-serialization': [ERROR],
     'unicorn/no-unsafe-promise-all-settled-values': [ERROR],
     'unicorn/no-unsafe-property-key': [ERROR],
@@ -421,10 +413,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/operator-assignment': [ERROR, 'always'],
     'unicorn/prefer-abort-signal-any': [ERROR],
     'unicorn/prefer-abort-signal-timeout': [ERROR],
-    'unicorn/prefer-add-event-listener': [ERROR, {
-      excludedPackages: ['koa', 'sax'],
-    }],
-    'unicorn/prefer-add-event-listener-options': [ERROR],
     'unicorn/prefer-aggregate-error': [ERROR],
     'unicorn/prefer-array-find': [ERROR, {
       // Configured value
@@ -467,11 +455,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     }],
     'unicorn/prefer-direct-iteration': [ERROR],
     'unicorn/prefer-dispose': [ERROR],
-    'unicorn/prefer-dom-node-html-methods': [ERROR, {
-      checkGetHTML: true,
-      checkSetHTML: false,
-    }],
-    'unicorn/prefer-dom-node-replace-children': [ERROR],
     'unicorn/prefer-early-return': [ERROR, {
       checkShortBodies: false,
       maximumStatements: 1,
@@ -508,7 +491,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/prefer-iterator-zip': [ERROR],
     'unicorn/prefer-json-import': [ERROR],
     'unicorn/prefer-literal-ascii': [ERROR],
-    'unicorn/prefer-location-assign': [ERROR],
     'unicorn/prefer-logical-operator-over-ternary': [ERROR],
     'unicorn/prefer-map-from-entries': [ERROR],
     'unicorn/prefer-math-abs': [ERROR],
@@ -535,9 +517,7 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
       functions: [],
     }],
     'unicorn/prefer-object-iterable-methods': [ERROR],
-    'unicorn/prefer-observer-apis': [ERROR],
     'unicorn/prefer-optional-catch-binding': [ERROR],
-    'unicorn/prefer-path2d': [ERROR],
     'unicorn/prefer-private-class-fields': [ERROR],
     'unicorn/prefer-promise-static-methods': [ERROR],
     'unicorn/prefer-promise-try': [ERROR],
@@ -551,7 +531,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/prefer-regexp-escape': [ERROR],
     'unicorn/prefer-regexp-test': [ERROR],
     'unicorn/prefer-response-static-json': [ERROR],
-    'unicorn/prefer-scoped-selector': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
     'unicorn/prefer-set-methods': [ERROR],
     'unicorn/prefer-set-size': [ERROR],
@@ -609,7 +588,6 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
       checkVaryingBase: false,
     }],
     'unicorn/prefer-then-catch': [ERROR],
-    'unicorn/prefer-toggle-attribute': [ERROR],
     'unicorn/prefer-top-level-await': [ERROR],
     'unicorn/prefer-type-error': [ERROR],
     'unicorn/prefer-type-literal-last': [ERROR],
@@ -630,13 +608,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/relative-url-style': [ERROR, 'never'],
     'unicorn/require-array-join-separator': [ERROR],
     'unicorn/require-array-sort-compare': [ERROR],
-    'unicorn/require-css-escape': [ERROR, {
-      checkAllSelectors: false,
-    }],
     'unicorn/require-module-attributes': [ERROR],
     'unicorn/require-module-specifiers': [ERROR],
     'unicorn/require-number-to-fixed-digits-argument': [ERROR],
-    'unicorn/require-passive-events': [ERROR],
     'unicorn/require-proxy-trap-boolean-return': [ERROR],
     'unicorn/require-text-decoder-streaming': [ERROR],
     // OFF as it would reformat every documentation comment, to be revisited on its own
