@@ -44,7 +44,9 @@ export const typescriptConfig: FixedLinterConfig = {
       default: ARRAY_SIMPLE,
       readonly: ARRAY_SIMPLE,
     }],
-    '@typescript-eslint/await-thenable': [ERROR],
+    '@typescript-eslint/await-thenable': [ERROR, {
+      allowMixedPromiseArrays: false,
+    }],
     '@typescript-eslint/ban-ts-comment': [ERROR, {
       // Configured value
       'minimumDescriptionLength': 12,
