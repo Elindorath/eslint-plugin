@@ -27,7 +27,9 @@ export const eslintReactBrowserConfig: FixedLinterConfig = {
       requireDataLowercase: false,
     }],
     '@eslint-react/dom-no-unsafe-iframe-sandbox': [ERROR],
-    '@eslint-react/dom-no-unsafe-target-blank': [ERROR],
+    '@eslint-react/dom-no-unsafe-target-blank': [ERROR, {
+      allowReferrer: false,
+    }],
     '@eslint-react/dom-no-use-form-state': [ERROR],
     '@eslint-react/dom-no-void-elements-with-children': [ERROR],
     '@eslint-react/web-api-no-leaked-event-listener': [ERROR],
