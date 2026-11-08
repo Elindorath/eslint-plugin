@@ -42,9 +42,6 @@ export const eslintReactConfig: FixedLinterConfig = {
     '@eslint-react/no-direct-mutation-state': [ERROR],
     '@eslint-react/no-duplicate-key': [ERROR],
     '@eslint-react/no-forward-ref': [ERROR],
-    '@eslint-react/no-implicit-children': [ERROR],
-    '@eslint-react/no-implicit-key': [ERROR],
-    '@eslint-react/no-implicit-ref': [ERROR],
     '@eslint-react/no-leaked-conditional-rendering': [ERROR],
     '@eslint-react/no-missing-component-display-name': [ERROR],
     '@eslint-react/no-missing-context-display-name': [ERROR],
@@ -64,7 +61,6 @@ export const eslintReactConfig: FixedLinterConfig = {
       safeDefaultProps: [],
     }],
     '@eslint-react/no-unused-class-component-members': [ERROR],
-    '@eslint-react/no-unused-props': [ERROR],
     '@eslint-react/no-unused-state': [ERROR],
     '@eslint-react/no-use-context': [ERROR],
     '@eslint-react/purity': [ERROR],
@@ -126,12 +122,6 @@ export const eslintReactConfig: FixedLinterConfig = {
     '@eslint-react/x-no-duplicate-key': [OFF],
     // OFF as it is an alias of '@eslint-react/no-forward-ref'
     '@eslint-react/x-no-forward-ref': [OFF],
-    // OFF as it is an alias of '@eslint-react/no-implicit-children'
-    '@eslint-react/x-no-implicit-children': [OFF],
-    // OFF as it is an alias of '@eslint-react/no-implicit-key'
-    '@eslint-react/x-no-implicit-key': [OFF],
-    // OFF as it is an alias of '@eslint-react/no-implicit-ref'
-    '@eslint-react/x-no-implicit-ref': [OFF],
     // OFF as it is an alias of '@eslint-react/no-leaked-conditional-rendering'
     '@eslint-react/x-no-leaked-conditional-rendering': [OFF],
     // OFF as it is an alias of '@eslint-react/no-missing-component-display-name'
@@ -166,8 +156,6 @@ export const eslintReactConfig: FixedLinterConfig = {
     '@eslint-react/x-no-unstable-default-props': [OFF],
     // OFF as it is an alias of '@eslint-react/no-unused-class-component-members'
     '@eslint-react/x-no-unused-class-component-members': [OFF],
-    // OFF as it is an alias of '@eslint-react/no-unused-props'
-    '@eslint-react/x-no-unused-props': [OFF],
     // OFF as it is an alias of '@eslint-react/no-unused-state'
     '@eslint-react/x-no-unused-state': [OFF],
     // OFF as it is an alias of '@eslint-react/no-use-context'
