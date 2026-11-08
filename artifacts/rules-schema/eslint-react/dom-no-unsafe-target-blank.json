@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "allowReferrer": {
+        "type": "boolean",
+        "description": "Allow 'rel=\"noopener\"' without 'noreferrer' so referrer information is preserved.",
+        "default": false
+      }
+    }
+  }
+]

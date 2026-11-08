@@ -5,13 +5,14 @@
     "properties": {
       "ignore": {
         "type": "array",
+        "description": "Property names to ignore.",
         "items": {
           "type": "string"
         }
       },
       "requireDataLowercase": {
         "type": "boolean",
-        "default": false
+        "description": "Require lowercase names for data-* attributes."
       }
     }
   }
