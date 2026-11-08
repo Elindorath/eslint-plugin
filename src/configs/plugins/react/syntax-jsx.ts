@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat'
 import reactPlugin from 'eslint-plugin-react'
 
 import { ERROR, OFF } from '../../../constants.ts'
@@ -12,7 +13,11 @@ export const reactConfig: FixedLinterConfig = {
   // files: ['*.jsx', '*.tsx'],
 
   plugins: {
-    react: reactPlugin,
+    /**
+     * TODO: remove the compatibility wrapper when plugin add support for ESLint v10
+     * @see: https://github.com/jsx-eslint/eslint-plugin-react/issues/3977
+     */
+    react: fixupPluginRules(reactPlugin),
   },
 
   /* ----- Language options ----- */
