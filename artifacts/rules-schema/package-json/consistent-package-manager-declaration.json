@@ -1,0 +1,16 @@
+[
+  {
+    "additionalProperties": false,
+    "properties": {
+      "prefer": {
+        "description": "Specifies where the package manager should be declared.",
+        "enum": [
+          "devEngines",
+          "packageManager"
+        ],
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+]

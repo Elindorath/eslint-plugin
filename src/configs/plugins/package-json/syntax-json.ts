@@ -15,6 +15,16 @@ export const packageJsonConfig: FixedLinterConfig = {
 
   rules: {
     'package-json/bin-name-casing': [ERROR],
+    'package-json/consistent-package-manager-declaration': [ERROR, {
+      // Configured value as Yarn doesn't support `devEngines` yet
+      prefer: 'packageManager',
+    }],
+    'package-json/consistent-property-aliases': [ERROR, {
+      prefer: {
+        bundleDependencies: 'bundleDependencies',
+        license: 'license',
+      },
+    }],
     'package-json/exports-subpaths-style': [ERROR, {
       prefer: 'explicit',
     }],
@@ -35,6 +45,8 @@ export const packageJsonConfig: FixedLinterConfig = {
       ignoreDependencies: [],
       ignorePatterns: [],
     }],
+    // OFF as this rule is project specific
+    'package-json/prefer-scoped-name': [OFF],
     'package-json/repository-shorthand': [ERROR, {
       form: 'object',
     }],
@@ -89,9 +101,11 @@ export const packageJsonConfig: FixedLinterConfig = {
     'package-json/require-optionalDependencies': [OFF],
     // OFF as most packages are platform agnostic
     'package-json/require-os': [OFF],
+    'package-json/require-override-restrictions': [ERROR],
     'package-json/require-package-json-export': [ERROR],
-    // OFF as pinning the package manager is a repository choice
-    'package-json/require-packageManager': [OFF],
+    'package-json/require-packageManager': [ERROR, {
+      ignorePrivate: false,
+    }],
     // OFF as a package may have no peer dependency
     'package-json/require-peerDependencies': [OFF],
     // OFF as it only applies to packages declaring optional peers
