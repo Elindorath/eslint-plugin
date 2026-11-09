@@ -247,7 +247,8 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-lonely-if': [ERROR],
     'unicorn/no-loop-iterable-mutation': [ERROR],
     'unicorn/no-magic-array-flat-depth': [ERROR],
-    'unicorn/no-manually-wrapped-comments': [ERROR],
+    // OFF as it would force really long comments hard to read
+    'unicorn/no-manually-wrapped-comments': [OFF],
     'unicorn/no-mismatched-map-key': [ERROR],
     'unicorn/no-misrefactored-assignment': [ERROR],
     'unicorn/no-missing-local-resource': [ERROR],

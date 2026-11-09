@@ -3,7 +3,7 @@ import plugin from './src/index.ts'
 
 const config = [
   // The build output mirrors `src`, which is already linted
-  { ignores: ['dist/'] },
+  { ignores: ['dist/', '.claude/'] },
   ...plugin.configs['project-eslint-plugin'],
 ]
 
