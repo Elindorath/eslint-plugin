@@ -126,7 +126,10 @@ function getAbsentConfiguredRuleNames(pluginRules: { [key: RuleName]: Rule.RuleM
   for (const ruleId of configuredRuleSet) {
     const ruleName = getRuleNameFromId(ruleId, pluginPrefix)
 
-    // The index signature makes the guard look redundant to the type system, but a rule the configuration names may genuinely be absent from the plugin
+    /*
+     * The index signature makes the guard look redundant to the type system, but a rule the
+     * configuration names may genuinely be absent from the plugin
+     */
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- See comment above
     if (!Object.hasOwn(pluginRules, ruleName)) {
       absentConfiguredRuleNames.push(ruleName)

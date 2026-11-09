@@ -76,7 +76,11 @@ export const eslintPluginConfig: FixedLinterConfig = {
       allowNonBoolean: false,
     }],
     'eslint-plugin/require-meta-docs-url': [ERROR, {
-      // Configured value read when ESLint resolves this configuration, so that importing the plugin doesn't require the consuming project to declare a repository
+      /*
+       * Read when ESLint resolves this configuration, so that importing the plugin doesn't require
+       * the consuming project to declare a repository
+       */
+      // Configured value
       get pattern() {
         return buildDocumentationUrlPattern()
       },

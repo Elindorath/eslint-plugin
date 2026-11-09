@@ -609,7 +609,8 @@ export const eslintJavascriptConfig: FixedLinterConfig = {
     }],
 
     /**
-     * Disabled for object `VariableDeclarator` as it decreases readability in cases like the following:
+     * Disabled object VariableDeclarator
+     * It decrease readability for things like the following:
      * `const type = node.data[params.handleType === 'source' ? 'outputs' : 'inputs'][handleId].type`
      */
     'prefer-destructuring': [ERROR, {

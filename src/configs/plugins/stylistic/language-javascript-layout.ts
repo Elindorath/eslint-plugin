@@ -394,7 +394,10 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       // Configured value
       enforceForSequenceExpressions: true,
 
-      // Configured value as parentheses around a spread argument read as grouping, not as redundancy
+      /*
+       * Parentheses around a spread argument read as grouping, not as redundancy
+       * Configured value
+       */
       ignoredNodes: [
         'SpreadElement:has(> AwaitExpression)',
         'SpreadElement:has(> ConditionalExpression)',
@@ -546,46 +549,46 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       { blankLine: 'any', next: ['const', 'let', 'var', 'using'], prev: ['const', 'let', 'var', 'using'] },
 
       /**
-       * - "block-like"
-       * - "block"
-       * - "break"
-       * - "case"
-       * - "class"
-       * - "const"
-       * - "continue"
-       * - "debugger"
-       * - "default"
-       * - "directive"
-       * - "do"
-       * - "empty"
-       * - "export"
-       * - "exports"
-       * - "expression"
-       * - "for"
-       * - "function"
-       * - "if"
-       * - "iife"
-       * - "import"
-       * - "interface"
-       * - "let"
-       * - "multiline-block-like"
-       * - "multiline-const"
-       * - "multiline-expression"
-       * - "multiline-let"
-       * - "multiline-var"
-       * - "require"
-       * - "return"
-       * - "singleline-const"
-       * - "singleline-let"
-       * - "singleline-var"
-       * - "switch"
-       * - "throw"
-       * - "try"
-       * - "type"
-       * - "using"
-       * - "var"
-       * - "while"
-       * - "with"
+       * "block-like"
+       * "block"
+       * "break"
+       * "case"
+       * "class"
+       * "const"
+       * "continue"
+       * "debugger"
+       * "default"
+       * "directive"
+       * "do"
+       * "empty"
+       * "export"
+       * "exports"
+       * "expression"
+       * "for"
+       * "function"
+       * "if"
+       * "iife"
+       * "import"
+       * "interface"
+       * "let"
+       * "multiline-block-like"
+       * "multiline-const"
+       * "multiline-expression"
+       * "multiline-let"
+       * "multiline-var"
+       * "require"
+       * "return"
+       * "singleline-const"
+       * "singleline-let"
+       * "singleline-var"
+       * "switch"
+       * "throw"
+       * "try"
+       * "type"
+       * "using"
+       * "var"
+       * "while"
+       * "with"
        */
     ],
     '@stylistic/quote-props': [ERROR, 'consistent-as-needed', {
@@ -662,7 +665,10 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       after: true,
       before: false,
 
-      // Configured value as arrow spacing in function types is enforced by '@stylistic/arrow-spacing'
+      /*
+       * Arrow spacing in function types is enforced by '@stylistic/arrow-spacing'
+       * Configured value
+       */
       overrides: {
         arrow: 'ignore',
       },
