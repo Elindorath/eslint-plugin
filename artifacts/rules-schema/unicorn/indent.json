@@ -1,0 +1,29 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "indent": {
+        "oneOf": [
+          {
+            "enum": [
+              "tab"
+            ],
+            "description": "Use tabs."
+          },
+          {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Number of spaces per indentation unit."
+          }
+        ],
+        "description": "Use tabs or the specified number of spaces per indentation unit."
+      },
+      "tabWidth": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Tab stop width used when converting CSS indentation."
+      }
+    }
+  }
+]

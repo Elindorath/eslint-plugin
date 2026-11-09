@@ -122,15 +122,15 @@ function buildDocumentationUrlPattern() {
     throw new Error('package.json not found')
   }
 
-  const { repository: repo, version } = normalizedResult.packageJson
-  const repoUrl = typeof repo === 'string' ? repo : repo?.url
+  const { repository, version } = normalizedResult.packageJson
+  const repositoryUrl = typeof repository === 'string' ? repository : repository?.url
 
-  if (repoUrl === undefined || !repoUrl) {
+  if (repositoryUrl === undefined || !repositoryUrl) {
     throw new Error('missing repository in package.json')
   }
 
   // `repository.url` is stored in the canonical npm form, documentation urls need the plain repository URL
-  const normalizedRepoUrl = repoUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
+  const normalizedRepositoryUrl = repositoryUrl.replace(/^git\+/u, '').replace(/\.git$/u, '')
 
-  return `${normalizedRepoUrl}/blob/v${version}/docs/rules/{{name}}.md`
+  return `${normalizedRepositoryUrl}/blob/v${version}/docs/rules/{{name}}.md`
 }

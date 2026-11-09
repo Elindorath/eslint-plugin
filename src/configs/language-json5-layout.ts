@@ -2,9 +2,11 @@ import { mergeConfigs } from '../configMerger.ts'
 
 import { json5LayoutConfig } from './plugins/jsonc/syntax-json5-layout.ts'
 import { stylisticJsonLayoutConfig } from './plugins/stylistic/syntax-json-layout.ts'
+import { unicornJsonLayoutConfig } from './plugins/unicorn/language-json-layout.ts'
 
 
 export const languageJson5LayoutConfig = mergeConfigs(
   json5LayoutConfig,
-  stylisticJsonLayoutConfig
+  stylisticJsonLayoutConfig,
+  unicornJsonLayoutConfig
 )

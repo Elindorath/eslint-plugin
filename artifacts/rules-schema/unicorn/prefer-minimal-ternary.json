@@ -5,7 +5,7 @@
     "properties": {
       "checkVaryingBase": {
         "type": "boolean",
-        "description": "Also report ternaries that differ only by the base of a call or member access, whose minimization moves the ternary into the base (`(test ? a : b).foo`)."
+        "description": "Also report expressions that differ only by the base of a call or member access, whose minimization moves the ternary into the base (`(test ? a : b).foo`)."
       },
       "checkComputedMemberAccess": {
         "type": "boolean",

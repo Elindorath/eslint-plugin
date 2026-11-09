@@ -230,8 +230,8 @@ function mergeEcmaVersion(version1: EcmaVersion, version2: EcmaVersion): EcmaVer
 }
 
 // The later configuration wins, so composition order carries the precedence, as it does for rules
-function mergeSourceType(sourceType1: SourceType, sourceType2: SourceType) {
-  return sourceType2 ?? sourceType1
+function mergeSourceType(sourceType1: SourceType, sourceType2: SourceType = sourceType1) {
+  return sourceType2
 }
 
 function mergeGlobals(globals1: Globals, globals2: Globals) {

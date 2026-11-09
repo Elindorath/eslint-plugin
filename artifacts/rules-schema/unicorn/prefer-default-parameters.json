@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkFallbackExpressions": {
+        "type": "boolean",
+        "description": "Check fallback reads in parameters and destructured variables."
+      }
+    },
+    "additionalProperties": false
+  }
+]

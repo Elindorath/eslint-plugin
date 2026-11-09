@@ -1,17 +1,1 @@
-[
-  {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "scopingRootAtRules": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "pattern": "^[^@]+$"
-        },
-        "description": "At-rules that provide a scoping root."
-      }
-    }
-  }
-]
+{}

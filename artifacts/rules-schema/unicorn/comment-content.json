@@ -3,6 +3,17 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
+      "ignore": {
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "additionalProperties": true
+        },
+        "description": "Patterns matching comment regions to ignore."
+      },
       "checkUniformCase": {
         "type": "boolean",
         "description": "Whether to also re-case all-lowercase and all-uppercase tokens. When `false`, only tokens that already mix upper- and lower-case (for example, `Github`) are corrected."

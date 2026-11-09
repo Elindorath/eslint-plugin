@@ -1,16 +1,1 @@
-[
-  {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "unit": {
-        "enum": [
-          "dvh",
-          "svh",
-          "lvh"
-        ],
-        "description": "The viewport height unit to prefer."
-      }
-    }
-  }
-]
+{}

@@ -1,16 +1,1 @@
-[
-  {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "allow": {
-        "description": "Deprecated CSS features to allow.",
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "uniqueItems": true
-      }
-    }
-  }
-]
+{}

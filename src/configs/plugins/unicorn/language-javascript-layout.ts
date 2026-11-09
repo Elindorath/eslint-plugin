@@ -11,6 +11,7 @@ export const unicornJavascriptLayoutConfig: FixedLinterConfig = {
 
   rules: {
     'unicorn/empty-brace-spaces': [ERROR],
+    'unicorn/no-leading-empty-lines': [ERROR],
     'unicorn/switch-case-braces': [ERROR, 'always'],
   },
 }

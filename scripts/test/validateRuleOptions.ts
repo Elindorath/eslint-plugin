@@ -85,12 +85,12 @@ function getRuleOptionsFailure(
   const rule = getRule(ruleId, plugins)
   const schema = rule === undefined ? undefined : getRuleOptionsSchema(rule)
 
-  if (schema === undefined || !Array.isArray(ruleConfig)) {
-    return undefined
-  }
-
   // `useDefaults` makes `ajv` write into what it validates, and `structuredClone` preserves `Infinity`
-  if (ajv.validate(schema, structuredClone(ruleConfig.slice(RULE_SEVERITY_LENGTH)))) {
+  if (
+    schema === undefined
+    || !Array.isArray(ruleConfig)
+    || ajv.validate(schema, structuredClone(ruleConfig.slice(RULE_SEVERITY_LENGTH)))
+  ) {
     return undefined
   }
 
