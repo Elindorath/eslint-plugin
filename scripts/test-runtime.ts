@@ -140,10 +140,7 @@ async function getRanRuleIds(eslint: ESLint, filePaths: string[]) {
   return [...getEnabledRuleIds(fileConfigs)]
 }
 
-/**
- * A crashing rule aborts the whole run, so it is turned off and the run starts over until it
- * completes, which reveals every crashing rule rather than the first one.
- */
+// A crashing rule aborts the whole run, so it is turned off and the run starts over until it completes, which reveals every crashing rule rather than the first one.
 async function lintScenario(scenarioEntry: ScenarioEntry, pluginExports: PluginExports, crashedRuleIds: string[] = []): Promise<ScenarioOutcome> {
   const run = await runScenario(scenarioEntry, pluginExports, crashedRuleIds)
 
