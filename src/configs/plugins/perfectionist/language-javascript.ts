@@ -24,7 +24,7 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
 
   settings: {
     perfectionist: {
-      fallbackSort: 'unsorted',
+      fallbackSort: { type: 'unsorted' },
       ignoreCase: true,
       locales: LOCALES,
       order: 'asc',
@@ -111,6 +111,16 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
       useConfigurationIf: {},
       useExperimentalDependencyDetection: true,
     }],
+    // OFF as constructor parameters are positional; sorting them is only safe for classes built by dependency injection
+    'perfectionist/sort-constructor-parameters': [OFF, {
+      customGroups: [],
+      groups: [
+        'parameter',
+      ],
+      newlinesBetween: 'ignore',
+      newlinesInside: 'newlinesBetween',
+      useConfigurationIf: {},
+    }],
     'perfectionist/sort-decorators': [ERROR, {
       // TODO: needs to be defined
       customGroups: [],
@@ -176,9 +186,6 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
       newlinesInside: 'newlinesBetween',
       useConfigurationIf: {},
     }],
-    // TODO: Need to choose between this rule, the core sort-imports rule, the import/order and prettier-plugin-sort-imports
-    'sort-imports': [OFF],
-    // eslint-disable-next-line perfectionist/sort-objects -- To keep consistency
     'perfectionist/sort-imports': [ERROR, {
       // Configured value
       customGroups: [
@@ -391,7 +398,6 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
       sortBy: 'name',
       useConfigurationIf: {},
     }],
-    'sort-keys': [OFF],
 
     /**
      * Other option objects can be defined with the following additional key:
@@ -400,7 +406,6 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
      *   callingFunctionNamePattern: 'regex',
      * }
      */
-    // eslint-disable-next-line perfectionist/sort-objects -- To keep consistency
     'perfectionist/sort-objects': [ERROR, {
       // Configured value
       customGroups: [
@@ -474,6 +479,10 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
       useConfigurationIf: {},
       useExperimentalDependencyDetection: true,
     }],
+    // TODO: Need to choose between `perfectionist/sort-imports`, this rule, `import/order` and `prettier-plugin-sort-imports`
+    'sort-imports': [OFF],
+    // OFF as it is superseded by `perfectionist/sort-objects`
+    'sort-keys': [OFF],
   },
 }
 

@@ -1,7 +1,5 @@
-/**
- * TODO: fix it when this plugin expose typings
- */
-// @ts-expect-error: TS7016 because this plugin doesn't expose typings
+import { fixupPluginRules } from '@eslint/compat'
+// @ts-expect-error: TS7016 because this plugin doesn't expose typings, TODO: remove when it does
 import reactNativePlugin from 'eslint-plugin-react-native'
 
 import { ERROR } from '../../../constants.ts'
@@ -10,8 +8,12 @@ import type { FixedLinterConfig } from '../../../types.ts'
 
 export const reactNativeConfig: FixedLinterConfig = {
   plugins: {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Caused by the absence of types.
-    'react-native': reactNativePlugin,
+    /**
+     * TODO: remove the compatibility wrapper when plugin add support for ESLint v10
+     * @see: https://github.com/Intellicode/eslint-plugin-react-native/issues/333
+     */
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- Caused by the absence of types.
+    'react-native': fixupPluginRules(reactNativePlugin),
   },
 
   settings: {
