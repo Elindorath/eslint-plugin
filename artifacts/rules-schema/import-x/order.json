@@ -147,7 +147,17 @@
         "additionalProperties": false
       },
       "warnOnUnassignedImports": {
-        "type": "boolean",
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "top"
+            ]
+          }
+        ],
         "default": false
       }
     },

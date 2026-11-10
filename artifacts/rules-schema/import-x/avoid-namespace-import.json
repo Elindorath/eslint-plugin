@@ -1,0 +1,17 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowList": {
+        "type": "array",
+        "description": "List of namespace imports to allow",
+        "default": [],
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+]

@@ -9,6 +9,7 @@
         },
         "uniqueItems": true
       }
-    }
+    },
+    "additionalProperties": false
   }
 ]

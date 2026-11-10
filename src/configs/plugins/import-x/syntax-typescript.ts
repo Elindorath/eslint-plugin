@@ -68,6 +68,7 @@ export const importTypescriptConfig: FixedLinterConfig = {
     'import-x/consistent-type-specifier-style': [ERROR, 'prefer-top-level'],
     // Configured value
     'import-x/extensions': [ERROR, 'always', {
+      checkSelfReference: false,
       // Configured value
       checkTypeImports: true,
       // Configured value

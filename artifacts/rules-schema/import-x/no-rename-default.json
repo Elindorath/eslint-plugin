@@ -9,6 +9,13 @@
       "preventRenamingBindings": {
         "default": true,
         "type": "boolean"
+      },
+      "whitelist": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
       }
     },
     "additionalProperties": false

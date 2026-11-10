@@ -1,0 +1,27 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "allowList": {
+        "type": "array",
+        "description": "List of modules from which to allow barrel files",
+        "default": [],
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "maxModuleGraphSizeAllowed": {
+        "type": "number",
+        "description": "Maximum allowed module graph size",
+        "default": 20
+      },
+      "amountOfExportsToConsiderModuleAsBarrel": {
+        "type": "number",
+        "description": "Amount of exports to consider a module as barrel file",
+        "default": 3
+      }
+    },
+    "additionalProperties": false
+  }
+]

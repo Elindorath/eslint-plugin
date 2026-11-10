@@ -95,6 +95,21 @@ export const importJavascriptConfig: FixedLinterConfig = {
     }],
     'import-x/unambiguous': [ERROR],
 
+    /* ----- Performance ----- */
+    'import-x/avoid-barrel-files': [ERROR, {
+      amountOfExportsToConsiderModuleAsBarrel: 3,
+    }],
+    'import-x/avoid-importing-barrel-files': [ERROR, {
+      allowList: [],
+      amountOfExportsToConsiderModuleAsBarrel: 3,
+      maxModuleGraphSizeAllowed: 20,
+    }],
+    // OFF as namespace imports can improve readability
+    'import-x/avoid-namespace-import': [OFF, {
+      allowList: [],
+    }],
+    'import-x/avoid-re-export-all': [ERROR],
+
     /* ----- Static analysis ----- */
     'import-x/default': [ERROR],
     'import-x/named': [ERROR, {
@@ -201,6 +216,7 @@ export const importJavascriptConfig: FixedLinterConfig = {
     // OFF as we prefer files to be structured from general to details
     'import-x/exports-last': [OFF],
     'import-x/extensions': [ERROR, 'always', {
+      checkSelfReference: false,
       // Configured value
       ignorePackages: true,
       // Configured value
@@ -236,6 +252,7 @@ export const importJavascriptConfig: FixedLinterConfig = {
     'import-x/no-duplicates': [ERROR, {
       'considerQueryString': false,
       'prefer-inline': false,
+      'whitelist': [],
     }],
     'import-x/no-named-default': [ERROR],
     // OFF as we prefer named exports in regards to tree-shaking
@@ -244,7 +261,12 @@ export const importJavascriptConfig: FixedLinterConfig = {
     'import-x/no-namespace': [OFF, {
       ignore: [''],
     }],
-    'import-x/no-rename-default': [ERROR],
+    'import-x/no-rename-default': [ERROR, {
+      // Configured value
+      commonjs: true,
+      preventRenamingBindings: true,
+      whitelist: [],
+    }],
     'import-x/no-unassigned-import': [ERROR, {
       /**
        * Those are present in schema but are not documented and don't seem to be used
