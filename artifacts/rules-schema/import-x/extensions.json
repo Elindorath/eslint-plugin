@@ -47,6 +47,9 @@
             "checkTypeImports": {
               "type": "boolean"
             },
+            "checkSelfReference": {
+              "type": "boolean"
+            },
             "pathGroupOverrides": {
               "type": "array",
               "items": {
@@ -76,7 +79,8 @@
             "fix": {
               "type": "boolean"
             }
-          }
+          },
+          "additionalProperties": false
         }
       ],
       "additionalItems": false
@@ -106,6 +110,9 @@
             "checkTypeImports": {
               "type": "boolean"
             },
+            "checkSelfReference": {
+              "type": "boolean"
+            },
             "pathGroupOverrides": {
               "type": "array",
               "items": {
@@ -135,7 +142,8 @@
             "fix": {
               "type": "boolean"
             }
-          }
+          },
+          "additionalProperties": false
         }
       ],
       "additionalItems": false

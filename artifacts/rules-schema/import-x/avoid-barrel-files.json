@@ -1,0 +1,13 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "amountOfExportsToConsiderModuleAsBarrel": {
+        "type": "number",
+        "description": "Minimum amount of exports to consider module as barrelfile",
+        "default": 3
+      }
+    },
+    "additionalProperties": false
+  }
+]

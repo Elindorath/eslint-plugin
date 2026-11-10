@@ -7,6 +7,16 @@
       },
       "prefer-inline": {
         "type": "boolean"
+      },
+      "whitelist": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "additionalProperties": false
