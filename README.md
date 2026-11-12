@@ -29,6 +29,25 @@ module.exports = [
 ];
 ```
 
+## Naming what the rules cannot guess
+
+Some rules only report on abstractions they have been told about: a rule that doesn't know your components checks nothing on them, and looks configured while covering nothing. `defineProject` takes those names under `codebase`:
+
+```javascript
+elindorath.defineProject({
+  library: ['react'],
+  syntax: ['jsx', 'typescript'],
+
+  codebase: {
+    componentElements: { MyButton: 'button' },
+    effectHooks: ['useDeepEffect'],
+    imageComponents: ['Img'],
+  },
+})
+```
+
+Each entry is written into every rule option and plugin setting that reads it, replacing the value rather than extending it: the defaults shipped here are guesses at common naming, and a codebase that names its own is authoritative. The `test-codebase` check fails if a name has nowhere left to go, or if a configuration marks an option as belonging to the project without exposing it.
+
 For ease of use, this plugin also exposes special configurations that aggregate multiple typed configurations tailored to commonly used file organizations in projects. Those configurations are array of typed configurations with a file constraint:
 
 - The `eslint.config.js` is treated as an eslint config file.
