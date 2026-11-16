@@ -1,0 +1,75 @@
+[
+  {
+    "type": "object",
+    "additionalProperties": false,
+    "enableDangerousAutofixThisMayCauseInfiniteLoops": false,
+    "properties": {
+      "additionalHooks": {
+        "type": "string"
+      },
+      "enableDangerousAutofixThisMayCauseInfiniteLoops": {
+        "type": "boolean"
+      },
+      "experimental_autoDependenciesHooks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "hooks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "dependencies": {
+            "closureIndex": [
+              "dependenciesIndex"
+            ],
+            "dependenciesIndex": [
+              "closureIndex"
+            ]
+          },
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "closureIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "dependenciesIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "stableResult": {
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "minItems": 1
+                }
+              ]
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "requireExplicitEffectDeps": {
+        "type": "boolean"
+      }
+    }
+  }
+]

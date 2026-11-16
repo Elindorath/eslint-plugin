@@ -73,6 +73,15 @@ export const eslintReactConfig: FixedLinterConfig = {
     '@eslint-react/set-state-in-effect': [ERROR],
     '@eslint-react/set-state-in-render': [ERROR],
     '@eslint-react/static-components': [ERROR],
+    // OFF as it is an experimental fork of '@eslint-react/exhaustive-deps'
+    '@eslint-react/unstable-exhaustive-deps': [OFF, {
+      additionalHooks: '',
+      enableDangerousAutofixThisMayCauseInfiniteLoops: false,
+      // eslint-disable-next-line @typescript-eslint/naming-convention, camelcase -- Defined by the rule
+      experimental_autoDependenciesHooks: [],
+      hooks: [],
+      requireExplicitEffectDeps: false,
+    }],
     '@eslint-react/unsupported-syntax': [ERROR],
     '@eslint-react/use-memo': [ERROR],
     '@eslint-react/use-state': [ERROR, {

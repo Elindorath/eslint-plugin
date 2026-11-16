@@ -5,15 +5,15 @@
     "properties": {
       "enforceAssignment": {
         "type": "boolean",
-        "default": true
+        "description": "Require the useState result to be assigned to a destructured value/setter pair."
       },
       "enforceLazyInitialization": {
         "type": "boolean",
-        "default": true
+        "description": "Require expensive initializers to be wrapped in a lazy initializer function."
       },
       "enforceSetterName": {
         "type": "boolean",
-        "default": true
+        "description": "Require the setter name to match the state value name."
       }
     }
   }
