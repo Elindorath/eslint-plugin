@@ -5,8 +5,7 @@
     "properties": {
       "allowReferrer": {
         "type": "boolean",
-        "description": "Allow 'rel=\"noopener\"' without 'noreferrer' so referrer information is preserved.",
-        "default": false
+        "description": "Allow 'rel=\"noopener\"' without 'noreferrer' so referrer information is preserved."
       }
     }
   }
