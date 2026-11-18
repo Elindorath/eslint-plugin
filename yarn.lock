@@ -896,7 +896,7 @@ __metadata:
     globals: "npm:17.14.0"
     is-what: "npm:5.5.7"
     jiti: "npm:2.7.0"
-    json-diff-ts: "npm:4.10.4"
+    json-diff-ts: "npm:4.10.5"
     package-directory: "npm:8.2.0"
     read-package-up: "npm:12.0.0"
     tsx: "npm:4.23.15"
@@ -6114,10 +6114,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-diff-ts@npm:4.10.4":
-  version: 4.10.4
-  resolution: "json-diff-ts@npm:4.10.4"
-  checksum: 10c0/6c37e04cf5184b74de89ff75d78ca623c6ed4bbb25a460df1ad4a60b967f95cf5f19ff8f9a48a26cef7ef428de88d95a549d15c11f53a9fd5f3a07471fc5099a
+"json-diff-ts@npm:4.10.5":
+  version: 4.10.5
+  resolution: "json-diff-ts@npm:4.10.5"
+  checksum: 10c0/905e0160089878658a0ac46f97f3a535a0636a9020a8f3aa4a1b33f6ab0e7e708d18763a00f6175eb89d712cbbca6f6f2696b0dad393144fce2aa253278f2f14
   languageName: node
   linkType: hard
 
