@@ -1,9 +1,8 @@
 /* eslint-disable max-statements, perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
-import { config } from './config.ts'
 import { objectEntries, objectKeys } from './utilities/object.ts'
 
-import type { IChange } from 'json-diff-ts'
+import type { IAtomOperation } from 'json-diff-ts'
 
 import type {
   PluginChangesDescriptor,
@@ -83,18 +82,19 @@ function displayPluginChangesDescriptor(pluginChangesDescriptor: PluginChangesDe
   return DISPLAYED_PLUGIN_COUNT
 }
 
-function displayRuleChanges(changes: IChange[]) {
-  for (const change of changes) {
-    displayRuleChange(change)
+function displayRuleChanges(operations: IAtomOperation[]) {
+  for (const operation of operations) {
+    displayRuleChange(operation)
   }
 }
 
-function displayRuleChange(change: IChange) {
-  const changeAsJsonStrings = JSON.stringify(change, undefined, config.jsonIndentationSpacesCount).split('\n')
+function displayRuleChange(operation: IAtomOperation) {
+  const values = [
+    ...('oldValue' in operation ? [JSON.stringify(operation.oldValue)] : []),
+    ...('value' in operation ? [JSON.stringify(operation.value)] : []),
+  ]
 
-  for (const changeAsJsonString of changeAsJsonStrings) {
-    console.log(`      ${changeAsJsonString}`)
-  }
+  console.log(`      ${operation.op} ${operation.path}: ${values.join(' → ')}`)
 }
 
 /* eslint-enable */

@@ -1,6 +1,6 @@
 /* eslint-disable perfectionist/sort-modules -- Temporary disabled to avoid unnecessary noise */
 
-import { diff } from 'json-diff-ts'
+import { diffAtom } from 'json-diff-ts'
 
 import { getPluginRulesMeta } from './getPluginsRulesMeta.ts'
 import { readPluginRuleSchemas } from './readPluginRuleSchemas.ts'
@@ -8,7 +8,7 @@ import { getRuleIdFromName, getRuleNameFromId } from './utilities/eslint.ts'
 import { objectEntries, objectKeys } from './utilities/object.ts'
 
 import type { Rule } from 'eslint'
-import type { IChange } from 'json-diff-ts'
+import type { IAtomOperation } from 'json-diff-ts'
 import type { Writable } from 'type-fest'
 
 import type {
@@ -20,6 +20,9 @@ import type {
   RuleSchema,
 } from './types.ts'
 
+
+// JSON Schema gives no meaning to the order of these arrays, so their items are matched by value
+const UNORDERED_ARRAY_IDENTITY_KEYS = new Map([[/(?:^|\.)(?:enum|required|type)$/u, '$value']])
 
 export async function getPluginChangesDescriptors(pluginDescriptors: PluginDescriptor[]) {
   const pluginChangesDescriptorPromises = Array.from(pluginDescriptors, async (pluginDescriptor) => {
@@ -143,7 +146,7 @@ async function getRuleConfigChanges(pluginDescriptor: PluginDescriptor) {
   const storedPluginRuleSchemaDescriptor = await readPluginRuleSchemas(pluginDescriptor.name)
   const pluginRuleSchemaDescriptor = getPluginRulesMeta(pluginDescriptor)
   const pluginRuleSchemaMap = new Map(pluginRuleSchemaDescriptor.ruleSchemaEntries)
-  const pluginRuleSchemaChanges: { [key: RuleName]: IChange[]; } = {}
+  const pluginRuleSchemaChanges: { [key: RuleName]: IAtomOperation[]; } = {}
 
   for (const [storedRuleName, storedRuleSchema] of storedPluginRuleSchemaDescriptor.ruleSchemaEntries) {
     const changes = getRuleSchemaChanges(storedRuleName, storedRuleSchema, pluginRuleSchemaMap)
@@ -174,7 +177,7 @@ function getRuleSchemaChanges(storedRuleName: RuleName, storedRuleSchema: RuleSc
     throw new TypeError(`Rule ${storedRuleName} has a schema that cannot be serialized`)
   }
 
-  return diff(storedRuleSchema, JSON.parse(serializedRuleSchema))
+  return diffAtom(storedRuleSchema, JSON.parse(serializedRuleSchema), { arrayIdentityKeys: UNORDERED_ARRAY_IDENTITY_KEYS }).operations
 }
 
 function asWritableArray<T>(readonlyArray?: readonly T[]): Writable<T[]> | undefined {
