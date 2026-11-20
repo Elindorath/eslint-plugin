@@ -13,6 +13,7 @@ jobs:
           - type-check
           - test-build
           - test-update
+          - test-processors
           - test-reachability
           - test-runtime
           - test-schema
