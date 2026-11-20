@@ -1,12 +1,11 @@
 import type { URL } from 'node:url'
 
 import type { ESLint, Linter } from 'eslint'
-import type { IChange } from 'json-diff-ts'
+import type { IAtomOperation } from 'json-diff-ts'
 import type { JSONSchema4 } from 'json-schema'
 import type { SetNonNullable, SetRequired/* , Tagged */ } from 'type-fest'
 
 type Config = {
-  jsonIndentationSpacesCount: number;
   pluginConfigurationsDirectoryUrl: URL;
   pluginRulesSchemaDirectoryUrl: URL;
 }
@@ -18,7 +17,7 @@ type PluginChangesDescriptor = {
   deprecatedRuleNames: RuleName[];
   notConfiguredRuleNames: RuleName[];
   prefix: PluginPrefix;
-  ruleConfigChanges: { [key: RuleName]: IChange[]; };
+  ruleConfigChanges: { [key: RuleName]: IAtomOperation[]; };
 }
 
 type PluginConfigEntry = [PluginFilename, Linter.Config]
