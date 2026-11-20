@@ -12,6 +12,19 @@
           }
         },
         "additionalProperties": false
+      },
+      "spacingConfigWithIgnore": {
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "ignore"
+            ]
+          },
+          {
+            "$ref": "#/items/0/$defs/spacingConfig"
+          }
+        ]
       }
     },
     "type": "object",
@@ -28,30 +41,20 @@
           "colon": {
             "$ref": "#/items/0/$defs/spacingConfig"
           },
-          "arrow": {
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "ignore"
-                ]
-              },
-              {
-                "$ref": "#/items/0/$defs/spacingConfig"
-              }
-            ]
-          },
           "variable": {
-            "$ref": "#/items/0/$defs/spacingConfig"
+            "$ref": "#/items/0/$defs/spacingConfigWithIgnore"
           },
           "parameter": {
-            "$ref": "#/items/0/$defs/spacingConfig"
+            "$ref": "#/items/0/$defs/spacingConfigWithIgnore"
           },
           "property": {
-            "$ref": "#/items/0/$defs/spacingConfig"
+            "$ref": "#/items/0/$defs/spacingConfigWithIgnore"
           },
           "returnType": {
-            "$ref": "#/items/0/$defs/spacingConfig"
+            "$ref": "#/items/0/$defs/spacingConfigWithIgnore"
+          },
+          "questionMark": {
+            "$ref": "#/items/0/$defs/spacingConfigWithIgnore"
           }
         },
         "additionalProperties": false

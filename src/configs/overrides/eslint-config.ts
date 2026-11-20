@@ -15,7 +15,7 @@ export const overrideEslintConfig = mergeConfigs(
     files: ['**/eslint.config.js'],
     rules: {
       // OFF as it prevents us to respect the rule configuration format convention
-      '@stylistic/array-bracket-newline': [OFF],
+      '@stylistic/list-style': [OFF],
       'import-x/no-extraneous-dependencies': [ERROR, {
         // Configured value
         bundledDependencies: false,

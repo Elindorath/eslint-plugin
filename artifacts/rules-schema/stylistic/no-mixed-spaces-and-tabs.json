@@ -6,9 +6,6 @@
         "enum": [
           "smart-tabs"
         ]
-      },
-      {
-        "type": "boolean"
       }
     ]
   }
