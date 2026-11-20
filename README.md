@@ -18,7 +18,7 @@ Each plugin used is configured in its own directory under `configs/plugins/${plu
 
 To remain modular and adaptable to any project, none of the typed configuration exposed by this plugin constrains the linted files. It is the responsibility of the developer who consumed the configurations to do so. Since eslint configuration are just simple object, it is fairly easy to do it like this:
 
-```javascript
+```javascript title="eslint.config.js"
 const elindorath = require('@elindorath/eslint-plugin');
 
 module.exports = [

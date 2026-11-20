@@ -163,7 +163,7 @@ Conflict with another rule
 
 <!-- eslint-skip -->
 
-```typescript
+```typescript title="replaceConflictingRule.ts"
 const config = {
   rules: {
     ...replaceConflictingRule('perfectionist/sort-imports', [ERROR], ['sort-imports', 'import-x/order']),
