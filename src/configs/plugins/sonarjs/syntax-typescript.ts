@@ -71,7 +71,8 @@ export const sonarjsTypescriptConfig: FixedLinterConfig = {
     'sonarjs/post-message': [ERROR],
     // TODO: Should be put in a library react specific configuration file
     'sonarjs/prefer-read-only-props': [ERROR],
-    'sonarjs/prefer-regexp-exec': [ERROR],
+    // Disabled because it enforces an inconsistent way to use regex depending on flags usage
+    'sonarjs/prefer-regexp-exec': [OFF],
     'sonarjs/prefer-type-guard': [ERROR],
     'sonarjs/public-static-readonly': [ERROR],
     'sonarjs/reduce-initial-value': [ERROR],

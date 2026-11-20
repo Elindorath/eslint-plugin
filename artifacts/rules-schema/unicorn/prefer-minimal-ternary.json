@@ -9,7 +9,7 @@
       },
       "checkComputedMemberAccess": {
         "type": "boolean",
-        "description": "Also report property reads and method calls sharing a simple receiver when only the static property or method name differs, requiring computed member access."
+        "description": "Whether to also report static property or method name differences on a shared receiver, including member chains, requiring computed member access."
       }
     }
   }

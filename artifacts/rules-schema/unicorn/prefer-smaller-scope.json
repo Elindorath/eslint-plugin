@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkTypeAliases": {
+        "type": "boolean",
+        "description": "Check TypeScript type aliases."
+      }
+    },
+    "additionalProperties": false
+  }
+]

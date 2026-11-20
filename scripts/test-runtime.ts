@@ -74,7 +74,7 @@ function createScenarioLinter(scenario: RuntimeScenario, pluginExports: PluginEx
     cwd: fixtureDirectory,
     overrideConfig: [
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- Rule entries written as arrays aren't inferred as ESLint's tuples
-      ...scenario.getConfig(pluginExports) as Linter.Config[],
+      ...(scenario.getConfig(pluginExports) as Linter.Config[]),
       // `jest/no-deprecated-functions` otherwise reads the version of an installed Jest, which this repository lacks
       { settings: { jest: { version: 30 } } },
       { rules: Object.fromEntries(crashedRuleIds.map((crashedRuleId): [string, Linter.RuleEntry] => {
@@ -106,7 +106,7 @@ function formatCrashes(crashes: Crash[]) {
   for (const crash of crashes) {
     const crashDescription = `${crash.ruleId ?? '(no rule)'} — ${crash.message}`
 
-    scenarioNamesByCrash.set(crashDescription, [...scenarioNamesByCrash.get(crashDescription) ?? [], crash.scenarioName])
+    scenarioNamesByCrash.set(crashDescription, [...(scenarioNamesByCrash.get(crashDescription) ?? []), crash.scenarioName])
   }
 
   return [...scenarioNamesByCrash].map(([crashDescription, scenarioNames]) => {

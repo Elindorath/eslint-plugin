@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkBufferDecoding": {
+        "type": "boolean",
+        "description": "Whether to check `Buffer.from()` decoding calls."
+      }
+    },
+    "additionalProperties": false
+  }
+]
