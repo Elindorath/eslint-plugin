@@ -1,4 +1,4 @@
-#! /usr/bin/env -S yarn tsx
+#! /usr/bin/env node
 
 import { mkdir, mkdtemp, realpath, rm, writeFile } from 'node:fs/promises'
 import os from 'node:os'

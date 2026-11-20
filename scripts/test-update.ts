@@ -1,4 +1,4 @@
-#! /usr/bin/env -S yarn tsx
+#! /usr/bin/env node
 
 import process from 'node:process'
 
