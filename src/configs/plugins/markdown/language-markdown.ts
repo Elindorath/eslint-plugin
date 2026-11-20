@@ -1,13 +1,10 @@
 import markdownPlugin from '@eslint/markdown'
 
 import { ERROR } from '../../../constants.ts'
+import { markdownProcessor } from '../../../processors/markdown.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
-/**
- * BEWARE: We have a decision to make
- * This plugin can lint code inside code blocks OR lint the markdown itself, not both
- * @see: https://github.com/eslint/markdown/blob/main/docs/processors/markdown.md
- */
+
 export const markdownLanguageConfig: FixedLinterConfig = {
   plugins: {
     '@eslint/markdown': markdownPlugin,
@@ -16,7 +13,7 @@ export const markdownLanguageConfig: FixedLinterConfig = {
   /* ----- Language ----- */
   language: '@eslint/markdown/gfm',
 
-  processor: '@eslint/markdown/markdown',
+  processor: markdownProcessor,
 
   rules: {
     '@eslint/markdown/fenced-code-language': [ERROR, {

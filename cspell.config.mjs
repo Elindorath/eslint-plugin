@@ -14,6 +14,7 @@ const cspellConfig = defineConfig({
     'apos',
     'chunkname',
     'combinators',
+    'commonmark',
     'definitelytyped',
     'elindorath',
     'esmodule',

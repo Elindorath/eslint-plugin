@@ -62,7 +62,7 @@
 - [ ] Flatten the `configs` of [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks): `configs.flat` groups `recommended` and `recommended-latest` under a second level, where the shape ESLint declares for a plugin expects a configuration or an array of them, which makes the whole plugin object unassignable
 - [ ] Don't warn in this case:
 
-  ```javascript
+  ```javascript title="eslint.config.js"
   /* eslint arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }] */
 
   module.exports = (() => 
@@ -75,7 +75,7 @@
 
 ## Deps warnings to resolve
 
-```log
+```log title="yarn install"
 warning " > eslint-plugin-filenames-simple@0.9.0" has incorrect peer dependency "eslint@>=7.0.0 <9.0.0".
 warning "eslint-plugin-jest-extended > @typescript-eslint/utils@5.62.0" has incorrect peer dependency "eslint@^6.0.0 || ^7.0.0 || ^8.0.0".
 warning " > eslint-plugin-react-i18n@1.0.3" has incorrect peer dependency "eslint@^3 || ^4 || ^5 || ^6".
