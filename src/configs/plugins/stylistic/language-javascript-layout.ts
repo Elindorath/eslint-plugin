@@ -409,9 +409,12 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
        * Configured value
        */
       ignoredNodes: [
+        'SpreadElement:has(> AssignmentExpression)',
         'SpreadElement:has(> AwaitExpression)',
+        'SpreadElement:has(> BinaryExpression)',
         'SpreadElement:has(> ConditionalExpression)',
         'SpreadElement:has(> LogicalExpression)',
+        'SpreadElement:has(> YieldExpression)',
       ],
       // Configured value
       ignoreJSX: 'multi-line',

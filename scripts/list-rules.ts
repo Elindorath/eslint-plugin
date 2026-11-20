@@ -1,4 +1,4 @@
-#! /usr/bin/env -S yarn tsx
+#! /usr/bin/env node
 
 import { builtinRules } from 'eslint/use-at-your-own-risk'
 

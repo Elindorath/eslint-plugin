@@ -215,6 +215,7 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     'unicorn/no-for-loop': [ERROR],
     'unicorn/no-global-object-property-assignment': [ERROR],
     'unicorn/no-immediate-mutation': [ERROR, {
+      checkCollections: true,
       checkConditionals: false,
     }],
     'unicorn/no-impossible-length-comparison': [ERROR],
@@ -519,6 +520,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     }],
     'unicorn/prefer-object-iterable-methods': [ERROR],
     'unicorn/prefer-optional-catch-binding': [ERROR],
+    'unicorn/prefer-options-parameter': [ERROR, {
+      checkWithoutOptionsObject: false,
+    }],
     'unicorn/prefer-private-class-fields': [ERROR],
     'unicorn/prefer-promise-static-methods': [ERROR],
     'unicorn/prefer-promise-try': [ERROR],
@@ -530,6 +534,8 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     }],
     'unicorn/prefer-reflect-apply': [ERROR],
     'unicorn/prefer-regexp-escape': [ERROR],
+    // Disabled because it enforces an inconsistent way to use regex depending on flags usage
+    'unicorn/prefer-regexp-exec': [OFF],
     'unicorn/prefer-regexp-test': [ERROR],
     'unicorn/prefer-response-static-json': [ERROR],
     'unicorn/prefer-set-has': [ERROR],
@@ -548,7 +554,9 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     }],
     'unicorn/prefer-single-object-destructuring': [ERROR],
     'unicorn/prefer-single-replace': [ERROR],
-    'unicorn/prefer-smaller-scope': [ERROR],
+    'unicorn/prefer-smaller-scope': [ERROR, {
+      checkTypeAliases: true,
+    }],
     'unicorn/prefer-split-limit': [ERROR],
     // Related to the core rule prefer-spread
     'unicorn/prefer-spread': [ERROR],
@@ -586,14 +594,19 @@ export const unicornJavascriptConfig: FixedLinterConfig = {
     // Configured value
     'unicorn/prefer-ternary': [ERROR, 'only-single-line', {
       checkComputedMemberAccess: false,
+      checkNestedTernaries: false,
       checkVaryingBase: false,
     }],
     'unicorn/prefer-then-catch': [ERROR],
     'unicorn/prefer-top-level-await': [ERROR],
     'unicorn/prefer-type-error': [ERROR],
     'unicorn/prefer-type-literal-last': [ERROR],
-    'unicorn/prefer-uint8array-base64': [ERROR],
-    'unicorn/prefer-uint8array-hex': [ERROR],
+    'unicorn/prefer-uint8array-base64': [ERROR, {
+      checkBufferDecoding: true,
+    }],
+    'unicorn/prefer-uint8array-hex': [ERROR, {
+      checkBufferDecoding: true,
+    }],
     'unicorn/prefer-unary-minus': [ERROR],
     'unicorn/prefer-unicode-code-point-escapes': [ERROR],
     'unicorn/prefer-url-can-parse': [ERROR],

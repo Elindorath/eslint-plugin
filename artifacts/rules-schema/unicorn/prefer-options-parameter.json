@@ -1,0 +1,12 @@
+[
+  {
+    "type": "object",
+    "properties": {
+      "checkWithoutOptionsObject": {
+        "type": "boolean",
+        "description": "Whether to check functions without an existing options object parameter."
+      }
+    },
+    "additionalProperties": false
+  }
+]

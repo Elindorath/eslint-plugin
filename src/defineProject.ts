@@ -56,8 +56,8 @@ function buildGroupConfig(group: ProjectGroup, axes: Axes, hasLayout: boolean): 
 
 function buildOwnConfig(group: ProjectGroup): FixedLinterConfig {
   return {
-    ...group.files !== undefined && { files: group.files },
-    ...group.rules !== undefined && { rules: group.rules },
+    ...(group.files !== undefined && { files: group.files }),
+    ...(group.rules !== undefined && { rules: group.rules }),
   }
 }
 
