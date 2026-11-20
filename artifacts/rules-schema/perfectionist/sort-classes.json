@@ -220,17 +220,17 @@
                       "modifiers": {
                         "items": {
                           "enum": [
-                            "async",
+                            "static",
+                            "declare",
+                            "abstract",
+                            "decorated",
+                            "override",
+                            "readonly",
                             "protected",
                             "private",
                             "public",
-                            "static",
-                            "abstract",
-                            "override",
-                            "readonly",
-                            "decorated",
-                            "declare",
-                            "optional"
+                            "optional",
+                            "async"
                           ],
                           "type": "string"
                         },
@@ -240,15 +240,15 @@
                       "selector": {
                         "description": "Selector filter.",
                         "enum": [
+                          "function-property",
                           "accessor-property",
-                          "index-signature",
+                          "property",
                           "constructor",
-                          "static-block",
                           "get-method",
                           "set-method",
-                          "function-property",
-                          "property",
-                          "method"
+                          "method",
+                          "index-signature",
+                          "static-block"
                         ],
                         "type": "string"
                       },
@@ -517,17 +517,17 @@
                 "modifiers": {
                   "items": {
                     "enum": [
-                      "async",
+                      "static",
+                      "declare",
+                      "abstract",
+                      "decorated",
+                      "override",
+                      "readonly",
                       "protected",
                       "private",
                       "public",
-                      "static",
-                      "abstract",
-                      "override",
-                      "readonly",
-                      "decorated",
-                      "declare",
-                      "optional"
+                      "optional",
+                      "async"
                     ],
                     "type": "string"
                   },
@@ -537,15 +537,15 @@
                 "selector": {
                   "description": "Selector filter.",
                   "enum": [
+                    "function-property",
                     "accessor-property",
-                    "index-signature",
+                    "property",
                     "constructor",
-                    "static-block",
                     "get-method",
                     "set-method",
-                    "function-property",
-                    "property",
-                    "method"
+                    "method",
+                    "index-signature",
+                    "static-block"
                   ],
                   "type": "string"
                 },

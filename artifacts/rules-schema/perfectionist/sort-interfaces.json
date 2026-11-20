@@ -248,9 +248,9 @@
                       "modifiers": {
                         "items": {
                           "enum": [
+                            "multiline",
                             "optional",
-                            "required",
-                            "multiline"
+                            "required"
                           ],
                           "type": "string"
                         },
@@ -261,9 +261,9 @@
                         "description": "Selector filter.",
                         "enum": [
                           "index-signature",
-                          "member",
                           "method",
-                          "property"
+                          "property",
+                          "member"
                         ],
                         "type": "string"
                       },
@@ -488,9 +488,9 @@
                 "modifiers": {
                   "items": {
                     "enum": [
+                      "multiline",
                       "optional",
-                      "required",
-                      "multiline"
+                      "required"
                     ],
                     "type": "string"
                   },
@@ -501,9 +501,9 @@
                   "description": "Selector filter.",
                   "enum": [
                     "index-signature",
-                    "member",
                     "method",
-                    "property"
+                    "property",
+                    "member"
                   ],
                   "type": "string"
                 },
