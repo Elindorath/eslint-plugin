@@ -32,23 +32,30 @@ export function mergeConfigs(...configs: FixedLinterConfig[]): FixedLinterConfig
   }, {})
 }
 
-type Cast<X, Y> = X extends Y ? X : Y
-
-type ArrayElement<A> = A extends ReadonlyArray<infer T>
-  ? T
-  : never
-
-type FromEntries<T> = T extends Array<[infer Key, unknown]>
-  ? { [K in Cast<Key, string>]: Extract<ArrayElement<T>, [K, unknown]>[1] }
-  : { [key in string]: unknown }
-
 /*
  * Both signatures are deliberately narrower than the standard library's, which reports the values
  * of a literal-keyed object as `unknown` and collapses entries into a single value type. Here the
  * keys are known exhaustively, so each property keeps the type its merger returns.
+ * Entries valued `undefined` are dropped: `exactOptionalPropertyTypes` rejects a property set to `undefined`.
  */
-// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-const objectFromEntries = Object.fromEntries as <T>(entries: T) => FromEntries<WritableDeep<T>>
+function objectFromDefinedEntries<T extends ReadonlyArray<readonly [string, unknown]>>(entries: T) {
+  type Cast<X, Y> = X extends Y ? X : Y
+
+  type ArrayElement<A> = A extends ReadonlyArray<infer Item>
+    ? Item
+    : never
+
+  type FromDefinedEntries<Entries> = Entries extends Array<[infer Key, unknown]>
+    ? { [K in Cast<Key, string>]?: Exclude<Extract<ArrayElement<Entries>, [K, unknown]>[1], undefined> }
+    : { [key in string]: unknown }
+
+  const definedEntries = entries.filter(([, value]) => {
+    return value !== undefined
+  })
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
+  return Object.fromEntries(definedEntries) as FromDefinedEntries<WritableDeep<T>>
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion -- See comment above
 const objectEntries = Object.entries as <T extends object>(object: T) => Array<{
@@ -78,7 +85,7 @@ function mergeTwoConfig(config1: FixedLinterConfig, config2: FixedLinterConfig) 
       reportUnusedDisableDirectives: ERROR,
       reportUnusedInlineConfigs: ERROR,
     },
-    ...objectFromEntries(
+    ...objectFromDefinedEntries(
       objectEntries(CONFIG_MERGER)
         // eslint-disable-next-line max-statements -- Exhaustive dispatch, splitting it would defeat the `satisfies never` check
         .map(([property, merger]) => {
@@ -113,9 +120,6 @@ function mergeTwoConfig(config1: FixedLinterConfig, config2: FixedLinterConfig) 
               throw new TypeError(`no configuration merger found for property ${property}`)
             }
           }
-        })
-        .filter(([, merged]) => {
-          return merged !== undefined
         })
     ),
   } satisfies Linter.Config
@@ -177,7 +181,7 @@ function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions
   return {
     ...pickLanguageSpecificOptions(languageOptions1),
     ...pickLanguageSpecificOptions(languageOptions2),
-    ...objectFromEntries(
+    ...objectFromDefinedEntries(
       objectEntries(LANGUAGE_OPTIONS_MERGER)
         .map(([property, merger]) => {
           switch (property) {
@@ -202,9 +206,6 @@ function mergeLanguageOptions(languageOptions1: LanguageOptions, languageOptions
               throw new TypeError(`no language option merger found for property ${property}`)
             }
           }
-        })
-        .filter(([, merged]) => {
-          return merged !== undefined
         })
     ),
   } satisfies LanguageOptions

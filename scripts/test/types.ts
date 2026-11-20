@@ -3,7 +3,7 @@ import type { URL } from 'node:url'
 import type { ESLint, Linter } from 'eslint'
 import type { IChange } from 'json-diff-ts'
 import type { JSONSchema4 } from 'json-schema'
-import type { SetRequired/* , Tagged */ } from 'type-fest'
+import type { SetNonNullable, SetRequired/* , Tagged */ } from 'type-fest'
 
 type Config = {
   jsonIndentationSpacesCount: number;
@@ -12,7 +12,7 @@ type Config = {
 }
 
 
-type ESLintPluginWithRule = SetRequired<ESLint.Plugin, 'rules'>
+type ESLintPluginWithRule = SetNonNullable<SetRequired<ESLint.Plugin, 'rules'>, 'rules'>
 type PluginChangesDescriptor = {
   absentConfiguredRuleNames: RuleName[];
   deprecatedRuleNames: RuleName[];

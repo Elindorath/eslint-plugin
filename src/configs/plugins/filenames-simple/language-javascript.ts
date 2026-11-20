@@ -4,14 +4,19 @@ import filenamesSimplePlugin from 'eslint-plugin-filenames-simple'
 import { ERROR, OFF } from '../../../constants.ts'
 import type { FixedLinterConfig } from '../../../types.ts'
 
+import type { FixupPluginDefinition } from '@eslint/compat'
+
 
 export const filenamesJavascriptConfig: FixedLinterConfig = {
   plugins: {
     /**
      * TODO: remove the compatibility wrapper when plugin add support for ESLint v9
      * @see: https://github.com/epaew/eslint-plugin-filenames-simple/issues/705
+     *
+     * The plugin types its rules after ESLint v8, whose optional rule metadata also accept `undefined`
      */
-    'filenames-simple': fixupPluginRules(filenamesSimplePlugin),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
+    'filenames-simple': fixupPluginRules(filenamesSimplePlugin as FixupPluginDefinition),
   },
 
   rules: {

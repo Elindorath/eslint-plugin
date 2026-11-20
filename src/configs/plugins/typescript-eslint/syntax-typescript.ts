@@ -11,8 +11,6 @@ import { getRuleConfig, overrideBaseConfigRule, REMOVE } from '../../../utilitie
 
 import { eslintJavascriptConfig } from '../eslint/language-javascript.ts'
 
-import type { Linter } from 'eslint'
-
 
 const ARRAY_SIMPLE = 'array-simple'
 
@@ -20,12 +18,7 @@ export const typescriptConfig: FixedLinterConfig = {
   // files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
 
   languageOptions: {
-    /**
-     * We shouldn't override this type but there are inconsistencies with the expected Linter.Parser type.
-     * TODO: fix this when types are fixed
-     */
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- See comment above
-    parser: typescriptEslint.parser as unknown as Linter.Parser,
+    parser: typescriptEslint.parser,
     // Might be exported to environment
     parserOptions: {
       project: path.resolve(process.cwd(), 'tsconfig.json'),
