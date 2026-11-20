@@ -57,7 +57,7 @@
     "@eslint/compat": "2.1.1",
     "@eslint/css": "2.0.1",
     "@eslint/json": "2.1.1",
-    "@eslint/markdown": "8.0.3",
+    "@eslint/markdown": "9.0.0",
     "@stylistic/eslint-plugin": "6.0.1",
     "@tanstack/eslint-plugin-query": "5.107.2",
     "eslint-import-resolver-typescript": "4.4.5",
