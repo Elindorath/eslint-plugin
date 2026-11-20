@@ -343,6 +343,8 @@ export const perfectionistJavascriptConfig: FixedLinterConfig = {
       newlinesBetween: 'ignore',
       newlinesBetweenOverloadSignatures: 0,
       newlinesInside: 'newlinesBetween',
+      // Configured value
+      sortArrowFunctions: true,
       tsconfig: {
         rootDir: '.',
       },

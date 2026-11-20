@@ -258,9 +258,9 @@
                       "selector": {
                         "description": "Selector filter.",
                         "enum": [
-                          "member",
                           "method",
-                          "property"
+                          "property",
+                          "member"
                         ],
                         "type": "string"
                       },
@@ -495,9 +495,9 @@
                 "selector": {
                   "description": "Selector filter.",
                   "enum": [
-                    "member",
                     "method",
-                    "property"
+                    "property",
+                    "member"
                   ],
                   "type": "string"
                 },

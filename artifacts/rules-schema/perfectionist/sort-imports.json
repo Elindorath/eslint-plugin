@@ -252,16 +252,16 @@
                       "modifiers": {
                         "items": {
                           "enum": [
-                            "default",
-                            "multiline",
-                            "named",
-                            "require",
                             "side-effect",
-                            "singleline",
-                            "ts-equals",
                             "type",
                             "value",
-                            "wildcard"
+                            "ts-equals",
+                            "require",
+                            "default",
+                            "wildcard",
+                            "named",
+                            "multiline",
+                            "singleline"
                           ],
                           "type": "string"
                         },
@@ -271,19 +271,19 @@
                       "selector": {
                         "description": "Selector filter.",
                         "enum": [
+                          "type",
                           "side-effect-style",
-                          "tsconfig-path",
                           "side-effect",
-                          "external",
+                          "style",
+                          "tsconfig-path",
+                          "index",
+                          "sibling",
+                          "parent",
+                          "subpath",
                           "internal",
                           "builtin",
-                          "sibling",
-                          "subpath",
-                          "import",
-                          "parent",
-                          "index",
-                          "style",
-                          "type"
+                          "external",
+                          "import"
                         ],
                         "type": "string"
                       }
@@ -452,16 +452,16 @@
                 "modifiers": {
                   "items": {
                     "enum": [
-                      "default",
-                      "multiline",
-                      "named",
-                      "require",
                       "side-effect",
-                      "singleline",
-                      "ts-equals",
                       "type",
                       "value",
-                      "wildcard"
+                      "ts-equals",
+                      "require",
+                      "default",
+                      "wildcard",
+                      "named",
+                      "multiline",
+                      "singleline"
                     ],
                     "type": "string"
                   },
@@ -471,19 +471,19 @@
                 "selector": {
                   "description": "Selector filter.",
                   "enum": [
+                    "type",
                     "side-effect-style",
-                    "tsconfig-path",
                     "side-effect",
-                    "external",
+                    "style",
+                    "tsconfig-path",
+                    "index",
+                    "sibling",
+                    "parent",
+                    "subpath",
                     "internal",
                     "builtin",
-                    "sibling",
-                    "subpath",
-                    "import",
-                    "parent",
-                    "index",
-                    "style",
-                    "type"
+                    "external",
+                    "import"
                   ],
                   "type": "string"
                 }
