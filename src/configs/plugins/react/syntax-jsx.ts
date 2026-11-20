@@ -49,7 +49,7 @@ export const reactConfig: FixedLinterConfig = {
 
   /* ----- Rules ----- */
   rules: {
-    // OFF as it is superseded by the '@eslint-react' equivalent
+    // OFF as it is superseded by the '@stylistic' equivalent
     'react/jsx-boolean-value': [OFF],
     'react/jsx-child-element-spacing': [OFF],
     'react/jsx-closing-bracket-location': [OFF, {
@@ -89,7 +89,7 @@ export const reactConfig: FixedLinterConfig = {
     // OFF as it is superseded by the '@eslint-react' equivalent
     'react/jsx-filename-extension': [OFF],
     'react/jsx-first-prop-new-line': [OFF, 'multiline'],
-    // OFF as it is superseded by the '@eslint-react' equivalent
+    // OFF as it is superseded by the '@stylistic' equivalent
     'react/jsx-fragments': [OFF],
     'react/jsx-handler-names': [OFF, {
       // Configured value

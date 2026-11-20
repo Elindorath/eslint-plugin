@@ -3,9 +3,7 @@
     "type": "string",
     "enum": [
       "always",
-      "never",
-      "unix",
-      "windows"
+      "never"
     ]
   }
 ]

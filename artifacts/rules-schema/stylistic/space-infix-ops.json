@@ -5,6 +5,13 @@
       "int32Hint": {
         "type": "boolean"
       },
+      "ignoreOperators": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
       "ignoreTypes": {
         "type": "boolean"
       }

@@ -32,10 +32,18 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "empty": {
+            "type": "string",
+            "enum": [
+              "ignore",
+              "always",
+              "never"
+            ]
+          },
           "singleLine": {
             "$ref": "#/items/0/$defs/singleLineConfig"
           },
-          "multiline": {
+          "multiLine": {
             "$ref": "#/items/0/$defs/multiLineConfig"
           }
         }
@@ -57,6 +65,14 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
+      "empty": {
+        "type": "string",
+        "enum": [
+          "ignore",
+          "always",
+          "never"
+        ]
+      },
       "singleLine": {
         "$ref": "#/items/0/$defs/singleLineConfig"
       },

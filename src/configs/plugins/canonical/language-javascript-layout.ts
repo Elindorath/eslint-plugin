@@ -14,13 +14,13 @@ export const canonicalJavascriptLayoutConfig: FixedLinterConfig = {
    * constructs are configured to accept a single line as long as it stays consistent
    */
   rules: {
-    // OFF as the '@stylistic/object-property-newline' rule allows all properties on the same line
+    // OFF as the '@stylistic/list-style' rule allows all properties on the same line
     'canonical/destructuring-property-newline': [OFF, {
       allowAllPropertiesOnSameLine: false,
     }],
-    // OFF as the '@stylistic/object-curly-newline' rule only asks export specifiers to be consistent
+    // OFF as the '@stylistic/list-style' rule only asks export specifiers to be consistent
     'canonical/export-specifier-newline': [OFF],
-    // OFF as the '@stylistic/object-curly-newline' rule only asks import specifiers to be consistent
+    // OFF as the '@stylistic/list-style' rule only asks import specifiers to be consistent
     'canonical/import-specifier-newline': [OFF],
   },
 }

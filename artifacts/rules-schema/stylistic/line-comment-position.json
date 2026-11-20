@@ -21,9 +21,6 @@
           "ignorePattern": {
             "type": "string"
           },
-          "applyDefaultPatterns": {
-            "type": "boolean"
-          },
           "applyDefaultIgnorePatterns": {
             "type": "boolean"
           }

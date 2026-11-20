@@ -27,13 +27,6 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
    */
 
   rules: {
-    '@stylistic/array-bracket-newline': [ERROR, 'consistent'],
-    '@stylistic/array-bracket-spacing': [ERROR, 'never', {
-      arraysInArrays: false,
-      objectsInArrays: false,
-      singleValue: false,
-    }],
-    '@stylistic/array-element-newline': [ERROR, 'consistent'],
     '@stylistic/arrow-parens': [ERROR, 'always', {}],
     '@stylistic/arrow-spacing': [ERROR, {
       after: true,
@@ -106,11 +99,7 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
     '@stylistic/eol-last': [ERROR, 'always'],
     // OFF as it is experimental and overlaps the JSX props rules already configured
     '@stylistic/exp-jsx-props-style': [OFF],
-    // OFF as it is experimental and overlaps the bracket spacing and newline rules already configured
-    '@stylistic/exp-list-style': [OFF],
-    '@stylistic/function-call-argument-newline': [ERROR, 'consistent'],
     '@stylistic/function-call-spacing': [ERROR, 'never'],
-    '@stylistic/function-paren-newline': [ERROR, 'multiline-arguments'],
     '@stylistic/generator-star-spacing': [ERROR, {
       // Configured value
       after: true,
@@ -143,6 +132,7 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       flatTernaryExpressions: false,
       ignoreComments: false,
       ignoredNodes: [],
+      jsx: INDENT_SPACE_COUNT,
       /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
       // Configured value
       offsetTernaryExpressions: {
@@ -253,6 +243,8 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       component: true,
       html: true,
     }],
+    '@stylistic/jsx-shorthand-boolean': [ERROR],
+    '@stylistic/jsx-shorthand-fragment': [ERROR],
     '@stylistic/jsx-tag-spacing': [ERROR, {
       afterOpening: 'never',
       // Configured value
@@ -331,6 +323,24 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
     }],
     '@stylistic/lines-between-class-members': [ERROR, 'always', {
       exceptAfterSingleLine: false,
+    }],
+    '@stylistic/list-style': [ERROR, {
+      // Configured value
+      empty: 'never',
+      multiLine: {
+        minItems: 0,
+      },
+      overrides: {
+        '{}': {
+          singleLine: {
+            spacing: 'always',
+          },
+        },
+      },
+      singleLine: {
+        maxItems: Number.POSITIVE_INFINITY,
+        spacing: 'never',
+      },
     }],
     '@stylistic/max-len': [ERROR, CODE_MAX_LEN, TAB_WIDTH, {
       // Configured value
@@ -429,12 +439,12 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
     }],
     '@stylistic/no-mixed-spaces-and-tabs': [ERROR, 'smart-tabs'],
     '@stylistic/no-multi-spaces': [ERROR, {
-      // Configured value
       exceptions: {
         // eslint-disable-next-line @typescript-eslint/naming-convention -- AST Node
         Property: false,
       },
       ignoreEOLComments: false,
+      includeTabs: true,
     }],
     '@stylistic/no-multiple-empty-lines': [ERROR, {
       max: 2,
@@ -460,50 +470,6 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
         if: 'below',
         while: 'below',
       },
-    }],
-    '@stylistic/object-curly-newline': [ERROR, {
-      /* eslint-disable @typescript-eslint/naming-convention -- AST Nodes */
-      // Configured value
-      ExportDeclaration: { consistent: true },
-      // Configured value
-      ImportDeclaration: { consistent: true },
-      // Configured value
-      ObjectExpression: { consistent: true },
-      // Configured value
-      ObjectPattern: { consistent: true },
-      // Configured value
-      TSEnumBody: { consistent: true },
-      // Configured value
-      TSInterfaceBody: { consistent: true },
-      // Configured value
-      TSTypeLiteral: { consistent: true },
-      /* eslint-enable @typescript-eslint/naming-convention */
-    }],
-    '@stylistic/object-curly-spacing': [ERROR, 'always', {
-      // Configured value
-      arraysInObjects: true,
-      // Configured value
-      emptyObjects: 'never',
-      // Configured value
-      objectsInObjects: true,
-      overrides: {
-        /* eslint-disable @typescript-eslint/naming-convention -- AST nodes */
-        ExportAllDeclaration: 'always',
-        ExportNamedDeclaration: 'always',
-        ImportAttributes: 'always',
-        ImportDeclaration: 'always',
-        ObjectExpression: 'always',
-        ObjectPattern: 'always',
-        TSEnumBody: 'always',
-        TSInterfaceBody: 'always',
-        TSMappedType: 'always',
-        TSTypeLiteral: 'always',
-        /* eslint-enable @typescript-eslint/naming-convention */
-      },
-    }],
-    '@stylistic/object-property-newline': [ERROR, {
-      // Configured value
-      allowAllPropertiesOnSameLine: true,
     }],
     '@stylistic/one-var-declaration-per-line': [ERROR, 'always'],
     '@stylistic/operator-linebreak': [ERROR, 'before', {
@@ -630,6 +596,7 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
       exceptions: [],
     }],
     '@stylistic/space-infix-ops': [ERROR, {
+      ignoreOperators: [],
       ignoreTypes: false,
       int32Hint: false,
     }],
@@ -664,16 +631,12 @@ export const stylisticJavascriptLayoutConfig: FixedLinterConfig = {
     '@stylistic/type-annotation-spacing': [ERROR, {
       after: true,
       before: false,
-
-      /*
-       * Arrow spacing in function types is enforced by '@stylistic/arrow-spacing'
-       * Configured value
-       */
-      overrides: {
-        arrow: 'ignore',
-      },
+      overrides: {},
     }],
-    '@stylistic/type-generic-spacing': [ERROR],
+    '@stylistic/type-generic-spacing': [ERROR, {
+      after: false,
+      before: false,
+    }],
     '@stylistic/type-named-tuple-spacing': [ERROR],
     '@stylistic/wrap-iife': [ERROR, 'inside', {
       // Configured value

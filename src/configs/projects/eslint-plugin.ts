@@ -1,11 +1,12 @@
 import { ERROR, OFF } from '../../constants.ts'
 import { defineProject } from '../../defineProject.ts'
-import { getRuleConfig } from '../../utilities.ts'
+import { getRuleConfig, getRuleConfigOverride } from '../../utilities.ts'
 
 import { overrideEslintConfig } from '../overrides/eslint-config.ts'
 import { overrideMarkdownCodeBlockConfig, overrideMarkdownConfig } from '../overrides/markdown.ts'
 import { overridePackageJsonConfig } from '../overrides/package-json.ts'
 import { overrideScriptsConfig, overrideScriptsTypescriptConfig } from '../overrides/scripts.ts'
+import { stylisticJavascriptLayoutConfig } from '../plugins/stylistic/language-javascript-layout.ts'
 import { syntaxTypescriptConfig } from '../syntax-typescript.ts'
 
 
@@ -20,8 +21,18 @@ export const projectEslintPluginConfig = [
     library: ['eslint-plugin'],
 
     rules: {
-      // OFF as it prevents us to respect the rule configuration format convention
-      '@stylistic/array-bracket-newline': [OFF],
+      // Arrays are not checked as it prevents us to respect the rule configuration format convention
+      '@stylistic/list-style': getRuleConfigOverride('@stylistic/list-style', stylisticJavascriptLayoutConfig, {
+        overrides: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention -- AST Node
+          'ArrayExpression': 'off',
+          '{}': {
+            singleLine: {
+              spacing: 'always',
+            },
+          },
+        },
+      }),
       '@typescript-eslint/naming-convention': [severity,
         ...options,
         {

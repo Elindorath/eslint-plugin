@@ -306,9 +306,6 @@
           }
         ]
       },
-      "offsetTernaryExpressionsOffsetCallExpressions": {
-        "type": "boolean"
-      },
       "ignoredNodes": {
         "type": "array",
         "items": {
@@ -324,6 +321,20 @@
       },
       "tabLength": {
         "type": "number"
+      },
+      "jsx": {
+        "oneOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string",
+            "enum": [
+              "half"
+            ]
+          }
+        ]
       }
     },
     "additionalProperties": false
