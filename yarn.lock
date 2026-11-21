@@ -899,7 +899,7 @@ __metadata:
     json-diff-ts: "npm:5.1.1"
     package-directory: "npm:8.2.0"
     read-package-up: "npm:12.0.0"
-    type-fest: "npm:6.0.1"
+    type-fest: "npm:6.0.2"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.73.0"
   peerDependencies:
@@ -7487,12 +7487,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:6.0.1":
-  version: 6.0.1
-  resolution: "type-fest@npm:6.0.1"
+"type-fest@npm:6.0.2":
+  version: 6.0.2
+  resolution: "type-fest@npm:6.0.2"
   dependencies:
     tagged-tag: "npm:^1.0.0"
-  checksum: 10c0/5155be8e4c6053c70f11496b8df5535b425df00c5db9a0ea830bf7bd9d3f27f69f36b5937bd97da0af304f492d01e4dbb4412827f742b103562223ae9af891f3
+  checksum: 10c0/e7307bfd1e30dd2894404aaaf31b9299716d7a1104c9892f4c0714550d7cfe784a6288e7712e4e6f0ab364e53cde7a8ec0e98786e74750c6f7375147e7f43409
   languageName: node
   linkType: hard
 
