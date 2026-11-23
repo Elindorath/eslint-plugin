@@ -112,7 +112,7 @@
     "eslint": "10.15.0",
     "fs-extra": "11.4.1",
     "jiti": "2.7.0",
-    "json-diff-ts": "5.1.1",
+    "json-diff-ts": "5.1.2",
     "package-directory": "8.2.0",
     "typescript": "6.0.3"
   },
