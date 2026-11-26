@@ -851,7 +851,7 @@ __metadata:
     "@eslint/markdown": "npm:9.0.0"
     "@sidvind/better-ajv-errors": "npm:3.0.1"
     "@stylistic/eslint-plugin": "npm:6.0.1"
-    "@tanstack/eslint-plugin-query": "npm:5.108.3"
+    "@tanstack/eslint-plugin-query": "npm:5.108.4"
     "@types/eslint-plugin-jsx-a11y": "npm:6.10.1"
     "@types/eslint-plugin-security": "npm:3.0.1"
     "@types/fs-extra": "npm:11.0.4"
@@ -1556,9 +1556,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/eslint-plugin-query@npm:5.108.3":
-  version: 5.108.3
-  resolution: "@tanstack/eslint-plugin-query@npm:5.108.3"
+"@tanstack/eslint-plugin-query@npm:5.108.4":
+  version: 5.108.4
+  resolution: "@tanstack/eslint-plugin-query@npm:5.108.4"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.71.0"
   peerDependencies:
@@ -1567,7 +1567,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/f16e1d8a9c4327b63fd142110d0cf6817aebfe26b280ecffa10548ae91e26d18c1be2e73670cbd7d1e2a222d0d334cacd72f42b82c99a45d4dc99a4d5cbd429d
+  checksum: 10c0/3f12d5ed7f01ce7e2f86f21553818b958183f7f88a17b2b253e7bf4c6d665f2c83f6b0489397be9c57af4fb157a7371478e3f83bece164dc39fb380e0869f18d
   languageName: node
   linkType: hard
 
